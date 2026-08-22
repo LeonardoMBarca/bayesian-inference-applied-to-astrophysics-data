@@ -1,0 +1,12 @@
+{
+  "collected_at_utc": "2026-06-13T21:13:29+00:00",
+  "table": "ps",
+  "planet_name": "WASP-10 b",
+  "host_star": "WASP-10",
+  "query": "SELECT * FROM ps WHERE pl_name = 'WASP-10 b'",
+  "status": "failed",
+  "error": "HTTPSConnectionPool(host='exoplanetarchive.ipac.caltech.edu', port=443): Max retries exceeded with url: /TAP/sync?query=SELECT+%2A+FROM+ps+WHERE+pl_name+%3D+%27WASP-10+b%27&format=csv (Caused by NameResolutionError(\"HTTPSConnection(host='exoplanetarchive.ipac.caltech.edu', port=443): Failed to resolve 'exoplanetarchive.ipac.caltech.edu' ([Errno -2] Name or service not known)\"))",
+  "selected_columns": [
+    "*"
+  ]
+}

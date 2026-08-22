@@ -1,0 +1,114 @@
+{
+  "model_name": "M3_bayesian_trapezoid_transit",
+  "run_id": "001_nuts",
+  "created_at_utc": "2026-06-16T15:13:07+00:00",
+  "planet_name": "HAT-P-7 b",
+  "planet_slug": "hat_p_7_b",
+  "host_star": "HAT-P-7",
+  "mission": "Kepler",
+  "source_gold_path": "data/gold/hat_p_7_b/modeling/transit_window_lightcurve.csv",
+  "phase_filter": "abs(phase) <= 0.15",
+  "quality_filter": "quality == 0 when quality column exists",
+  "normalization": {
+    "baseline_region": "0.08 <= abs(phase) <= 0.15",
+    "baseline_median": 1040715.45,
+    "normalized_flux": "flux / baseline_median",
+    "normalized_flux_err": "flux_err / baseline_median"
+  },
+  "model": {
+    "shape": "approximate trapezoidal transit",
+    "transit_shape": "clip((half_duration - abs(phase - center)) / ingress_duration, 0, 1)",
+    "baseline_prior": "Normal(1.0, 0.01)",
+    "depth_prior": "HalfNormal(0.02)",
+    "center_prior": "Normal(0.0, 0.01)",
+    "half_duration_prior": "Uniform(0.03, 0.12)",
+    "ingress_fraction_prior": "Beta(2, 5)",
+    "ingress_duration": "ingress_fraction * half_duration",
+    "extra_sigma_prior": "HalfNormal(0.005)",
+    "likelihood": "Normal(mu_i, sqrt(normalized_flux_err_i^2 + extra_sigma^2))",
+    "derived_parameters": [
+      "rp_rs = sqrt(depth)",
+      "full_duration = 2 * half_duration",
+      "flat_duration = 2 * max(half_duration - ingress_duration, 0)",
+      "ingress_egress_total = 2 * ingress_duration"
+    ],
+    "prediction_grid_points": 300
+  },
+  "sampling": {
+    "sampler": "NUTS",
+    "draws": 2000,
+    "tune": 2000,
+    "chains": 4,
+    "cores": 4,
+    "target_accept": 0.9,
+    "random_seed": 42,
+    "retry_performed": false,
+    "retry_reason": ""
+  },
+  "posterior_predictive_status": "created",
+  "diagnostics": {
+    "max_r_hat": 1.00107423,
+    "min_ess": 4212.34208408,
+    "divergences": 0,
+    "acceptance_mean": 0.9080091818062249,
+    "bfmi_min": 0.8543011995144133,
+    "recommended_for_m3_interpretation": true,
+    "convergence_note": "NUTS diagnostics satisfy the project criteria for M3 interpretation."
+  },
+  "environment": {
+    "python_executable": "/home/leonardo_barca/workspace/personal/bayesian-inference-applied-to-astrophysics-data/.venv-nuts/bin/python",
+    "python_version": "3.13.13",
+    "python_include_dir": "/home/leonardo_barca/miniconda3/include/python3.13",
+    "python_h_available": true,
+    "gcc": "/usr/bin/gcc",
+    "gxx": "/usr/bin/g++",
+    "pymc": "6.0.1",
+    "arviz": "1.2.0",
+    "pytensor": "3.0.7",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "matplotlib": "3.11.0",
+    "pytensor_flags": "base_compiledir=/tmp/pytensor-cache-m3-trapezoid"
+  },
+  "input_summary": {
+    "initial_rows_gold_window": 1664,
+    "rows_after_phase_filter": 516,
+    "rows_after_quality_filter": 516,
+    "rows_after_missing_filter": 516,
+    "rows_after_positive_flux_err_filter": 516,
+    "rows_used": 516,
+    "baseline_median": 1040715.45,
+    "baseline_region_count": 232,
+    "phase_min": -0.149809932087837,
+    "phase_max": 0.1483790683040218,
+    "normalized_flux_median": 0.993836144164094,
+    "normalized_flux_mean": 0.9941585653609065,
+    "normalized_flux_std": 0.004376025229680235,
+    "normalized_flux_err_median": 2.487015879316484e-05
+  },
+  "curve_metrics": {
+    "grid_rows": 300,
+    "model_min_mean": 0.9907400377570499,
+    "phase_at_min_model_mean": -0.029598662207357865
+  },
+  "residual_metrics": {
+    "residual_mean": -3.955137560212721e-06,
+    "residual_median": 0.0025904401550080336,
+    "residual_std": 0.0031780640628048095,
+    "standardized_residual_mean": -0.0012370336445497057,
+    "standardized_residual_std": 0.9944600624295192,
+    "posterior_predictive_interval_94_coverage_observed_points": 1.0
+  },
+  "m1_comparison": {
+    "m1_available": true,
+    "m1_depth_mean": 0.00525258,
+    "m1_rp_rs_mean": 0.07243869,
+    "m1_baseline_mean": 0.99597938,
+    "m1_transit_half_width": 0.05,
+    "m1_source": "tables/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/derived_parameters_summary.csv"
+  },
+  "m2_comparison": {
+    "m2_available": true,
+    "m2_source": "tables/bayesian_predictive_phase_regression/hat_p_7_b/predictive_curve_summary.csv"
+  }
+}

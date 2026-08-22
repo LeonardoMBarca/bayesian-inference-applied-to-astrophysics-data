@@ -1,0 +1,131 @@
+{
+  "model_name": "M2_bayesian_predictive_phase_regression",
+  "run_id": "001_nuts",
+  "created_at_utc": "2026-06-16T14:52:36+00:00",
+  "planet_name": "HAT-P-7 b",
+  "planet_slug": "hat_p_7_b",
+  "host_star": "HAT-P-7",
+  "mission": "Kepler",
+  "source_gold_path": "data/gold/hat_p_7_b/modeling/transit_window_lightcurve.csv",
+  "phase_filter": "abs(phase) <= 0.15",
+  "quality_filter": "quality == 0 when quality column exists",
+  "normalization": {
+    "baseline_region": "0.08 <= abs(phase) <= 0.15",
+    "baseline_median": 1040715.45,
+    "normalized_flux": "flux / baseline_median",
+    "normalized_flux_err": "flux_err / baseline_median"
+  },
+  "basis": {
+    "type": "fixed Gaussian radial basis functions",
+    "n_basis": 12,
+    "basis_width": 0.035,
+    "phase_window": [
+      -0.15,
+      0.15
+    ],
+    "centers": [
+      -0.15,
+      -0.12272727272727273,
+      -0.09545454545454546,
+      -0.06818181818181818,
+      -0.04090909090909091,
+      -0.013636363636363641,
+      0.013636363636363641,
+      0.040909090909090895,
+      0.06818181818181818,
+      0.09545454545454546,
+      0.12272727272727271,
+      0.15
+    ]
+  },
+  "model": {
+    "latent_function": "f(x) = intercept + sum_k weights_k * phi_k(x)",
+    "basis_function": "phi_k(x) = exp(-0.5 * ((x - center_k) / basis_width)^2)",
+    "intercept_prior": "Normal(1.0, 0.01)",
+    "weight_sigma_prior": "HalfNormal(0.01)",
+    "weights_prior": "weights_raw ~ Normal(0, 1); weights = weights_raw * weight_sigma",
+    "extra_sigma_prior": "HalfNormal(0.005)",
+    "likelihood": "Normal(f(phase_i), sqrt(normalized_flux_err_i^2 + extra_sigma^2))",
+    "prediction_grid_points": 300,
+    "exploratory_predicted_depth": "baseline_level - min(f_grid), with baseline_level defined as mean f_grid for abs(phase) >= 0.08"
+  },
+  "sampling": {
+    "sampler": "NUTS",
+    "draws": 2000,
+    "tune": 2000,
+    "chains": 4,
+    "cores": 4,
+    "target_accept": 0.99,
+    "random_seed": 42,
+    "retry_performed": true,
+    "retry_reason": "21 divergences with target_accept=0.9; reran with target_accept=0.95. Still found 3 divergences with target_accept=0.95; reran with target_accept=0.99."
+  },
+  "posterior_predictive_status": "created",
+  "diagnostics": {
+    "max_r_hat": 1.00292448,
+    "min_ess": 2269.80467052,
+    "divergences": 0,
+    "acceptance_mean": 0.9881075111991684,
+    "bfmi_min": 0.714672777534181,
+    "recommended_for_m2_predictive_interpretation": true,
+    "convergence_note": "NUTS diagnostics satisfy the project criteria for M2 predictive interpretation."
+  },
+  "environment": {
+    "python_executable": "/home/leonardo_barca/workspace/personal/bayesian-inference-applied-to-astrophysics-data/.venv-nuts/bin/python",
+    "python_version": "3.13.13",
+    "python_include_dir": "/home/leonardo_barca/miniconda3/include/python3.13",
+    "python_h_available": true,
+    "gcc": "/usr/bin/gcc",
+    "gxx": "/usr/bin/g++",
+    "pymc": "6.0.1",
+    "arviz": "1.2.0",
+    "pytensor": "3.0.7",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "matplotlib": "3.11.0",
+    "pytensor_flags": "base_compiledir=/tmp/pytensor-cache-m2-predictive"
+  },
+  "input_summary": {
+    "initial_rows_gold_window": 1664,
+    "rows_after_phase_filter": 516,
+    "rows_after_quality_filter": 516,
+    "rows_after_missing_filter": 516,
+    "rows_after_positive_flux_err_filter": 516,
+    "rows_used": 516,
+    "baseline_median": 1040715.45,
+    "baseline_region_count": 232,
+    "phase_min": -0.149809932087837,
+    "phase_max": 0.1483790683040218,
+    "normalized_flux_median": 0.993836144164094,
+    "normalized_flux_mean": 0.9941585653609065,
+    "normalized_flux_std": 0.004376025229680235,
+    "normalized_flux_err_median": 2.487015879316484e-05
+  },
+  "derived_predictive_depth": {
+    "predicted_depth_mean": 0.007210293179579765,
+    "predicted_depth_hdi_3": 0.006372133982943214,
+    "predicted_depth_hdi_97": 0.00809741326090779,
+    "baseline_level_mean": 0.9970919050120886,
+    "min_latent_flux_mean": 0.9898816118325088,
+    "phase_at_min_latent_median": 0.025585284280936454,
+    "interpretation_note": "Exploratory depth derived from the smooth predictive curve; not a direct physical depth parameter and not equivalent to Rp/Rs."
+  },
+  "residual_metrics": {
+    "residual_mean": -2.1351205101075e-06,
+    "residual_median": 0.0023404623765445054,
+    "residual_std": 0.0031819654526219258,
+    "standardized_residual_mean": -0.0006644843873807464,
+    "standardized_residual_std": 0.99112817898812,
+    "posterior_predictive_interval_94_coverage_observed_points": 1.0
+  },
+  "m1_comparison": {
+    "m1_available": true,
+    "m1_depth_mean": 0.00525258,
+    "m1_depth_hdi_3": 0.00464576,
+    "m1_depth_hdi_97": 0.00587726,
+    "m1_rp_rs_mean": 0.07243869,
+    "m1_source": "tables/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/derived_parameters_summary.csv",
+    "m1_baseline_mean": 0.99597938,
+    "m1_transit_half_width": 0.05
+  }
+}

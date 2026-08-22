@@ -1,0 +1,106 @@
+{
+  "created_at_utc": "2026-06-16T14:19:52+00:00",
+  "model_name": "M1_box_transit_baseline",
+  "run_id": "002_nuts_robust",
+  "planet_name": "HAT-P-7 b",
+  "trace_path": "models/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/trace.nc",
+  "model_config_path": "models/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/model_config.json",
+  "posterior_summary_path": "tables/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/posterior_summary.csv",
+  "derived_parameters_summary_path": "tables/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/derived_parameters_summary.csv",
+  "posterior_predictive_summary_path": "tables/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/posterior_predictive_summary.csv",
+  "posterior_predictive_status": "created",
+  "sampling": {
+    "sampler": "NUTS",
+    "draws": 2000,
+    "tune": 2000,
+    "chains": 4,
+    "cores": 4,
+    "target_accept": 0.9,
+    "random_seed": 42,
+    "retry_performed": false,
+    "retry_reason": ""
+  },
+  "input_summary": {
+    "initial_rows_gold_window": 1664,
+    "rows_after_phase_filter": 516,
+    "rows_after_quality_filter": 516,
+    "rows_after_missing_filter": 516,
+    "rows_after_positive_flux_err_filter": 516,
+    "rows_used": 516,
+    "baseline_median": 1040715.45,
+    "baseline_region_count": 232,
+    "core_transit_count": 179,
+    "phase_min": -0.149809932087837,
+    "phase_max": 0.1483790683040218,
+    "normalized_flux_median": 0.993836144164094,
+    "normalized_flux_std": 0.004376025229680235,
+    "normalized_flux_err_median": 2.487015879316484e-05
+  },
+  "diagnostics": {
+    "max_r_hat": 1.00088086,
+    "min_ess": 4553.6002094,
+    "divergences": 0,
+    "acceptance_mean": 0.9040757510025343,
+    "bfmi_min": 1.1052624756536682,
+    "recommended_for_scientific_interpretation": true,
+    "convergence_note": "NUTS diagnostics satisfy the project criteria for M1 baseline interpretation."
+  },
+  "posterior_summary": [
+    {
+      "parameter": "baseline",
+      "mean": 0.99597938,
+      "sd": 0.00019789,
+      "hdi_3%": 0.99561513,
+      "hdi_97%": 0.99636166,
+      "ess_bulk": 4613.18299016,
+      "ess_tail": 5213.13706106,
+      "r_hat": 1.00044605,
+      "mcse_mean": 2.92e-06,
+      "mcse_sd": 2.08e-06
+    },
+    {
+      "parameter": "depth",
+      "mean": 0.00525258,
+      "sd": 0.00033062,
+      "hdi_3%": 0.00464576,
+      "hdi_97%": 0.00587726,
+      "ess_bulk": 4553.6002094,
+      "ess_tail": 4599.2728673,
+      "r_hat": 1.00034161,
+      "mcse_mean": 4.9e-06,
+      "mcse_sd": 3.54e-06
+    },
+    {
+      "parameter": "extra_sigma",
+      "mean": 0.00360075,
+      "sd": 0.00011407,
+      "hdi_3%": 0.0033917,
+      "hdi_97%": 0.00382274,
+      "ess_bulk": 6017.13283284,
+      "ess_tail": 5859.49044795,
+      "r_hat": 1.00088086,
+      "mcse_mean": 1.47e-06,
+      "mcse_sd": 1.03e-06
+    },
+    {
+      "parameter": "rp_rs",
+      "mean": 0.07243869,
+      "sd": 0.00228316,
+      "hdi_3%": 0.06815983,
+      "hdi_97%": 0.07666328,
+      "ess_bulk": 4553.6002094,
+      "ess_tail": 4599.2728673,
+      "r_hat": 1.00033967,
+      "mcse_mean": 3.389e-05,
+      "mcse_sd": 2.452e-05
+    }
+  ],
+  "posterior": {
+    "depth_mean": 0.00525258,
+    "depth_hdi_3": 0.00464576,
+    "depth_hdi_97": 0.00587726,
+    "rp_rs_mean": 0.07243869,
+    "rp_rs_hdi_3": 0.06815983,
+    "rp_rs_hdi_97": 0.07666328
+  }
+}

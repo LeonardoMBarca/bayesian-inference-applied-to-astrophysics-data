@@ -1,0 +1,56 @@
+{
+  "created_at_utc": "2026-06-16T13:56:40+00:00",
+  "model_name": "M1_box_transit_baseline",
+  "planet_name": "HAT-P-7 b",
+  "trace_path": "models/bayesian_baseline/hat_p_7_b/trace.nc",
+  "model_config_path": "models/bayesian_baseline/hat_p_7_b/model_config.json",
+  "posterior_summary_path": "tables/bayesian_baseline/hat_p_7_b/posterior_summary.csv",
+  "derived_parameters_summary_path": "tables/bayesian_baseline/hat_p_7_b/derived_parameters_summary.csv",
+  "posterior_predictive_summary_path": "tables/bayesian_baseline/hat_p_7_b/posterior_predictive_summary.csv",
+  "posterior_predictive_status": "created",
+  "sampling": {
+    "draws": 300,
+    "tune": 300,
+    "chains": 4,
+    "target_accept": 0.9,
+    "sampler": "Metropolis",
+    "random_seed": 42,
+    "cores": 4,
+    "fallback_used": false,
+    "fallback_reason": "",
+    "requested_draws": 2000,
+    "requested_tune": 2000,
+    "reduced_from_requested": true,
+    "reduction_reason": "PyTensor is forced to use linker=py because Python.h is unavailable in this sandbox; a short Metropolis run is used to validate the full M1 pipeline and artifacts. Re-run with NUTS 2000/2000 in an environment with Python development headers for stronger final diagnostics.",
+    "trace_reused": true
+  },
+  "input_summary": {
+    "initial_rows_gold_window": 1664,
+    "rows_after_phase_filter": 516,
+    "rows_after_quality_filter": 516,
+    "rows_after_missing_filter": 516,
+    "rows_after_positive_flux_err_filter": 516,
+    "rows_used": 516,
+    "baseline_median": 1040715.45,
+    "baseline_region_count": 232,
+    "core_transit_count": 179,
+    "phase_min": -0.149809932087837,
+    "phase_max": 0.1483790683040218,
+    "normalized_flux_median": 0.993836144164094,
+    "normalized_flux_std": 0.004376025229680235,
+    "normalized_flux_err_median": 2.487015879316484e-05
+  },
+  "diagnostics": {
+    "max_r_hat": 2.33522345,
+    "min_ess": 4.25512801,
+    "convergence_note": "Review diagnostics before scientific interpretation."
+  },
+  "posterior": {
+    "depth_mean": 0.00507495,
+    "depth_hdi_3": 0.00439089,
+    "depth_hdi_97": 0.0057799,
+    "rp_rs_mean": 0.07118168,
+    "rp_rs_hdi_3": 0.06626377,
+    "rp_rs_hdi_97": 0.07602563
+  }
+}

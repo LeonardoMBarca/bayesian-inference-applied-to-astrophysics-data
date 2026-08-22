@@ -1,0 +1,67 @@
+{
+  "model_name": "M1_box_transit_baseline",
+  "created_at_utc": "2026-06-16T13:56:40+00:00",
+  "planet_name": "HAT-P-7 b",
+  "planet_slug": "hat_p_7_b",
+  "mission": "Kepler",
+  "source_gold_path": "data/gold/hat_p_7_b/modeling/transit_window_lightcurve.csv",
+  "phase_filter": "abs(phase) <= 0.15",
+  "quality_filter": "quality == 0 when quality column exists",
+  "normalization": {
+    "baseline_region": "0.08 <= abs(phase) <= 0.15",
+    "baseline_median": 1040715.45,
+    "normalized_flux": "flux / baseline_median",
+    "normalized_flux_err": "flux_err / baseline_median"
+  },
+  "model": {
+    "shape": "box-shaped transit",
+    "transit_half_width_days": 0.05,
+    "baseline_prior": "Normal(1.0, 0.01)",
+    "depth_prior": "HalfNormal(0.02)",
+    "extra_sigma_prior": "HalfNormal(0.005)",
+    "likelihood": "Normal(mu_i, sqrt(normalized_flux_err_i^2 + extra_sigma^2))",
+    "mu_inside_transit": "baseline - depth",
+    "mu_outside_transit": "baseline",
+    "derived_parameter": "rp_rs = sqrt(depth)"
+  },
+  "sampling": {
+    "draws": 300,
+    "tune": 300,
+    "chains": 4,
+    "target_accept": 0.9,
+    "sampler": "Metropolis",
+    "random_seed": 42,
+    "cores": 4,
+    "fallback_used": false,
+    "fallback_reason": "",
+    "requested_draws": 2000,
+    "requested_tune": 2000,
+    "reduced_from_requested": true,
+    "reduction_reason": "PyTensor is forced to use linker=py because Python.h is unavailable in this sandbox; a short Metropolis run is used to validate the full M1 pipeline and artifacts. Re-run with NUTS 2000/2000 in an environment with Python development headers for stronger final diagnostics.",
+    "trace_reused": true
+  },
+  "posterior_predictive_status": "created",
+  "software_versions": {
+    "python": "3.12.3",
+    "pymc": "6.0.1",
+    "arviz": "1.2.0",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3"
+  },
+  "input_summary": {
+    "initial_rows_gold_window": 1664,
+    "rows_after_phase_filter": 516,
+    "rows_after_quality_filter": 516,
+    "rows_after_missing_filter": 516,
+    "rows_after_positive_flux_err_filter": 516,
+    "rows_used": 516,
+    "baseline_median": 1040715.45,
+    "baseline_region_count": 232,
+    "core_transit_count": 179,
+    "phase_min": -0.149809932087837,
+    "phase_max": 0.1483790683040218,
+    "normalized_flux_median": 0.993836144164094,
+    "normalized_flux_std": 0.004376025229680235,
+    "normalized_flux_err_median": 2.487015879316484e-05
+  }
+}

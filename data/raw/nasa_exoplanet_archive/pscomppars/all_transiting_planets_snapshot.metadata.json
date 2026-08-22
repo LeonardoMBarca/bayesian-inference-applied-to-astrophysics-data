@@ -1,0 +1,12 @@
+{
+  "collected_at_utc": "2026-06-13T21:13:57+00:00",
+  "table": "pscomppars",
+  "request_url": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+  "query": "SELECT * FROM pscomppars WHERE discoverymethod = 'Transit' AND pl_orbper IS NOT NULL AND (pl_rade IS NOT NULL OR pl_trandep IS NOT NULL) ORDER BY pl_name",
+  "status": "failed",
+  "error": "HTTPSConnectionPool(host='exoplanetarchive.ipac.caltech.edu', port=443): Max retries exceeded with url: /TAP/sync?query=SELECT+%2A+FROM+pscomppars+WHERE+discoverymethod+%3D+%27Transit%27+AND+pl_orbper+IS+NOT+NULL+AND+%28pl_rade+IS+NOT+NULL+OR+pl_trandep+IS+NOT+NULL%29+ORDER+BY+pl_name&format=csv (Caused by NameResolutionError(\"HTTPSConnection(host='exoplanetarchive.ipac.caltech.edu', port=443): Failed to resolve 'exoplanetarchive.ipac.caltech.edu' ([Errno -2] Name or service not known)\"))",
+  "selected_columns": [
+    "*"
+  ],
+  "purpose": "Snapshot of transiting confirmed planets with orbital period and planet radius or transit depth where supported by the current schema."
+}

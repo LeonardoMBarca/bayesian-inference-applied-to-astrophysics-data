@@ -1,0 +1,181 @@
+{
+  "created_at_utc": "2026-06-16T15:35:09+00:00",
+  "model_name": "M4_model_comparison",
+  "planet_name": "HAT-P-7 b",
+  "models_compared": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "parameter_comparison_path": "tables/model_comparison/hat_p_7_b/parameter_comparison.csv",
+  "diagnostic_comparison_path": "tables/model_comparison/hat_p_7_b/diagnostic_comparison.csv",
+  "predictive_metric_comparison_path": "tables/model_comparison/hat_p_7_b/predictive_metric_comparison.csv",
+  "residual_comparison_path": "tables/model_comparison/hat_p_7_b/residual_comparison.csv",
+  "loo_waic_path": "tables/model_comparison/hat_p_7_b/loo_waic_comparison.csv",
+  "recommendation_summary_path": "tables/model_comparison/hat_p_7_b/model_recommendation_summary.csv",
+  "figures_dir": "figures/model_comparison/hat_p_7_b",
+  "report_path": "reports/model_comparison_hat_p_7_b_report.md",
+  "depth_comparison": [
+    {
+      "model_id": "M1",
+      "model_name": "M1 - Box transit",
+      "model_family": "box_transit_baseline",
+      "depth_type": "direct_parameter_depth",
+      "depth_mean": 0.00525258,
+      "depth_hdi_3": 0.00464576,
+      "depth_hdi_97": 0.00587726,
+      "rp_rs_mean": 0.07243869,
+      "rp_rs_hdi_3": 0.06815983,
+      "rp_rs_hdi_97": 0.07666328,
+      "duration_hours": NaN,
+      "ingress_hours": NaN,
+      "interpretation_note": "Baseline box-shaped model. Depth is direct but shape is rigid and transit half-width is fixed."
+    },
+    {
+      "model_id": "M2",
+      "model_name": "M2 - Predictive phase regression",
+      "model_family": "smooth_predictive_phase_regression",
+      "depth_type": "exploratory_predicted_depth",
+      "depth_mean": 0.007210293179579765,
+      "depth_hdi_3": 0.006372133982943214,
+      "depth_hdi_97": 0.00809741326090779,
+      "rp_rs_mean": NaN,
+      "rp_rs_hdi_3": NaN,
+      "rp_rs_hdi_97": NaN,
+      "duration_hours": NaN,
+      "ingress_hours": NaN,
+      "interpretation_note": "Predictive depth is exploratory and derived from the smooth curve; it is not a direct physical depth parameter and does not define Rp/Rs."
+    },
+    {
+      "model_id": "M3",
+      "model_name": "M3 - Trapezoid transit",
+      "model_family": "approximate_trapezoid_transit",
+      "depth_type": "direct_parameter_depth",
+      "depth_mean": 0.0065662,
+      "depth_hdi_3": 0.00594692,
+      "depth_hdi_97": 0.00716767,
+      "rp_rs_mean": 0.08100761,
+      "rp_rs_hdi_3": 0.07711627,
+      "rp_rs_hdi_97": 0.0846621,
+      "duration_hours": 4.239537840000001,
+      "ingress_hours": 0.8874220800000001,
+      "interpretation_note": "Approximate trapezoid model. Depth and Rp/Rs are direct derived quantities under a simplified transit geometry."
+    }
+  ],
+  "diagnostic_comparison": [
+    {
+      "model_id": "M1",
+      "sampler": "NUTS",
+      "draws": 2000,
+      "tune": 2000,
+      "chains": 4,
+      "target_accept": 0.9,
+      "r_hat_max": 1.00088086,
+      "ess_min": 4553.6002094,
+      "divergences": 0,
+      "bfmi_min": 1.1052624756536682,
+      "diagnostic_status": "good",
+      "notes": "NUTS diagnostics satisfy the project criteria for M1 baseline interpretation."
+    },
+    {
+      "model_id": "M2",
+      "sampler": "NUTS",
+      "draws": 2000,
+      "tune": 2000,
+      "chains": 4,
+      "target_accept": 0.99,
+      "r_hat_max": 1.00292448,
+      "ess_min": 2269.80467052,
+      "divergences": 0,
+      "bfmi_min": 0.714672777534181,
+      "diagnostic_status": "good",
+      "notes": "NUTS diagnostics satisfy the project criteria for M2 predictive interpretation."
+    },
+    {
+      "model_id": "M3",
+      "sampler": "NUTS",
+      "draws": 2000,
+      "tune": 2000,
+      "chains": 4,
+      "target_accept": 0.9,
+      "r_hat_max": 1.00107423,
+      "ess_min": 4212.34208408,
+      "divergences": 0,
+      "bfmi_min": 0.8543011995144133,
+      "diagnostic_status": "good",
+      "notes": "NUTS diagnostics satisfy the project criteria for M3 interpretation."
+    }
+  ],
+  "predictive_metric_comparison": [
+    {
+      "model_id": "M1",
+      "model_name": "M1 - Box transit",
+      "rmse": 0.0035875410655527794,
+      "mae": 0.003279565814021221,
+      "median_absolute_error": 0.00315966083206765,
+      "mean_residual": 4.7600713248664725e-06,
+      "residual_std": 0.003591019264991799,
+      "standardized_residual_std": 0.9972734149348274,
+      "coverage_94": 0.9612403100775194,
+      "n_points": 516,
+      "notes": "Coverage computed from M1 posterior predictive intervals at observed phases."
+    },
+    {
+      "model_id": "M2",
+      "model_name": "M2 - Predictive phase regression",
+      "rmse": 0.003178881374503839,
+      "mae": 0.003125626892807999,
+      "median_absolute_error": 0.0030381219671109,
+      "mean_residual": -2.135120510109438e-06,
+      "residual_std": 0.0031819654526218763,
+      "standardized_residual_std": 0.99112817898812,
+      "coverage_94": 1.0,
+      "n_points": 516,
+      "notes": "Coverage read from M2 validated summary; pointwise predictive interval table was not stored separately."
+    },
+    {
+      "model_id": "M3",
+      "model_name": "M3 - Trapezoid transit",
+      "rmse": 0.0031749855133958987,
+      "mae": 0.003153109410849241,
+      "median_absolute_error": 0.0030632644118414,
+      "mean_residual": -3.9551375602166875e-06,
+      "residual_std": 0.003178064062804762,
+      "standardized_residual_std": 0.9944600624295192,
+      "coverage_94": 1.0,
+      "n_points": 516,
+      "notes": "Coverage computed from M3 posterior predictive intervals at observed phases."
+    }
+  ],
+  "loo_waic_status": [
+    {
+      "model_id": "M1",
+      "loo_elpd": NaN,
+      "loo_se": NaN,
+      "waic_elpd": NaN,
+      "waic_se": NaN,
+      "status": "unavailable",
+      "notes": "trace.nc does not contain a log_likelihood group; LOO/WAIC were not forced."
+    },
+    {
+      "model_id": "M2",
+      "loo_elpd": NaN,
+      "loo_se": NaN,
+      "waic_elpd": NaN,
+      "waic_se": NaN,
+      "status": "unavailable",
+      "notes": "trace.nc does not contain a log_likelihood group; LOO/WAIC were not forced."
+    },
+    {
+      "model_id": "M3",
+      "loo_elpd": NaN,
+      "loo_se": NaN,
+      "waic_elpd": NaN,
+      "waic_se": NaN,
+      "status": "unavailable",
+      "notes": "trace.nc does not contain a log_likelihood group; LOO/WAIC were not forced."
+    }
+  ],
+  "recommended_primary_preliminary_model": "M3",
+  "recommendation_note": "Recommended as the main preliminary result because it balances diagnostics, predictive behavior, direct depth/RpRs and approximate duration/ingress parameters."
+}

@@ -1,0 +1,31 @@
+{
+  "created_at_utc": "2026-06-16T15:35:09+00:00",
+  "model_name": "M4_model_comparison",
+  "planet_name": "HAT-P-7 b",
+  "planet_slug": "hat_p_7_b",
+  "host_star": "HAT-P-7",
+  "mission": "Kepler",
+  "source_gold_path": "data/gold/hat_p_7_b/modeling/transit_window_lightcurve.csv",
+  "models_compared": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "inputs": {
+    "m1_trace": "models/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/trace.nc",
+    "m2_trace": "models/bayesian_predictive_phase_regression/hat_p_7_b/runs/001_nuts/trace.nc",
+    "m3_trace": "models/bayesian_trapezoid_transit/hat_p_7_b/runs/001_nuts/trace.nc",
+    "m1_derived": "tables/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/derived_parameters_summary.csv",
+    "m2_curve": "tables/bayesian_predictive_phase_regression/hat_p_7_b/predictive_curve_summary.csv",
+    "m3_derived": "tables/bayesian_trapezoid_transit/hat_p_7_b/derived_parameters_summary.csv"
+  },
+  "comparison_criteria": [
+    "parameter_comparison",
+    "mcmc_diagnostics",
+    "predictive_metrics",
+    "residuals",
+    "loo_waic_if_available",
+    "interpretability_flexibility_balance"
+  ],
+  "notes": "M4 is a comparison stage and does not sample a new Bayesian model."
+}
