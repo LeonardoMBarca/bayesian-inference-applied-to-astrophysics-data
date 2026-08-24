@@ -44,21 +44,15 @@ Pontuação catalográfica:
 
 | planet_name | has_kepler | has_tess | kepler_fits_count | tess_fits_count | total_mast_rows | total_quality_zero_rows | score_total | recommended_role |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| TrES-2 b | True | True | 3 | 3 | 63836 | 58816 | 19 | backup_candidate |
-| HAT-P-7 b | True | True | 3 | 3 | 64872 | 54075 | 19 | primary_candidate |
-| HD 209458 b | False | True | 0 | 3 | 159179 | 150556 | 16 | reference_only |
-| WASP-10 b | False | True | 0 | 3 | 145851 | 139812 | 16 | reference_only |
-| HAT-P-32 b | False | True | 0 | 3 | 140907 | 134444 | 16 | reference_only |
-| HD 189733 b | False | True | 0 | 3 | 57213 | 50529 | 16 | reference_only |
-| WASP-12 b | False | True | 0 | 3 | 54224 | 47909 | 16 | reference_only |
-| WASP-4 b | False | True | 0 | 3 | 56783 | 47763 | 16 | reference_only |
+| HAT-P-7 b | True | False | 3 | 3 | 64872 | 54075 | 17 | reference_only |
+| Kepler-10 b | True | False | 3 | 0 | 6469 | 5267 | 15 | primary_candidate |
 
 ## 5. Planeta Escolhido
 
 Planeta selecionado:
 
 ```text
-HAT-P-7 b
+Kepler-10 b
 ```
 
 Missão principal selecionada:
@@ -76,7 +70,7 @@ pdcsap_flux
 Justificativa:
 
 ```text
-HAT-P-7 b selected because it satisfies the default rule: Kepler available, PDCSAP flux available, orbital period available, and more than 1000 quality==0 rows.
+Kepler-10 b selected because it satisfies the default rule: Kepler available, PDCSAP flux available, orbital period available, and more than 1000 quality==0 rows.
 ```
 
 ## 6. Justificativa da Missão
@@ -93,4 +87,4 @@ A missão Kepler é preferida quando disponível porque fornece uma série tempo
 
 ## 8. Próximos Passos
 
-A próxima etapa poderá usar `data/gold/hat_p_7_b/modeling/transit_window_lightcurve.csv` como entrada para uma modelagem bayesiana preliminar, após revisão das escolhas de normalização, janela temporal e modelo físico.
+A próxima etapa poderá usar `data/gold/kepler_10_b/modeling/transit_window_lightcurve.csv` como entrada para uma modelagem bayesiana preliminar, após revisão das escolhas de normalização, janela temporal e modelo físico.

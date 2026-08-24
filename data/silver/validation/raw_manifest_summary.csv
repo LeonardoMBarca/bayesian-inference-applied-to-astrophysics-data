@@ -1,41 +1,45 @@
 summary_type,value,count
-total_records,all,749
-unique_local_paths,all,399
-local_paths_missing,all,0
-checksums_checked,all,399
-checksum_mismatches,all,0
+total_records,all,809
+unique_local_paths,all,455
+local_paths_missing,all,21
+checksums_checked,all,434
+checksum_mismatches,all,183
 by_source_name,ETD / VarAstro,320
-by_source_name,MAST / Lightkurve,204
-by_source_name,NASA Exoplanet Archive,157
-by_source_name,Exo.MAST,68
-by_status,downloaded,369
-by_status,skipped_existing,317
-by_status,failed,33
-by_status,downloaded_or_cached,30
+by_source_name,MAST / Lightkurve,234
+by_source_name,NASA Exoplanet Archive,174
+by_source_name,Exo.MAST,78
+by_source_name,MAST / Astroquery,3
+by_status,downloaded,391
+by_status,skipped_existing,348
+by_status,failed,37
+by_status,downloaded_or_cached,33
 by_product_type,ground_based_light_curve_api_json,80
-by_product_type,light_curve,60
-by_product_type,collection_notes,56
-by_product_type,collection_metadata,51
-by_product_type,tap_query,51
-by_product_type,search_metadata,48
-by_product_type,search_results,48
-by_product_type,download_manifest,48
-by_product_type,catalog_search_snapshot,40
-by_product_type,extracted_public_metadata,40
+by_product_type,light_curve,72
+by_product_type,collection_notes,58
+by_product_type,tap_query,56
+by_product_type,collection_metadata,56
+by_product_type,search_metadata,54
+by_product_type,search_results,54
+by_product_type,download_manifest,54
 by_product_type,source_manifest,40
-by_product_type,planet_detail_snapshot,24
+by_product_type,extracted_public_metadata,40
+by_product_type,catalog_search_snapshot,40
+by_product_type,pscomppars,26
+by_product_type,ps,26
+by_product_type,tce_list,24
 by_product_type,catalog_search_api_response,24
-by_product_type,ps,24
-by_product_type,pscomppars,24
-by_product_type,tce_list,20
+by_product_type,planet_detail_snapshot,24
+by_product_type,planet_properties,18
+by_product_type,planet_identifiers,18
 by_product_type,public_transit_observations_api_response,16
-by_product_type,planet_properties,16
-by_product_type,planet_identifiers,16
-by_product_type,catalog_or_detail_snapshot,8
 by_product_type,ground_based_light_curve,8
-by_product_type,tap_schema,4
-by_product_type,pscomppars_transiting_snapshot,3
-by_planet_name,HAT-P-7 b,98
+by_product_type,catalog_or_detail_snapshot,8
+by_product_type,tap_schema,6
+by_product_type,pscomppars_transiting_snapshot,4
+by_product_type,observations_query,1
+by_product_type,products_available,1
+by_product_type,fallback_search_or_download,1
+by_planet_name,HAT-P-7 b,124
 by_planet_name,TrES-2 b,98
 by_planet_name,HD 189733 b,90
 by_planet_name,HD 209458 b,90
@@ -43,4 +47,5 @@ by_planet_name,WASP-12 b,90
 by_planet_name,WASP-10 b,90
 by_planet_name,WASP-4 b,90
 by_planet_name,HAT-P-32 b,90
-by_planet_name,(blank),13
+by_planet_name,Kepler-10 b,29
+by_planet_name,(blank),18

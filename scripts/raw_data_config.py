@@ -10,13 +10,7 @@ RAW_DATA_DIR = PROJECT_ROOT / "data" / "raw"
 
 PLANETS = [
     {"planet_name": "HAT-P-7 b", "host_star": "HAT-P-7", "priority": 1},
-    {"planet_name": "TrES-2 b", "host_star": "TrES-2", "priority": 2},
-    {"planet_name": "HD 189733 b", "host_star": "HD 189733", "priority": 3},
-    {"planet_name": "HD 209458 b", "host_star": "HD 209458", "priority": 4},
-    {"planet_name": "WASP-12 b", "host_star": "WASP-12", "priority": 5},
-    {"planet_name": "WASP-10 b", "host_star": "WASP-10", "priority": 6},
-    {"planet_name": "WASP-4 b", "host_star": "WASP-4", "priority": 7},
-    {"planet_name": "HAT-P-32 b", "host_star": "HAT-P-32", "priority": 8},
+    {"planet_name": "Kepler-10 b", "host_star": "Kepler-10", "priority": 2},
 ]
 
 PREFERRED_MISSIONS = ("Kepler", "K2", "TESS")

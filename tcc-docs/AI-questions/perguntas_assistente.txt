@@ -1,0 +1,155 @@
+Aqui estão as perguntas estratégicas que você deve fazer ao Assistente de IA da MBX Academy. 
+Copie uma por uma, envie para o assistente, e depois cole a resposta dele logo abaixo da pergunta correspondente.
+
+--------------------------------------------------------------------------------
+PERGUNTA 1 - SOBRE O ESCOPO (MUITO IMPORTANTE)
+Pergunta:
+"Meu tema de TCC é sobre Inferência Bayesiana aplicada à estimativa de parâmetros físicos de exoplanetas (Astrofísica), utilizando dados abertos da NASA. É um projeto focado em Modelagem Estatística Avançada e Engenharia de Dados, mas não possui uma aplicação corporativa ou de negócios (business) direta. Esse tema científico atende plenamente aos requisitos e ao escopo esperado para o TCC do MBA em Data Science e Analytics?"
+
+Resposta do Assistente:
+Sim, o tema atende aos requisitos e ao escopo do MBA em Data Science e Analytics.
+
+No curso de Data Science e Analytics, o desenvolvimento do TCC não exige obrigatoriamente uma aplicação corporativa ou voltada diretamente a negócios (business). O foco central exigido pelas normas do curso é a aplicação rigorosa de métodos analíticos, engenharia de dados, modelagem estatística, simulação ou implementação de algoritmos em bases de dados empíricas ou secundárias.
+
+Para a estruturação adequada desse projeto, devem ser observados os seguintes pontos metodológicos:
+
+Delineamento e Natureza dos Dados:
+
+O trabalho enquadra-se como uma pesquisa de abordagem quantitativa, utilizando a técnica de levantamento de dados secundários (base pública de dados abertos da NASA).
+Pesquisas empíricas com aplicação prática de técnicas estatísticas e computacionais atendem plenamente às exigências institucionais, diferenciando-se de revisões puramente bibliográficas (que não são aceitas isoladamente como metodologia principal).
+Rigor Metodológico na Modelagem:
+
+A metodologia deve detalhar o tratamento dos dados, as distribuições a priori utilizadas na inferência bayesiana, as funções de verossimilhança, os algoritmos de amostragem/estimação (como MCMC, se aplicável) e as métricas de validação e convergência.
+Devem constar com clareza o problema de pesquisa, os objetivos, a definição e operacionalização das variáveis e a discussão dos parâmetros estimados.
+Alinhamento com a Orientação:
+
+Durante a etapa de submissão do Projeto de Pesquisa e nas orientações no Sistema de TCCs, essas escolhas metodológicas devem ser apresentadas formalmente ao orientador designado.
+Deseja auxílio para estruturar a pergunta de pesquisa ou definir o delineamento metodológico no template do Projeto de Pesquisa?
+
+Fonte(s)
+Metodologias de Pesquisa para Trabalhos de Conclusão de Curso (USP/ESALQ)
+Delineamento da Pesquisa – Orientações Oficiais de TCC (USP/ESALQ)
+TCC em Data Science e Analytics: Áreas e Linhas de Pesquisa (USP/ESALQ)
+
+
+--------------------------------------------------------------------------------
+PERGUNTA 2 - SOBRE O TEMPLATE IDEAL
+Pergunta:
+"Considerando que o meu trabalho envolve a construção de um pipeline de dados (camadas RAW, Silver e Gold) e a implementação de modelos estatísticos bayesianos usando as bibliotecas PyMC e Batman em Python, qual template oficial eu devo utilizar: o 'Template TCC_PT' (Geral) ou o 'Template TCC - Implementação de Algoritmo(s) de Machine Learning'?"
+
+Resposta do Assistente:
+Para a estrutura descrita — envolvendo pipeline de dados (RAW, Silver e Gold), códigos em Python e implementação de modelos estatísticos/computacionais com bibliotecas específicas (como PyMC e Batman) —, o modelo mais adequado é o 'Template TCC - Implementação de Algoritmo(s) de Machine Learning'.
+
+Abaixo estão as principais diferenças e critérios de escolha entre os dois modelos:
+
+Template TCC - Implementação de Algoritmo(s) de Machine Learning (Recomendado para esse perfil):
+
+Estrutura das seções: É composto por Considerações Iniciais, Implementação de Algoritmo(s) de Machine Learning, Resultados e Discussão, Conclusão(ões) e Referências.
+Apresentação de código e pipeline: A seção de implementação foi desenhada especificamente para descrever o dataset, as etapas do pipeline e a apresentação do algoritmo/código com comentários explicativos de cada etapa em linguagem de programação.
+Limite de páginas ampliado: Para os cursos de Data Science e Analytics e de Engenharia de Software que utilizam este template específico, o limite máximo do trabalho é estendido para até 50 páginas (incluindo apêndices e anexos), facilitando a inclusão de trechos de código, diagramas de arquitetura de dados e saídas dos modelos (outputs).
+Template TCC_PT (Geral):
+
+Estrutura das seções: Segue o formato clássico: Introdução, Metodologia (ou Material e Métodos), Resultados e Discussão, Conclusão(ões) e Referências.
+Foco: Mais voltado para análises empíricas descritivas ou inferenciais onde a exposição detalhada do código e da arquitetura do pipeline não é o elemento central do texto.
+Limite de páginas: Limite estrito de no máximo 30 páginas (incluindo apêndices e anexos).
+Ambos os templates estão disponíveis no Sistema de TCCs. Caso o foco principal do seu relatório seja a demonstração técnica do pipeline, dos scripts e da execução do algoritmo, utilize o template específico de Implementação de Algoritmo(s) de Machine Learning.
+
+Deseja orientações sobre como organizar a seção de implementação ou como documentar os scripts e datasets dentro do template?
+
+Fonte(s)
+Template TCC - Implementação de Algoritmo(s) de Machine Learning (MBA USP/ESALQ)
+Template TCC Geral / TCC_PT (MBA USP/ESALQ)
+Manual de Instruções e Normas para Trabalhos de Conclusão de Curso (MBA USP/ESALQ)
+
+
+--------------------------------------------------------------------------------
+PERGUNTA 3 - SOBRE A METODOLOGIA
+Pergunta:
+"O meu projeto tem duas frentes muito fortes: (1) a Engenharia de Dados (coleta de APIs da NASA, tratamento e armazenamento local) e (2) a Inferência Bayesiana (criação e comparação de modelos matemáticos M1, M2, M3 e M4). Na seção de Metodologia, eu devo detalhar ambas as frentes com o mesmo peso ou o foco do TCC deve ser exclusivamente na modelagem estatística?"
+
+Resposta do Assistente:
+Na seção de Metodologia (ou na seção de Implementação do algoritmo), você deve descrever ambas as frentes, organizando-as de forma sequencial e complementar, sem desconsiderar a Engenharia de Dados nem restringir o texto unicamente à modelagem estatística.
+
+A diretriz institucional para trabalhos de natureza quantitativa e computacional exige que os procedimentos metodológicos sejam detalhados a ponto de permitir a reprodutibilidade inequívoca do estudo por outros pesquisadores.
+
+Abaixo está a orientação de como estruturar e balancear essas duas frentes:
+
+1. Papel de cada frente no trabalho
+Engenharia de Dados (Coleta, Tratamento e Armazenamento):
+
+Função: Corresponde aos procedimentos de coleta de dados secundários e preparação do dataset.
+O que detalhar: Origem dos dados (APIs da NASA), critérios de filtragem, tratamento de dados faltantes ou ruidosos, transformações aplicadas e estruturação das camadas (RAW, Silver, Gold).
+Nível de detalhamento: Deve ser objetivo e procedural, focando nas decisões técnicas tomadas para garantir a integridade dos dados que alimentam os modelos.
+Inferência Bayesiana (Modelagem Estatística M1 a M4):
+
+Função: Constitui o núcleo analítico e o método central de resposta ao problema de pesquisa.
+O que detalhar: Formulação matemática de cada modelo (M1, M2, M3 e M4), definição e justificativa das distribuições a priori (priors), função de verossimilhança, algoritmos de amostragem (ex.: MCMC/NUTS), parametrização nas bibliotecas (PyMC e Batman), critérios de convergência (como $\hat{R}$ e tamanho efetivo de amostra) e critérios de comparação entre modelos (como WAIC, LOO-CV ou Bayes Factor).
+Nível de detalhamento: Deve conter rigor conceitual e matemático, pois é a etapa que gera os resultados e sustenta as conclusões científicas.
+2. Sugestão de encadeamento na seção metodológica
+Para manter a clareza e a coerência, a seção pode ser subdividida nos seguintes tópicos:
+
+Classificação e Delineamento da Pesquisa: Identificação da pesquisa (quantitativa, com dados secundários abertos da NASA).
+Coleta e Pipeline de Engenharia de Dados: Descrição do acesso via API, limpeza, transformação e organização das camadas de dados.
+Especificação dos Modelos Bayesianos: Definição matemática e conceitual das hipóteses dos modelos M1, M2, M3 e M4, incluindo as bibliotecas utilizadas.
+Procedimentos de Ajuste, Amostragem e Validação: Explicação dos algoritmos de inferência, verificação de convergência e métricas de comparação dos modelos.
+Deseja orientações sobre como redigir a justificativa da escolha das distribuições a priori ou sobre a inclusão dos diagramas do pipeline no projeto?
+
+Fonte(s)
+Metodologias de Pesquisa para Trabalhos de Conclusão de Curso (MBA USP/ESALQ)
+Orientações para Elaboração do Projeto de Pesquisa (MBA USP/ESALQ)
+Delineamento da Pesquisa – Orientações Oficiais de TCC (MBA USP/ESALQ)
+
+
+--------------------------------------------------------------------------------
+PERGUNTA 4 - SOBRE INSERÇÃO DE CÓDIGOS
+Pergunta:
+"As normas permitem a inserção de pequenos trechos de código em Python (ex: definição do modelo probabilístico) diretamente no corpo do texto do TCC (dentro da seção de Metodologia ou Resultados) para facilitar a explicação, ou os códigos devem ir estritamente para a seção de Apêndices?"
+
+Resposta do Assistente:
+A inserção de trechos de código no corpo do texto depende do template e da finalidade do conteúdo:
+
+No template de 'Implementação de Algoritmo(s) de Machine Learning':
+
+Permitido e previsto no corpo do texto: A seção de Implementação de Algoritmo(s) prevê expressamente a apresentação do algoritmo em linguagem de programação, acompanhado de comentários explicativos para cada passo e etapa lógica (como a definição do modelo probabilístico, blocos de amostragem ou funções centrais).
+Trechos essenciais vs. scripts extensos: Recomenda-se manter no corpo do texto apenas os blocos de código diretamente relacionados à explicação metodológica e conceitual do modelo.
+Uso da seção de Apêndices:
+
+Scripts completos, rotinas extensas de ingestão de dados (ETL), pipelines detalhados de pré-processamento ou funções auxiliares que ocupem muitas linhas devem ser direcionados para a seção de Apêndices (por exemplo: Apêndice A. Script de coleta e tratamento de dados).
+Isso evita comprometer a fluidez da leitura do texto principal.
+Cabe destacar que as páginas dos apêndices são contabilizadas no limite total do trabalho (até 50 páginas para TCCs com foco em implementação de algoritmos nos cursos de Data Science e Engenharia de Software).
+No 'Template Geral (TCC_PT)':
+
+Caso opte pelo template geral de TCC, a prática padrão é descrever o método formalmente (em prosa e formulações matemáticas) no corpo do texto e remeter qualquer código-fonte integral ou trecho complementar aos Apêndices.
+Deseja orientações sobre como formatar visualmente os blocos de código ou identificar os apêndices no documento?
+
+Fonte(s)
+Template TCC - Implementação de Algoritmo(s) de Machine Learning (MBA USP/ESALQ)
+Formatação e Estrutura do TCC (MBA USP/ESALQ)
+Manual de Instruções e Normas para Trabalhos de Conclusão de Curso (MBA USP/ESALQ)
+
+
+--------------------------------------------------------------------------------
+PERGUNTA 5 - SOBRE VIABILIDADE ECONÔMICA
+Pergunta:
+"Sendo o meu projeto uma pesquisa acadêmica/científica focada na exploração de dados astronômicos abertos, eu preciso obrigatoriamente apresentar alguma seção de Análise de Viabilidade Econômica ou de Custos/ROI do projeto, ou isso é dispensável neste contexto?"
+
+Resposta do Assistente:
+Apresentar uma seção de Análise de Viabilidade Econômica, Custos ou ROI não é obrigatório no seu contexto. Essa seção é completamente dispensável.
+
+As diretrizes do MBA USP/ESALQ estabelecem que:
+
+Aderência ao problema de pesquisa:
+
+A estrutura metodológica e os resultados devem responder diretamente aos objetivos e à pergunta central do trabalho.
+Em pesquisas de natureza científica, quantitativa ou focadas em ciência de dados e machine learning (como a exploração de dados astronômicos e modelagem bayesiana), o foco deve ser estritamente técnico e conceitual: delineamento metodológico, engenharia de dados, formulação matemática dos modelos, critérios de inferência, validação e discussão dos achados.
+Quando a viabilidade econômica é exigida:
+
+A elaboração de fluxos de caixa, cálculo de indicadores financeiros (VPL, TIR, Payback, ROI) e entrega de planilhas de cálculo aplicam-se exclusivamente a trabalhos cujo tema ou objetivo principal seja a avaliação econômico-financeira de projetos de investimento, implementação empresarial ou viabilidade de negócios.
+Portanto, para o seu projeto, não há necessidade de incluir cálculos de custos de infraestrutura, ROI ou análises financeiras, mantendo a estrutura voltada ao método científico e estatístico.
+
+Deseja auxílio na definição dos objetivos específicos ou na delimitação das métricas de validação dos modelos?
+
+Fonte(s)
+Metodologias de Pesquisa para Trabalhos de Conclusão de Curso (MBA USP/ESALQ)
+Delineamento da Pesquisa – Orientações Oficiais de TCC (MBA USP/ESALQ)
+Instruções Gerais para Elaboração de um Fluxo de Caixa (MBA USP/ESALQ)

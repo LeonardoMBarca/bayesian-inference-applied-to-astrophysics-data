@@ -18,46 +18,10 @@ PLANETS = [
         "priority": 1,
     },
     {
-        "planet_name": "TrES-2 b",
-        "host_star": "TrES-2",
-        "planet_slug": "tres_2_b",
+        "planet_name": "Kepler-10 b",
+        "host_star": "Kepler-10",
+        "planet_slug": "kepler_10_b",
         "priority": 2,
-    },
-    {
-        "planet_name": "HD 189733 b",
-        "host_star": "HD 189733",
-        "planet_slug": "hd_189733_b",
-        "priority": 3,
-    },
-    {
-        "planet_name": "HD 209458 b",
-        "host_star": "HD 209458",
-        "planet_slug": "hd_209458_b",
-        "priority": 4,
-    },
-    {
-        "planet_name": "WASP-12 b",
-        "host_star": "WASP-12",
-        "planet_slug": "wasp_12_b",
-        "priority": 5,
-    },
-    {
-        "planet_name": "WASP-10 b",
-        "host_star": "WASP-10",
-        "planet_slug": "wasp_10_b",
-        "priority": 6,
-    },
-    {
-        "planet_name": "WASP-4 b",
-        "host_star": "WASP-4",
-        "planet_slug": "wasp_4_b",
-        "priority": 7,
-    },
-    {
-        "planet_name": "HAT-P-32 b",
-        "host_star": "HAT-P-32",
-        "planet_slug": "hat_p_32_b",
-        "priority": 8,
     },
 ]
 

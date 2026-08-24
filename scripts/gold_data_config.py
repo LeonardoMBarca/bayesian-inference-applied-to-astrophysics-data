@@ -11,9 +11,9 @@ SILVER_DATA_DIR = PROJECT_ROOT / "data" / "silver"
 GOLD_DATA_DIR = PROJECT_ROOT / "data" / "gold"
 
 PRIMARY_CANDIDATE = {
-    "planet_name": "HAT-P-7 b",
-    "host_star": "HAT-P-7",
-    "planet_slug": "hat_p_7_b",
+    "planet_name": "Kepler-10 b",
+    "host_star": "Kepler-10",
+    "planet_slug": "kepler_10_b",
 }
 BACKUP_CANDIDATE = {
     "planet_name": "TrES-2 b",

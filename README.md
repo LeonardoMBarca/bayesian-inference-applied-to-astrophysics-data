@@ -360,9 +360,17 @@ tables/model_comparison/hat_p_7_b/
 docs/modeling/model_comparison_hat_p_7_b/
 ```
 
-O M4 não cria um novo modelo bayesiano. Ele compara os modelos já executados
-usando parâmetros, diagnósticos, métricas preditivas simples, resíduos e uma
-recomendação metodológica.
+O M4 não cria um novo modelo bayesiano. Ele compara os modelos já executados (M1, M2, M3)
+usando parâmetros, diagnósticos, métricas preditivas simples, resíduos e uma recomendação metodológica.
+
+## Experimentos Avançados (M5, Injeção de Ruído, Sensibilidade)
+
+Acesse a documentação completa dos novos experimentos metodológicos avançados:
+[docs/EXPERIMENTS_M5_NOISE.md](docs/EXPERIMENTS_M5_NOISE.md)
+
+### Notas sobre a Execução dos Modelos
+- **M1 (Caixa), M2 (Suave), M3 (Trapezoidal), M4 (Comparador):** Rodam nativamente no Windows/Mac.
+- **M5 (Físico Mandel & Agol), Sensibilidade e Ruído:** Exigem a biblioteca `exoplanet` e compiladores C++. Portanto, execute-os exclusivamente via **Linux/WSL ou Google Colab**.
 
 Resumo da comparação:
 
