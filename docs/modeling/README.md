@@ -1,77 +1,35 @@
-# Documentação de Modelagem Bayesiana
+# Modelagem Bayesiana
 
-Esta pasta documenta as etapas de modelagem bayesiana do projeto.
+## Modelo atual
 
-As etapas de modelagem leem artefatos preparados na Gold e geram saídas em:
+[M5 — trânsito físico parametrizado](bayesian_physical_transit/README.md) é o
+workflow recomendado. Ele usa a Gold segmentada, configuração autoritativa de
+alvo, integração de exposição, NUTS, log-likelihood pontual, prior/PPC e gates
+explícitos.
 
-```text
-models/
-reports/
-figures/
-tables/
-notebooks/
-scripts/
-```
+Código e entradas:
 
-Elas não devem modificar:
+- `src/bayesian_modeling/physical_transit.py` — implementação compartilhada;
+- `src/bayesian_modeling/contracts.py` — paths, priors, gates e comparação;
+- `scripts/run_bayesian_physical_transit.py` — CLI genérica;
+- `scripts/run_kepler_10b.py` — CLI fina com alvo Kepler-10 b;
+- `data/gold/<target>/modeling/transit_window_lightcurve.csv` — única entrada.
 
-```text
-data/raw/
-data/silver/
-data/gold/
-```
+Os artefatos são isolados por família, alvo e `run_id` em `models/`, `tables/`
+e `figures/`; o relatório contém alvo e run no nome.
 
-## Modelos Documentados
+## Modelos históricos
 
-1. [bayesian_baseline_hat_p_7_b](bayesian_baseline_hat_p_7_b/README.md)  
-   M1 - baseline bayesiano simples do tipo box transit para HAT-P-7 b,
-   incluindo a execução robusta `002_nuts_robust` com NUTS.
+As pastas M1, M2, M3 e a comparação antiga de HAT-P-7 b são snapshots do
+desenvolvimento incremental. Elas permanecem para rastreabilidade, mas não
+descrevem o M5 atual e não são automaticamente comparáveis ao dataset
+Kepler-10 b endurecido:
 
-2. [bayesian_predictive_phase_regression_hat_p_7_b](bayesian_predictive_phase_regression_hat_p_7_b/README.md)  
-   M2 - regressão bayesiana preditiva de fluxo normalizado em função da fase,
-   usando funções de base radial gaussianas fixas.
+- [M1 box transit](bayesian_baseline_hat_p_7_b/README.md);
+- [M2 regressão preditiva](bayesian_predictive_phase_regression_hat_p_7_b/README.md);
+- [M3 trapézio](bayesian_trapezoid_transit_hat_p_7_b/README.md);
+- [comparação histórica](model_comparison_hat_p_7_b/README.md).
 
-3. [bayesian_trapezoid_transit_hat_p_7_b](bayesian_trapezoid_transit_hat_p_7_b/README.md)  
-   M3 - modelo bayesiano trapezoidal para HAT-P-7 b, estimando profundidade,
-   centro, duração total aproximada e ingresso/egresso.
-
-4. [model_comparison_hat_p_7_b](model_comparison_hat_p_7_b/README.md)  
-   M4 - comparação entre M1, M2 e M3, com parâmetros, diagnósticos, métricas
-   preditivas, resíduos e recomendação de resultado principal preliminar.
-
-## Observação
-
-A modelagem está planejada como uma sequência incremental:
-
-- M1: baseline box transit;
-- M2: modelo bayesiano preditivo de fluxo em função da fase;
-- M3: modelo trapezoidal aproximado;
-- M4: comparação entre modelos.
-
-M1 não é conclusão final do TCC. Ele serve como baseline comparativo. A
-execução recomendada para interpretar o M1 é:
-
-```text
-models/bayesian_baseline/hat_p_7_b/runs/002_nuts_robust/
-```
-
-M2 também não é conclusão final. Ele serve como modelo preditivo intermediário
-para avaliar uma curva suave de fluxo por fase:
-
-```text
-models/bayesian_predictive_phase_regression/hat_p_7_b/runs/001_nuts/
-```
-
-M3 também não é conclusão final. Ele serve como modelo paramétrico aproximado,
-mais interpretável que o M2 e mais flexível que o M1:
-
-```text
-models/bayesian_trapezoid_transit/hat_p_7_b/runs/001_nuts/
-```
-
-M4 não ajusta novo modelo. Ele compara os modelos anteriores e recomenda M3
-como resultado principal preliminar:
-
-```text
-models/model_comparison/hat_p_7_b/
-```
+Claims e números dessas pastas devem ser citados como históricos, com o modelo,
+alvo e dataset correspondentes. A comparação formal atual obedece ao contrato
+de `scripts/run_model_comparison.py`.

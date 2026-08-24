@@ -4,26 +4,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from project_config import pipeline_planets
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA_DIR = PROJECT_ROOT / "data" / "raw"
 SILVER_DATA_DIR = PROJECT_ROOT / "data" / "silver"
-RAW_MANIFEST_PATH = RAW_DATA_DIR / "_manifests" / "raw_data_manifest.csv"
+RAW_MANIFEST_PATH = RAW_DATA_DIR / "_manifests" / "raw_data_current_state.csv"
+RAW_EVENT_LOG_PATH = RAW_DATA_DIR / "_manifests" / "raw_data_manifest.csv"
 
-PLANETS = [
-    {
-        "planet_name": "HAT-P-7 b",
-        "host_star": "HAT-P-7",
-        "planet_slug": "hat_p_7_b",
-        "priority": 1,
-    },
-    {
-        "planet_name": "Kepler-10 b",
-        "host_star": "Kepler-10",
-        "planet_slug": "kepler_10_b",
-        "priority": 2,
-    },
-]
+PLANETS = pipeline_planets()
 
 EXPECTED_MISSIONS = ("Kepler", "K2", "TESS")
 MISSION_SLUGS = ("kepler", "k2", "tess")
@@ -58,6 +48,9 @@ FITS_OUTPUT_COLUMNS = (
     "time",
     "time_unit",
     "time_reference",
+    "cadence_type",
+    "exposure_time_seconds",
+    "exposure_time_source",
     "sap_flux",
     "sap_flux_err",
     "pdcsap_flux",

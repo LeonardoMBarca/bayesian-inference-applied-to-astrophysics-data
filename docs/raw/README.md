@@ -1,5 +1,10 @@
 # Documentação RAW
 
+> Os capítulos numerados são um snapshot anterior ao hardening de 2026-08-24 e
+> ainda podem inventariar oito alvos históricos. O pipeline executável atual
+> suporta HAT-P-7 b e Kepler-10 b; use `src/project_config.py` e os manifestos
+> `raw_data_current_state.*` para o estado vigente.
+
 Esta pasta contém a documentação da camada **RAW** do datalake local.
 
 A RAW é a camada de coleta e preservação dos dados públicos brutos. Ela guarda respostas e arquivos como foram obtidos das fontes, acompanhados de manifestos, logs e checksums.

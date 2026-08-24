@@ -2,7 +2,8 @@
 
 ## 1. Objetivo
 
-Selecionar um planeta e uma missão principal para a primeira camada Gold do projeto, usando apenas artefatos já consolidados na Silver.
+Selecionar o alvo primário e a missão Gold, mantendo também o alvo de backup
+reproduzível, usando apenas artefatos consolidados na Silver.
 
 ## 2. Fontes Silver Usadas
 
@@ -44,8 +45,8 @@ Pontuação catalográfica:
 
 | planet_name | has_kepler | has_tess | kepler_fits_count | tess_fits_count | total_mast_rows | total_quality_zero_rows | score_total | recommended_role |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| HAT-P-7 b | True | False | 3 | 3 | 64872 | 54075 | 17 | reference_only |
-| Kepler-10 b | True | False | 3 | 0 | 6469 | 5267 | 15 | primary_candidate |
+| HAT-P-7 b | True | True | 3 | 3 | 64872 | 54075 | 19 | backup_candidate |
+| Kepler-10 b | True | True | 6 | 2 | 356044 | 297588 | 18 | primary_candidate |
 
 ## 5. Planeta Escolhido
 
@@ -81,10 +82,12 @@ A missão Kepler é preferida quando disponível porque fornece uma série tempo
 
 - A pontuação é simples e transparente, não uma métrica astrofísica definitiva.
 - A seleção não avalia ruído instrumental em profundidade.
-- A seleção não ajusta modelo de trânsito.
+- A seleção não ajusta modelo de trânsito; a Gold subsequente prepara ambos os alvos suportados.
 - A seleção não compara parâmetros com literatura.
 - A seleção não executa inferência bayesiana.
 
 ## 8. Próximos Passos
 
-A próxima etapa poderá usar `data/gold/kepler_10_b/modeling/transit_window_lightcurve.csv` como entrada para uma modelagem bayesiana preliminar, após revisão das escolhas de normalização, janela temporal e modelo físico.
+O M5 usa `data/gold/kepler_10_b/modeling/transit_window_lightcurve.csv`
+somente depois que a Gold registra normalização por segmento, cadência, exposição,
+`dataset_id` e proveniência FITS.

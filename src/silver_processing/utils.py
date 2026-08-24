@@ -14,6 +14,8 @@ from typing import Any
 
 import pandas as pd
 
+from portable_paths import repo_relative_posix
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -65,10 +67,7 @@ def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
 
 
 def relative_path(path: Path, project_root: Path) -> str:
-    try:
-        return str(path.resolve().relative_to(project_root.resolve()))
-    except ValueError:
-        return str(path.resolve())
+    return repo_relative_posix(path, project_root)
 
 
 def atomic_write_bytes(path: Path, content: bytes) -> None:

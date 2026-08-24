@@ -1,5 +1,7 @@
 # Documentação M3 - Bayesian Trapezoid Transit - HAT-P-7 b
 
+> Snapshot histórico específico de HAT-P-7 b. Não descreve o M5 atual.
+
 Esta pasta documenta o terceiro modelo bayesiano do projeto:
 
 ```text

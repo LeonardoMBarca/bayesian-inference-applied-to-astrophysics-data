@@ -19,6 +19,8 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+from portable_paths import repo_relative_posix
+
 
 MANIFEST_COLUMNS = (
     "collected_at_utc",
@@ -176,17 +178,19 @@ def csv_bytes(
     from io import StringIO
 
     output = StringIO(newline="")
-    writer = csv.DictWriter(output, fieldnames=list(fieldnames), extrasaction="ignore")
+    writer = csv.DictWriter(
+        output,
+        fieldnames=list(fieldnames),
+        extrasaction="ignore",
+        lineterminator="\n",
+    )
     writer.writeheader()
     writer.writerows(materialized)
     return output.getvalue().encode("utf-8")
 
 
 def relative_path(path: Path, project_root: Path) -> str:
-    try:
-        return str(path.resolve().relative_to(project_root.resolve()))
-    except ValueError:
-        return str(path.resolve())
+    return repo_relative_posix(path, project_root)
 
 
 class RawDataManifest:
@@ -196,6 +200,12 @@ class RawDataManifest:
         self.project_root = project_root
         self.csv_path = raw_dir / "_manifests" / "raw_data_manifest.csv"
         self.json_path = raw_dir / "_manifests" / "raw_data_manifest.json"
+        self.current_state_csv_path = (
+            raw_dir / "_manifests" / "raw_data_current_state.csv"
+        )
+        self.current_state_json_path = (
+            raw_dir / "_manifests" / "raw_data_current_state.json"
+        )
         self.rows: list[dict[str, Any]] = []
         if self.csv_path.exists():
             with self.csv_path.open("r", encoding="utf-8", newline="") as handle:
@@ -286,6 +296,38 @@ class RawDataManifest:
         ).encode("utf-8")
         self._replace_manifest(self.csv_path, csv_content)
         self._replace_manifest(self.json_path, json_content)
+        current_rows = self._current_state_rows()
+        self._replace_manifest(
+            self.current_state_csv_path,
+            csv_bytes(current_rows, MANIFEST_COLUMNS),
+        )
+        self._replace_manifest(
+            self.current_state_json_path,
+            (json.dumps(current_rows, indent=2, ensure_ascii=False) + "\n").encode("utf-8"),
+        )
+
+    def _current_state_rows(self) -> list[dict[str, Any]]:
+        """Return one checksum-verified row per currently existing RAW file."""
+
+        seen: set[str] = set()
+        current: list[dict[str, Any]] = []
+        for event in reversed(self.rows):
+            local_path = str(event.get("local_path", "")).replace("\\", "/").strip()
+            if not local_path or local_path in seen:
+                continue
+            seen.add(local_path)
+            absolute_path = self.project_root / Path(local_path)
+            if not absolute_path.is_file():
+                continue
+            row = {column: event.get(column, "") for column in MANIFEST_COLUMNS}
+            row["local_path"] = local_path
+            row["file_name"] = absolute_path.name
+            row["status"] = "current"
+            row["error_message"] = ""
+            row["sha256"] = sha256_file(absolute_path)
+            row["file_size_bytes"] = absolute_path.stat().st_size
+            current.append(row)
+        return sorted(current, key=lambda row: str(row["local_path"]))
 
     @staticmethod
     def _replace_manifest(path: Path, content: bytes) -> None:

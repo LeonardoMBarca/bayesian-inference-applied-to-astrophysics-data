@@ -35,42 +35,53 @@ def run_pipeline(config: Any, steps: Iterable[str] = ALL_STEPS) -> dict[str, Any
         else:
             results["selection"] = _load_existing_selection(config)
 
-        selected = results["selection"]["selected"]
-        ensure_gold_directories(config, selected["selected_planet_slug"])
-
-        if "target" in selected_steps:
-            results["target"] = build_gold_target_datasets(
-                config=config,
-                selected=selected,
-                manifest=manifest,
-                logger=logger,
-            )
-            manifest.flush()
-
-        if "validation" in selected_steps:
-            if "target" not in results:
-                raise ValueError("Validation step requires target datasets from the same run.")
-            results["validation"] = build_gold_validation_outputs(
-                config=config,
-                selected=selected,
-                target_results=results["target"],
-                manifest=manifest,
-                logger=logger,
-            )
-            manifest.flush()
-
-        if "docs" in selected_steps:
-            if "target" not in results or "validation" not in results:
-                raise ValueError("Docs step requires target and validation outputs from the same run.")
-            results["docs"] = write_gold_readme(
-                config=config,
-                selected=selected,
-                target_results=results["target"],
-                validation_results=results["validation"],
-                manifest=manifest,
-                logger=logger,
-            )
-            manifest.flush()
+        supported = results["selection"].get(
+            "supported", [results["selection"]["selected"]]
+        )
+        results["targets"] = {}
+        results["validations"] = {}
+        results["target_docs"] = {}
+        for selected in supported:
+            slug = selected["selected_planet_slug"]
+            ensure_gold_directories(config, slug)
+            if "target" in selected_steps:
+                results["targets"][slug] = build_gold_target_datasets(
+                    config=config,
+                    selected=selected,
+                    manifest=manifest,
+                    logger=logger,
+                )
+                manifest.flush()
+            if "validation" in selected_steps:
+                if slug not in results["targets"]:
+                    raise ValueError("Validation requires target datasets from the same run.")
+                results["validations"][slug] = build_gold_validation_outputs(
+                    config=config,
+                    selected=selected,
+                    target_results=results["targets"][slug],
+                    manifest=manifest,
+                    logger=logger,
+                )
+                manifest.flush()
+            if "docs" in selected_steps:
+                if slug not in results["targets"] or slug not in results["validations"]:
+                    raise ValueError("Docs require target and validation outputs from the same run.")
+                results["target_docs"][slug] = write_gold_readme(
+                    config=config,
+                    selected=selected,
+                    target_results=results["targets"][slug],
+                    validation_results=results["validations"][slug],
+                    manifest=manifest,
+                    logger=logger,
+                )
+                manifest.flush()
+        primary_slug = results["selection"]["selected"]["selected_planet_slug"]
+        if primary_slug in results["targets"]:
+            results["target"] = results["targets"][primary_slug]
+        if primary_slug in results["validations"]:
+            results["validation"] = results["validations"][primary_slug]
+        if primary_slug in results["target_docs"]:
+            results["docs"] = results["target_docs"][primary_slug]
     finally:
         manifest.flush()
 
@@ -81,7 +92,13 @@ def run_pipeline(config: Any, steps: Iterable[str] = ALL_STEPS) -> dict[str, Any
 def _load_existing_selection(config: Any) -> dict[str, Any]:
     path = config.GOLD_DATA_DIR / "selection" / "selected_gold_target.json"
     selected = json.loads(path.read_text(encoding="utf-8"))
-    return {"selected": selected}
+    supported_path = config.GOLD_DATA_DIR / "selection" / "supported_gold_targets.json"
+    supported = (
+        json.loads(supported_path.read_text(encoding="utf-8"))
+        if supported_path.exists()
+        else [selected]
+    )
+    return {"selected": selected, "supported": supported}
 
 
 def write_gold_readme(
@@ -99,13 +116,13 @@ def write_gold_readme(
     quality_rows = target_results["quality_filtered"]["rows_after"]
     phase_created = target_results["phase"].get("created", False)
     window_created = target_results["transit_window"].get("created", False)
-    content = f"""# Gold Inicial: {selected['selected_planet_name']}
+    content = f"""# Gold segmentada: {selected['selected_planet_name']}
 
 ## 1. Objetivo
 
-Esta pasta contém a primeira camada Gold do projeto.
-
-A Gold inicial prepara um dataset analítico mínimo para modelagem bayesiana futura, usando exclusivamente tabelas já consolidadas na Silver.
+Esta pasta contém a camada Gold reproduzível do alvo. Ela seleciona a cadência
+configurada, preserva identidade de segmento/FITS e tempo de exposição, normaliza
+cada segmento pela mediana fora do trânsito e prepara a janela usada pelo M5.
 
 Ela não executa inferência bayesiana.
 
@@ -185,6 +202,9 @@ Curvas:
 Modelagem futura:
 
 - `data/gold/{slug}/modeling/phase_folded_lightcurve.csv`;
+- `data/gold/{slug}/modeling/segment_normalized_lightcurve.csv`;
+- `data/gold/{slug}/modeling/segment_normalization_diagnostics.csv`;
+- `data/gold/{slug}/modeling/dataset_metadata.json`;
 - `data/gold/{slug}/modeling/transit_window_lightcurve.csv`.
 
 Validação:
@@ -208,8 +228,11 @@ Transformações permitidas e realizadas:
 - remoção de linhas sem `time`;
 - remoção de linhas sem fluxo;
 - filtro por `quality == 0`;
+- seleção explícita da cadência `{target_results['primary'].get('cadence_preference', '')}`;
 - conversão do `transit_midpoint` NASA para a escala temporal do FITS usando `BJDREFI+BJDREFF`;
 - criação de fase orbital;
+- normalização por segmento com o método `{config.SEGMENT_NORMALIZATION_METHOD}`;
+- preservação de `segment_id`, FITS de origem, quarter/sector/campaign e exposição;
 - criação de janela em torno do trânsito.
 
 Resumo:
@@ -219,6 +242,7 @@ Resumo:
 | Curva primária | {primary_rows} |
 | Curva filtrada por qualidade | {quality_rows} |
 | Curva faseada | {target_results['phase'].get('rows', 0)} |
+| Curva normalizada por segmento | {target_results['segment_normalization'].get('rows', 0)} |
 | Janela de trânsito | {target_results['transit_window'].get('rows', 0)} |
 
 ## 7. O Que Não Foi Feito
@@ -239,10 +263,11 @@ Não foram feitos:
 ## 8. Limitações
 
 - A janela de trânsito é uma seleção inicial para modelagem futura.
-- O fluxo não foi normalizado nesta etapa.
+- Não foi aplicado detrending polinomial adicional; a hipótese é o uso de
+  `PDCSAP_FLUX` seguido somente da normalização explícita por segmento.
 - O filtro de qualidade usa apenas `quality == 0`.
 - A seleção de candidato é transparente, mas não é uma métrica astrofísica definitiva.
-- A modelagem ainda precisa definir priors, likelihood, modelo físico e diagnóstico posterior.
+- A interpretação posterior depende dos gates computacionais, preditivos e científicos do M5.
 
 Warnings:
 

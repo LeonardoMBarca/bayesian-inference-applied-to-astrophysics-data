@@ -1,5 +1,9 @@
 # Documentação Gold
 
+> Snapshot histórico da Gold inicial de HAT-P-7 b. A Gold atual constrói os dois
+> alvos, preserva segmentos/exposição e normaliza por segmento. Consulte
+> `data/gold/<target>/docs/README_gold.md` e `dataset_metadata.json`.
+
 Esta pasta documenta a camada **Gold inicial** do datalake local do TCC.
 
 A Gold foi construída a partir da Silver, sem modificar a RAW e sem modificar a

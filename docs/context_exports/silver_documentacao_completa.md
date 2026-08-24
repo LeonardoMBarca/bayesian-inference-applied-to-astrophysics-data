@@ -1,4 +1,6 @@
 # Documentacao Completa Silver
+> Snapshot histórico gerado antes do hardening de 2026-08-24. Consulte os artefatos atuais antes de reutilizar schemas ou contagens.
+
 Documento consolidado para uso como contexto em GPT.
 - Gerado em UTC: `2026-06-16T15:47:14+00:00`
 - Pasta de origem: `docs/silver`

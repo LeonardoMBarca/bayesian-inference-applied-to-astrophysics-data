@@ -1,0 +1,321 @@
+{
+  "created_at_utc": "2026-08-24T03:39:40+00:00",
+  "model_name": "M5_bayesian_physical_transit",
+  "run_id": "smoke_004",
+  "target": {
+    "planet_name": "Kepler-10 b",
+    "host_star": "Kepler-10",
+    "planet_slug": "kepler_10_b",
+    "mission": "Kepler",
+    "priority": 2,
+    "orbital_period_days": 0.8374907,
+    "transit_midpoint_bjd": 2455034.08687,
+    "transit_duration_hours": 1.811,
+    "transit_depth_percent": 0.01919,
+    "planet_radius_earth": 1.47,
+    "stellar_radius_solar": 1.065,
+    "cadence_preference": "short",
+    "phase_window_days": 0.15,
+    "baseline_min_abs_phase_days": 0.08,
+    "baseline_max_abs_phase_days": 0.15,
+    "exposure_oversample": 15,
+    "transit_duration_days": 0.07545833333333334,
+    "transit_depth_fraction": 0.00019189999999999998,
+    "reference_radius_ratio_from_depth": 0.013852797551397334,
+    "source_gold_path": "data/gold/kepler_10_b/modeling/transit_window_lightcurve.csv"
+  },
+  "sampling": {
+    "sampler": "NUTS",
+    "draws": 20,
+    "tune": 20,
+    "chains": 2,
+    "cores": 2,
+    "target_accept": 0.9,
+    "random_seed": 42,
+    "retry_history": []
+  },
+  "input_summary": {
+    "initial_rows_gold_window": 40836,
+    "rows_after_phase_filter": 40836,
+    "rows_after_quality_filter": 40836,
+    "rows_after_missing_filter": 40836,
+    "rows_after_positive_scale_filter": 40836,
+    "rows_before_stratified_phase_thinning": 40836,
+    "rows_after_stratified_phase_thinning": 3000,
+    "rows_used": 3000,
+    "sampling_of_gold_rows": {
+      "method": "deterministic phase-uniform selection within each segment",
+      "max_points_per_segment": 1000,
+      "preserves": [
+        "segment_id",
+        "source_fits_file",
+        "exposure_time_seconds"
+      ]
+    },
+    "dataset_id": "kepler_10_b-06a6ce6b0b39f5b4",
+    "preprocessing_status": "segment_normalized",
+    "segment_count": 3,
+    "source_fits_count": 3,
+    "median_exposure_seconds": 58.84876286472961,
+    "baseline_region_count": 1411,
+    "phase_min_days": -0.1499995177153632,
+    "phase_max_days": 0.1499978128345116,
+    "normalized_flux_median": 0.999956116365929,
+    "normalized_flux_mean": 0.999935909476796,
+    "normalized_flux_std": 0.0003109472395739003,
+    "normalized_flux_err_median": 0.00021125003695715003,
+    "reference_radius_ratio_from_catalog_depth": 0.013852797551397334
+  },
+  "diagnostics": {
+    "max_r_hat": 3.10433584,
+    "min_ess": 3.64260666,
+    "divergences": 0,
+    "acceptance_mean": 0.9269611890210037,
+    "bfmi_min": null
+  },
+  "posterior_scale_checks": {
+    "extra_sigma_mean": 0.01251956,
+    "measurement_sigma_median": 0.00021125003695715003,
+    "extra_sigma_to_measurement_sigma": 59.26417898113537,
+    "radius_ratio_prior_lower": 0.001,
+    "radius_ratio_prior_upper": 0.25,
+    "radius_ratio_boundary_width": 0.00249,
+    "radius_ratio_boundary_fraction": 0.0,
+    "reference_radius_ratio_from_catalog_depth": 0.013852797551397334
+  },
+  "interpretation_gate": {
+    "sampler_converged": false,
+    "posterior_predictive_adequate": false,
+    "scientifically_interpretable": false,
+    "rejection_reasons": [
+      "max_r_hat=3.10433584 exceeds 1.01",
+      "min_ess=3.64260666 is below 400",
+      "bfmi_min=None is unavailable or below 0.30",
+      "94% coverage=1.0 is outside [0.80, 0.99]",
+      "standardized residual std=0.02528347439506499 is outside [0.5, 2.0]",
+      "extra_sigma/measurement_sigma=59.26417898113537 exceeds review threshold 20"
+    ],
+    "component_reasons": {
+      "sampler": [
+        "max_r_hat=3.10433584 exceeds 1.01",
+        "min_ess=3.64260666 is below 400",
+        "bfmi_min=None is unavailable or below 0.30"
+      ],
+      "posterior_predictive": [
+        "94% coverage=1.0 is outside [0.80, 0.99]",
+        "standardized residual std=0.02528347439506499 is outside [0.5, 2.0]"
+      ],
+      "scientific": [
+        "extra_sigma/measurement_sigma=59.26417898113537 exceeds review threshold 20"
+      ]
+    },
+    "thresholds": {
+      "max_r_hat": 1.01,
+      "min_ess": 400,
+      "divergences": 0,
+      "min_bfmi": 0.3,
+      "max_jitter_ratio": 20.0,
+      "max_radius_ratio_boundary_fraction": 0.05
+    }
+  },
+  "posterior_summary": [
+    {
+      "parameter": "baseline",
+      "mean": 0.99987419,
+      "sd": 0.00024568,
+      "hdi94_lb": 0.99940373,
+      "hdi94_ub": 1.00028825,
+      "ess_bulk": 11.84490626,
+      "ess_tail": 14.0803173,
+      "r_hat": 1.49240484,
+      "mcse_mean": 7.279e-05,
+      "mcse_sd": 5.025e-05
+    },
+    {
+      "parameter": "r",
+      "mean": 0.10440553,
+      "sd": 0.03270923,
+      "hdi94_lb": 0.0708862,
+      "hdi94_ub": 0.13803438,
+      "ess_bulk": 3.73950074,
+      "ess_tail": 6.46319569,
+      "r_hat": 2.80344803,
+      "mcse_mean": 0.01814282,
+      "mcse_sd": 0.00038467
+    },
+    {
+      "parameter": "b",
+      "mean": 0.44340653,
+      "sd": 0.04007655,
+      "hdi94_lb": 0.39884365,
+      "hdi94_ub": 0.48681088,
+      "ess_bulk": 4.03972272,
+      "ess_tail": 7.28744939,
+      "r_hat": 2.34989362,
+      "mcse_mean": 0.022214,
+      "mcse_sd": 0.00138136
+    },
+    {
+      "parameter": "a",
+      "mean": 30.84963742,
+      "sd": 1.08300384,
+      "hdi94_lb": 29.68425238,
+      "hdi94_ub": 31.99117717,
+      "ess_bulk": 4.52401644,
+      "ess_tail": 10.79027356,
+      "r_hat": 1.84164803,
+      "mcse_mean": 0.59983042,
+      "mcse_sd": 0.03847727
+    },
+    {
+      "parameter": "t0",
+      "mean": -0.18490812,
+      "sd": 0.47130298,
+      "hdi94_lb": -0.96791971,
+      "hdi94_ub": 0.32941018,
+      "ess_bulk": 3.65602967,
+      "ess_tail": 6.46319569,
+      "r_hat": 3.05511959,
+      "mcse_mean": 0.25895464,
+      "mcse_sd": 0.06905611
+    },
+    {
+      "parameter": "q1",
+      "mean": 0.39032776,
+      "sd": 0.02486709,
+      "hdi94_lb": 0.36382461,
+      "hdi94_ub": 0.41824747,
+      "ess_bulk": 4.09107523,
+      "ess_tail": 9.32642487,
+      "r_hat": 2.28316461,
+      "mcse_mean": 0.01375956,
+      "mcse_sd": 0.0012196
+    },
+    {
+      "parameter": "q2",
+      "mean": 0.43127424,
+      "sd": 0.11847523,
+      "hdi94_lb": 0.31224351,
+      "hdi94_ub": 0.55420653,
+      "ess_bulk": 3.83505977,
+      "ess_tail": 8.91089109,
+      "r_hat": 2.81374216,
+      "mcse_mean": 0.06571614,
+      "mcse_sd": 0.00094894
+    },
+    {
+      "parameter": "u[0]",
+      "mean": 0.53391933,
+      "sd": 0.13088489,
+      "hdi94_lb": 0.40078099,
+      "hdi94_ub": 0.67087199,
+      "ess_bulk": 4.01260437,
+      "ess_tail": 6.56934307,
+      "r_hat": 2.29188159,
+      "mcse_mean": 0.07259792,
+      "mcse_sd": 0.00166115
+    },
+    {
+      "parameter": "u[1]",
+      "mean": 0.09052557,
+      "sd": 0.15068961,
+      "hdi94_lb": -0.06561714,
+      "hdi94_ub": 0.24268476,
+      "ess_bulk": 3.8974068,
+      "ess_tail": 8.91089109,
+      "r_hat": 2.50097797,
+      "mcse_mean": 0.08358491,
+      "mcse_sd": 0.00121642
+    },
+    {
+      "parameter": "extra_sigma",
+      "mean": 0.01251956,
+      "sd": 0.00939649,
+      "hdi94_lb": 0.00296691,
+      "hdi94_ub": 0.0267194,
+      "ess_bulk": 3.64260666,
+      "ess_tail": 6.46319569,
+      "r_hat": 3.10433584,
+      "mcse_mean": 0.00515286,
+      "mcse_sd": 0.0015514
+    },
+    {
+      "parameter": "depth",
+      "mean": 0.01197041,
+      "sd": 0.00682984,
+      "hdi94_lb": 0.00502486,
+      "hdi94_ub": 0.01905349,
+      "ess_bulk": 3.73950074,
+      "ess_tail": 6.46319569,
+      "r_hat": 2.80344803,
+      "mcse_mean": 0.0037883,
+      "mcse_sd": 7.844e-05
+    },
+    {
+      "parameter": "rp_rs",
+      "mean": 0.10440553,
+      "sd": 0.03270923,
+      "hdi94_lb": 0.0708862,
+      "hdi94_ub": 0.13803438,
+      "ess_bulk": 3.73950074,
+      "ess_tail": 6.46319569,
+      "r_hat": 2.80344803,
+      "mcse_mean": 0.01814282,
+      "mcse_sd": 0.00038467
+    },
+    {
+      "parameter": "full_duration",
+      "mean": 0.00875568,
+      "sd": 0.00046506,
+      "hdi94_lb": 0.00826674,
+      "hdi94_ub": 0.00925077,
+      "ess_bulk": 4.08697735,
+      "ess_tail": 10.79027356,
+      "r_hat": 2.24693139,
+      "mcse_mean": 0.00025776,
+      "mcse_sd": 1.51e-05
+    }
+  ],
+  "derived_parameters": {
+    "depth_fraction_mean": 0.01197041,
+    "depth_fraction_hdi_3": NaN,
+    "depth_fraction_hdi_97": NaN,
+    "depth_percent_mean": 1.197041,
+    "rp_rs_mean": 0.10440553,
+    "rp_rs_hdi_3": NaN,
+    "rp_rs_hdi_97": NaN,
+    "transit_center_days_mean": -0.18490812,
+    "transit_center_days_hdi_3": NaN,
+    "transit_center_days_hdi_97": NaN,
+    "impact_parameter_mean": 0.44340653,
+    "scaled_semimajor_axis_mean": 30.84963742,
+    "full_duration_days_mean": 0.00875568,
+    "full_duration_days_hdi_3": NaN,
+    "full_duration_days_hdi_97": NaN,
+    "full_duration_hours_mean": 0.21013632,
+    "orbital_period_days_used": 0.8374907,
+    "interpretation_note": "Quadratic limb-darkened circular Keplerian transit with fixed orbital period and exposure integration; scientific interpretation is conditional on the gates."
+  },
+  "curve_metrics": {
+    "grid_rows": 300,
+    "model_min_mean": 0.9995558227756656,
+    "phase_at_min_model_mean_days": -0.13294314381270902
+  },
+  "residual_metrics": {
+    "residual_mean": 7.255832552723785e-05,
+    "residual_median": 9.268557316011172e-05,
+    "residual_std": 0.00031658306447935025,
+    "standardized_residual_mean": 0.0057948143169474185,
+    "standardized_residual_std": 0.02528347439506499,
+    "posterior_predictive_interval_94_coverage_observed_points": 1.0
+  },
+  "artifacts": {
+    "trace": "models/bayesian_physical_transit/kepler_10_b/runs/smoke_004/trace.nc",
+    "posterior_summary": "tables/bayesian_physical_transit/kepler_10_b/runs/smoke_004/posterior_summary.csv",
+    "derived_summary": "tables/bayesian_physical_transit/kepler_10_b/runs/smoke_004/derived_parameters_summary.csv",
+    "curve_summary": "tables/bayesian_physical_transit/kepler_10_b/runs/smoke_004/physical_curve_summary.csv",
+    "posterior_predictive_summary": "tables/bayesian_physical_transit/kepler_10_b/runs/smoke_004/posterior_predictive_summary.csv",
+    "residual_summary": "tables/bayesian_physical_transit/kepler_10_b/runs/smoke_004/residual_summary.csv",
+    "report": "reports/bayesian_physical_transit_kepler_10_b_smoke_004_report.md"
+  }
+}

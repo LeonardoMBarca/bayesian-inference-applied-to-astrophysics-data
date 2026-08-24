@@ -1,5 +1,7 @@
 # Documentação M1 - Bayesian Baseline - HAT-P-7 b
 
+> Snapshot histórico específico de HAT-P-7 b. Não descreve o M5 atual.
+
 Esta pasta documenta o primeiro modelo bayesiano preliminar do projeto:
 
 ```text

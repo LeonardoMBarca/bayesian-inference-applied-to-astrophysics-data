@@ -4,14 +4,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from project_config import pipeline_planets
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA_DIR = PROJECT_ROOT / "data" / "raw"
 
-PLANETS = [
-    {"planet_name": "HAT-P-7 b", "host_star": "HAT-P-7", "priority": 1},
-    {"planet_name": "Kepler-10 b", "host_star": "Kepler-10", "priority": 2},
-]
+PLANETS = pipeline_planets()
 
 PREFERRED_MISSIONS = ("Kepler", "K2", "TESS")
 MAX_LIGHTCURVES_PER_MISSION = 3

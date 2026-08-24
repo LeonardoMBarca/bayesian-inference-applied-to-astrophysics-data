@@ -4,22 +4,24 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from project_config import (
+    BACKUP_GOLD_TARGET_SLUG,
+    GOLD_DATASET_SCHEMA_VERSION,
+    PRIMARY_GOLD_TARGET_SLUG,
+    TARGETS_BY_SLUG,
+    pipeline_planets,
+)
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA_DIR = PROJECT_ROOT / "data" / "raw"
 SILVER_DATA_DIR = PROJECT_ROOT / "data" / "silver"
 GOLD_DATA_DIR = PROJECT_ROOT / "data" / "gold"
 
-PRIMARY_CANDIDATE = {
-    "planet_name": "Kepler-10 b",
-    "host_star": "Kepler-10",
-    "planet_slug": "kepler_10_b",
-}
-BACKUP_CANDIDATE = {
-    "planet_name": "TrES-2 b",
-    "host_star": "TrES-2",
-    "planet_slug": "tres_2_b",
-}
+SUPPORTED_TARGETS = pipeline_planets()
+PRIMARY_CANDIDATE = TARGETS_BY_SLUG[PRIMARY_GOLD_TARGET_SLUG].pipeline_dict()
+BACKUP_CANDIDATE = TARGETS_BY_SLUG[BACKUP_GOLD_TARGET_SLUG].pipeline_dict()
+DATASET_SCHEMA_VERSION = GOLD_DATASET_SCHEMA_VERSION
 
 PREFERRED_MISSIONS = ("Kepler", "TESS")
 EXPECTED_MISSIONS = ("Kepler", "K2", "TESS")
@@ -36,10 +38,14 @@ TRANSIT_WINDOW_DURATION_MULTIPLIER = 3.0
 TRANSIT_WINDOW_MIN_HALF_WIDTH_DAYS = 0.2
 MAX_POINTS_PER_DATASET: int | None = None
 
+SEGMENT_NORMALIZATION_METHOD = "out_of_transit_median"
+SEGMENT_BASELINE_DURATION_MULTIPLIER = 1.5
+SEGMENT_MIN_BASELINE_POINTS = 20
 NORMALIZATION_POLICY = (
-    "No normalization is applied in this initial GOLD layer. Flux values are "
-    "selected from PDCSAP_FLUX when available, with SAP_FLUX fallback only if "
-    "the preferred column is not usable."
+    "Quality-filtered flux is phase-folded with segment identity preserved, "
+    "then divided by the out-of-transit median of each source FITS segment. "
+    "No polynomial detrending is applied because PDCSAP_FLUX is already "
+    "systematics-corrected; before/after segment diagnostics are persisted."
 )
 
 SILVER_PATHS = {

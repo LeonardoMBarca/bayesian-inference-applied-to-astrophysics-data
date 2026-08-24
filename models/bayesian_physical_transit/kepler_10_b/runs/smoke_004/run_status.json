@@ -1,0 +1,33 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-08-24T03:38:54+00:00",
+  "finished_at_utc": "2026-08-24T03:39:41+00:00",
+  "model_name": "M5_bayesian_physical_transit",
+  "run_id": "smoke_004",
+  "target": {
+    "planet_name": "Kepler-10 b",
+    "host_star": "Kepler-10",
+    "planet_slug": "kepler_10_b",
+    "mission": "Kepler",
+    "priority": 2,
+    "orbital_period_days": 0.8374907,
+    "transit_midpoint_bjd": 2455034.08687,
+    "transit_duration_hours": 1.811,
+    "transit_depth_percent": 0.01919,
+    "planet_radius_earth": 1.47,
+    "stellar_radius_solar": 1.065,
+    "cadence_preference": "short",
+    "phase_window_days": 0.15,
+    "baseline_min_abs_phase_days": 0.08,
+    "baseline_max_abs_phase_days": 0.15,
+    "exposure_oversample": 15,
+    "transit_duration_days": 0.07545833333333334,
+    "transit_depth_fraction": 0.00019189999999999998,
+    "reference_radius_ratio_from_depth": 0.013852797551397334,
+    "source_gold_path": "data/gold/kepler_10_b/modeling/transit_window_lightcurve.csv"
+  },
+  "error_type": "ValueError",
+  "error_message": "Keyword arguments ['compact'] have been passed as **kwargs but have no active aesthetic mapped to them. Keyword arguments must define values to use in their respective aesthetic mapping.",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/bayesian_modeling/physical_transit.py\", line 1064, in run_m5\n    result = _run_m5_unchecked(\n        target_slug=target_slug,\n    ...<2 lines>...\n        sampling_overrides=sampling_overrides,\n    )\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/bayesian_modeling/physical_transit.py\", line 1019, in _run_m5_unchecked\n    save_figures(paths, prepared, idata, curve, residuals)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/bayesian_modeling/physical_transit.py\", line 911, in save_figures\n    axes = az.plot_trace(idata, var_names=variables, compact=True)\n  File \"/home/leonardo_barca/mc3/lib/python3.14/site-packages/arviz_plots/plots/trace_plot.py\", line 142, in plot_trace\n    plot_collection = PlotCollection.wrap(\n        distribution,\n        backend=backend,\n        **pc_kwargs,\n    )\n  File \"/home/leonardo_barca/mc3/lib/python3.14/site-packages/arviz_plots/plot_collection.py\", line 907, in wrap\n    return cls(data, viz_dt, backend=backend, **kwargs)\n  File \"/home/leonardo_barca/mc3/lib/python3.14/site-packages/arviz_plots/plot_collection.py\", line 270, in __init__\n    self._aes_dt = self.generate_aes_dt(aes, data, **kwargs)\n                   ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/leonardo_barca/mc3/lib/python3.14/site-packages/arviz_plots/plot_collection.py\", line 546, in generate_aes_dt\n    raise ValueError(\n    ...<3 lines>...\n    )\nValueError: Keyword arguments ['compact'] have been passed as **kwargs but have no active aesthetic mapped to them. Keyword arguments must define values to use in their respective aesthetic mapping.\n",
+  "scientifically_interpretable": false
+}

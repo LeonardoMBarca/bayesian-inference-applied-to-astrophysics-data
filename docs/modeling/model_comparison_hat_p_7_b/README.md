@@ -1,5 +1,8 @@
 # Documentação M4 - Comparação de Modelos - HAT-P-7 b
 
+> Snapshot histórico. O ranking antigo não satisfaz automaticamente o contrato
+> atual de dataset/checksum/likelihood/log-likelihood/gates.
+
 Esta pasta documenta a quarta etapa de modelagem do projeto:
 
 ```text

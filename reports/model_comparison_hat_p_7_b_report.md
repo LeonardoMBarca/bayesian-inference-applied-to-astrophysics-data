@@ -1,5 +1,7 @@
 # M4 - Comparação de Modelos - HAT-P-7 b
 
+> Snapshot histórico; o ranking não satisfaz automaticamente o contrato formal atual.
+
 ## 1. Objetivo do M4
 
 O M4 compara os modelos M1, M2 e M3 já ajustados para HAT-P-7 b. Ele não cria

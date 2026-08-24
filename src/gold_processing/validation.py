@@ -18,7 +18,12 @@ SUMMARY_COLUMNS = (
     "rows_primary",
     "rows_quality_filtered",
     "rows_phase_folded",
+    "rows_segment_normalized",
     "rows_transit_window",
+    "dataset_id",
+    "segment_count",
+    "cadence_types",
+    "median_exposure_seconds",
     "time_min",
     "time_max",
     "flux_min",
@@ -52,6 +57,7 @@ def build_gold_validation_outputs(
     quality = read_csv(target_results["quality_filtered"]["path"])
     phase_result = target_results["phase"]
     window_result = target_results["transit_window"]
+    normalization_result = target_results["segment_normalization"]
     phase = read_csv(phase_result["path"]) if phase_result.get("created") else pd.DataFrame()
     window = read_csv(window_result["path"]) if window_result.get("created") else pd.DataFrame()
     reference = target_results["reference"]
@@ -69,7 +75,22 @@ def build_gold_validation_outputs(
                 "rows_primary": len(primary),
                 "rows_quality_filtered": len(quality),
                 "rows_phase_folded": len(phase),
+                "rows_segment_normalized": normalization_result.get("rows", 0),
                 "rows_transit_window": len(window),
+                "dataset_id": normalization_result.get("dataset_id", ""),
+                "segment_count": normalization_result.get("segments", 0),
+                "cadence_types": "|".join(
+                    sorted(
+                        set(
+                            quality.get("cadence_type", pd.Series(dtype=str))
+                            .dropna()
+                            .astype(str)
+                        )
+                    )
+                ),
+                "median_exposure_seconds": to_number(
+                    quality.get("exposure_time_seconds", pd.Series(dtype=float))
+                ).median(),
                 "time_min": to_number(primary["time"]).min(),
                 "time_max": to_number(primary["time"]).max(),
                 "flux_min": flux.min(),
@@ -179,16 +200,21 @@ Política:
 {markdown_table(summary, list(summary.columns))}
 ## 5. Filtros Aplicados
 
-Foram aplicadas somente transformações mínimas:
+Foram aplicadas transformações explícitas e rastreáveis:
 
 - seleção de colunas relevantes;
 - remoção de linhas sem `time`;
 - remoção de linhas sem fluxo;
 - filtro `quality == {config.QUALITY_GOOD_VALUE}` na curva filtrada;
+- seleção da cadência exigida pela configuração autoritativa do alvo;
 - criação de fase orbital quando a escala temporal foi reconciliada;
+- normalização separada de cada `segment_id` pela mediana fora do trânsito;
+- preservação do FITS de origem e do tempo de exposição;
 - seleção de janela em torno do trânsito.
 
-Não houve normalização de fluxo.
+Não houve concatenação seguida de normalização global. Não foi aplicado
+detrending polinomial adicional: a hipótese registrada é usar `PDCSAP_FLUX` e
+remover apenas offsets multiplicativos entre segmentos.
 
 ## 6. Problemas de Tempo e Fase
 
@@ -200,11 +226,10 @@ Warnings registrados:
 
 ## 7. Limitações
 
-- A Gold inicial ainda não executa modelagem física.
-- A Gold inicial ainda não executa inferência bayesiana.
-- A Gold inicial não escolhe modelo de ruído.
-- A Gold inicial não compara resultados com literatura.
-- A janela de trânsito é uma seleção operacional inicial, não um ajuste.
+- A Gold não executa modelagem física nem inferência bayesiana; isso pertence ao M5.
+- A normalização por mediana não modela tendências temporais residuais.
+- O dataset registra jitter instrumental/estelar somente como limitação; não o remove.
+- A janela de trânsito é uma seleção configurada, não um ajuste.
 
 ## 8. Recomendação Para Modelagem
 
@@ -214,11 +239,6 @@ Usar como entrada principal:
 data/gold/{selected['selected_planet_slug']}/modeling/transit_window_lightcurve.csv
 ```
 
-Antes da modelagem bayesiana, revisar:
-
-- normalização;
-- tratamento de incertezas;
-- escolha do modelo físico;
-- priors;
-- diagnóstico de qualidade da curva.
+O M5 deve verificar `preprocessing_status=segment_normalized`, `dataset_id`,
+identidade do alvo, exposição e checksums antes de inferir.
 """

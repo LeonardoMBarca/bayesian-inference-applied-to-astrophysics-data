@@ -1,0 +1,46 @@
+{
+  "comparison_contract": {
+    "formal_comparison_valid": false,
+    "rejection_reasons": [
+      "dataset IDs differ or are missing: ['']",
+      "modeling-input checksums differ or are missing",
+      "likelihood definitions differ",
+      "run 002_nuts_robust has no pointwise log likelihood",
+      "run 002_nuts_robust did not pass the scientific interpretation gate",
+      "run 001_nuts has no pointwise log likelihood",
+      "run 001_nuts did not pass the scientific interpretation gate"
+    ],
+    "allowed_metrics": [],
+    "always_separate_metrics": [
+      "RMSE",
+      "MAE",
+      "heuristic structural score"
+    ]
+  },
+  "runs": [
+    "002_nuts_robust",
+    "001_nuts"
+  ],
+  "formal_bayesian_metrics": null,
+  "predictive_metrics": [
+    {
+      "run_id": "002_nuts_robust",
+      "rmse": null,
+      "mae": null,
+      "ppc_94_coverage": null,
+      "scientifically_interpretable": false
+    },
+    {
+      "run_id": "001_nuts",
+      "rmse": null,
+      "mae": null,
+      "ppc_94_coverage": 1.0,
+      "scientifically_interpretable": false
+    }
+  ],
+  "heuristic_structural_scores": {
+    "status": "not_computed",
+    "reason": "No heuristic score is mixed with predictive or formal Bayesian metrics."
+  },
+  "interpretation": "Formal comparison rejected; no LOO/WAIC/ELPD ranking was computed."
+}

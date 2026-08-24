@@ -1,17 +1,17 @@
-# Gold Inicial: HAT-P-7 b
+# Gold segmentada: HAT-P-7 b
 
 ## 1. Objetivo
 
-Esta pasta contém a primeira camada Gold do projeto.
-
-A Gold inicial prepara um dataset analítico mínimo para modelagem bayesiana futura, usando exclusivamente tabelas já consolidadas na Silver.
+Esta pasta contém a camada Gold reproduzível do alvo. Ela seleciona a cadência
+configurada, preserva identidade de segmento/FITS e tempo de exposição, normaliza
+cada segmento pela mediana fora do trânsito e prepara a janela usada pelo M5.
 
 Ela não executa inferência bayesiana.
 
 Data de geração:
 
 ```text
-2026-08-24T01:15:24+00:00
+2026-08-24T09:44:26+00:00
 ```
 
 ## 2. Planeta Escolhido
@@ -37,7 +37,7 @@ hat_p_7_b
 Motivo registrado:
 
 ```text
-HAT-P-7 b selected because it satisfies the default rule: Kepler available, PDCSAP flux available, orbital period available, and more than 1000 quality==0 rows.
+Supported target included in the reproducible Gold build; scorecard remains the evidence for primary/backup ranking.
 ```
 
 Missão escolhida:
@@ -84,6 +84,9 @@ Curvas:
 Modelagem futura:
 
 - `data/gold/hat_p_7_b/modeling/phase_folded_lightcurve.csv`;
+- `data/gold/hat_p_7_b/modeling/segment_normalized_lightcurve.csv`;
+- `data/gold/hat_p_7_b/modeling/segment_normalization_diagnostics.csv`;
+- `data/gold/hat_p_7_b/modeling/dataset_metadata.json`;
 - `data/gold/hat_p_7_b/modeling/transit_window_lightcurve.csv`.
 
 Validação:
@@ -107,8 +110,11 @@ Transformações permitidas e realizadas:
 - remoção de linhas sem `time`;
 - remoção de linhas sem fluxo;
 - filtro por `quality == 0`;
+- seleção explícita da cadência `long`;
 - conversão do `transit_midpoint` NASA para a escala temporal do FITS usando `BJDREFI+BJDREFF`;
 - criação de fase orbital;
+- normalização por segmento com o método `out_of_transit_median`;
+- preservação de `segment_id`, FITS de origem, quarter/sector/campaign e exposição;
 - criação de janela em torno do trânsito.
 
 Resumo:
@@ -118,7 +124,8 @@ Resumo:
 | Curva primária | 6163 |
 | Curva filtrada por qualidade | 3909 |
 | Curva faseada | 3909 |
-| Janela de trânsito | 1664 |
+| Curva normalizada por segmento | 3909 |
+| Janela de trânsito | 1027 |
 
 ## 7. O Que Não Foi Feito
 
@@ -138,10 +145,11 @@ Não foram feitos:
 ## 8. Limitações
 
 - A janela de trânsito é uma seleção inicial para modelagem futura.
-- O fluxo não foi normalizado nesta etapa.
+- Não foi aplicado detrending polinomial adicional; a hipótese é o uso de
+  `PDCSAP_FLUX` seguido somente da normalização explícita por segmento.
 - O filtro de qualidade usa apenas `quality == 0`.
 - A seleção de candidato é transparente, mas não é uma métrica astrofísica definitiva.
-- A modelagem ainda precisa definir priors, likelihood, modelo físico e diagnóstico posterior.
+- A interpretação posterior depende dos gates computacionais, preditivos e científicos do M5.
 
 Warnings:
 

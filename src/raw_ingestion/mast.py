@@ -10,6 +10,8 @@ from urllib.parse import quote
 
 import requests
 
+from lightcurve_selection import product_ranking
+
 from .utils import (
     RawDataManifest,
     atomic_write_json,
@@ -43,6 +45,8 @@ DOWNLOAD_MANIFEST_COLUMNS = (
     "target_name",
     "product_filename",
     "data_uri",
+    "exptime_seconds",
+    "cadence_preference",
     "local_path",
     "status",
     "error_message",
@@ -75,25 +79,23 @@ def _value(table: Any, column: str, index: int) -> str:
     return str(value)
 
 
-def _preferred_indexes(table: Any, limit: int) -> list[int]:
-    author_priority = {
-        "SPOC": 0,
-        "Kepler": 0,
-        "K2": 0,
-        "TESS-SPOC": 1,
-        "QLP": 2,
-        "TASOC": 3,
-        "PATHOS": 4,
-        "CDIPS": 5,
-    }
-
-    def ranking(index: int) -> tuple[int, float, int]:
+def _preferred_indexes(
+    table: Any,
+    limit: int,
+    cadence_preference: str = "any",
+) -> list[int]:
+    def ranking(index: int) -> tuple[int, int, float, int]:
         author = _value(table, "author", index)
         try:
             exptime = float(_value(table, "exptime", index))
         except ValueError:
             exptime = 0.0
-        return author_priority.get(author, 50), -exptime, index
+        return product_ranking(
+            author=author,
+            exposure_time_seconds=exptime,
+            index=index,
+            cadence_preference=cadence_preference,
+        )
 
     return sorted(range(len(table)), key=ranking)[:limit]
 
@@ -155,8 +157,10 @@ def _collect_lightkurve_mission(
     )
     directory.mkdir(parents=True, exist_ok=True)
     search_path = directory / "search_results.csv"
-    download_manifest_path = directory / "download_manifest.csv"
-    metadata_path = directory / "metadata.json"
+    cadence_preference = str(planet.get("cadence_preference", "any"))
+    policy_id = f"cadence_{safe_slug(cadence_preference)}_v2"
+    download_manifest_path = directory / f"download_manifest_{policy_id}.csv"
+    metadata_path = directory / f"metadata_{policy_id}.json"
     search_term = f'target="{host_star}", mission="{mission}"'
 
     if download_manifest_path.exists() and search_path.exists():
@@ -321,6 +325,7 @@ def _collect_lightkurve_mission(
     selected_indexes = _preferred_indexes(
         table,
         config.MAX_LIGHTCURVES_PER_MISSION,
+        cadence_preference,
     )
     any_download_failed = False
     for index in selected_indexes:
@@ -328,6 +333,10 @@ def _collect_lightkurve_mission(
         target_name = _value(table, "target_name", index)
         product_filename = _value(table, "productFilename", index)
         data_uri = _value(table, "dataURI", index)
+        try:
+            exptime_seconds = float(_value(table, "exptime", index))
+        except ValueError:
+            exptime_seconds = 0.0
         source_url = _mast_download_url(data_uri)
         try:
             lightcurve = search_result[index].download(
@@ -350,7 +359,10 @@ def _collect_lightkurve_mission(
                 product_type="light_curve",
                 query_or_search_term=search_term,
                 status="downloaded_or_cached",
-                notes=f"MAST author={author}; original archive FITS product.",
+                notes=(
+                    f"MAST author={author}; exptime={exptime_seconds}; "
+                    f"cadence_preference={cadence_preference}; original archive FITS product."
+                ),
             )
             download_rows.append(
                 {
@@ -362,10 +374,12 @@ def _collect_lightkurve_mission(
                     "target_name": target_name,
                     "product_filename": product_filename or downloaded_path.name,
                     "data_uri": data_uri,
-                    "local_path": str(
+                    "exptime_seconds": exptime_seconds,
+                    "cadence_preference": cadence_preference,
+                    "local_path": (
                         downloaded_path.resolve().relative_to(
                             config.PROJECT_ROOT.resolve()
-                        )
+                        ).as_posix()
                     ),
                     "status": "downloaded_or_cached",
                     "error_message": "",
@@ -404,6 +418,8 @@ def _collect_lightkurve_mission(
                     "target_name": target_name,
                     "product_filename": product_filename,
                     "data_uri": data_uri,
+                    "exptime_seconds": exptime_seconds,
+                    "cadence_preference": cadence_preference,
                     "local_path": "",
                     "status": "failed",
                     "error_message": str(exc),
@@ -441,11 +457,12 @@ def _collect_lightkurve_mission(
             "search_result_count": len(table),
             "selected_product_count": len(selected_indexes),
             "download_limit": config.MAX_LIGHTCURVES_PER_MISSION,
+            "cadence_preference": cadence_preference,
             "download_manifest_created": download_manifest_created,
             "status": status,
             "selection_policy": (
-                "Prefer official SPOC/Kepler/K2 authors, then longer exposure "
-                "time to control file volume, capped per planet and mission."
+                "Prefer official SPOC/Kepler/K2 authors, then the target-specific "
+                "cadence preference, capped per planet and mission."
             ),
         },
         manifest,

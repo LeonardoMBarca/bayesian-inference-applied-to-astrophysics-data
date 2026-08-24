@@ -1,5 +1,9 @@
 # Documentação Silver
 
+> Os capítulos numerados são um snapshot anterior ao hardening de 2026-08-24.
+> Para schemas, unidades e contagens atuais prevalecem o código executável, o
+> manifesto Silver e os relatórios em `data/silver/validation/`.
+
 Esta pasta contém a documentação da camada **Silver** do datalake local.
 
 A Silver lê exclusivamente a RAW, valida os artefatos brutos e gera tabelas padronizadas, auditáveis e rastreáveis em `data/silver/`.

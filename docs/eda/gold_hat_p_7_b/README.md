@@ -1,5 +1,8 @@
 # Documentação EDA Gold - HAT-P-7 b
 
+> Snapshot histórico anterior ao hardening de 2026-08-24. Valores e
+> normalização não devem ser transferidos para Kepler-10 b.
+
 Esta pasta documenta a etapa de **EDA e diagnóstico visual** da Gold de HAT-P-7 b.
 
 A EDA foi criada para responder se o dataset Gold está adequado para iniciar uma

@@ -1,5 +1,7 @@
 # M3 - Bayesian Trapezoid Transit - HAT-P-7 b
 
+> Snapshot histórico. Não é evidência da sensibilidade de priors M5 atual.
+
 ## 1. Objetivo do M3
 
 O M3 aproxima o trânsito de HAT-P-7 b por uma forma trapezoidal bayesiana. O

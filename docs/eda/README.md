@@ -1,5 +1,8 @@
 # Documentação das Análises Exploratórias
 
+> Snapshot histórico da EDA de HAT-P-7 b anterior ao hardening de 2026-08-24;
+> não descreve o dataset Kepler-10 b ou o M5 atual.
+
 Esta pasta documenta análises exploratórias e diagnósticas realizadas após a
 criação das camadas RAW, Silver e Gold.
 

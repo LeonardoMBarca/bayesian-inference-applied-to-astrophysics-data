@@ -95,6 +95,29 @@ def build_gold_selection(
         column_count=len(selected_payload),
         notes="Machine-readable GOLD target selection decision.",
     )
+    supported_payloads: list[dict[str, Any]] = []
+    for target in config.SUPPORTED_TARGETS:
+        matching = scorecard[scorecard["planet_slug"] == target["planet_slug"]]
+        if matching.empty:
+            raise ValueError(
+                f"Supported target {target['planet_slug']!r} is absent from the Silver scorecard."
+            )
+        payload = _selected_payload(config, scorecard, matching.iloc[0])
+        payload["selection_reason"] = (
+            "Supported target included in the reproducible Gold build; scorecard remains "
+            "the evidence for primary/backup ranking."
+        )
+        supported_payloads.append(payload)
+    supported_path = selection_dir / "supported_gold_targets.json"
+    atomic_write_json(supported_path, supported_payloads)
+    manifest.add_artifact(
+        path=supported_path,
+        transformation_type="supported_gold_targets",
+        source_silver_path=path_list(config, source_paths),
+        row_count=len(supported_payloads),
+        column_count=len(supported_payloads[0]) if supported_payloads else 0,
+        notes="Complete target set built by Gold; distinct from primary ranking.",
+    )
 
     report = _selection_report(config, scorecard, selected_payload)
     report_path = selection_dir / "gold_candidate_report.md"
@@ -119,8 +142,10 @@ def build_gold_selection(
     return {
         "scorecard": scorecard,
         "selected": selected_payload,
+        "supported": supported_payloads,
         "scorecard_path": scorecard_path,
         "selected_path": selected_path,
+        "supported_path": supported_path,
         "report_path": report_path,
     }
 
@@ -159,9 +184,9 @@ def _score_candidates(config: Any) -> pd.DataFrame:
         total_rows = int(scalar_to_float(planet.get("mast_lightcurve_rows", 0)) or 0)
 
         orbital_period_available = _catalog_available(catalog, "orbital_period_days")
-        transit_midpoint_available = _catalog_available(catalog, "transit_midpoint")
+        transit_midpoint_available = _catalog_available(catalog, "transit_midpoint_bjd")
         transit_duration_available = _catalog_available(catalog, "transit_duration_hours")
-        transit_depth_available = _catalog_available(catalog, "transit_depth")
+        transit_depth_available = _catalog_available(catalog, "transit_depth_percent")
 
         availability = _availability_score(
             has_kepler="kepler" in missions,
@@ -379,7 +404,8 @@ def _selection_report(config: Any, scorecard: pd.DataFrame, selected: dict[str, 
 
 ## 1. Objetivo
 
-Selecionar um planeta e uma missão principal para a primeira camada Gold do projeto, usando apenas artefatos já consolidados na Silver.
+Selecionar o alvo primário e a missão Gold, mantendo também o alvo de backup
+reproduzível, usando apenas artefatos consolidados na Silver.
 
 ## 2. Fontes Silver Usadas
 
@@ -454,11 +480,13 @@ A missão Kepler é preferida quando disponível porque fornece uma série tempo
 
 - A pontuação é simples e transparente, não uma métrica astrofísica definitiva.
 - A seleção não avalia ruído instrumental em profundidade.
-- A seleção não ajusta modelo de trânsito.
+- A seleção não ajusta modelo de trânsito; a Gold subsequente prepara ambos os alvos suportados.
 - A seleção não compara parâmetros com literatura.
 - A seleção não executa inferência bayesiana.
 
 ## 8. Próximos Passos
 
-A próxima etapa poderá usar `data/gold/{selected['selected_planet_slug']}/modeling/transit_window_lightcurve.csv` como entrada para uma modelagem bayesiana preliminar, após revisão das escolhas de normalização, janela temporal e modelo físico.
+O M5 usa `data/gold/{selected['selected_planet_slug']}/modeling/transit_window_lightcurve.csv`
+somente depois que a Gold registra normalização por segmento, cadência, exposição,
+`dataset_id` e proveniência FITS.
 """

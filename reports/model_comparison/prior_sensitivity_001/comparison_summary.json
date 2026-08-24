@@ -1,0 +1,120 @@
+{
+  "comparison_contract": {
+    "formal_comparison_valid": true,
+    "rejection_reasons": [],
+    "allowed_metrics": [
+      "LOO",
+      "WAIC",
+      "ELPD"
+    ],
+    "always_separate_metrics": [
+      "RMSE",
+      "MAE",
+      "heuristic structural score"
+    ]
+  },
+  "runs": [
+    "sensitivity_001_catalog_tighter",
+    "scientific_002",
+    "sensitivity_001_weak"
+  ],
+  "formal_bayesian_metrics": {
+    "loo": [
+      {
+        "run_id": "sensitivity_001_catalog_tighter",
+        "elpd_loo": 20060.625013806595,
+        "se": 47.36035228595251,
+        "p_loo": 6.582343594242508,
+        "warning": true,
+        "pareto_k_gt_0_7_count": 22,
+        "pareto_k_max": 1.1633511766096205
+      },
+      {
+        "run_id": "scientific_002",
+        "elpd_loo": 20060.664195844678,
+        "se": 47.33350700451838,
+        "p_loo": 6.545660956817221,
+        "warning": true,
+        "pareto_k_gt_0_7_count": 15,
+        "pareto_k_max": 0.9735391102730196
+      },
+      {
+        "run_id": "sensitivity_001_weak",
+        "elpd_loo": 20060.63021694561,
+        "se": 47.4146613344889,
+        "p_loo": 6.594327709089571,
+        "warning": true,
+        "pareto_k_gt_0_7_count": 25,
+        "pareto_k_max": 1.017808054594768
+      }
+    ],
+    "waic": [
+      {
+        "run_id": "sensitivity_001_catalog_tighter",
+        "elpd_waic": 20060.634102173295,
+        "se": 47.35947000926388,
+        "p_waic": 6.573255227535471,
+        "warning": false,
+        "pointwise_variance_gt_0_4_count": 0,
+        "max_pointwise_log_likelihood_variance": 0.11556752869068335,
+        "n_posterior_samples": 3200,
+        "n_observations": 3000,
+        "scale": "log"
+      },
+      {
+        "run_id": "scientific_002",
+        "elpd_waic": 20060.675550495103,
+        "se": 47.33251570876188,
+        "p_waic": 6.534306306388428,
+        "warning": false,
+        "pointwise_variance_gt_0_4_count": 0,
+        "max_pointwise_log_likelihood_variance": 0.11247746349002463,
+        "n_posterior_samples": 3200,
+        "n_observations": 3000,
+        "scale": "log"
+      },
+      {
+        "run_id": "sensitivity_001_weak",
+        "elpd_waic": 20060.640294647907,
+        "se": 47.41385909677866,
+        "p_waic": 6.5842500067918355,
+        "warning": false,
+        "pointwise_variance_gt_0_4_count": 0,
+        "max_pointwise_log_likelihood_variance": 0.11050317795567025,
+        "n_posterior_samples": 3200,
+        "n_observations": 3000,
+        "scale": "log"
+      }
+    ],
+    "diagnostic_status": "warning",
+    "ranking_status": "not_ranked_due_to_diagnostic_warning"
+  },
+  "predictive_metrics": [
+    {
+      "run_id": "sensitivity_001_catalog_tighter",
+      "rmse": 0.0003026465888583325,
+      "mae": 0.0002309087226749277,
+      "ppc_94_coverage": 0.9333333333333333,
+      "scientifically_interpretable": true
+    },
+    {
+      "run_id": "scientific_002",
+      "rmse": 0.0003026474603241593,
+      "mae": 0.0002309087395758289,
+      "ppc_94_coverage": 0.9336666666666666,
+      "scientifically_interpretable": true
+    },
+    {
+      "run_id": "sensitivity_001_weak",
+      "rmse": 0.00030264659697600737,
+      "mae": 0.0002309169806386991,
+      "ppc_94_coverage": 0.9336666666666666,
+      "scientifically_interpretable": true
+    }
+  ],
+  "heuristic_structural_scores": {
+    "status": "not_computed",
+    "reason": "No heuristic score is mixed with predictive or formal Bayesian metrics."
+  },
+  "interpretation": "Formal LOO/WAIC values were computed for comparable runs, but at least one pointwise diagnostic warned. The repository does not promote these values to a reliable model ranking."
+}

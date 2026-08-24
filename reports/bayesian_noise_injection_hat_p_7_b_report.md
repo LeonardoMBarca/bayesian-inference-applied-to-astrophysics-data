@@ -1,5 +1,7 @@
 # M3 - Bayesian Trapezoid Transit - HAT-P-7 b
 
+> Snapshot histórico. A semântica atual separa ruído branco, sistemática determinística e AR(1), sem claim de recuperação correlacionada.
+
 ## 1. Objetivo do M3
 
 O M3 aproxima o trânsito de HAT-P-7 b por uma forma trapezoidal bayesiana. O

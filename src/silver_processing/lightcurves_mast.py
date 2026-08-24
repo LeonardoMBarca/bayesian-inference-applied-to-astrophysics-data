@@ -11,6 +11,8 @@ import numpy as np
 import pandas as pd
 from astropy.io import fits
 
+from lightcurve_cadence import infer_exposure_metadata
+
 from .manifests import SilverManifest
 from .utils import (
     atomic_write_dataframe,
@@ -57,6 +59,9 @@ MAST_METADATA_COLUMNS = (
     "ccd",
     "time_unit",
     "time_reference",
+    "cadence_type",
+    "exposure_time_seconds",
+    "exposure_time_source",
     "tstart",
     "tstop",
     "date_obs",
@@ -257,6 +262,17 @@ def _extract_one_fits(
         quality_numeric = pd.to_numeric(quality_values, errors="coerce")
         sap_numeric = pd.to_numeric(sap_flux, errors="coerce")
         pdcsap_numeric = pd.to_numeric(pdcsap_flux, errors="coerce")
+        finite_times = np.sort(time_numeric.dropna().to_numpy(dtype=float))
+        positive_deltas = np.diff(finite_times)
+        positive_deltas = positive_deltas[positive_deltas > 0]
+        median_time_delta_days = (
+            float(np.median(positive_deltas)) if positive_deltas.size else None
+        )
+        exposure_time_seconds, cadence_label, exposure_source = infer_exposure_metadata(
+            filename=path.name,
+            timedel=_header_get(header, primary_header, "TIMEDEL"),
+            median_time_delta_days=median_time_delta_days,
+        )
 
         data_origin = _header_get(header, primary_header, "AUTHOR") or _header_get(
             header, primary_header, "CREATOR"
@@ -291,6 +307,9 @@ def _extract_one_fits(
                 "time": time_values,
                 "time_unit": metadata_values["time_unit"],
                 "time_reference": metadata_values["time_reference"],
+                "cadence_type": cadence_label,
+                "exposure_time_seconds": exposure_time_seconds,
+                "exposure_time_source": exposure_source,
                 "sap_flux": sap_flux,
                 "sap_flux_err": _column_values(hdu, columns_upper, "SAP_FLUX_ERR", row_count),
                 "pdcsap_flux": pdcsap_flux,
@@ -362,6 +381,9 @@ def _extract_one_fits(
             "ccd": metadata_values["ccd"],
             "time_unit": metadata_values["time_unit"],
             "time_reference": metadata_values["time_reference"],
+            "cadence_type": cadence_label,
+            "exposure_time_seconds": exposure_time_seconds,
+            "exposure_time_source": exposure_source,
             "tstart": _header_get(header, primary_header, "TSTART"),
             "tstop": _header_get(header, primary_header, "TSTOP"),
             "date_obs": _header_get(header, primary_header, "DATE-OBS"),
@@ -474,6 +496,9 @@ def _failed_metadata_row(
         "ccd": "",
         "time_unit": "",
         "time_reference": "",
+        "cadence_type": "unknown",
+        "exposure_time_seconds": "",
+        "exposure_time_source": "unavailable",
         "tstart": "",
         "tstop": "",
         "date_obs": "",

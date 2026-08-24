@@ -1,0 +1,33 @@
+{
+  "schema_version": "gold-v2-segment-normalized",
+  "planet_slug": "hat_p_7_b",
+  "orbital_period_days": 2.20474,
+  "method": "out_of_transit_median",
+  "transit_exclusion_half_width_days": 0.1213175,
+  "segments": [
+    {
+      "segment_id": "kepler:kplr010666592-2009131105131_llc.fits",
+      "source_fits_file": "kplr010666592-2009131105131_llc.fits",
+      "rows": 438,
+      "exposure_time_seconds": 1765.462885941888
+    },
+    {
+      "segment_id": "kepler:kplr010666592-2009166043257_llc.fits",
+      "source_fits_file": "kplr010666592-2009166043257_llc.fits",
+      "rows": 1434,
+      "exposure_time_seconds": 1765.462885941888
+    },
+    {
+      "segment_id": "kepler:kplr010666592-2009259160929_llc.fits",
+      "source_fits_file": "kplr010666592-2009259160929_llc.fits",
+      "rows": 2037,
+      "exposure_time_seconds": 1765.462885941888
+    }
+  ],
+  "dataset_id": "hat_p_7_b-a40623cca1048e76",
+  "preprocessing_status": "segment_normalized",
+  "normalization_policy": "Quality-filtered flux is phase-folded with segment identity preserved, then divided by the out-of-transit median of each source FITS segment. No polynomial detrending is applied because PDCSAP_FLUX is already systematics-corrected; before/after segment diagnostics are persisted.",
+  "row_count": 3909,
+  "segment_count": 3,
+  "created_at_utc": "2026-08-24T09:44:25+00:00"
+}
