@@ -32,8 +32,37 @@ def classify_run(
             return "current_scientifically_interpretable"
         return "historical_gated_dataset_not_current"
     if gate:
-        return "rejected_by_current_gate"
+        return "stored_gate_rejected"
     return "historical_ungated_not_currently_interpretable"
+
+
+def interpretability_state(
+    *,
+    status: dict[str, Any],
+    gate: dict[str, Any] | None,
+    dataset_id: str | None,
+    current_dataset_id: str | None,
+) -> dict[str, bool | str | None]:
+    """Separate the stored gate result from present-day interpretability."""
+
+    classification = classify_run(
+        status=status,
+        gate=gate,
+        dataset_id=dataset_id,
+        current_dataset_id=current_dataset_id,
+    )
+    stored_gate_value = (
+        gate.get("scientifically_interpretable") if gate is not None else None
+    )
+    return {
+        "stored_gate_scientifically_interpretable": (
+            stored_gate_value if isinstance(stored_gate_value, bool) else None
+        ),
+        "currently_scientifically_interpretable": (
+            classification == "current_scientifically_interpretable"
+        ),
+        "classification": classification,
+    }
 
 
 def main() -> None:
@@ -75,6 +104,8 @@ def main() -> None:
                         if status_path.exists()
                         else None
                     ),
+                    "stored_gate_scientifically_interpretable": None,
+                    "currently_scientifically_interpretable": False,
                     "classification": "unreadable_config",
                     "error": str(exc),
                 }
@@ -90,7 +121,7 @@ def main() -> None:
             target_slug = target.get("planet_slug")
         dataset_id = nested(config, "input_summary", "dataset_id")
         current_dataset_id = current_datasets.get(str(target_slug))
-        classification = classify_run(
+        interpretability = interpretability_state(
             status=status,
             gate=gate,
             dataset_id=dataset_id,
@@ -119,17 +150,16 @@ def main() -> None:
                 "min_ess": diagnostics.get("min_ess"),
                 "divergences": diagnostics.get("divergences"),
                 "bfmi_min": diagnostics.get("bfmi_min"),
-                "scientifically_interpretable": (
-                    gate.get("scientifically_interpretable") if gate else False
-                ),
-                "classification": classification,
+                **interpretability,
             }
         )
     payload = {
         "inventory_rule": (
-            "Only an explicit passed interpretation gate tied to the current target Gold "
-            "dataset can mark a run current and scientifically interpretable. Passed gates "
-            "on older dataset identities remain historical; ungated summaries remain snapshots."
+            "stored_gate_scientifically_interpretable records the gate value preserved in "
+            "the run artifact. currently_scientifically_interpretable is a present-day "
+            "inventory decision and is true only for a non-failed run whose stored gate "
+            "passed on the current target Gold dataset. A passed stored gate on an older "
+            "dataset remains historical rather than currently interpretable."
         ),
         "runs": rows,
     }
@@ -144,6 +174,8 @@ def main() -> None:
         "min_ess",
         "divergences",
         "bfmi_min",
+        "stored_gate_scientifically_interpretable",
+        "currently_scientifically_interpretable",
         "classification",
     ]
     header = "| " + " | ".join(columns) + " |"

@@ -1,5 +1,5 @@
 {
-  "inventory_rule": "Only an explicit passed interpretation gate tied to the current target Gold dataset can mark a run current and scientifically interpretable. Passed gates on older dataset identities remain historical; ungated summaries remain snapshots.",
+  "inventory_rule": "stored_gate_scientifically_interpretable records the gate value preserved in the run artifact. currently_scientifically_interpretable is a present-day inventory decision and is true only for a non-failed run whose stored gate passed on the current target Gold dataset. A passed stored gate on an older dataset remains historical rather than currently interpretable.",
   "runs": [
     {
       "config_path": "models/bayesian_baseline/hat_p_7_b/model_config.json",
@@ -14,7 +14,8 @@
       "min_ess": null,
       "divergences": null,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -30,7 +31,8 @@
       "min_ess": null,
       "divergences": null,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -46,7 +48,8 @@
       "min_ess": 4553.6002094,
       "divergences": 0,
       "bfmi_min": 1.1052624756536682,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -62,7 +65,8 @@
       "min_ess": 3952.28488274,
       "divergences": 0,
       "bfmi_min": 0.9222825676187097,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -78,7 +82,8 @@
       "min_ess": 1595.87223522,
       "divergences": 0,
       "bfmi_min": 0.8296934736762236,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -94,7 +99,8 @@
       "min_ess": 1476.77896935,
       "divergences": 0,
       "bfmi_min": 0.7717185800187982,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -110,8 +116,9 @@
       "min_ess": 582.0676616,
       "divergences": 0,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
-      "classification": "rejected_by_current_gate"
+      "stored_gate_scientifically_interpretable": false,
+      "currently_scientifically_interpretable": false,
+      "classification": "stored_gate_rejected"
     },
     {
       "config_path": "models/bayesian_physical_transit/kepler_10_b/runs/scientific_002/model_config.json",
@@ -126,7 +133,8 @@
       "min_ess": 582.0676616,
       "divergences": 0,
       "bfmi_min": 0.7317310172214905,
-      "scientifically_interpretable": true,
+      "stored_gate_scientifically_interpretable": true,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_gated_dataset_not_current"
     },
     {
@@ -142,7 +150,8 @@
       "min_ess": 582.0676616,
       "divergences": 0,
       "bfmi_min": 0.7317310172214905,
-      "scientifically_interpretable": true,
+      "stored_gate_scientifically_interpretable": true,
+      "currently_scientifically_interpretable": true,
       "classification": "current_scientifically_interpretable"
     },
     {
@@ -158,7 +167,8 @@
       "min_ess": 616.52762201,
       "divergences": 0,
       "bfmi_min": 0.8126776041632984,
-      "scientifically_interpretable": true,
+      "stored_gate_scientifically_interpretable": true,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_gated_dataset_not_current"
     },
     {
@@ -174,7 +184,8 @@
       "min_ess": 800.64801586,
       "divergences": 0,
       "bfmi_min": 0.7471179922306367,
-      "scientifically_interpretable": true,
+      "stored_gate_scientifically_interpretable": true,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_gated_dataset_not_current"
     },
     {
@@ -190,7 +201,8 @@
       "min_ess": null,
       "divergences": null,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "failed_preserved_for_traceability"
     },
     {
@@ -206,7 +218,8 @@
       "min_ess": 616.52762201,
       "divergences": 0,
       "bfmi_min": 0.8126776041632984,
-      "scientifically_interpretable": true,
+      "stored_gate_scientifically_interpretable": true,
+      "currently_scientifically_interpretable": true,
       "classification": "current_scientifically_interpretable"
     },
     {
@@ -222,7 +235,8 @@
       "min_ess": 800.64801586,
       "divergences": 0,
       "bfmi_min": 0.7471179922306367,
-      "scientifically_interpretable": true,
+      "stored_gate_scientifically_interpretable": true,
+      "currently_scientifically_interpretable": true,
       "classification": "current_scientifically_interpretable"
     },
     {
@@ -238,7 +252,8 @@
       "min_ess": null,
       "divergences": null,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "failed_preserved_for_traceability"
     },
     {
@@ -254,7 +269,8 @@
       "min_ess": 3.64260666,
       "divergences": 0,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": false,
+      "currently_scientifically_interpretable": false,
       "classification": "failed_preserved_for_traceability"
     },
     {
@@ -270,8 +286,9 @@
       "min_ess": 3.64260666,
       "divergences": 0,
       "bfmi_min": null,
-      "scientifically_interpretable": false,
-      "classification": "rejected_by_current_gate"
+      "stored_gate_scientifically_interpretable": false,
+      "currently_scientifically_interpretable": false,
+      "classification": "stored_gate_rejected"
     },
     {
       "config_path": "models/bayesian_predictive_phase_regression/hat_p_7_b/runs/001_nuts/model_config.json",
@@ -286,7 +303,8 @@
       "min_ess": 2269.80467052,
       "divergences": 0,
       "bfmi_min": 0.714672777534181,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -302,7 +320,8 @@
       "min_ess": 6.10245888,
       "divergences": 11,
       "bfmi_min": 0.8281942729352045,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     },
     {
@@ -318,7 +337,8 @@
       "min_ess": 4212.34208408,
       "divergences": 0,
       "bfmi_min": 0.8543011995144133,
-      "scientifically_interpretable": false,
+      "stored_gate_scientifically_interpretable": null,
+      "currently_scientifically_interpretable": false,
       "classification": "historical_ungated_not_currently_interpretable"
     }
   ]
