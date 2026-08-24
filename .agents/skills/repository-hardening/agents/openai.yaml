@@ -1,0 +1,7 @@
+interface:
+  display_name: "Repository Hardening"
+  short_description: "Make the astrophysics repository scientifically trustworthy"
+  default_prompt: "Audit the current repository state, follow AGENTS.md and .agents/REMEDIATION_PLAN.md, and execute the highest-priority remediation items with tests and evidence."
+
+policy:
+  allow_implicit_invocation: true
