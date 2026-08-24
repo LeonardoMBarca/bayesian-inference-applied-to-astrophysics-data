@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-08-24T12:07:07+00:00",
+  "finished_at_utc": "2026-08-24T12:22:15+00:00",
+  "model_name": "M5_bayesian_physical_transit",
+  "run_id": "sensitivity_002_catalog_tighter",
+  "target": "Kepler-10 b",
+  "prior_profile": "catalog_tighter",
+  "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+  "points_used": 3000,
+  "trace": "models/bayesian_physical_transit/kepler_10_b/runs/sensitivity_002_catalog_tighter/trace.nc",
+  "trace_sha256": "232bea7cdbe6e0567a06efd4fd6074510951ce285213a5ddd2a7379abb422e5d",
+  "report": "reports/bayesian_physical_transit_kepler_10_b_sensitivity_002_catalog_tighter_report.md",
+  "interpretation_gate": {
+    "sampler_converged": true,
+    "posterior_predictive_adequate": true,
+    "scientifically_interpretable": true,
+    "rejection_reasons": [],
+    "component_reasons": {
+      "sampler": [],
+      "posterior_predictive": [],
+      "scientific": []
+    },
+    "thresholds": {
+      "max_r_hat": 1.01,
+      "min_ess": 400,
+      "divergences": 0,
+      "min_bfmi": 0.3,
+      "max_jitter_ratio": 20.0,
+      "max_radius_ratio_boundary_fraction": 0.05
+    }
+  }
+}

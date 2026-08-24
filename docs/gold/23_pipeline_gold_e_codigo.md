@@ -40,8 +40,10 @@ No ambiente validado, quando `python` não estiver disponível diretamente:
 Arquivo:
 
 ```text
-scripts/gold_data_config.py
+src/gold_processing/config.py
 ```
+
+`scripts/gold_data_config.py` permanece como import de compatibilidade.
 
 Principais parâmetros:
 

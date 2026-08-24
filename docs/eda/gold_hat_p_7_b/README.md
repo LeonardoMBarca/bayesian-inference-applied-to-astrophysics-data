@@ -49,10 +49,16 @@ Notebook:
 notebooks/02_gold_eda_hat_p_7_b.ipynb
 ```
 
-Script:
+Entry point compatível:
 
 ```text
 scripts/analyze_gold_lightcurve.py
+```
+
+Implementação preservada:
+
+```text
+src/gold_analysis/lightcurve.py
 ```
 
 Relatório:

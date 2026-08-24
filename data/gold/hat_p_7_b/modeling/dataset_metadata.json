@@ -4,30 +4,34 @@
   "orbital_period_days": 2.20474,
   "method": "out_of_transit_median",
   "transit_exclusion_half_width_days": 0.1213175,
+  "normalized_content_sha256": "817506c6fa1b22fe1db65d9132fec7dac71433e5e2915cee199b0140fdfef5f6",
   "segments": [
     {
       "segment_id": "kepler:kplr010666592-2009131105131_llc.fits",
       "source_fits_file": "kplr010666592-2009131105131_llc.fits",
+      "source_fits_sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
       "rows": 438,
       "exposure_time_seconds": 1765.462885941888
     },
     {
       "segment_id": "kepler:kplr010666592-2009166043257_llc.fits",
       "source_fits_file": "kplr010666592-2009166043257_llc.fits",
+      "source_fits_sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
       "rows": 1434,
       "exposure_time_seconds": 1765.462885941888
     },
     {
       "segment_id": "kepler:kplr010666592-2009259160929_llc.fits",
       "source_fits_file": "kplr010666592-2009259160929_llc.fits",
+      "source_fits_sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
       "rows": 2037,
       "exposure_time_seconds": 1765.462885941888
     }
   ],
-  "dataset_id": "hat_p_7_b-a40623cca1048e76",
+  "dataset_id": "hat_p_7_b-7ab50a2fe12341b7",
   "preprocessing_status": "segment_normalized",
   "normalization_policy": "Quality-filtered flux is phase-folded with segment identity preserved, then divided by the out-of-transit median of each source FITS segment. No polynomial detrending is applied because PDCSAP_FLUX is already systematics-corrected; before/after segment diagnostics are persisted.",
   "row_count": 3909,
   "segment_count": 3,
-  "created_at_utc": "2026-08-24T09:44:25+00:00"
+  "created_at_utc": "2026-08-24T11:48:14+00:00"
 }

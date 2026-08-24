@@ -107,8 +107,10 @@ python scripts/build_silver_etd.py
 Arquivo:
 
 ```text
-scripts/silver_data_config.py
+src/silver_processing/config.py
 ```
+
+`scripts/silver_data_config.py` permanece como import de compatibilidade.
 
 Responsabilidades:
 
@@ -139,7 +141,7 @@ Arquivos:
 | Arquivo | Responsabilidade |
 |---|---|
 | `__init__.py` | Marca o pacote Python |
-| `config.py` | Loader simples da configuração |
+| `config.py` | Configuração canônica da camada Silver |
 | `utils.py` | Funções comuns: paths, logging, SHA256, escrita atômica |
 | `manifests.py` | Escrita do manifesto Silver |
 | `validation.py` | Validação RAW e validações Silver |

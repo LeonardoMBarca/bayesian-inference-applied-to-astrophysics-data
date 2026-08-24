@@ -5,11 +5,14 @@
 O código da EDA foi estruturado para que o notebook e o script produzam os
 mesmos resultados principais.
 
-A lógica central está no script:
+A lógica central preservada está em:
 
 ```text
-scripts/analyze_gold_lightcurve.py
+src/gold_analysis/lightcurve.py
 ```
+
+O comando histórico `scripts/analyze_gold_lightcurve.py` continua disponível
+como entry point de compatibilidade.
 
 O notebook:
 
@@ -123,7 +126,8 @@ foi criado para ser executável de ponta a ponta.
 Ele:
 
 1. localiza a raiz do projeto;
-2. carrega `scripts/analyze_gold_lightcurve.py`;
+2. carrega o entry point `scripts/analyze_gold_lightcurve.py`, que delega para
+   `src/gold_analysis/lightcurve.py`;
 3. chama `run_analysis`;
 4. mostra a tabela resumo;
 5. mostra a comparação de janelas;

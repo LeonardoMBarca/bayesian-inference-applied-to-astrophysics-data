@@ -2,14 +2,12 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
 from .utils import atomic_write_dataframe, atomic_write_json, relative_path, sha256_file, utc_now
-
 
 SILVER_MANIFEST_COLUMNS = (
     "created_at_utc",

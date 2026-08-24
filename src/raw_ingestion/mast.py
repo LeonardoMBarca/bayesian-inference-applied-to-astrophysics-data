@@ -23,7 +23,6 @@ from .utils import (
     utc_now,
 )
 
-
 LIGHTKURVE_SOURCE = "MAST / Lightkurve"
 ASTROQUERY_SOURCE = "MAST / Astroquery"
 SEARCH_COLUMNS = (

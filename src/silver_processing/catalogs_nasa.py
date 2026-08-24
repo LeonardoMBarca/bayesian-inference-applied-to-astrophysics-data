@@ -15,7 +15,6 @@ from .utils import (
     utc_now,
 )
 
-
 NASA_PSCOMPPARS_COLUMN_MAP = {
     "pl_name": "planet_name",
     "hostname": "host_star",

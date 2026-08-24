@@ -30,6 +30,11 @@ Kepler-10 b endurecido:
 - [M3 trapézio](bayesian_trapezoid_transit_hat_p_7_b/README.md);
 - [comparação histórica](model_comparison_hat_p_7_b/README.md).
 
+As implementações preservadas de M1–M3 ficam agrupadas em
+`src/bayesian_modeling/legacy/`. Os caminhos `scripts/run_bayesian_*.py`
+continuam válidos como entry points de compatibilidade para notebooks e
+reexecuções históricas.
+
 Claims e números dessas pastas devem ser citados como históricos, com o modelo,
 alvo e dataset correspondentes. A comparação formal atual obedece ao contrato
 de `scripts/run_model_comparison.py`.

@@ -11,12 +11,12 @@ from types import SimpleNamespace
 
 import numpy as np
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 try:
     import arviz as az
+
     from bayesian_modeling.comparison import (
         _loo_scalar,
         _waic_from_pointwise_log_likelihood,

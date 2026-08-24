@@ -38,7 +38,7 @@ Quality-filtered flux is phase-folded with segment identity preserved, then divi
 
 | planet_name | mission | rows_primary | rows_quality_filtered | rows_phase_folded | rows_segment_normalized | rows_transit_window | dataset_id | segment_count | cadence_types | median_exposure_seconds | time_min | time_max | flux_min | flux_max | flux_median | flux_std | flux_err_median | quality_zero_count | quality_nonzero_count | selected_flux_source | period_used | transit_midpoint_used | transit_duration_used | warnings |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Kepler-10 b | Kepler | 124459 | 115363 | 115363 | 115363 | 40836 | kepler_10_b-06a6ce6b0b39f5b4 | 3 | short | 58.84876286472961 | 200.3240850096772 | 349.50591258537315 | 523908.56 | 564278.94 | 527040.25 | 14810.46252162781 | 112.135345 | 115363 | 9096 | pdcsap_flux | 0.8374907 | 201.086870000232 | 1.811 | NASA transit_midpoint converted to FITS time scale using BJD reference 2454833.0 from TIMESYS=TDB;BJDREFI=2454833;BJDREFF=0.0. |
+| Kepler-10 b | Kepler | 124459 | 115363 | 115363 | 115363 | 40836 | kepler_10_b-b4d1e6ec961c1f4d | 3 | short | 58.84876286472961 | 200.3240850096772 | 349.50591258537315 | 523908.56 | 564278.94 | 527040.25 | 14810.46252162781 | 112.135345 | 115363 | 9096 | pdcsap_flux | 0.8374907 | 201.086870000232 | 1.811 | NASA transit_midpoint converted to FITS time scale using BJD reference 2454833.0 from TIMESYS=TDB;BJDREFI=2454833;BJDREFF=0.0. |
 
 ## 5. Filtros Aplicados
 

@@ -23,7 +23,6 @@ from .utils import (
     versioned_path,
 )
 
-
 SOURCE_NAME = "NASA Exoplanet Archive"
 
 

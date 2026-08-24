@@ -20,7 +20,6 @@ from .utils import (
     utc_now,
 )
 
-
 ETD_OBSERVATION_COLUMNS = (
     "planet_name",
     "host_star",

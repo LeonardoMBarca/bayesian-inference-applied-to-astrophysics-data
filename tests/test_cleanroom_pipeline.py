@@ -9,7 +9,6 @@ import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
@@ -17,9 +16,9 @@ sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 try:
     import numpy as np
     import pandas as pd
+    import silver_data_config
     from astropy.io import fits
 
-    import silver_data_config
     from gold_processing.lightcurve_preparation import normalize_segments_dataframe
     from silver_processing.lightcurves_mast import _extract_one_fits
 except ImportError as exc:  # pragma: no cover - depends on scientific environment
@@ -109,6 +108,7 @@ class CleanRoomPipelineTests(unittest.TestCase):
             min_baseline_points=20,
         )
         self.assertEqual(gold["segment_id"].nunique(), 2)
+        self.assertEqual(gold["source_fits_sha256"].nunique(), 2)
         self.assertEqual(gold["source_raw_sha256"].nunique(), 2)
         self.assertTrue(gold["preprocessing_status"].eq("segment_normalized").all())
         np.testing.assert_allclose(

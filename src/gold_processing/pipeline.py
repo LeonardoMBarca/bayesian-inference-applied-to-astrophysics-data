@@ -9,9 +9,14 @@ from typing import Any, Iterable
 from .lightcurve_preparation import build_gold_target_datasets
 from .manifests import GoldManifest
 from .selection import build_gold_selection
-from .utils import atomic_write_text, ensure_gold_directories, read_csv, relative_path, setup_logging, utc_now
+from .utils import (
+    atomic_write_text,
+    ensure_gold_directories,
+    relative_path,
+    setup_logging,
+    utc_now,
+)
 from .validation import build_gold_validation_outputs
-
 
 ALL_STEPS = ("selection", "target", "validation", "docs")
 
@@ -114,8 +119,6 @@ def write_gold_readme(
     path = config.GOLD_DATA_DIR / slug / "docs" / "README_gold.md"
     primary_rows = target_results["primary"]["rows"]
     quality_rows = target_results["quality_filtered"]["rows_after"]
-    phase_created = target_results["phase"].get("created", False)
-    window_created = target_results["transit_window"].get("created", False)
     content = f"""# Gold segmentada: {selected['selected_planet_name']}
 
 ## 1. Objetivo

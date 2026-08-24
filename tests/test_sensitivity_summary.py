@@ -8,7 +8,6 @@ import tempfile
 import unittest
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -29,7 +28,12 @@ else:
     f"scientific environment unavailable: {SCIENTIFIC_IMPORT_ERROR}",
 )
 class SensitivitySummaryTests(unittest.TestCase):
-    def _fixture(self, root: Path, failed_profile: str | None = None) -> dict[str, str]:
+    def _fixture(
+        self,
+        root: Path,
+        failed_profile: str | None = None,
+        incomplete_profile: str | None = None,
+    ) -> dict[str, str]:
         target = get_target("kepler_10_b")
         runs: dict[str, str] = {}
         for index, profile in enumerate(PRIOR_PROFILES):
@@ -63,7 +67,14 @@ class SensitivitySummaryTests(unittest.TestCase):
             }
             paths.model_config_path.write_text(json.dumps(config), encoding="utf-8")
             (paths.model_dir / "run_status.json").write_text(
-                json.dumps({"status": "completed"}), encoding="utf-8"
+                json.dumps(
+                    {
+                        "status": (
+                            "failed" if profile == incomplete_profile else "completed"
+                        )
+                    }
+                ),
+                encoding="utf-8",
             )
             means = {"r": 0.012 + index * 0.0001, "depth": 0.00015}
             means.update({"extra_sigma": 0.0002, "full_duration": 0.08})
@@ -108,6 +119,21 @@ class SensitivitySummaryTests(unittest.TestCase):
             self.assertFalse(result["all_scientific_gates_pass"])
             self.assertFalse(result["formal_comparison_contract"]["formal_comparison_valid"])
             self.assertIn("No robustness claim", result["conclusion"])
+
+    def test_failed_status_rejects_true_gate(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            runs = self._fixture(root, incomplete_profile="weak")
+            result = summarize_sensitivity(
+                project_root=root,
+                target_slug="kepler_10_b",
+                run_by_profile=runs,
+                experiment_id="fixture-incomplete",
+            )
+            self.assertFalse(result["all_runs_completed"])
+            self.assertFalse(result["all_scientific_gates_pass"])
+            self.assertFalse(result["formal_comparison_contract"]["formal_comparison_valid"])
+            self.assertIn("not completed", result["conclusion"])
 
 
 if __name__ == "__main__":

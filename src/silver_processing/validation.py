@@ -191,8 +191,6 @@ def build_silver_validations(
 
     logger.info("Building SILVER validation summaries")
     validation_dir = config.SILVER_DATA_DIR / "validation"
-    created_at = utc_now()
-
     nasa_pscomppars = _read_csv_if_exists(
         config.SILVER_DATA_DIR / "catalogs" / "nasa" / "pscomppars_selected_planets.csv"
     )

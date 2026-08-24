@@ -5,7 +5,6 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
-
 KEPLER_SHORT_CADENCE_SECONDS = 58.84876
 KEPLER_LONG_CADENCE_SECONDS = 1765.4632
 

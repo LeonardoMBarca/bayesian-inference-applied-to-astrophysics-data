@@ -2,46 +2,66 @@
   "status": "passed",
   "isolation": "temporary workspace initially containing only src, scripts, and RAW",
   "network_used": false,
-  "python_executable": "/home/leonardo_barca/mc3/bin/python",
+  "network_isolation": {
+    "enforcement": "verified Python socket guard",
+    "scope": "Standard Python socket connect, connect_ex, create_connection, and getaddrinfo APIs in Silver/Gold subprocesses; this is not an operating-system network namespace.",
+    "verification": {
+      "verified": true,
+      "blocked_apis": [
+        "socket.socket.connect",
+        "socket.socket.connect_ex",
+        "socket.create_connection",
+        "socket.getaddrinfo"
+      ],
+      "probe_returncodes": {
+        "socket.socket.connect": 1,
+        "socket.socket.connect_ex": 1,
+        "socket.create_connection": 1,
+        "socket.getaddrinfo": 1
+      }
+    },
+    "pipeline_attempted_network_calls": []
+  },
+  "python_executable": "/home/leonardo_barca/mc3/bin/python3.14",
   "python_version": "3.14.6",
   "source_raw_tree_sha256": "a3b30d6d01575806999d1a74feefb1ecc9ff9d78b2265601b26bc0adcb344376",
   "commands": [
     {
       "command": [
-        "/home/leonardo_barca/mc3/bin/python",
+        "/home/leonardo_barca/mc3/bin/python3.14",
         "scripts/build_silver_data.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 14.251381337999987,
+      "elapsed_seconds": 23.239129946999995,
       "stdout_tail": "",
-      "stderr_tail": "_data_processing | MAST FITS processed: planet=wasp_4_b mission=tess rows=19737 file=tess2018234235059-s0002-0000000402026209-0121-s_lc.fits\n2026-08-24T09:56:38Z | INFO | silver_data_processing | MAST FITS processed: planet=wasp_4_b mission=tess rows=18182 file=tess2020212050318-s0028-0000000402026209-0190-s_lc.fits\n2026-08-24T09:56:38Z | INFO | silver_data_processing | MAST FITS processed: planet=wasp_4_b mission=tess rows=18864 file=tess2020238165205-s0029-0000000402026209-0193-s_lc.fits\n2026-08-24T09:56:45Z | INFO | silver_data_processing | MAST SILVER extraction finished: fits=38 curve_tables=4 metadata_rows=38\n2026-08-24T09:56:45Z | INFO | silver_data_processing | Building ETD / VarAstro SILVER tables\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD observations processed for hat_p_7_b: public=60 private=0\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=01_observation_94348_transit_12787.json points=176\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=02_observation_93941_transit_12377.json points=340\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=03_observation_93940_transit_12376.json points=140\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=04_observation_106903_transit_20350.json points=141\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=05_observation_107381_transit_20679.json points=446\n2026-08-24T09:56:45Z | INFO | silver_data_processing | ETD SILVER tables finished: observations=60 points=1243 curve_metadata=5\n2026-08-24T09:56:45Z | INFO | silver_data_processing | Building SILVER validation summaries\n2026-08-24T09:56:50Z | INFO | silver_data_processing | SILVER validation summaries finished\n2026-08-24T09:56:50Z | INFO | silver_data_processing | SILVER pipeline finished: manifest_rows=20 raw_manifest_records=445\n"
+      "stderr_tail": "_data_processing | MAST FITS processed: planet=wasp_4_b mission=tess rows=19737 file=tess2018234235059-s0002-0000000402026209-0121-s_lc.fits\n2026-08-24T13:18:56Z | INFO | silver_data_processing | MAST FITS processed: planet=wasp_4_b mission=tess rows=18182 file=tess2020212050318-s0028-0000000402026209-0190-s_lc.fits\n2026-08-24T13:18:56Z | INFO | silver_data_processing | MAST FITS processed: planet=wasp_4_b mission=tess rows=18864 file=tess2020238165205-s0029-0000000402026209-0193-s_lc.fits\n2026-08-24T13:19:06Z | INFO | silver_data_processing | MAST SILVER extraction finished: fits=38 curve_tables=4 metadata_rows=38\n2026-08-24T13:19:06Z | INFO | silver_data_processing | Building ETD / VarAstro SILVER tables\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD observations processed for hat_p_7_b: public=60 private=0\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=01_observation_94348_transit_12787.json points=176\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=02_observation_93941_transit_12377.json points=340\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=03_observation_93940_transit_12376.json points=140\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=04_observation_106903_transit_20350.json points=141\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD curve processed for hat_p_7_b: file=05_observation_107381_transit_20679.json points=446\n2026-08-24T13:19:06Z | INFO | silver_data_processing | ETD SILVER tables finished: observations=60 points=1243 curve_metadata=5\n2026-08-24T13:19:06Z | INFO | silver_data_processing | Building SILVER validation summaries\n2026-08-24T13:19:16Z | INFO | silver_data_processing | SILVER validation summaries finished\n2026-08-24T13:19:16Z | INFO | silver_data_processing | SILVER pipeline finished: manifest_rows=20 raw_manifest_records=445\n"
     },
     {
       "command": [
-        "/home/leonardo_barca/mc3/bin/python",
+        "/home/leonardo_barca/mc3/bin/python3.14",
         "scripts/build_gold_data.py"
       ],
       "returncode": 0,
-      "elapsed_seconds": 15.85411178999999,
+      "elapsed_seconds": 22.54887885699999,
       "stdout_tail": "",
-      "stderr_tail": "-08-24T09:56:51Z | INFO | gold_data_processing | Quality-filtered GOLD lightcurve written: rows_before=6163 rows_after=3909\n2026-08-24T09:56:51Z | INFO | gold_data_processing | Phase-folded GOLD lightcurve written: rows=3909\n2026-08-24T09:56:51Z | INFO | gold_data_processing | Segment-normalized Gold written: slug=hat_p_7_b dataset_id=hat_p_7_b-a40623cca1048e76 rows=3909 segments=3\n2026-08-24T09:56:51Z | INFO | gold_data_processing | Transit-window GOLD lightcurve written: rows=1027 half_width=0.3\n2026-08-24T09:56:51Z | INFO | gold_data_processing | GOLD validation outputs written for hat_p_7_b\n2026-08-24T09:56:51Z | INFO | gold_data_processing | GOLD documentation written: /tmp/astro-clean-rebuild-ahewur2k/data/gold/hat_p_7_b/docs/README_gold.md\n2026-08-24T09:56:51Z | INFO | gold_data_processing | Building GOLD target datasets for kepler_10_b\n2026-08-24T09:56:51Z | INFO | gold_data_processing | GOLD reference parameters written for kepler_10_b\n2026-08-24T09:56:54Z | INFO | gold_data_processing | Primary GOLD lightcurve written: slug=kepler_10_b mission=Kepler rows=124459 removed_missing=8730 flux=pdcsap_flux\n2026-08-24T09:56:56Z | INFO | gold_data_processing | Quality-filtered GOLD lightcurve written: rows_before=124459 rows_after=115363\n2026-08-24T09:56:58Z | INFO | gold_data_processing | Phase-folded GOLD lightcurve written: rows=115363\n2026-08-24T09:57:03Z | INFO | gold_data_processing | Segment-normalized Gold written: slug=kepler_10_b dataset_id=kepler_10_b-06a6ce6b0b39f5b4 rows=115363 segments=3\n2026-08-24T09:57:05Z | INFO | gold_data_processing | Transit-window GOLD lightcurve written: rows=40836 half_width=0.15\n2026-08-24T09:57:08Z | INFO | gold_data_processing | GOLD validation outputs written for kepler_10_b\n2026-08-24T09:57:08Z | INFO | gold_data_processing | GOLD documentation written: /tmp/astro-clean-rebuild-ahewur2k/data/gold/kepler_10_b/docs/README_gold.md\n2026-08-24T09:57:08Z | INFO | gold_data_processing | GOLD pipeline finished: manifest_rows=28\n"
+      "stderr_tail": "-08-24T13:19:19Z | INFO | gold_data_processing | Quality-filtered GOLD lightcurve written: rows_before=6163 rows_after=3909\n2026-08-24T13:19:19Z | INFO | gold_data_processing | Phase-folded GOLD lightcurve written: rows=3909\n2026-08-24T13:19:20Z | INFO | gold_data_processing | Segment-normalized Gold written: slug=hat_p_7_b dataset_id=hat_p_7_b-7ab50a2fe12341b7 rows=3909 segments=3\n2026-08-24T13:19:20Z | INFO | gold_data_processing | Transit-window GOLD lightcurve written: rows=1027 half_width=0.3\n2026-08-24T13:19:20Z | INFO | gold_data_processing | GOLD validation outputs written for hat_p_7_b\n2026-08-24T13:19:20Z | INFO | gold_data_processing | GOLD documentation written: /tmp/astro-clean-rebuild-2y2szhb2/data/gold/hat_p_7_b/docs/README_gold.md\n2026-08-24T13:19:20Z | INFO | gold_data_processing | Building GOLD target datasets for kepler_10_b\n2026-08-24T13:19:20Z | INFO | gold_data_processing | GOLD reference parameters written for kepler_10_b\n2026-08-24T13:19:24Z | INFO | gold_data_processing | Primary GOLD lightcurve written: slug=kepler_10_b mission=Kepler rows=124459 removed_missing=8730 flux=pdcsap_flux\n2026-08-24T13:19:27Z | INFO | gold_data_processing | Quality-filtered GOLD lightcurve written: rows_before=124459 rows_after=115363\n2026-08-24T13:19:29Z | INFO | gold_data_processing | Phase-folded GOLD lightcurve written: rows=115363\n2026-08-24T13:19:35Z | INFO | gold_data_processing | Segment-normalized Gold written: slug=kepler_10_b dataset_id=kepler_10_b-b4d1e6ec961c1f4d rows=115363 segments=3\n2026-08-24T13:19:37Z | INFO | gold_data_processing | Transit-window GOLD lightcurve written: rows=40836 half_width=0.15\n2026-08-24T13:19:40Z | INFO | gold_data_processing | GOLD validation outputs written for kepler_10_b\n2026-08-24T13:19:40Z | INFO | gold_data_processing | GOLD documentation written: /tmp/astro-clean-rebuild-2y2szhb2/data/gold/kepler_10_b/docs/README_gold.md\n2026-08-24T13:19:40Z | INFO | gold_data_processing | GOLD pipeline finished: manifest_rows=28\n"
     }
   ],
   "targets": {
     "hat_p_7_b": {
-      "dataset_id": "hat_p_7_b-a40623cca1048e76",
+      "dataset_id": "hat_p_7_b-7ab50a2fe12341b7",
       "gold_rows": 3909,
       "segments": 3,
       "m5_rows": 1027,
-      "m5_modeling_input_sha256": "29f1a8abc5f6831467c85fb9ca6a696efdadd8e08a120d2f3838cff3251d34c6",
+      "m5_modeling_input_sha256": "298fca34bcd674c57359903d1e3090674f568538bb8e7950b33d021272b4fd48",
       "preprocessing_status": "segment_normalized"
     },
     "kepler_10_b": {
-      "dataset_id": "kepler_10_b-06a6ce6b0b39f5b4",
+      "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
       "gold_rows": 115363,
       "segments": 3,
       "m5_rows": 3000,
-      "m5_modeling_input_sha256": "5bd20f7d94ca6f84fe47d4d504a6a817e28aa542065425fb5c01c13466df3845",
+      "m5_modeling_input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
       "preprocessing_status": "segment_normalized"
     }
   }

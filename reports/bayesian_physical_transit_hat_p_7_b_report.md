@@ -1,6 +1,6 @@
 # M5 - Bayesian Physical Transit - HAT-P-7 b
 
-> Snapshot histórico anterior ao M5 parametrizado atual; não usar como relatório do run `scientific_002`.
+> Snapshot histórico anterior ao M5 parametrizado atual; não usar como relatório do run `scientific_003`.
 
 ## 1. Objetivo do M5
 

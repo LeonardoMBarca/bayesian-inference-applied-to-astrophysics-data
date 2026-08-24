@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import logging
 from typing import Any, Iterable
 
 from .etd import collect_etd_varastro
@@ -16,7 +15,6 @@ from .utils import (
     setup_logging,
     utc_now,
 )
-
 
 COLLECTORS = {
     "nasa": collect_nasa_exoplanet_archive,

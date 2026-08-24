@@ -117,7 +117,8 @@ Depois, manteve apenas as colunas configuradas que realmente existiam no esquema
 
 ## Colunas desejadas
 
-As colunas desejadas foram configuradas em `scripts/raw_data_config.py`:
+As colunas desejadas são configuradas em `src/raw_ingestion/config.py`
+(`scripts/raw_data_config.py` permanece como compatibilidade):
 
 ```text
 pl_name

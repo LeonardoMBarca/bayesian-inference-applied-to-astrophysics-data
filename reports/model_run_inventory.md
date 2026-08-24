@@ -1,6 +1,6 @@
 # Inventário de runs
 
-Only an explicit current interpretation gate can mark a run scientifically interpretable. Historical convergence summaries remain ungated snapshots.
+Only an explicit passed interpretation gate tied to the current target Gold dataset can mark a run current and scientifically interpretable. Passed gates on older dataset identities remain historical; ungated summaries remain snapshots.
 
 | model_name | run_id | target | max_r_hat | min_ess | divergences | bfmi_min | classification |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -11,10 +11,13 @@ Only an explicit current interpretation gate can mark a run scientifically inter
 | M5_bayesian_physical_transit | 001_nuts | HAT-P-7 b | 1.00312909 | 1595.87223522 | 0 | 0.8296934736762236 | historical_ungated_not_currently_interpretable |
 | M5_bayesian_physical_transit | 001_nuts | Kepler-10 b | 1.00223414 | 1476.77896935 | 0 | 0.7717185800187982 | historical_ungated_not_currently_interpretable |
 | M5_bayesian_physical_transit | scientific_001 | Kepler-10 b | 1.00508421 | 582.0676616 | 0 | None | rejected_by_current_gate |
-| M5_bayesian_physical_transit | scientific_002 | Kepler-10 b | 1.00508421 | 582.0676616 | 0 | 0.7317310172214905 | current_scientifically_interpretable |
-| M5_bayesian_physical_transit | sensitivity_001_catalog_tighter | Kepler-10 b | 1.00377887 | 616.52762201 | 0 | 0.8126776041632984 | current_scientifically_interpretable |
-| M5_bayesian_physical_transit | sensitivity_001_weak | Kepler-10 b | 1.0045834 | 800.64801586 | 0 | 0.7471179922306367 | current_scientifically_interpretable |
+| M5_bayesian_physical_transit | scientific_002 | Kepler-10 b | 1.00508421 | 582.0676616 | 0 | 0.7317310172214905 | historical_gated_dataset_not_current |
+| M5_bayesian_physical_transit | scientific_003 | Kepler-10 b | 1.00508421 | 582.0676616 | 0 | 0.7317310172214905 | current_scientifically_interpretable |
+| M5_bayesian_physical_transit | sensitivity_001_catalog_tighter | Kepler-10 b | 1.00377887 | 616.52762201 | 0 | 0.8126776041632984 | historical_gated_dataset_not_current |
+| M5_bayesian_physical_transit | sensitivity_001_weak | Kepler-10 b | 1.0045834 | 800.64801586 | 0 | 0.7471179922306367 | historical_gated_dataset_not_current |
 | M5_bayesian_physical_transit | sensitivity_001_weak_interrupted | Kepler-10 b | None | None | None | None | failed_preserved_for_traceability |
+| M5_bayesian_physical_transit | sensitivity_002_catalog_tighter | Kepler-10 b | 1.00377887 | 616.52762201 | 0 | 0.8126776041632984 | current_scientifically_interpretable |
+| M5_bayesian_physical_transit | sensitivity_002_weak | Kepler-10 b | 1.0045834 | 800.64801586 | 0 | 0.7471179922306367 | current_scientifically_interpretable |
 | M5_bayesian_physical_transit | smoke_003 | Kepler-10 b | None | None | None | None | failed_preserved_for_traceability |
 | M5_bayesian_physical_transit | smoke_004 | Kepler-10 b | 3.10433584 | 3.64260666 | 0 | None | failed_preserved_for_traceability |
 | M5_bayesian_physical_transit | smoke_005 | Kepler-10 b | 3.10433584 | 3.64260666 | 0 | None | rejected_by_current_gate |

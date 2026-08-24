@@ -36,8 +36,10 @@ checked by `tests/test_current_m5_artifacts.py`.
 **Evidence (2026-08-24):** Gold retains segment, quarter, source FITS, cadence
 and exposure, records raw and normalized medians, and normalizes each segment on
 its out-of-transit baseline. `validate_clean_rebuild.py` reproduced dataset
-`kepler_10_b-06a6ce6b0b39f5b4` and M5 input hash `5bd20f…3845` from RAW in an
-isolated, network-free workspace.
+`kepler_10_b-b4d1e6ec961c1f4d` and M5 input hash `6653fced…8791` from RAW in an
+isolated workspace. A verified Python guard blocked and logged the standard
+socket APIs during the rebuild; this claim is intentionally narrower than an
+operating-system network namespace.
 
 ### P0.3 — Handle cadence/exposure integration
 **Status:** DONE
@@ -63,10 +65,10 @@ selection, missing-exposure and graph integration regressions pass.
 
 **Acceptance:** code, model config, report, tables, target identity, and derived quantities all agree.
 
-**Evidence (2026-08-24):** `scientific_002` config/report/tables are generated
+**Evidence (2026-08-24):** `scientific_003` config/report/tables are generated
 from the implemented circular Keplerian, quadratic limb-darkened, exposure-
 integrated Normal likelihood. Rebuild from trace was allowed only after exact
-dataset/input-hash validation; trace SHA-256 is `7ed982…df4c`.
+dataset/input-hash validation; trace SHA-256 is `68cb29…1698`.
 
 ### P0.5 — Add scientific interpretation gates
 **Status:** DONE
@@ -78,7 +80,7 @@ dataset/input-hash validation; trace SHA-256 is `7ed982…df4c`.
 **Acceptance:** a run cannot be called scientifically interpretable merely because NUTS converged.
 
 **Evidence (2026-08-24):** the gate separates sampler, PPC and scientific
-checks. `scientific_002` passed R-hat 1.0051, ESS 582.1, zero divergences, BFMI
+checks. `scientific_003` passed R-hat 1.0051, ESS 582.1, zero divergences, BFMI
 0.7317, PPC coverage 0.9337 and scale/provenance checks. `scientific_001`,
 `smoke_005` and interrupted/failed runs remain rejected or failed in the run
 inventory.
@@ -93,7 +95,7 @@ inventory.
 - Use a justified grid/family of priors.
 - Keep absurd priors only as negative controls if useful.
 
-**Evidence (2026-08-24):** `sensitivity_001` independently ran
+**Evidence (2026-08-24):** `sensitivity_002` independently ran
 `catalog_tighter`, `baseline` and `weak`, each with prior predictive and all
 gates. All three passed on the same 3,000 observations; maximum relative shifts
 from baseline were 0.77% (`Rp/Rs`) and 1.59% (depth), reported descriptively
@@ -150,9 +152,11 @@ tests and artifact checks pass.
 - Add a clean-workspace rebuild test.
 
 **Evidence (2026-08-24):** event history and 445-row deduplicated current-state
-RAW manifests are separate. Dataset IDs and target/run-specific output paths
-isolate current state. Both configured Gold targets rebuild from current RAW;
-the network-free temporary-workspace reproduction passed.
+RAW manifests are separate. Dataset IDs now bind normalized scientific content
+and ordered FITS SHA-256 values; target/run-specific output paths isolate current
+state. Both configured Gold targets rebuild from current RAW under a verified
+Python socket guard, with zero recorded pipeline attempts. Older gated runs are
+classified as historical when their dataset identity is no longer current.
 
 ### P1.6 — Normalize persisted paths across platforms
 **Status:** DONE
@@ -183,9 +187,9 @@ Minimum regression coverage:
 - sensitivity interpretation gates;
 - small synthetic model smoke tests where practical.
 
-**Evidence (2026-08-24):** 45 tests pass, covering every minimum item above plus
-ArviZ 1.3 BFMI/HDI/LOO/WAIC compatibility, noise injection, clean fixture and
-current generated artifacts.
+**Evidence (2026-08-24):** 59 tests pass with zero skips, covering every minimum
+item above plus ArviZ 1.3 BFMI/HDI/LOO/WAIC compatibility, noise injection,
+clean fixture, current generated artifacts and repository-layout compatibility.
 
 ### P1.8 — Add CI
 **Status:** DONE
@@ -194,9 +198,10 @@ current generated artifacts.
 - Keep expensive full MCMC out of standard CI; optionally add manual/scheduled scientific validation.
 
 **Evidence (2026-08-24):** `.github/workflows/ci.yml` runs exact dependency
-installation, static validation, 44 practical tests and artifact validation on
-push/PR; the full clean rebuild is a manual workflow input. Equivalent commands
-passed locally; no hosted-CI execution is claimed.
+installation, an explicit 19-package import check, Ruff over the repository,
+59 practical tests with skips forbidden, and artifact validation on push/PR;
+the full clean rebuild is a manual workflow input. Equivalent commands passed
+locally; no hosted-CI execution is claimed.
 
 ### P1.9 — Lock the scientific environment
 **Status:** DONE
@@ -207,7 +212,7 @@ passed locally; no hosted-CI execution is claimed.
 - Document compiler/toolchain requirements.
 
 **Evidence (2026-08-24):** `requirements.txt` contains exact validated runtime
-versions including PyMC/ArviZ/exoplanet; `environment.yml` fixes Python 3.14.6;
+versions including PyMC/ArviZ/exoplanet and Ruff 0.16.1; `environment.yml` fixes Python 3.14.6;
 `pyproject.toml` defines build/test metadata; README documents WSL/toolchain and
 lock installation.
 
@@ -261,6 +266,42 @@ está ignorado e nenhum candidato à versão excede 100 MiB.
 a coherent `.gitignore`; the byte-identical duplicate TCC PDF was removed while
 the canonical file and `tcc-docs/PROVENANCE.md` were retained.
 
+### P2.5 — Organize code without changing executable contracts
+**Status:** DONE
+
+- Keep `scripts/` as a thin, stable command-line interface.
+- Move reusable analysis, historical modeling, configuration and repository
+  validation implementations into responsibility-specific packages under `src/`.
+- Preserve documented script paths and notebook-facing imports.
+- Protect the architecture with regression tests and an end-to-end rebuild.
+
+**Evidence (2026-08-24):** all 29 top-level Python entry points in `scripts/`
+have at most 97 lines. Historical M1–M3 implementations are grouped under
+`src/bayesian_modeling/legacy/`, Gold EDA under `src/gold_analysis/`, repository
+validation under `src/repository_tools/`, and layer configurations beside their
+pipelines. `tests/test_repository_layout.py` verifies the layout, compatibility
+imports and actual notebook-facing APIs. The full suite passed 59/59 with zero
+skips, Ruff and static parsing passed, artifact contracts passed, and the
+isolated RAW→Silver→Gold rebuild reproduced both dataset IDs and M5 hashes.
+
+## Final re-audit closure
+
+**Status:** DONE
+
+The seven final re-audit findings are covered by executable evidence:
+
+- clean rebuild subprocesses use a verified four-API Python socket guard and
+  record zero attempted calls from Silver/Gold;
+- Ruff 0.16.1 is pinned and `ruff check .` runs in CI;
+- CI verifies every locked import and rejects every skipped test;
+- Gold identity binds normalized content plus ordered source-FITS SHA-256 values;
+- Gold manifest `column_count` for `dataset_metadata.json` equals the JSON field
+  count and is regression-tested;
+- sensitivity validity requires both `run_status == completed` and a passed
+  scientific gate;
+- artifact paths outside the repository raise instead of leaking absolute paths,
+  and current documentation/counts match the validated implementation.
+
 ## Final validation milestone
 
 The program is complete only after a clean checkout/environment can reproduce the supported pipeline and the repository can show:
@@ -282,12 +323,15 @@ The program is complete only after a clean checkout/environment can reproduce th
   dataset/run IDs, diagnostics, failed controls, catalog-scale caveat and
   limitations;
 - `reports/clean_rebuild_validation.json`: isolated RAW→Silver→Gold passed with
-  network disabled and both dataset IDs/hashes reproduced;
+  a verified four-API Python socket guard, zero pipeline attempts, and both
+  dataset IDs/hashes reproduced; the evidence explicitly disclaims OS-level
+  namespace isolation;
 - `scripts/validate_hardened_artifacts.py`: passed across RAW checksums, Silver
   units, Gold segments/cadence, M5 artifacts/gates, noise claims, sensitivity,
   formal-comparison warnings and negative controls;
-- `python -m unittest discover -s tests -v`: 45/45 passed;
-- `python scripts/static_validate.py`: 83 Python files, 6 notebooks and 18
+- `python scripts/run_ci_tests.py`: 59/59 passed with zero skips;
+- `python scripts/static_validate.py`: 106 Python files, 6 notebooks and 19
   exact scientific dependencies passed;
+- `python -m ruff check .`: passed;
 - `reports/model_run_inventory.json`: only explicit gated runs are current and
   interpretable; historical, rejected and failed runs remain traceable.

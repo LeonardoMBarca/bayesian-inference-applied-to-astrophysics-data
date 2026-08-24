@@ -11,7 +11,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import math
 import os
 import shutil
 import sys
@@ -19,7 +18,6 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
-
 
 MPLCONFIGDIR = Path("/tmp") / "matplotlib-cache"
 MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
@@ -55,7 +53,6 @@ from project_config import (  # noqa: E402
     TargetConfig,
     get_target,
 )
-
 
 MODEL_NAME = "M5_bayesian_physical_transit"
 PREDICTION_GRID_POINTS = 300

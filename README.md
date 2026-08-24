@@ -26,7 +26,8 @@ genérico não deve introduzir valores planetários fora desse contrato.
 - **Gold** seleciona a cadência exigida pelo alvo, filtra qualidade e normaliza
   cada `segment_id` separadamente pela mediana fora do trânsito. Os offsets não
   são tratados como ruído astrofísico. O `dataset_id`, a política e os
-  diagnósticos por segmento são persistidos.
+  diagnósticos por segmento são persistidos. A identidade do dataset é derivada
+  do conteúdo científico normalizado e dos SHA-256 dos FITS de origem.
 - **M5** só aceita Gold com `preprocessing_status=segment_normalized` e identidade
   compatível com a configuração autoritativa.
 
@@ -34,6 +35,19 @@ Fontes públicas usadas: NASA Exoplanet Archive, MAST/Lightkurve/Astroquery,
 Exo.MAST e ETD/VarAstro. Uma nova coleta RAW pode alterar o estado público; para
 reproduzir exatamente o dataset publicado, valide os RAW versionados e
 reconstrua as camadas derivadas sem baixar novamente.
+
+## Organização do código
+
+`scripts/` é a interface estável de linha de comando e contém apenas entry
+points finos. Implementações reutilizáveis ficam agrupadas em `src/`: pipelines
+RAW/Silver/Gold, EDA, modelagem Bayesiana e ferramentas de validação. Os modelos
+históricos M1–M3 estão isolados em `src/bayesian_modeling/legacy/`, sem alterar
+seus comandos ou os imports usados pelos notebooks.
+
+Veja [`scripts/README.md`](scripts/README.md) para o mapa de comandos e
+[`src/README.md`](src/README.md) para o mapa dos pacotes. Um teste de arquitetura
+impede que novas implementações extensas voltem a ser adicionadas diretamente a
+`scripts/`.
 
 ## Ambiente
 
@@ -90,7 +104,7 @@ Execução recomendada para Kepler-10 b:
 
 ```bash
 python scripts/run_kepler_10b.py \
-  --run-id scientific_002 \
+  --run-id scientific_003 \
   --draws 800 --tune 800 --chains 4 --cores 4 \
   --target-accept 0.95 --prior-profile baseline
 ```
@@ -108,11 +122,11 @@ Ele implementa:
 - NUTS, log-likelihood pontual, prior predictive e posterior predictive checks;
 - parâmetros derivados e artefatos específicos por alvo e `run_id`.
 
-Evidência do run `scientific_002`:
+Evidência do run `scientific_003`:
 
 | diagnóstico/resultado | valor |
 |---|---:|
-| dataset | `kepler_10_b-06a6ce6b0b39f5b4` |
+| dataset | `kepler_10_b-b4d1e6ec961c1f4d` |
 | R-hat máximo | 1,00508421 |
 | ESS mínimo | 582,0677 |
 | divergências | 0 |
@@ -124,9 +138,9 @@ Evidência do run `scientific_002`:
 | gate científico | aprovado |
 
 O checksum SHA-256 da entrada de 3.000 pontos foi
-`5bd20f7d94ca6f84fe47d4d504a6a817e28aa542065425fb5c01c13466df3845`.
+`6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791`.
 O relatório completo é
-[`reports/bayesian_physical_transit_kepler_10_b_scientific_002_report.md`](reports/bayesian_physical_transit_kepler_10_b_scientific_002_report.md).
+[`reports/bayesian_physical_transit_kepler_10_b_scientific_003_report.md`](reports/bayesian_physical_transit_kepler_10_b_scientific_003_report.md).
 
 O modelo **não** contém Gaussian Process nem likelihood de ruído correlacionado.
 O termo `extra_sigma` é apenas jitter branco. A interpretação científica só é
@@ -148,7 +162,7 @@ registrados, mas não sustentam conclusões físicas.
   MAE permanecem métricas preditivas separadas; nenhum score heurístico é
   misturado com evidência Bayesiana formal.
 
-No experimento `sensitivity_001`, os três perfis passaram independentemente os
+No experimento `sensitivity_002`, os três perfis passaram independentemente os
 gates e usaram o mesmo dataset/hash. Em relação ao baseline, o maior deslocamento
 relativo foi 0,77% em `Rp/Rs`, 1,59% em profundidade, 0,18% em jitter e 0,34% em
 duração; todos os HDIs de 94% contêm a média baseline. Isso é evidência
@@ -157,23 +171,27 @@ prova universal de robustez.
 
 LOO e WAIC foram calculados para os três runs comparáveis, mas LOO encontrou
 15–25 observações com Pareto-k acima de 0,7 (máximo 1,163). Por isso o artefato
-[`reports/model_comparison/prior_sensitivity_001/comparison_summary.json`](reports/model_comparison/prior_sensitivity_001/comparison_summary.json)
+[`reports/model_comparison/prior_sensitivity_002/comparison_summary.json`](reports/model_comparison/prior_sensitivity_002/comparison_summary.json)
 mantém os valores para auditoria e recusa promovê-los a ranking confiável. A
 síntese de sensibilidade está em
-[`reports/sensitivity/kepler_10_b/sensitivity_001/sensitivity_report.md`](reports/sensitivity/kepler_10_b/sensitivity_001/sensitivity_report.md).
+[`reports/sensitivity/kepler_10_b/sensitivity_002/sensitivity_report.md`](reports/sensitivity/kepler_10_b/sensitivity_002/sensitivity_report.md).
 
 ## Testes e CI
 
 ```bash
-python -m unittest discover -s tests -v
+python scripts/verify_scientific_environment.py
+python -m ruff check .
+python scripts/run_ci_tests.py
 python scripts/validate_hardened_artifacts.py
 ```
 
 A suíte cobre configuração de alvo, unidades, paths POSIX, seleção de cadência,
 exposição FITS, normalização por segmento, isolamento de run, modelo físico,
 prior predictive, BFMI do ArviZ atual, gates científicos, comparação formal e
-experimentos de ruído. Há também uma integração clean-room sem rede que cria
-FITS pequenos e percorre RAW→Silver→Gold. O workflow em
+experimentos de ruído. Há também uma integração clean-room com uma guarda
+verificada sobre as APIs padrão de socket do Python que cria FITS pequenos e
+percorre RAW→Silver→Gold. Essa guarda não equivale a um namespace de rede do
+sistema operacional. O workflow em
 `.github/workflows/ci.yml` executa a suíte prática e a validação dos artefatos.
 
 ## Artefatos históricos e armazenamento

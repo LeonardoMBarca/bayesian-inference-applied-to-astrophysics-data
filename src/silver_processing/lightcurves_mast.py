@@ -23,7 +23,6 @@ from .utils import (
     utc_now,
 )
 
-
 MAST_METADATA_COLUMNS = (
     "planet_name",
     "host_star",

@@ -8,9 +8,8 @@ import json
 import unittest
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RUN_ID = "scientific_002"
+RUN_ID = "scientific_003"
 MODEL_DIR = (
     PROJECT_ROOT
     / "models"
@@ -48,7 +47,7 @@ class CurrentM5ArtifactTests(unittest.TestCase):
         report = (
             PROJECT_ROOT
             / "reports"
-            / "bayesian_physical_transit_kepler_10_b_scientific_002_report.md"
+            / f"bayesian_physical_transit_kepler_10_b_{RUN_ID}_report.md"
         ).read_text(encoding="utf-8")
         status = json.loads((MODEL_DIR / "run_status.json").read_text(encoding="utf-8"))
         self.assertEqual(self.config["target"]["planet_name"], "Kepler-10 b")
@@ -85,6 +84,13 @@ class CurrentM5ArtifactTests(unittest.TestCase):
         self.assertTrue(model["exposure_integration"]["enabled"])
         self.assertEqual(model["likelihood"]["distribution"], "Normal")
         self.assertTrue(self.config["log_likelihood"]["available"])
+
+    def test_current_notebook_points_to_current_run(self) -> None:
+        notebook = (PROJECT_ROOT / "notebooks" / "07_bayesian_physical_transit.ipynb").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(f"run_id = '{RUN_ID}'", notebook)
+        self.assertNotIn("run_id = 'scientific_002'", notebook)
 
 
 if __name__ == "__main__":

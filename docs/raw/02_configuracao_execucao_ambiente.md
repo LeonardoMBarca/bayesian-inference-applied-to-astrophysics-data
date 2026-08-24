@@ -92,7 +92,10 @@ python scripts/download_etd_varastro.py
 
 ## Configurações dos planetas
 
-Os planetas foram definidos em `scripts/raw_data_config.py`.
+Os planetas são definidos pela configuração autoritativa em
+`src/project_config.py`; a configuração operacional RAW fica em
+`src/raw_ingestion/config.py`. `scripts/raw_data_config.py` é apenas um import
+de compatibilidade.
 
 ```python
 PLANETS = [

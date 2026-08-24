@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 AUTHOR_PRIORITY = {
     "SPOC": 0,
     "Kepler": 0,

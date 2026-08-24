@@ -12,7 +12,6 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Final, Literal
 
-
 CadencePreference = Literal["short", "long", "any"]
 
 

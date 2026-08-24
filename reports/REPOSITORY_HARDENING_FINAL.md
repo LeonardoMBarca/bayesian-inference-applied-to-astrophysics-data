@@ -21,36 +21,46 @@ runs com gate explícito são classificados como cientificamente interpretáveis
 - NumPy 2.4.6, pandas 2.3.3, PyMC 6.3.1, ArviZ 1.3.0,
   exoplanet 0.6.0, Astropy 8.0.1 e Lightkurve 2.6.0;
 - `requirements.txt` com versões exatas, SHA-256
-  `19dcc3f4ffb974f3d6cb166749fad06dcf9e6fce99e0077c8b3075911a58ad80`;
+  `e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9`;
 - `environment.yml`, SHA-256
   `8f88a3da35212a4b44639af2f3ab86ee59548dbab32d60e5ba3c4e373f9e922e`;
 - `pyproject.toml`, SHA-256
-  `2e6de8653a72f0b601305727fc7d76310f4700251fd254370ab1da63398e91c0`.
+  `0734e91f988702e5e7f0d61a88bd26392829384ac49a7574741736e43d4bb098`.
 
-O workflow `.github/workflows/ci.yml` instala esse ambiente, executa validação
-estática, testes e validação de artefatos; o clean-room completo é acionável
-manualmente. Nesta árvore de trabalho os comandos equivalentes passaram
-localmente. Não se afirma que um job remoto hospedado tenha sido executado.
+O workflow `.github/workflows/ci.yml` instala esse ambiente, exige os 19 imports
+fixados, executa Ruff, rejeita qualquer teste pulado e valida os artefatos; o
+clean-room completo é acionável manualmente. Nesta árvore de trabalho os comandos
+equivalentes passaram localmente. Não se afirma que um job remoto hospedado tenha
+sido executado.
 
 ## Comandos de validação executados
 
 ```bash
 python scripts/build_silver_data.py
 python scripts/build_gold_data.py
-python scripts/rebuild_m5_artifacts.py --target kepler_10_b --run-id scientific_002
+python scripts/run_kepler_10b.py --run-id scientific_003 \
+  --draws 800 --tune 800 --chains 4 --cores 4 --target-accept 0.95
+python scripts/run_kepler_10b.py --run-id sensitivity_002_catalog_tighter \
+  --prior-profile catalog_tighter --draws 800 --tune 800 --chains 4 --cores 4 \
+  --target-accept 0.95
+python scripts/run_kepler_10b.py --run-id sensitivity_002_weak \
+  --prior-profile weak --draws 800 --tune 800 --chains 4 --cores 4 \
+  --target-accept 0.95
 python scripts/summarize_bayesian_sensitivity.py \
-  --target kepler_10_b --experiment-id sensitivity_001 \
-  --catalog-tighter-run sensitivity_001_catalog_tighter \
-  --baseline-run scientific_002 --weak-run sensitivity_001_weak
+  --target kepler_10_b --experiment-id sensitivity_002 \
+  --catalog-tighter-run sensitivity_002_catalog_tighter \
+  --baseline-run scientific_003 --weak-run sensitivity_002_weak
 python scripts/run_model_comparison.py \
-  models/bayesian_physical_transit/kepler_10_b/runs/sensitivity_001_catalog_tighter/model_config.json \
-  models/bayesian_physical_transit/kepler_10_b/runs/scientific_002/model_config.json \
-  models/bayesian_physical_transit/kepler_10_b/runs/sensitivity_001_weak/model_config.json \
-  --output-dir reports/model_comparison/prior_sensitivity_001
+  models/bayesian_physical_transit/kepler_10_b/runs/sensitivity_002_catalog_tighter/model_config.json \
+  models/bayesian_physical_transit/kepler_10_b/runs/scientific_003/model_config.json \
+  models/bayesian_physical_transit/kepler_10_b/runs/sensitivity_002_weak/model_config.json \
+  --output-dir reports/model_comparison/prior_sensitivity_002
 python scripts/validate_clean_rebuild.py
 python scripts/build_model_run_inventory.py
+python scripts/verify_scientific_environment.py
+python -m ruff check .
 python scripts/validate_hardened_artifacts.py
-python -m unittest discover -s tests -v
+python scripts/run_ci_tests.py
 python scripts/static_validate.py
 git diff --check
 ```
@@ -65,17 +75,21 @@ de tuning e 800 draws por chain, `target_accept=0.95` e semente 42.
 - caminhos persistidos são relativos ao repositório e usam separadores POSIX;
 - Silver registra percentuais e frações de profundidade, horas e dias com
   semântica explícita e conversões testadas;
-- HAT-P-7 b Gold: dataset `hat_p_7_b-a40623cca1048e76`, 3 segmentos, 3.909
+- HAT-P-7 b Gold: dataset `hat_p_7_b-7ab50a2fe12341b7`, 3 segmentos, 3.909
   pontos após qualidade, 1.027 pontos na janela M5 e cadência longa mediana de
   1.765,463 s;
-- Kepler-10 b Gold: dataset `kepler_10_b-06a6ce6b0b39f5b4`, 3 segmentos,
+- Kepler-10 b Gold: dataset `kepler_10_b-b4d1e6ec961c1f4d`, 3 segmentos,
   115.363 pontos após qualidade, 40.836 na janela e cadência curta mediana de
   58,849 s;
 - os offsets brutos entre segmentos foram preservados nos diagnósticos e cada
   baseline fora de trânsito foi normalizado a 1,0 antes da concatenação;
-- o clean-room, iniciado somente com código/config e RAW e com rede desativada,
-  reproduziu os dois IDs e o hash de entrada M5 de cada alvo. O hash da árvore
-  RAW usada foi
+- os IDs Gold vinculam o hash do conteúdo normalizado e os SHA-256 ordenados dos
+  FITS; o manifesto registra corretamente 13 campos para cada metadata JSON;
+- o clean-room, iniciado somente com código/config e RAW, reproduziu os dois IDs
+  e o hash de entrada M5 de cada alvo sob uma guarda verificada das APIs padrão
+  `socket.connect`, `connect_ex`, `create_connection` e `getaddrinfo`. Nenhuma
+  tentativa foi registrada durante Silver/Gold. A guarda não é um namespace de
+  rede do sistema operacional. O hash da árvore RAW usada foi
   `a3b30d6d01575806999d1a74feefb1ecc9ff9d78b2265601b26bc0adcb344376`.
 - nenhum dos 445 caminhos do manifesto RAW atual é ocultado pelo `.gitignore`;
   o conjunto versionável contém zero arquivo com 100 MiB ou mais (o maior
@@ -92,14 +106,14 @@ likelihood Normal com erro medido e jitter branco, NUTS, log-likelihood pontual,
 prior predictive e posterior predictive. Não contém GP nem likelihood de ruído
 correlacionado.
 
-Run principal `scientific_002`:
+Run principal `scientific_003`:
 
 | Evidência | Valor |
 |---|---:|
 | alvo | Kepler-10 b |
-| dataset | `kepler_10_b-06a6ce6b0b39f5b4` |
-| hash da entrada M5 | `5bd20f7d94ca6f84fe47d4d504a6a817e28aa542065425fb5c01c13466df3845` |
-| hash local do trace | `7ed982a0c4d802171f26b270eb76b2076ef49736059482e7375fdd810837df4c` |
+| dataset | `kepler_10_b-b4d1e6ec961c1f4d` |
+| hash da entrada M5 | `6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791` |
+| hash local do trace | `68cb29a65f2dc787b37225f5511151b8bf22fd0ac93fb73a79a9a358f1181698` |
 | R-hat máximo | 1,00508421 |
 | ESS mínimo | 582,0677 |
 | divergências | 0 |
@@ -131,9 +145,9 @@ estrutural heurístico é misturado às métricas formais ou preditivas.
 
 ## Ruído e controles negativos
 
-- `white_001`: injeção Gaussiana independente, lag-1 mediano 0,00294;
-- `sinusoid_001`: sistemática determinística, não chamada de ruído estocástico;
-- `ar1_001`: injeção correlacionada AR(1), lag-1 mediano 0,79987;
+- `white_002`: injeção Gaussiana independente, lag-1 mediano 0,00294;
+- `sinusoid_002`: sistemática determinística, não chamada de ruído estocástico;
+- `ar1_002`: injeção correlacionada AR(1), lag-1 mediano 0,79987;
 - os três artefatos dizem `inference_status=not_run`: demonstram geração e
   recuperação exata da injeção nos testes, não recuperação Bayesiana de
   correlação pelo M5.
@@ -155,15 +169,34 @@ Runs falhos ou não interpretáveis foram preservados:
 O inventário completo está em `reports/model_run_inventory.json` e
 `reports/model_run_inventory.md`.
 
+## Organização do código
+
+`scripts/` foi reduzido a uma camada estável de entry points: seus 29 arquivos
+Python de topo têm no máximo 97 linhas. Implementações extensas foram movidas
+sem reescrita dos algoritmos para pacotes com responsabilidade explícita:
+
+- EDA Gold em `src/gold_analysis/`;
+- M1–M3 históricos em `src/bayesian_modeling/legacy/`;
+- inventário, CI local e validadores em `src/repository_tools/`;
+- configurações RAW, Silver e Gold junto dos respectivos pacotes de pipeline.
+
+Os caminhos antigos em `scripts/` permanecem válidos e reexportam as APIs usadas
+pelos notebooks e testes. `tests/test_repository_layout.py` valida imports reais,
+descoberta da raiz do projeto, equivalência das configurações e o limite de
+tamanho dos entry points. `scripts/README.md` e `src/README.md` documentam o
+mapa atual.
+
 ## Testes e artefatos
 
-- 45 testes executados, 45 aprovados;
-- 83 arquivos Python parseados;
+- 59 testes executados, 59 aprovados, zero pulados;
+- 106 arquivos Python parseados;
 - 6 notebooks parseados;
-- 18 dependências científicas críticas verificadas com versões exatas;
+- 19 dependências científicas/de validação importadas com versões exatas;
+- Ruff 0.16.1 aprovado sobre todo o repositório;
 - validação integrada dos artefatos aprovada;
-- clean-room RAW→Silver→Gold aprovado sem rede;
-- M5 principal reconstruído do trace somente após confirmar dataset e hash.
+- clean-room RAW→Silver→Gold aprovado sob guarda Python verificada, com zero
+  tentativas de socket registradas;
+- M5 principal reamostrado do zero sobre o novo dataset/hash.
 
 ## Limitações restantes
 
@@ -178,7 +211,8 @@ O inventário completo está em `reports/model_run_inventory.json` e
 - traces NetCDF e derivados volumosos não são versionados em Git; checksums,
   manifests, comandos e ambiente permitem regeneração e auditoria local;
 - downloads RAW futuros dependem da disponibilidade dos serviços externos, mas
-  a reconstrução validada a partir do RAW versionável não usa rede.
+  a reconstrução validada a partir do RAW versionável fez zero tentativas pelas
+  APIs padrão de socket guardadas; isso não é isolamento de rede em nível de SO.
 
 Essas limitações são mantidas como limites explícitos do resultado, não como
 itens silenciosamente “resolvidos”.

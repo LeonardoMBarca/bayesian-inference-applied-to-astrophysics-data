@@ -5,7 +5,6 @@ import tempfile
 import unittest
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -91,7 +90,7 @@ class M5ScientificSmokeTests(unittest.TestCase):
     def test_bfmi_is_extracted_from_current_arviz_datatree(self) -> None:
         import pymc as pm
 
-        with pm.Model() as model:
+        with pm.Model():
             pm.Normal("x")
             idata = pm.sample(
                 draws=20,

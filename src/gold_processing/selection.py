@@ -15,12 +15,10 @@ from .utils import (
     markdown_table,
     path_list,
     read_csv,
-    relative_path,
     scalar_to_float,
     to_number,
     utc_now,
 )
-
 
 SCORECARD_COLUMNS = (
     "planet_name",

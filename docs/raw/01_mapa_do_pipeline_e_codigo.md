@@ -6,7 +6,7 @@ O pipeline foi implementado em Python com uma arquitetura simples:
 
 - scripts em `scripts/` para execução direta;
 - módulos reutilizáveis em `src/raw_ingestion/`;
-- configuração central em `scripts/raw_data_config.py`;
+- configuração canônica em `src/raw_ingestion/config.py`;
 - dados salvos em `data/raw`;
 - documentação operacional em `README.md` e nesta pasta `docs/`.
 
@@ -87,8 +87,10 @@ run_pipeline(config, ("etd",))
 Arquivo:
 
 ```text
-scripts/raw_data_config.py
+src/raw_ingestion/config.py
 ```
+
+`scripts/raw_data_config.py` permanece como import de compatibilidade.
 
 Responsabilidades:
 

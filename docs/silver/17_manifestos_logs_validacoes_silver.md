@@ -229,7 +229,7 @@ Relatório de presença de colunas esperadas em:
 
 A Silver é reprodutível porque:
 
-1. Tem configuração versionável em `scripts/silver_data_config.py`.
+1. Tem configuração versionável em `src/silver_processing/config.py`.
 2. Lê a RAW por manifesto.
 3. Usa caminhos locais.
 4. Não depende de rede.

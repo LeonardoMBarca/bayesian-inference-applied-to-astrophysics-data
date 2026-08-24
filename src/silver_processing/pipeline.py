@@ -17,7 +17,6 @@ from .utils import (
 )
 from .validation import build_silver_validations, validate_raw_manifest
 
-
 ALL_STEPS = (
     "raw_validation",
     "catalogs",

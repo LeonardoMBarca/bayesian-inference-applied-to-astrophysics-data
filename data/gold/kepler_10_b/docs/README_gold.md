@@ -11,7 +11,7 @@ Ela não executa inferência bayesiana.
 Data de geração:
 
 ```text
-2026-08-24T09:44:57+00:00
+2026-08-24T11:48:53+00:00
 ```
 
 ## 2. Planeta Escolhido

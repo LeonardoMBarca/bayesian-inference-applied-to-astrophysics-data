@@ -16,7 +16,8 @@ exposição mediana de 58,848763 s. A Gold filtra qualidade e normaliza cada
 segmento pela mediana fora do trânsito antes da concatenação. As medianas RAW
 dos segmentos (556934,94; 524924,40; 527039,10) tornam-se exatamente 1,0 nas
 regiões de baseline. O dataset é
-`kepler_10_b-06a6ce6b0b39f5b4`, com 115.363 linhas e janela de 40.836 linhas.
+`kepler_10_b-b4d1e6ec961c1f4d`, com 115.363 linhas e janela de 40.836 linhas. A
+identidade vincula o conteúdo normalizado e os checksums dos FITS de origem.
 
 ## Modelo M5 executado
 
@@ -27,10 +28,10 @@ com oversampling 15. O prior de `Rp/Rs` é lognormal, positivo e centrado em
 likelihood é Normal com `sqrt(flux_err² + extra_sigma²)`, onde `extra_sigma` é
 jitter branco independente. Não há GP nem modelo de ruído correlacionado.
 
-O run `scientific_002` usou 3.000 pontos estratificados por fase e segmento,
+O run `scientific_003` usou 3.000 pontos estratificados por fase e segmento,
 quatro cadeias, 800 iterações de tuning e 800 draws por cadeia, NUTS,
 `target_accept=0,95` e semente 42. A entrada possui SHA-256
-`5bd20f7d94ca6f84fe47d4d504a6a817e28aa542065425fb5c01c13466df3845`.
+`6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791`.
 
 ## Resultados e diagnóstico
 
@@ -64,7 +65,7 @@ recuperação de ruído correlacionado.
 LOO/WAIC/ELPD só são autorizados entre as mesmas observações e likelihood, com
 log-likelihood pontual e gates aprovados. RMSE/MAE são relatados separadamente.
 
-O experimento completo `sensitivity_001` satisfez esse contrato nos três perfis.
+O experimento completo `sensitivity_002` satisfez esse contrato nos três perfis.
 Todos passaram R-hat, ESS, divergências, BFMI, PPC e gates de escala. O maior
 deslocamento em relação ao posterior baseline foi 0,77% em `Rp/Rs`, 1,59% em
 profundidade, 0,18% em jitter e 0,34% em duração, com sobreposição dos HDIs de

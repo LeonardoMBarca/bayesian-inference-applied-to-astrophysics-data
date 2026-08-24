@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 import logging
-from pathlib import Path
 from typing import Any
 
 import pandas as pd
@@ -18,7 +17,6 @@ from .utils import (
     sorted_planets,
     utc_now,
 )
-
 
 EXOMAST_FILE_GROUPS = {
     "identifiers": ("identifiers.json",),

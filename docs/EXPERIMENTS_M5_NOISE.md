@@ -24,7 +24,7 @@ escala absurda é resultado negativo e impede a palavra “robusto”.
 
 ```bash
 python scripts/run_bayesian_sensitivity.py \
-  --target kepler_10_b --run-prefix sensitivity_001 \
+  --target kepler_10_b --run-prefix sensitivity_002 \
   --draws 800 --tune 800 --chains 4 --cores 4
 ```
 
@@ -46,7 +46,7 @@ com `inference_status=not_run` até que um modelo seja efetivamente ajustado.
 python scripts/run_bayesian_noise_injection.py \
   --target kepler_10_b --kind correlated_ar1 \
   --amplitude 0.0002 --ar1-rho 0.8 --seed 42 \
-  --experiment-id ar1_001
+  --experiment-id ar1_002
 ```
 
 O M5 atual contém likelihood Normal condicionalmente independente e jitter

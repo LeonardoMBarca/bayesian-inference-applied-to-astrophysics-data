@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-08-24T11:50:09+00:00",
+  "finished_at_utc": "2026-08-24T12:06:20+00:00",
+  "model_name": "M5_bayesian_physical_transit",
+  "run_id": "scientific_003",
+  "target": "Kepler-10 b",
+  "prior_profile": "baseline",
+  "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+  "points_used": 3000,
+  "trace": "models/bayesian_physical_transit/kepler_10_b/runs/scientific_003/trace.nc",
+  "trace_sha256": "68cb29a65f2dc787b37225f5511151b8bf22fd0ac93fb73a79a9a358f1181698",
+  "report": "reports/bayesian_physical_transit_kepler_10_b_scientific_003_report.md",
+  "interpretation_gate": {
+    "sampler_converged": true,
+    "posterior_predictive_adequate": true,
+    "scientifically_interpretable": true,
+    "rejection_reasons": [],
+    "component_reasons": {
+      "sampler": [],
+      "posterior_predictive": [],
+      "scientific": []
+    },
+    "thresholds": {
+      "max_r_hat": 1.01,
+      "min_ess": 400,
+      "divergences": 0,
+      "min_bfmi": 0.3,
+      "max_jitter_ratio": 20.0,
+      "max_radius_ratio_boundary_fraction": 0.05
+    }
+  }
+}

@@ -9,8 +9,15 @@ from typing import Any
 import pandas as pd
 
 from .manifests import GoldManifest
-from .utils import atomic_write_dataframe, atomic_write_text, markdown_table, read_csv, relative_path, scalar_to_float, to_number
-
+from .utils import (
+    atomic_write_dataframe,
+    atomic_write_text,
+    markdown_table,
+    read_csv,
+    relative_path,
+    scalar_to_float,
+    to_number,
+)
 
 SUMMARY_COLUMNS = (
     "planet_name",

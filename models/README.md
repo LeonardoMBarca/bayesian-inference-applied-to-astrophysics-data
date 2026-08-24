@@ -2,7 +2,7 @@
 
 O estado atual usa a hierarquia
 `models/bayesian_physical_transit/<target>/runs/<run_id>/`. O run validado é
-`kepler_10_b/runs/scientific_002`; `model_config.json` e `run_status.json`
+`kepler_10_b/runs/scientific_003`; `model_config.json` e `run_status.json`
 registram a decisão científica e o checksum do trace local.
 
 Diretórios antigos sem o contrato `dataset_id` + checksum + gate, inclusive

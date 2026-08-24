@@ -24,7 +24,6 @@ from .utils import (
     versioned_path,
 )
 
-
 SOURCE_NAME = "ETD / VarAstro"
 OBSERVATION_COLUMNS = (
     "planet",

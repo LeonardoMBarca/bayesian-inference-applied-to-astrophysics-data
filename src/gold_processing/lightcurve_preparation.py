@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import logging
 import hashlib
 import json
+import logging
 import re
 from pathlib import Path
 from typing import Any
@@ -25,7 +25,6 @@ from .utils import (
     to_number,
     utc_now,
 )
-
 
 REFERENCE_COLUMNS = (
     "planet_name",
@@ -102,6 +101,129 @@ PHASE_COLUMNS = (
     "source_gold_lightcurve",
     "gold_created_at_utc",
 )
+
+DATASET_VOLATILE_COLUMNS = frozenset(
+    {"dataset_id", "dataset_schema_version", "gold_created_at_utc"}
+)
+DATASET_SIGNATURE_NUMERIC_COLUMNS = frozenset(
+    {
+        "phase",
+        "flux",
+        "flux_err",
+        "exposure_time_seconds",
+        "raw_flux",
+        "raw_flux_err",
+        "segment_baseline_flux",
+    }
+)
+
+
+def read_normalized_signature_frame(path: Path) -> pd.DataFrame:
+    """Reload persisted Gold with the dtypes used to create its content hash."""
+
+    frame = pd.read_csv(
+        path,
+        dtype=str,
+        low_memory=False,
+        float_precision="round_trip",
+    ).fillna("")
+    for column in sorted(DATASET_SIGNATURE_NUMERIC_COLUMNS.intersection(frame.columns)):
+        frame[column] = pd.to_numeric(frame[column], errors="raise")
+    reconstruction_columns = {
+        "flux",
+        "flux_err",
+        "raw_flux",
+        "raw_flux_err",
+        "segment_baseline_flux",
+    }
+    if reconstruction_columns.issubset(frame.columns):
+        baseline = frame["segment_baseline_flux"].abs()
+        frame["flux"] = frame["raw_flux"] / baseline
+        frame["flux_err"] = frame["raw_flux_err"] / baseline
+    return frame
+
+
+def normalized_content_sha256(frame: pd.DataFrame) -> str:
+    """Hash normalized scientific content while excluding volatile run metadata."""
+
+    columns = sorted(set(frame.columns).difference(DATASET_VOLATILE_COLUMNS))
+    if not columns:
+        raise ValueError("Cannot identify a Gold dataset from an empty column set.")
+    canonical = frame.loc[:, columns].copy()
+    sort_columns = [
+        column for column in ("segment_id", "time", "cadence_number") if column in columns
+    ]
+    if sort_columns:
+        canonical = canonical.sort_values(
+            sort_columns,
+            kind="mergesort",
+            na_position="last",
+        )
+    serialized = canonical.to_csv(
+        index=False,
+        lineterminator="\n",
+        na_rep="",
+        float_format="%.17g",
+    ).encode("utf-8")
+    return hashlib.sha256(serialized).hexdigest()
+
+
+def build_gold_dataset_signature(
+    *,
+    normalized: pd.DataFrame,
+    diagnostics: pd.DataFrame,
+    schema_version: str,
+    planet_slug: str,
+    orbital_period_days: float | None,
+    normalization_method: str,
+    transit_exclusion_half_width_days: float,
+) -> dict[str, Any]:
+    """Return a content-bound signature for a segment-normalized Gold dataset."""
+
+    required = {
+        "segment_id",
+        "source_fits_file",
+        "source_fits_sha256",
+        "row_count",
+        "exposure_time_seconds",
+    }
+    missing = sorted(required.difference(diagnostics.columns))
+    if missing:
+        raise ValueError(f"Dataset signature is missing diagnostic columns: {missing}")
+    segments: list[dict[str, Any]] = []
+    for row in diagnostics.sort_values("segment_id").to_dict(orient="records"):
+        checksum = str(row["source_fits_sha256"]).strip().lower()
+        if re.fullmatch(r"[0-9a-f]{64}", checksum) is None:
+            raise ValueError(
+                f"Segment {row['segment_id']!r} has invalid source_fits_sha256."
+            )
+        segments.append(
+            {
+                "segment_id": str(row["segment_id"]),
+                "source_fits_file": str(row["source_fits_file"]),
+                "source_fits_sha256": checksum,
+                "rows": int(row["row_count"]),
+                "exposure_time_seconds": float(row["exposure_time_seconds"]),
+            }
+        )
+    return {
+        "schema_version": schema_version,
+        "planet_slug": planet_slug,
+        "orbital_period_days": orbital_period_days,
+        "method": normalization_method,
+        "transit_exclusion_half_width_days": transit_exclusion_half_width_days,
+        "normalized_content_sha256": normalized_content_sha256(normalized),
+        "segments": segments,
+    }
+
+
+def dataset_id_from_signature(planet_slug: str, signature: dict[str, Any]) -> str:
+    serialized = json.dumps(
+        signature,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return f"{planet_slug}-{hashlib.sha256(serialized).hexdigest()[:16]}"
 
 
 def construct_centered_phase(
@@ -587,6 +709,7 @@ def normalize_segments_dataframe(
     required = {
         "segment_id",
         "source_fits_file",
+        "source_fits_sha256",
         "phase",
         "flux",
         "flux_err",
@@ -612,6 +735,18 @@ def normalize_segments_dataframe(
     diagnostic_rows: list[dict[str, Any]] = []
     for segment_id, segment in working.groupby("segment_id", sort=True, dropna=False):
         segment = segment.copy()
+        source_hashes = {
+            str(value).strip().lower()
+            for value in segment["source_fits_sha256"].dropna()
+            if str(value).strip()
+        }
+        if len(source_hashes) != 1 or re.fullmatch(
+            r"[0-9a-f]{64}", next(iter(source_hashes), "")
+        ) is None:
+            raise ValueError(
+                f"Segment {segment_id!r} must retain exactly one valid FITS SHA-256."
+            )
+        source_fits_sha256 = next(iter(source_hashes))
         valid = segment["phase"].notna() & segment["flux"].notna()
         baseline_mask = valid & (
             segment["phase"].abs() >= transit_exclusion_half_width_days
@@ -639,6 +774,7 @@ def normalize_segments_dataframe(
             {
                 "segment_id": str(segment_id),
                 "source_fits_file": str(segment["source_fits_file"].iloc[0]),
+                "source_fits_sha256": source_fits_sha256,
                 "quarter": segment.get("quarter", pd.Series([""])).iloc[0],
                 "sector": segment.get("sector", pd.Series([""])).iloc[0],
                 "campaign": segment.get("campaign", pd.Series([""])).iloc[0],
@@ -685,23 +821,18 @@ def build_segment_normalized_lightcurve(
         transit_exclusion_half_width_days=exclusion_half_width,
         min_baseline_points=int(config.SEGMENT_MIN_BASELINE_POINTS),
     )
-    signature = {
-        "schema_version": config.DATASET_SCHEMA_VERSION,
-        "planet_slug": slug,
-        "orbital_period_days": scalar_to_float(reference.iloc[0].get("orbital_period_days")),
-        "method": config.SEGMENT_NORMALIZATION_METHOD,
-        "transit_exclusion_half_width_days": exclusion_half_width,
-        "segments": [
-            {
-                "segment_id": row["segment_id"],
-                "source_fits_file": row["source_fits_file"],
-                "rows": int(row["row_count"]),
-                "exposure_time_seconds": float(row["exposure_time_seconds"]),
-            }
-            for row in diagnostics.to_dict(orient="records")
-        ],
-    }
-    dataset_id = f"{slug}-{hashlib.sha256(json.dumps(signature, sort_keys=True).encode('utf-8')).hexdigest()[:16]}"
+    signature = build_gold_dataset_signature(
+        normalized=normalized,
+        diagnostics=diagnostics,
+        schema_version=config.DATASET_SCHEMA_VERSION,
+        planet_slug=slug,
+        orbital_period_days=scalar_to_float(
+            reference.iloc[0].get("orbital_period_days")
+        ),
+        normalization_method=config.SEGMENT_NORMALIZATION_METHOD,
+        transit_exclusion_half_width_days=exclusion_half_width,
+    )
+    dataset_id = dataset_id_from_signature(slug, signature)
     normalized["dataset_id"] = dataset_id
     normalized["dataset_schema_version"] = config.DATASET_SCHEMA_VERSION
     diagnostics["dataset_id"] = dataset_id
@@ -713,22 +844,30 @@ def build_segment_normalized_lightcurve(
     metadata_path = model_dir / "dataset_metadata.json"
     atomic_write_dataframe(output_path, normalized)
     atomic_write_dataframe(diagnostics_path, diagnostics)
-    atomic_write_json(
-        metadata_path,
-        {
-            **signature,
-            "dataset_id": dataset_id,
-            "preprocessing_status": "segment_normalized",
-            "normalization_policy": config.NORMALIZATION_POLICY,
-            "row_count": len(normalized),
-            "segment_count": len(diagnostics),
-            "created_at_utc": utc_now(),
-        },
-    )
-    for path, transformation_type, row_count in (
-        (output_path, "gold_segment_normalized_lightcurve", len(normalized)),
-        (diagnostics_path, "gold_segment_normalization_diagnostics", len(diagnostics)),
-        (metadata_path, "gold_dataset_metadata", 1),
+    metadata_payload = {
+        **signature,
+        "dataset_id": dataset_id,
+        "preprocessing_status": "segment_normalized",
+        "normalization_policy": config.NORMALIZATION_POLICY,
+        "row_count": len(normalized),
+        "segment_count": len(diagnostics),
+        "created_at_utc": utc_now(),
+    }
+    atomic_write_json(metadata_path, metadata_payload)
+    for path, transformation_type, row_count, column_count in (
+        (
+            output_path,
+            "gold_segment_normalized_lightcurve",
+            len(normalized),
+            len(normalized.columns),
+        ),
+        (
+            diagnostics_path,
+            "gold_segment_normalization_diagnostics",
+            len(diagnostics),
+            len(diagnostics.columns),
+        ),
+        (metadata_path, "gold_dataset_metadata", 1, len(metadata_payload)),
     ):
         manifest.add_artifact(
             path=path,
@@ -739,7 +878,7 @@ def build_segment_normalized_lightcurve(
             source_silver_path=relative_path(phase_result["path"], config.PROJECT_ROOT),
             source_raw_path="|".join(sorted(set(normalized["source_raw_path"].astype(str)))),
             row_count=row_count,
-            column_count=(len(normalized.columns) if path == output_path else len(diagnostics.columns)),
+            column_count=column_count,
             notes=f"dataset_id={dataset_id}; {config.NORMALIZATION_POLICY}",
         )
     logger.info(

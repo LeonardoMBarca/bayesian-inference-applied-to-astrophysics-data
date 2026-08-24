@@ -21,7 +21,6 @@ from urllib3.util.retry import Retry
 
 from portable_paths import repo_relative_posix
 
-
 MANIFEST_COLUMNS = (
     "collected_at_utc",
     "source_name",

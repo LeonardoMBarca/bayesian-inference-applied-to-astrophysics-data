@@ -15,7 +15,6 @@ from bayesian_modeling.contracts import (
 )
 from project_config import get_target
 
-
 PARAMETERS = ("r", "depth", "extra_sigma", "full_duration")
 
 
@@ -84,15 +83,26 @@ def summarize_sensitivity(
         )
 
     comparison_contract = validate_formal_comparison_contract(configs)
-    all_gates_pass = bool(table["scientifically_interpretable"].all())
+    completed = table["run_status"].eq("completed")
+    valid = completed & table["scientifically_interpretable"]
+    all_runs_completed = bool(completed.all())
+    all_gates_pass = bool(valid.all())
+    if not all_runs_completed:
+        incomplete_runs = table.loc[~completed, "run_id"].astype(str).tolist()
+        comparison_contract["formal_comparison_valid"] = False
+        comparison_contract["allowed_metrics"] = []
+        comparison_contract["rejection_reasons"] = [
+            *comparison_contract["rejection_reasons"],
+            f"runs are not completed: {incomplete_runs}",
+        ]
     maximum_shifts = {
         parameter: float(table[f"{parameter}_relative_shift_from_baseline"].max())
         for parameter in PARAMETERS
     }
     if not all_gates_pass:
         conclusion = (
-            "Sensitivity interpretation rejected because at least one run failed its "
-            "scientific gate. No robustness claim is permitted."
+            "Sensitivity interpretation rejected because at least one run is not "
+            "completed or failed its scientific gate. No robustness claim is permitted."
         )
     else:
         conclusion = (
@@ -105,6 +115,7 @@ def summarize_sensitivity(
         "dataset_id": configs[0]["input_summary"]["dataset_id"],
         "modeling_input_sha256": configs[0]["input_summary"]["modeling_input_sha256"],
         "profiles": table.to_dict(orient="records"),
+        "all_runs_completed": all_runs_completed,
         "all_scientific_gates_pass": all_gates_pass,
         "formal_comparison_contract": comparison_contract,
         "maximum_relative_shifts_from_baseline": maximum_shifts,

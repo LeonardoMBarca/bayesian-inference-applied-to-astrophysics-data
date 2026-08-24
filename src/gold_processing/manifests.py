@@ -9,7 +9,6 @@ import pandas as pd
 
 from .utils import atomic_write_dataframe, atomic_write_json, relative_path, sha256_file, utc_now
 
-
 GOLD_MANIFEST_COLUMNS = (
     "created_at_utc",
     "gold_layer",
