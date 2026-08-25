@@ -2,160 +2,294 @@
 
 ## Mission
 
-This repository is scientific software. Treat correctness, reproducibility, provenance, explicit assumptions, and honest uncertainty as first-class requirements.
+This repository is scientific software. Treat scientific correctness, reproducibility, provenance, explicit assumptions, honest uncertainty, calibration, external validation, and failure transparency as first-class requirements.
 
-The goal is not merely to make the code run. The goal is to make the repository fulfill what it claims to do: ingest traceable public astrophysical data, transform it through RAW/Silver/Gold layers without losing required provenance, fit Bayesian models that match their documentation, validate those models scientifically and computationally, and produce artifacts that can be defended in an academic TCC.
+On branch `publication-grade-validation`, the mission is no longer merely to harden a TCC repository. The validated `main` state is the protected baseline. The goal of this branch is to build enough pre-specified, reproducible evidence for:
 
-When working in this repository, prefer a smaller scientifically correct implementation over a more sophisticated but weakly validated one.
+1. a top-quality MBA TCC;
+2. a defensible scientific manuscript suitable for peer-review submission;
+3. a public, citable research-software/data artifact.
+
+The intended methodological contribution is a **validation-gated, content-addressed and reproducible Bayesian workflow for exoplanet transit inference**, supported by synthetic calibration, independent implementation benchmarking, controlled ablations/failure cases, multi-target validation, and — only after those are solid — explicit correlated-noise modeling.
+
+Do not optimize for impressive complexity. Optimize for stronger evidence.
 
 ## Required starting context
 
-Before substantial work:
+Before substantial work on this branch, read in order:
 
-1. Read `.agents/REMEDIATION_PLAN.md`.
-2. Read the relevant skill(s) under `.agents/skills/`.
-3. Inspect the current code and generated artifacts before assuming documentation is current.
-4. Treat the current executable implementation, current configuration, manifests, and generated metrics as evidence to reconcile; do not blindly trust any single README or historical context export.
-5. If an audit finding in `.agents/REMEDIATION_PLAN.md` is stale because the code has already been fixed, verify the fix with tests/evidence and update the plan rather than reimplementing it.
+1. `AGENTS.md` completely.
+2. `.agents/PUBLICATION_PLAN.md` completely.
+3. `.agents/EXPERIMENT_REGISTRY.md`.
+4. `.agents/PAPER_BLUEPRINT.md`.
+5. `.agents/REMEDIATION_PLAN.md` as historical/baseline hardening context.
+6. The relevant skill(s) under `.agents/skills/`.
+7. Current executable code, configurations and generated artifacts relevant to the task.
+
+Do not assume historical docs are current. The validated baseline and current machine-readable evidence take precedence.
+
+## Protected baseline
+
+The publication branch starts from validated `main` commit:
+
+`7489a90689a753bea5243f86c1489329916c98e2`
+
+The current primary scientific baseline is Kepler-10 b run `scientific_003`, Gold dataset `kepler_10_b-b4d1e6ec961c1f4d`, M5 input SHA-256 `6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791`.
+
+Do not rewrite this historical evidence in place. New experiments require new experiment/run IDs. If a later model supersedes a result, preserve both and state the relationship explicitly.
 
 ## Source-of-truth hierarchy
 
-When sources disagree, reconcile them explicitly. As a default hierarchy:
+When sources disagree, reconcile them explicitly. Default hierarchy:
 
-1. Current executable code and configuration.
+1. Current executable code and authoritative configuration.
 2. Current raw inputs and machine-readable manifests/checksums.
-3. Current generated model configuration, summaries, diagnostics, and traces.
-4. Tests and reproducible validation scripts.
-5. Human-readable reports and notebooks.
-6. Historical documentation/context exports.
+3. Frozen experiment protocols and experiment registry.
+4. Generated model configuration, summaries, diagnostics, traces and aggregate experiment artifacts.
+5. Tests and reproducible validation scripts.
+6. Human-readable reports/notebooks/manuscripts.
+7. Historical context exports.
 
-This hierarchy is not permission to keep documentation stale. The end state must make all layers agree.
+This hierarchy is not permission to leave documentation stale. Final publication artifacts must agree with code/config/evidence.
 
-## Non-negotiable scientific invariants
+# Publication-grade research rules
 
-### RAW
+## Protocol before final results
 
-- RAW data is immutable source evidence. Do not silently normalize, clean, rewrite, or replace original downloaded content.
-- Every RAW artifact used downstream must have reproducible provenance: source, retrieval context where available, path, checksum, and status.
-- Distinguish an event/history log from a manifest of current state when necessary.
+Before starting a final scientific batch:
 
-### Silver
+- define the scientific question/hypothesis;
+- freeze scenario/target selection;
+- freeze primary outcomes and secondary metrics;
+- freeze priors/model/likelihood and sampler settings;
+- freeze inclusion/exclusion and failed-run handling;
+- freeze diagnostic/interpretation rules;
+- commit the protocol;
+- register the experiment as `PLANNED`.
 
-- Silver may standardize schemas and types, but must preserve enough provenance to trace every derived row to its RAW origin.
-- Units must be explicit in schema/column names or machine-readable metadata. Never rely on ambiguous names such as `transit_depth` when percent vs fraction matters.
-- Do not silently convert scientific units without documenting the transformation and testing it.
+Pilot/debug runs must be explicitly labeled `PILOT` and excluded from final claims unless the protocol says otherwise.
 
-### Gold
+## No cherry-picking or outcome tuning
 
-- Gold may prepare data for modeling, but must not discard identifiers needed for scientifically necessary preprocessing.
-- Preserve segment identity (`quarter`, campaign/sector when applicable, source FITS/product identity, cadence/exposure metadata) until segment-level normalization/detrending and validation are complete.
-- Do not concatenate heterogeneous light-curve segments and then treat offsets between segments as astrophysical noise.
-- Any normalization/detrending must be explicit, reproducible, parameterized, and recorded in artifacts.
+Never:
 
-### Bayesian modeling
+- drop a target/scenario because the posterior is unfavorable;
+- choose an external benchmark because it agrees best;
+- alter priors after seeing final disagreement merely to improve agreement;
+- choose the best seed/run among repeated attempts as the scientific result;
+- weaken validation thresholds to rescue a negative control;
+- silently exclude failed simulation replicates from aggregate denominators;
+- delete failed runs that are relevant to the evidence trail.
 
-- MCMC convergence is not equivalent to physical validity.
-- A model is interpretable only if the data preparation, likelihood, priors, parameterization, units, and generated documentation all describe the same model.
-- Do not label a model as handling correlated/red noise if the likelihood only adds independent white jitter.
-- Do not call a sensitivity experiment robust when diagnostics fail or a deliberately bad prior dominates the posterior.
-- Record R-hat, ESS, divergences, BFMI where applicable, posterior predictive diagnostics, and relevant scale checks.
-- Add log-likelihood to inference data when model comparison requires LOO/WAIC and the models are legitimately comparable.
-- Literature/catalog values may be used for validation and prior justification, but do not tune outputs merely to match a reference value.
+If a protocol must change after final runs begin, record an amendment with reason and impact.
 
-### Target/configuration integrity
+## Negative evidence is first-class evidence
 
-- Planet/star/mission-specific values must come from one authoritative target configuration, not scattered hard-coded literals.
-- Generic modeling code must not contain stale names, periods, paths, or report filenames for a different target.
-- A derived parameter must use the same target parameters as the model that generated the posterior.
-- Target-specific outputs must be target-specific and run-specific. Never overwrite HAT-P-7 b artifacts while executing Kepler-10 b.
+Poor calibration, non-convergence, failed PPC, external disagreement, invalid LOO diagnostics, target-specific failure, model misspecification and correlated residuals are publishable findings when generated under a defensible protocol.
 
-### Cadence and exposure integration
+The repository must be capable of saying “not supported” or “not interpretable”.
 
-- For short transits, assess whether exposure-time integration materially changes the transit model.
-- Prefer scientifically appropriate cadence during product selection. If long cadence is used, integrate/supersample the forward model when required rather than pretending samples are instantaneous.
+## Evidence promotion
 
-## Reproducibility rules
+A positive scientific result may be promoted to TCC/paper evidence only when:
 
-- A clean checkout must be able to reproduce the documented current pipeline without relying on stale files from earlier configurations.
-- Generated state from older runs must not masquerade as current inputs.
-- Use explicit run/dataset identifiers when historical and current artifacts coexist.
-- Store repository-relative paths in a platform-independent form (prefer POSIX-style paths in manifests).
-- Pin/lock the scientific environment sufficiently to reproduce the validated stack, including dependencies used by M5 such as the `exoplanet` ecosystem.
-- Do not make claims such as “100% reproducible” unless an automated clean-room reproduction test supports them.
+1. the relevant protocol predates the final batch;
+2. data/provenance identity is valid;
+3. the run/batch completed under the declared configuration;
+4. sampler/PPC/scientific gates pass where required;
+5. aggregate reports account for all declared attempts according to protocol;
+6. result artifacts are machine-readable and traceable;
+7. human-readable claims match the artifacts.
 
-## Engineering rules
+Negative/failure-control claims can rely on deliberately rejected runs when classification and interpretation are correct.
 
-- Keep CLI/entry-point scripts thin. Reusable logic belongs under `src/`.
-- Avoid copy/paste model implementations for individual planets. Parameterize shared logic.
-- Prefer typed, explicit configuration structures over module-level magic constants.
-- Add regression tests for every bug fixed during hardening.
-- Add deterministic unit tests for transformations, unit conversions, phase construction, target configuration, path generation, manifests, and model-derived quantities.
-- Add integration/smoke tests for RAW→Silver→Gold on small fixtures that do not require downloading the full dataset.
-- Expensive MCMC should not be required for every CI run; use small synthetic/smoke models in CI and keep full scientific validation as a documented reproducible workflow.
-- Fail loudly on provenance/model mismatches. Do not silently continue with a different planet, stale artifact, missing required segment metadata, or invalid diagnostic state.
+# Scientific invariants inherited from hardening
 
-## Documentation rules
+## RAW
 
-- Documentation must describe the current code, not a superseded model.
-- `model_config.json`, reports, tables, figure captions, notebooks, and README text must agree on target, model family, priors, likelihood, sampler, units, preprocessing, and derived parameters.
-- Historical exports may remain for traceability, but label them as historical snapshots with generation dates.
-- Avoid exaggerated scientific claims. State assumptions, limitations, failure modes, and diagnostic caveats explicitly.
+- RAW data is immutable source evidence. Never silently normalize, clean, rewrite or replace original downloaded content.
+- Every RAW artifact used downstream must preserve source/path/status/checksum provenance.
+- Distinguish history/event logs from current-state manifests.
 
-## Working protocol for remediation
+## Silver
 
-For each remediation item:
+- Silver may standardize schema/types but must preserve traceability to RAW.
+- Units must be explicit in names or machine-readable metadata.
+- Unit conversions must be documented and tested.
 
-1. Reproduce or verify the problem from current `main`/current branch.
-2. Write a short implementation plan with acceptance criteria.
-3. Add or update a regression test that would fail before the fix when feasible.
-4. Implement the smallest coherent fix.
-5. Run focused tests.
-6. Run broader affected pipeline checks.
-7. Inspect generated machine-readable artifacts, not only console output.
-8. Update reports/docs/notebooks if behavior changed.
-9. Update `.agents/REMEDIATION_PLAN.md` with status and evidence.
-10. Do not mark an item complete solely because code was edited; mark it complete when its acceptance criteria are verified.
+## Gold
 
-## Priority order
+- Preserve segment/product/cadence/exposure identity through scientifically necessary preprocessing.
+- Do not treat segment offsets as astrophysical noise.
+- Normalization/detrending must be explicit, reproducible, parameterized and recorded.
+- Dataset identity must remain content/provenance-bound.
 
-Work in this order unless dependency analysis proves another order is safer:
+## Bayesian inference
 
-1. P0 scientific/provenance correctness.
-2. P0 clean-run reproducibility.
-3. P1 model validation and experiment correctness.
-4. P1 tests, CI, environment locking, run isolation.
-5. P2 documentation synchronization and repository hygiene.
-6. Optional enhancements only after the repository is scientifically trustworthy.
+- MCMC convergence is not physical validity.
+- Priors, likelihood, units, target assumptions, preprocessing and documentation must describe the same model.
+- Do not claim correlated/red-noise handling when the likelihood only contains independent white jitter.
+- Record R-hat, ESS, divergences, BFMI where applicable, PPC diagnostics and relevant scientific scale checks.
+- Add/use pointwise log likelihood only when formal model comparison is scientifically valid.
+- Catalog/literature values may justify priors and scale checks, but never tune outputs to match them.
 
-Do not spend time polishing dashboards, plots, abstractions, or framework migrations while P0 correctness issues remain.
+## Cadence/exposure
 
-## Definition of done for the hardening program
+- For short transits, evaluate exposure integration explicitly.
+- Do not treat long/finite exposures as instantaneous when that approximation materially alters inference.
 
-The repository is not “done” until all of the following are true:
+## Target integrity
 
-- A clean environment can build the intended RAW/Silver/Gold products for the supported targets without relying on historical leftovers.
-- Kepler-10 b preprocessing handles segment offsets/cadence appropriately before physical interpretation.
-- M5 is generic or cleanly parameterized and has no cross-target hard-codes.
-- M5 machine-readable config and human-readable report are generated from the actual physical model.
-- Derived quantities use the correct target-specific orbital parameters.
-- Sensitivity and noise experiments state and test what they actually implement.
-- Diagnostics gate scientific interpretation; failed runs remain available for traceability but are clearly marked invalid for interpretation.
-- Unit semantics are explicit.
-- Model comparison uses valid metrics where applicable and clearly labels heuristic comparisons.
-- Tests cover critical transformations and previously observed regressions.
-- CI runs the practical validation suite.
-- The scientific environment is reproducibly specified.
-- README, docs, notebooks, reports, and machine-readable artifacts are synchronized.
-- Repository claims are supported by evidence.
+- Target-specific values come from authoritative configuration/provenance, not scattered hard-coded literals.
+- Shared models remain target-safe.
+- Target/run outputs must be isolated.
 
-## Skills
+# Publication phase priority
 
-Use the repository-local skills under `.agents/skills/` when relevant:
+Default dependency order:
 
-- `repository-hardening`: orchestrate the complete remediation program.
-- `data-pipeline-integrity`: RAW/Silver/Gold provenance, units, segment handling, target selection, and run isolation.
-- `bayesian-scientific-validation`: priors, likelihoods, diagnostics, posterior predictive checks, physical-model consistency, sensitivity/noise experiments, and model comparison.
-- `reproducibility-testing-ci`: environment locking, tests, CI, clean-run verification, cross-platform paths, and regression protection.
-- `documentation-artifact-consistency`: synchronize code, configs, reports, notebooks, context exports, figures/tables metadata, and README claims.
+1. **P0** — freeze validated baseline and publication experiment contract.
+2. **P1** — current literature/novelty matrix + frozen protocols.
+3. **P2** — synthetic injection–recovery and calibration with known truth.
+4. **P3** — independent published implementation benchmark.
+5. **P4** — ablation and failure-gate validation.
+6. **P5** — multi-target/multi-regime validation.
+7. **P6** — separate M6 correlated-noise extension, only after P2–P4 are solid.
+8. **P7** — paper-grade release, citation metadata, artifact regeneration and DOI readiness.
+9. **P8** — integrate strongest evidence into TCC and manuscript.
 
-When a task spans multiple skills, use `repository-hardening` as the coordinating workflow and load the focused skills for implementation details.
+Do not prioritize P6 over P2–P4 merely because a GP is technically sophisticated. Known-truth calibration and independent validation have greater evidentiary value.
+
+# Experiment-specific requirements
+
+## Synthetic calibration / injection–recovery
+
+- Separate truth/generative config from inference config.
+- Inference must not read ground-truth artifacts.
+- Use repeated independent realizations under predeclared scenario grids.
+- Report bias, RMSE/error, empirical interval coverage at multiple levels, interval width/sharpness, gate pass rates and failed-run counts.
+- Report uncertainty on empirical coverage itself.
+- Keep model-misspecification scenarios; success must not be guaranteed by construction.
+
+## Independent benchmark
+
+- Evaluate at least `juliet` and `allesfitter` for current suitability, then preselect at least one benchmark before final comparison.
+- Lock a separate benchmark environment.
+- Create a comparability contract for data, priors, likelihood, geometry, limb darkening, exposure integration and jitter.
+- Do not force numerical agreement.
+- Preserve unexplained disagreement as a result/limitation.
+
+## Ablations / negative controls
+
+At minimum evaluate:
+
+- exposure integration;
+- per-segment vs inappropriate/global normalization;
+- jitter vs no jitter;
+- baseline vs pathological/over-informative priors;
+- provenance/input mismatch rejection;
+- inadequate sampler configuration;
+- at least one sampler-pass but PPC/scientific-fail case.
+
+Quantify parameter/predictive effects, not only booleans.
+
+## Multi-target validation
+
+- HAT-P-7 b and Kepler-10 b remain anchor targets.
+- Add targets by a precommitted regime-selection protocol.
+- Normally attempt at least five distinct systems total.
+- Failed targets remain in the final table.
+- Do not make population-level claims from a small regime-based validation set.
+
+## Correlated noise / M6
+
+- M5 semantics remain white-jitter-only.
+- Create a separate M6 model family/version for temporal covariance/GP behavior.
+- Validate M6 on synthetic white and correlated controls before applying it to observational data.
+- Explicitly test signal absorption/over-flexibility.
+- Prefer known-truth calibration over information-criterion ranking as primary evidence.
+
+# Reproducibility and engineering rules
+
+- Keep CLI scripts thin; reusable logic belongs under `src/`.
+- Keep experiment configs machine-readable.
+- Use stable experiment/scenario/replicate/run identifiers.
+- Derive simulation seeds deterministically from stable identifiers while preserving independent datasets.
+- Store repository-relative POSIX paths in manifests.
+- Pin scientific and benchmark environments separately when needed.
+- Expensive final MCMC does not need to run on every CI job; CI should validate contracts using lightweight fixtures/smoke runs.
+- Add regression tests for every discovered correctness bug.
+- Aggregate reports must be generated from registries/artifacts, never manually curated lists of successful runs.
+- Publication-critical figures/tables must be generated from approved machine-readable evidence and fail on stale hashes.
+
+# Documentation/publication rules
+
+- Final TCC/paper numerical text must match machine-readable evidence.
+- Do not claim novelty until `.agents/skills/literature-novelty-positioning` work supports the claim.
+- Do not call a result externally validated when the same catalog quantity informs its prior; state dependence explicitly.
+- Distinguish geometric depth `r^2` from observed limb-darkened depth.
+- Distinguish stochastic correlated noise from deterministic systematics.
+- Distinguish method-scope validation from population-level astrophysical generalization.
+- Update manuscript claims when negative results narrow supported scope.
+
+# Working protocol
+
+For each publication phase/item:
+
+1. read relevant protocol/skill;
+2. inspect current code/artifacts;
+3. write/freeze protocol before final batch;
+4. implement the smallest scientifically coherent extension;
+5. add focused tests;
+6. run pilot/debug experiments if needed;
+7. explicitly freeze final experiment configuration;
+8. execute final batch;
+9. inspect machine-readable artifacts and failures;
+10. generate aggregate report from full declared registry;
+11. update `.agents/EXPERIMENT_REGISTRY.md` with status/evidence;
+12. update docs/manuscript only from validated outputs.
+
+Do not mark an item complete merely because code was edited or a run finished.
+
+# Skills
+
+Existing hardening skills remain applicable:
+
+- `repository-hardening`
+- `data-pipeline-integrity`
+- `bayesian-scientific-validation`
+- `reproducibility-testing-ci`
+- `documentation-artifact-consistency`
+
+Publication-focused skills:
+
+- `publication-grade-research` — coordinating workflow for the complete publication program.
+- `literature-novelty-positioning` — current literature matrix and defensible novelty claims.
+- `simulation-calibration-injection-recovery` — known-truth simulation, calibration and coverage.
+- `independent-benchmark-validation` — external published implementation comparison.
+- `ablation-failure-validation` — ablations, negative controls and empirical gate validation.
+- `multi-target-generalization` — preselected multi-regime real-target validation.
+- `correlated-noise-modeling` — separate M6 GP/covariance extension.
+- `paper-reproducibility-release` — paper artifacts, citation metadata, archival/DOI readiness and public-release checks.
+
+When a task spans multiple skills, start with `publication-grade-research` and load focused skills as needed.
+
+# Definition of done
+
+The publication program is not done until the repository can defend, with machine-readable evidence, all final manuscript claims. At minimum:
+
+- baseline evidence is preserved;
+- final protocols predate final experiment batches;
+- known-truth calibration is quantified with repeated simulations;
+- an independent published implementation is benchmarked under a frozen comparability contract;
+- ablations quantify important design choices;
+- gates demonstrably reject meaningful failure cases;
+- multiple preselected real targets/regimes are attempted without cherry-picking;
+- correlated noise is either explicitly modeled/validated or retained as a clear limitation;
+- every paper-critical table/figure traces to frozen evidence;
+- clean rebuild/tests/CI/artifact validation pass;
+- failed and negative results remain auditable;
+- public release is safe, citable and archival/DOI-ready;
+- TCC and paper claims match the final experiment registry.
+
+The stopping criterion is not “the model is sophisticated”. It is **the evidence is strong enough that a reviewer can audit why the conclusions deserve to be trusted**.
