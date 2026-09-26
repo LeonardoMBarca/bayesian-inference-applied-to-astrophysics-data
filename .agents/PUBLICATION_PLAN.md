@@ -462,6 +462,12 @@ real physical smoke inference, deliberate interruption, resume, idempotence,
 technical retry preservation and scientific rejection without retry. See
 `reports/PUBLICATION_CAMPAIGN_HANDOFF.md` for the delivered/pending distinction.
 
+After that validation and infrastructure commit, the user explicitly authorized
+immediate launch in a visible terminal. The campaign began at
+`2026-09-26T20:18:21.225846+00:00`, in WSL/tmux, without changing the frozen design.
+See `docs/publication/CAMPAIGN_LAUNCH.md`; current progress comes only from the
+campaign state/journal. Handoff reports retain their pre-launch snapshot status.
+
 # Phase dependencies
 
 `P0 -> P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P8`
