@@ -37,7 +37,7 @@ def _safe(value: str) -> str:
 
 def source_identity(root: Path) -> dict:
     paths = list((root / "src").rglob("*.py"))
-    paths += list((root / "scripts").glob("*.py"))
+    paths += list((root / "scripts").rglob("*.py"))
     return {path.relative_to(root).as_posix(): sha256_file(path) for path in sorted(set(paths)) if path.is_file()}
 
 

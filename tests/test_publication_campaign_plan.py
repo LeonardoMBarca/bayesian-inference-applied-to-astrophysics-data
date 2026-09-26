@@ -12,7 +12,13 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from publication.campaign_plan import build_plan, freeze_plan, seed, source_identity, uncommitted_sources  # noqa: E402
+from publication.campaign_plan import (  # noqa: E402
+    build_plan,
+    freeze_plan,
+    seed,
+    source_identity,
+    uncommitted_sources,
+)
 from publication.campaign_worker import (  # noqa: E402
     accept_child_result,
     classify_result,
@@ -93,6 +99,7 @@ class CampaignPlanTests(unittest.TestCase):
         sources = source_identity(ROOT)
         self.assertIn("src/project_config.py", sources)
         self.assertIn("src/publication/environment_guard.py", sources)
+        self.assertIn("scripts/_network_guard/sitecustomize.py", sources)
         self.assertTrue(any(path.startswith("src/gold") for path in sources))
 
     def test_synthetic_input_contains_no_truth_and_config_does_not_depend_on_it(self):

@@ -8082,6 +8082,7 @@
   "seed_policy": "SHA256 canonical JSON ['campaign-seed-v1',campaign_id,experiment_id,scenario_or_generation_pair_id,replicate_id,stream], first32bits; fixed across retries; separate campaigns have disjoint namespaces.",
   "source_checksums": {
     "scripts/__init__.py": "9f06f0ee0e2eef776a9909a6c42d16cf5bb75178c651b76cf31d238d9e5594b0",
+    "scripts/_network_guard/sitecustomize.py": "47c63e849e5cc1542cf7b9898bdd5fd8ef905bd6f81374f97307c94cfbf4c767",
     "scripts/aggregate_publication_campaign.py": "99d5822b180c2372d48244ef4ab8129c8c10e322e5acf5efb3f9c8ec774685f4",
     "scripts/analyze_gold_lightcurve.py": "3d9a00ea2f27d8587801092abccb1ef64b5010cba7dc2fc9caff4f8ee5eec06d",
     "scripts/build_gold_data.py": "eda5861e670aca1221780257bcbde6791f19a7fe993b72a01eeb717e210ce06b",
@@ -8162,7 +8163,7 @@
     "src/publication/benchmark_runner.py": "6a3ad99a186e2e9cb5357b48734368444a8a30ba1571ae050d8978146cfdddcc",
     "src/publication/calibration.py": "83d10a0e9ff9cbe919df78b60888907d1190bac22882c234161468daf3a463b8",
     "src/publication/campaign.py": "b52b0b551ab788fbfcd51365b851d5de83e4042591d9b780bfdbb94ad24cf863",
-    "src/publication/campaign_plan.py": "cb22746aa07fa89a41807b1dd2e5bf14ac192fe74ec9e4e21b051d535238ebbd",
+    "src/publication/campaign_plan.py": "b1284c531898ad0749524880c377473da612fe821897c922362f213c5a2fac87",
     "src/publication/campaign_preflight.py": "b97e5c9b3817bcb1713096373dd8bb485a06b6acd50bf3d192d69dc26d0508d8",
     "src/publication/campaign_reporting.py": "c1125ef035d584d9fbcec3cb51c293bc657e2552de448f9cd30518759e4c822c",
     "src/publication/campaign_worker.py": "9811207b86e8e8efcbdf1f168bb5d9f8c3b2994e384053e9a4573210a4f10c4d",
