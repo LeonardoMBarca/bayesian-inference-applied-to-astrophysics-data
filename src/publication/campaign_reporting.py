@@ -594,9 +594,10 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
     for protocol in plan["protocols"].values():
         sources[protocol["path"]] = protocol["sha256"]
     rows = [row for row in evidence["jobs"] if family is None or row["experiment_id"] == family]
-    attempts = [row for row in evidence["attempts"] if family is None or row["experiment_id"] == family]
     summaries, generation_errors, family_artifacts = {}, [], []
+    artifacts_by_family, errors_by_family = {}, {}
     for name in dict.fromkeys(row["experiment_id"] for row in rows):
+        artifact_start, error_start = len(family_artifacts), len(generation_errors)
         selected = [row for row in rows if row["experiment_id"] == name]
         destination = output if family else output / name
         destination.mkdir(exist_ok=True)
@@ -624,9 +625,11 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
                 write_target_report(root, Path(plan["protocols"][name]["path"]), outcomes, destination, campaign_id=plan["campaign_id"],
                                     regenerate_command=f"python scripts/aggregate_publication_campaign.py --config {plan['config_path']} --family PUB-05")
                 summaries[name] = _read(destination / "aggregate.json")
+                # Keep the target report's own source/output contract before
+                # the campaign metadata writer seals the family directory.
+                _write(destination / "target_artifact_manifest.json", _read(destination / "artifact_manifest.json"))
                 family_artifacts += [destination / filename for filename in ("aggregate.json", "targets.csv", "posterior_intervals.csv", "posterior_intervals.png", "gate_outcomes.png", "regime_precision.png")]
-                if destination != output:
-                    family_artifacts += [destination / "REPORT.md", destination / "artifact_manifest.json"]
+                family_artifacts += [destination / "REPORT.md", destination / "target_artifact_manifest.json"]
             else:
                 summaries[name] = {"status": "not_implemented", "declared_jobs": len(selected)}
         except (OSError, ValueError, KeyError, TypeError, ImportError) as exc:
@@ -635,6 +638,36 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
             summaries[name] = {"status": "aggregate_error", "error": message}
             _write(destination / "aggregate_error.json", summaries[name])
             family_artifacts.append(destination / "aggregate_error.json")
+        artifacts_by_family[name] = family_artifacts[artifact_start:]
+        errors_by_family[name] = generation_errors[error_start:]
+    if family is None:
+        # Reuse the same audited evidence and snapshot: no second trace/input
+        # read, no repeated plot generation, and no stale --family metadata.
+        for name in summaries:
+            family_artifacts += _write_campaign_metadata(
+                root, plan, snapshot, state_path, evidence, output / name, name,
+                {name: summaries[name]}, errors_by_family[name], artifacts_by_family[name],
+                sources, generator_sources, aggregate_environment,
+            )
+    _write_campaign_metadata(root, plan, snapshot, state_path, evidence, output, family,
+                             summaries, generation_errors, family_artifacts,
+                             sources, generator_sources, aggregate_environment)
+    return output
+
+
+def _write_campaign_metadata(
+    root: Path, plan: dict, snapshot: dict, state_path: Path, evidence: dict,
+    output: Path, family: str | None, summaries: dict, generation_errors: list[str],
+    family_artifacts: list[Path], shared_sources: dict, generator_sources: dict,
+    aggregate_environment: dict,
+) -> list[Path]:
+    """Seal coherent global/family metadata around already-generated evidence."""
+    _write(output / "campaign_state_snapshot.json", snapshot)
+    _write(output / "aggregation_environment.json", aggregate_environment)
+    sources = dict(shared_sources)
+    sources[(output / "campaign_state_snapshot.json").relative_to(root).as_posix()] = sha256_file(output / "campaign_state_snapshot.json")
+    rows = [row for row in evidence["jobs"] if family is None or row["experiment_id"] == family]
+    attempts = [row for row in evidence["attempts"] if family is None or row["experiment_id"] == family]
     compact = [{key: value for key, value in row.items() if key not in {"result", "truth", "preparation", "completion", "payload"}} for row in rows]
     status_counts = dict(sorted(Counter(row["status"] for row in rows).items()))
     failures = [row for row in compact if row["status"] in {"FAILED_TECHNICAL", "BLOCKED", "CANCELLED"} or row.get("integrity_errors")]
@@ -684,38 +717,66 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
     if not errors and not plan["preflight_errors"]:
         lines.append("No detected artifact-integrity or preflight errors. This is not proof of scientific validity.")
     lines += ["", "## Regeneration", "", "```sh", f"python scripts/aggregate_publication_campaign.py --config {plan['config_path']}" + (f" --family {family}" if family else ""), "```", "", "This command only reads sealed scientific artifacts and regenerates derived reports; it never samples. Live controller bookkeeping is not a scientific input: the read snapshot is preserved, and freshness checks use the jobs-only fingerprint plus artifact hashes."]
-    (output / "REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+    report_name = "CAMPAIGN_REPORT.md" if family == "PUB-05" else "REPORT.md"
+    (output / report_name).write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     if family is None:
         (output / "campaign_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
-    active_files = family_artifacts + [output / filename for filename in ("campaign_state_snapshot.json", "aggregation_environment.json", "summary.json", "jobs.csv", "attempts.csv", "failures.csv", "rejections.csv", "REPORT.md")]
+    active_files = family_artifacts + [output / filename for filename in ("campaign_state_snapshot.json", "aggregation_environment.json", "summary.json", "jobs.csv", "attempts.csv", "failures.csv", "rejections.csv", report_name)]
     if family is None:
         active_files += [output / "campaign_summary.json", output / "campaign_summary.md"]
     artifacts = {path.relative_to(output).as_posix(): sha256_file(path) for path in sorted(active_files)}
+    child_manifests = sorted({path.relative_to(output).as_posix() for path in active_files
+                              if path.name in {"artifact_manifest.json", "target_artifact_manifest.json"}
+                              and path != output / "artifact_manifest.json"})
     _write(output / "artifact_manifest.json", {"schema_version": "publication-derived-v1", "source_checksums": sources,
         "artifacts": artifacts, "source_state_jobs_fingerprint": summary["source_state_jobs_fingerprint"],
         "source_state_path": summary["source_state_path"], "family_filter": family,
+        "child_manifests": child_manifests,
         "regenerate_command": f"python scripts/aggregate_publication_campaign.py --config {plan['config_path']}" + (f" --family {family}" if family else "")})
-    return output
+    return list(dict.fromkeys(active_files + [output / "artifact_manifest.json"]))
 
 
 def validate_campaign_report(root: Path, output: Path) -> None:
-    """Fail on stale source/output hashes or changed declared job outcomes."""
+    """Verify the global contract AND every bound family/target child contract."""
     root = root.resolve()
     output = output.resolve()
-    manifest = _read(output / "artifact_manifest.json")
-    for name, checksum in manifest["source_checksums"].items():
-        if sha256_file(safe_path(root, name)) != checksum:
-            raise ValueError(f"Stale campaign source: {name}")
-    for name, checksum in manifest["artifacts"].items():
-        if sha256_file(safe_path(output, name)) != checksum:
-            raise ValueError(f"Stale campaign report: {name}")
-    state_path = safe_path(root, manifest["source_state_path"])
-    try:
-        state = read_campaign_json(state_path)
-    except FileNotFoundError:
-        state = {"jobs": {}}
-    if state_fingerprint(state, manifest["family_filter"]) != manifest["source_state_jobs_fingerprint"]:
-        raise ValueError("Campaign job state changed since aggregation")
+    active, verified = set(), set()
+
+    def verify(path: Path) -> None:
+        if path in active:
+            raise ValueError("Cyclic report manifest dependency")
+        if path in verified:
+            return
+        active.add(path)
+        manifest = _read(path)
+        for name, checksum in manifest["source_checksums"].items():
+            if sha256_file(safe_path(root, name)) != checksum:
+                raise ValueError(f"Stale campaign source: {name}")
+        for name, checksum in manifest["artifacts"].items():
+            if sha256_file(safe_path(path.parent, name)) != checksum:
+                raise ValueError(f"Stale campaign report: {path.parent.relative_to(output).as_posix()}/{name}")
+        children = manifest.get("child_manifests", [])
+        if "source_state_path" in manifest:
+            state_path = safe_path(root, manifest["source_state_path"])
+            try:
+                state = read_campaign_json(state_path)
+            except FileNotFoundError:
+                state = {"jobs": {}}
+            if state_fingerprint(state, manifest["family_filter"]) != manifest["source_state_jobs_fingerprint"]:
+                raise ValueError("Campaign job state changed since aggregation")
+            if manifest["family_filter"] is None:
+                summary = _read(path.parent / "summary.json")
+                expected = {f"{family}/artifact_manifest.json" for family in summary["families"]}
+                if not expected.issubset(children):
+                    raise ValueError("Global report omits a required family manifest")
+        for child in children:
+            if child not in manifest["artifacts"]:
+                raise ValueError("Child report manifest is not checksum-bound by its parent")
+            verify(safe_path(path.parent, child))
+        active.remove(path)
+        verified.add(path)
+
+    verify(output / "artifact_manifest.json")
 
 
 def main() -> None:

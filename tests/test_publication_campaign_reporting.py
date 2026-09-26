@@ -285,6 +285,92 @@ class PublicationCampaignReportingTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "signal/error arrays"):
                 _known_white_noise_snr(path, truth)
 
+    def test_global_refreshes_family_metadata_and_every_manifest_source(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            plan, _ = self.fixture(root)
+            with patch("publication.campaign_reporting.build_plan", return_value=plan):
+                family_dir = aggregate_campaign(root, Path("config.json"), family="PUB-02")
+                original_manifest = json.loads((family_dir / "artifact_manifest.json").read_text())
+                dump(root / "config.json", {"campaign_id": plan["campaign_id"], "description": "Updated report metadata"})
+                (family_dir / "REPORT.md").write_text("STALE REPORT", encoding="utf-8")
+                (family_dir / "calibration.csv").write_text("STALE TABLE", encoding="utf-8")
+                dump(family_dir / "summary.json", {"stale": True})
+                with patch("publication.campaign_reporting.collect_campaign", wraps=collect_campaign) as collect:
+                    output = aggregate_campaign(root, Path("config.json"))
+                self.assertEqual(collect.call_count, 1)
+            self.assertNotIn("STALE REPORT", (family_dir / "REPORT.md").read_text())
+            self.assertNotIn("STALE TABLE", (family_dir / "calibration.csv").read_text())
+            family_summary = json.loads((family_dir / "summary.json").read_text())
+            self.assertEqual(family_summary["family_filter"], "PUB-02")
+            self.assertEqual(family_summary["declared_jobs"], 4)
+            manifest = json.loads((family_dir / "artifact_manifest.json").read_text())
+            self.assertNotEqual(manifest["source_checksums"]["config.json"], original_manifest["source_checksums"]["config.json"])
+            self.assertEqual(manifest["source_checksums"]["config.json"], sha256_file(root / "config.json"))
+            validate_campaign_report(root, output)
+            validate_campaign_report(root, family_dir)
+            parent_manifest_path = output / "artifact_manifest.json"
+            parent_manifest = json.loads(parent_manifest_path.read_text())
+            omitted = copy.deepcopy(parent_manifest)
+            omitted["child_manifests"] = []
+            dump(parent_manifest_path, omitted)
+            with self.assertRaisesRegex(ValueError, "omits a required family manifest"):
+                validate_campaign_report(root, output)
+            dump(parent_manifest_path, parent_manifest)
+            (family_dir / "REPORT.md").write_text("tampered family report", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "REPORT.md"):
+                validate_campaign_report(root, output)
+
+    def test_global_checks_family_contract_not_only_its_manifest_file_hash(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            plan, _ = self.fixture(root)
+            with patch("publication.campaign_reporting.build_plan", return_value=plan):
+                output = aggregate_campaign(root, Path("config.json"))
+            family_manifest_path = output / "PUB-02/artifact_manifest.json"
+            family_manifest = json.loads(family_manifest_path.read_text())
+            family_manifest["source_checksums"]["config.json"] = "0" * 64
+            dump(family_manifest_path, family_manifest)
+            root_manifest = json.loads((output / "artifact_manifest.json").read_text())
+            # Rebinding the opaque child file is not enough: its own scientific
+            # source contract must still be evaluated recursively.
+            root_manifest["artifacts"]["PUB-02/artifact_manifest.json"] = sha256_file(family_manifest_path)
+            dump(output / "artifact_manifest.json", root_manifest)
+            with self.assertRaisesRegex(ValueError, "Stale campaign source: config.json"):
+                validate_campaign_report(root, output)
+
+    def test_pub05_target_report_survives_global_and_family_metadata_generation(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            protocol = json.loads((PROJECT_ROOT / "publication/protocols/PUB-05.json").read_text(encoding="utf-8"))
+            dump(root / "protocol.json", protocol)
+            dump(root / "config.json", {"campaign_id": "targets_fixture"})
+            jobs = [{"job_id": slug, "experiment_id": "PUB-05", "scenario_id": slug, "replicate_id": "rep_0000",
+                     "run_id": "targets_fixture", "seeds": {}, "output_dir": f"artifacts/publication_campaign/targets_fixture/runs/{slug}",
+                     "payload": {"kind": "observational"}} for slug in protocol["declared_target_ids"]]
+            plan = {"campaign_id": "targets_fixture", "mode": "smoke", "scientific_config_sha256": "config", "config_path": "config.json",
+                    "protocols": {"PUB-05": {"path": "protocol.json", "sha256": sha256_file(root / "protocol.json")}},
+                    "jobs": jobs, "phase_order": ["PUB-05"], "preflight_errors": []}
+            state = {"campaign_id": "targets_fixture", "status": "PLANNED", "scientific_config_sha256": "config",
+                     "jobs": {job["job_id"]: {**job, "status": "PLANNED", "attempts": []} for job in jobs}}
+            dump(root / "artifacts/publication_campaign/targets_fixture/campaign_state.json", state)
+            with patch("publication.campaign_reporting.build_plan", return_value=plan):
+                family = aggregate_campaign(root, Path("config.json"), family="PUB-05")
+                target_report = (family / "REPORT.md").read_bytes()
+                validate_campaign_report(root, family)
+                output = aggregate_campaign(root, Path("config.json"))
+            self.assertEqual((family / "REPORT.md").read_bytes(), target_report)
+            self.assertIn("| Target | Status |", target_report.decode())
+            self.assertTrue((family / "CAMPAIGN_REPORT.md").exists())
+            family_manifest = json.loads((family / "artifact_manifest.json").read_text())
+            self.assertIn("target_artifact_manifest.json", family_manifest["child_manifests"])
+            self.assertIn("REPORT.md", family_manifest["artifacts"])
+            self.assertIn("CAMPAIGN_REPORT.md", family_manifest["artifacts"])
+            target_manifest = json.loads((family / "target_artifact_manifest.json").read_text())
+            self.assertEqual(target_manifest["artifacts"]["REPORT.md"], sha256_file(family / "REPORT.md"))
+            validate_campaign_report(root, output)
+            validate_campaign_report(root, family)
+
     def test_incomplete_ablation_pairs_are_unavailable_not_zero(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

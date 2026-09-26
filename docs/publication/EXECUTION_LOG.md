@@ -116,3 +116,20 @@ alter any existing scientific result. The source/seed ledger is refreshed before
 any final campaign starts; completed engineering attempts retain their original
 source identity. Nested Python entry points also have an explicit LF checkout
 policy so Windows does not silently change content-addressed scientific sources.
+
+Pre-handoff checkpoint: `publication/validation/handoff/handoff_v4/validation.json`
+passed against source commit `7dcc8153f9eae0c2299747ed2e02c73ee4d67d7a`:
+201 practical tests, zero skips, lint/static contracts, historical artifact
+validation, a 117-job final dry run, uninitialized final status and regenerated
+smoke report freshness. The two P3 plots were also visually inspected using a
+clearly synthetic test fixture, not new benchmark evidence. PNG/NPZ artifacts
+and campaign logs have binary-preserving Git attributes to protect exact bytes.
+Final science remains unstarted; the full paper release audit intentionally
+remains incomplete until actual final evidence and scientific review exist.
+
+Subsequent hostile review found that a passing global freshness check did not
+cover stale family-level report/manifests left by an earlier aggregation. The
+v4 checkpoint is retained as evidence of its actual limited check, not promoted
+as verification of every nested report. The final correction regenerates family
+metadata from the same evidence snapshot and verifies declared child manifests;
+regression tests explicitly alter a family report to require rejection.
