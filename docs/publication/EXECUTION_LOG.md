@@ -133,3 +133,11 @@ v4 checkpoint is retained as evidence of its actual limited check, not promoted
 as verification of every nested report. The final correction regenerates family
 metadata from the same evidence snapshot and verifies declared child manifests;
 regression tests explicitly alter a family report to require rejection.
+
+Final handoff validation v5 passed on source commit
+`bf739762cdeecaa4d8d477cffafe5c78f7579bab`: 204 tests, zero skips, lint/static
+contracts, unchanged historical artifacts, final dry-run/status and recursive
+global/family report freshness. Evidence and all preceding failed/intermediate
+checkpoints remain under `publication/validation/handoff/`. All 117 final jobs
+are still PLANNED, with no campaign state initialized. The 26-artifact baseline
+check and protected refs remain at `7489a90689a753bea5243f86c1489329916c98e2`.

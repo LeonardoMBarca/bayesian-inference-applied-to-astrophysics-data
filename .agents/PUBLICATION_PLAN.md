@@ -454,6 +454,14 @@ not marked scientifically completed. See `docs/publication/COMPUTE_BUDGET_AMENDM
 Runner readiness does not satisfy the scientific definition of done below;
 coverage, external agreement and generalization remain open empirical questions.
 
+Runner handoff acceptance is verified by
+`publication/validation/handoff/handoff_v5/validation.json`: 204 practical tests,
+zero skips, lint/static checks, historical artifact checks, final dry-run/status,
+and recursive report freshness passed. `runner_smoke_v2` separately verifies
+real physical smoke inference, deliberate interruption, resume, idempotence,
+technical retry preservation and scientific rejection without retry. See
+`reports/PUBLICATION_CAMPAIGN_HANDOFF.md` for the delivered/pending distinction.
+
 # Phase dependencies
 
 `P0 -> P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P8`

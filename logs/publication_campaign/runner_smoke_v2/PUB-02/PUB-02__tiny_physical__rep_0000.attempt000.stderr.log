@@ -1,0 +1,17 @@
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+Only 20 samples per chain. Reliable r-hat and ESS diagnostics require longer chains for accurate estimate.
+Initializing NUTS using jitter+adapt_diag...
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+Sequential sampling (2 chains in 1 job)
+NUTS: [baseline, r, b, a, t0, q1, q2, extra_sigma]
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pymc/step_methods/hmc/quadpotential.py:321: RuntimeWarning: overflow encountered in dot
+  return 0.5 * np.dot(x, v_out)
+Sampling 2 chains for 20 tune and 20 draw iterations (40 + 40 draws total) took 4 seconds.
+Chain 0 reached the maximum tree depth. Increase `max_treedepth`, increase `target_accept` or reparameterize.
+Chain 1 reached the maximum tree depth. Increase `max_treedepth`, increase `target_accept` or reparameterize.
+The number of samples is too small to check convergence reliably.
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+Sampling: [obs]

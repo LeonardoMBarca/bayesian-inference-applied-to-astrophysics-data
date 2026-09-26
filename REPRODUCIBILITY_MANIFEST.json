@@ -1,0 +1,419 @@
+{
+  "audit_content_sha256": "fb3f7a347a31b6e12d4e8875f198aa9eef1c8ef1693004629441f9d2c20e7cd2",
+  "base_commit": "7489a90689a753bea5243f86c1489329916c98e2",
+  "code_commit": "bf739762cdeecaa4d8d477cffafe5c78f7579bab",
+  "dataset_identities": [],
+  "declared_final_attempts": 0,
+  "environment": {
+    "expected_python_version": "3.14.6",
+    "packages": {
+      "arviz": {
+        "expected": "1.3.0",
+        "installed": "1.3.0"
+      },
+      "astropy": {
+        "expected": "8.0.1",
+        "installed": "8.0.1"
+      },
+      "astroquery": {
+        "expected": "0.4.11",
+        "installed": "0.4.11"
+      },
+      "beautifulsoup4": {
+        "expected": "4.15.0",
+        "installed": "4.15.0"
+      },
+      "exoplanet": {
+        "expected": "0.6.0",
+        "installed": "0.6.0"
+      },
+      "exoplanet-core": {
+        "expected": "0.4.0",
+        "installed": "0.4.0"
+      },
+      "h5netcdf": {
+        "expected": "1.8.1",
+        "installed": "1.8.1"
+      },
+      "h5py": {
+        "expected": "3.16.0",
+        "installed": "3.16.0"
+      },
+      "lightkurve": {
+        "expected": "2.6.0",
+        "installed": "2.6.0"
+      },
+      "lxml": {
+        "expected": "6.1.2",
+        "installed": "6.1.2"
+      },
+      "matplotlib": {
+        "expected": "3.11.1",
+        "installed": "3.11.1"
+      },
+      "numpy": {
+        "expected": "2.4.6",
+        "installed": "2.4.6"
+      },
+      "pandas": {
+        "expected": "2.3.3",
+        "installed": "2.3.3"
+      },
+      "pymc": {
+        "expected": "6.3.1",
+        "installed": "6.3.1"
+      },
+      "pytensor": {
+        "expected": "3.3.0",
+        "installed": "3.3.0"
+      },
+      "requests": {
+        "expected": "2.34.2",
+        "installed": "2.34.2"
+      },
+      "ruff": {
+        "expected": "0.16.1",
+        "installed": "0.16.1"
+      },
+      "scipy": {
+        "expected": "1.18.1",
+        "installed": "1.18.1"
+      },
+      "tqdm": {
+        "expected": "4.68.2",
+        "installed": "4.68.2"
+      }
+    },
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_version": "3.14.6"
+  },
+  "evidence": [
+    {
+      "path": "data/raw/_manifests/raw_data_current_state.json",
+      "sha256": "366cd4eb83ddff3c7ef943b6d22ecae020f428cb612af984149087111d153a21"
+    },
+    {
+      "path": "environment.yml",
+      "sha256": "8f88a3da35212a4b44639af2f3ab86ee59548dbab32d60e5ba3c4e373f9e922e"
+    },
+    {
+      "path": "publication/baseline/manifest.json",
+      "sha256": "fe5f9d6b3ce469ae0f51353b0413dca0a602fbdb76e2ba733f0bb55bdb41cfc6"
+    },
+    {
+      "path": "publication/registry.json",
+      "sha256": "e975ac064c32cd8078f267fd23be6c50fcddaa41c9ce4559661f6b9d01e14703"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "0734e91f988702e5e7f0d61a88bd26392829384ac49a7574741736e43d4bb098"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9"
+    },
+    {
+      "path": "src/publication/__init__.py",
+      "sha256": "c39280f4b4883684f582c6ac96a79e00e8966210a57a93002234f94691f28eda"
+    },
+    {
+      "path": "src/publication/ablations.py",
+      "sha256": "b206901e67fd98045c63b347336321ed8af9525d3a28f71a0f00e98138fb8753"
+    },
+    {
+      "path": "src/publication/acquisition.py",
+      "sha256": "8c04262a6e765f05fa9fccb381635012c33fe00eee06045e2004423a06701a82"
+    },
+    {
+      "path": "src/publication/batch.py",
+      "sha256": "4b57d63a594e4c29cd42b84bf20c7ed1d81bbbe2135c084e88ca0708422cca9c"
+    },
+    {
+      "path": "src/publication/benchmark.py",
+      "sha256": "389f1224573722a8a1456953fb2ec3342f6e7aefeccb7376f5de3fa98f461202"
+    },
+    {
+      "path": "src/publication/benchmark_runner.py",
+      "sha256": "6a3ad99a186e2e9cb5357b48734368444a8a30ba1571ae050d8978146cfdddcc"
+    },
+    {
+      "path": "src/publication/calibration.py",
+      "sha256": "83d10a0e9ff9cbe919df78b60888907d1190bac22882c234161468daf3a463b8"
+    },
+    {
+      "path": "src/publication/campaign.py",
+      "sha256": "b52b0b551ab788fbfcd51365b851d5de83e4042591d9b780bfdbb94ad24cf863"
+    },
+    {
+      "path": "src/publication/campaign_plan.py",
+      "sha256": "b1284c531898ad0749524880c377473da612fe821897c922362f213c5a2fac87"
+    },
+    {
+      "path": "src/publication/campaign_preflight.py",
+      "sha256": "b97e5c9b3817bcb1713096373dd8bb485a06b6acd50bf3d192d69dc26d0508d8"
+    },
+    {
+      "path": "src/publication/campaign_reporting.py",
+      "sha256": "641a4ff3a1db22a03b0fc56aa749822ac1a17e7652886516a57f4578aa4aad7e"
+    },
+    {
+      "path": "src/publication/campaign_worker.py",
+      "sha256": "9811207b86e8e8efcbdf1f168bb5d9f8c3b2994e384053e9a4573210a4f10c4d"
+    },
+    {
+      "path": "src/publication/contracts.py",
+      "sha256": "f8ff9a9d55d3304c2857ed69d6d6e3e02d053a7d3ba2cc203a6372fde1106db8"
+    },
+    {
+      "path": "src/publication/environment_guard.py",
+      "sha256": "2f9e74b8a9509b7517412e8475d696915c823a3f9e8c655d496d35e9e2b59147"
+    },
+    {
+      "path": "src/publication/handoff_validation.py",
+      "sha256": "f4bc81525ea6b07022c4d832eb7ccdfbc4a8936c71100ba69acdea5f434cee8a"
+    },
+    {
+      "path": "src/publication/inference.py",
+      "sha256": "45bf6baba7162172a8b742ca71c3ac049d630dd2884473614959bca78623b10e"
+    },
+    {
+      "path": "src/publication/numerical_checks.py",
+      "sha256": "1db4c9502b9781fc1aecc2dbce5a7ed974a98368bd89e9b094c7b4820278278a"
+    },
+    {
+      "path": "src/publication/observational.py",
+      "sha256": "7e086aac3cf7f83e9af3b759281bed1e43f3ab4253850656cf2c1fcf361924f0"
+    },
+    {
+      "path": "src/publication/release.py",
+      "sha256": "ab0b28e82ec19d7d5dcae4ddc8e6f59046da72f9189e97f2684c156d65d122db"
+    },
+    {
+      "path": "src/publication/reporting.py",
+      "sha256": "f161defd53e571c436872ed5ab921a56bc07b0668e8d13b8eb23237948700d54"
+    },
+    {
+      "path": "src/publication/simulation.py",
+      "sha256": "123b18417f50b5640d729ffd049fc3025aed2fb6b08945868e1279fd842edf56"
+    },
+    {
+      "path": "src/publication/target_reporting.py",
+      "sha256": "cb726e6502f37dd6936a469d0f09d477676eb9f6c72226e78b32dddb3c8a2276"
+    }
+  ],
+  "generated_at_utc": "2026-09-26T20:10:15.345547+00:00",
+  "missing_evidence": [
+    "publication/paper_artifact_manifest.json"
+  ],
+  "release_passed": false,
+  "release_status": "incomplete",
+  "schema_version": "publication-reproducibility-v1",
+  "self_hash_policy": "This file is deliberately excluded from evidence to avoid circular self-identity.",
+  "storage_policy": "Large traces require exact checksummed external restoration or protocol-defined regeneration; no archive DOI is invented.",
+  "validation_snapshot": {
+    "baseline": {
+      "manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+      "missing_external": [],
+      "status": "verified",
+      "verified_artifacts": 26
+    },
+    "checks": [
+      {
+        "check": "protected_baseline",
+        "status": "passed"
+      },
+      {
+        "check": "registry_schema",
+        "status": "passed"
+      },
+      {
+        "check": "registry_integrity",
+        "status": "passed"
+      },
+      {
+        "check": "runtime_snapshot",
+        "status": "passed"
+      },
+      {
+        "check": "scientific_runtime",
+        "status": "passed"
+      },
+      {
+        "check": "paper_manifest",
+        "reason": "[Errno 2] No such file or directory: '/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/publication/paper_artifact_manifest.json'",
+        "status": "failed"
+      },
+      {
+        "check": "paper_manifest_schema",
+        "reason": "Missing/unknown publication-paper-artifacts-v1 schema",
+        "status": "failed"
+      },
+      {
+        "check": "required_family:PUB-02",
+        "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+        "status": "failed"
+      },
+      {
+        "check": "required_family:PUB-03",
+        "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+        "status": "failed"
+      },
+      {
+        "check": "required_family:PUB-04",
+        "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+        "status": "failed"
+      },
+      {
+        "check": "required_family:PUB-05",
+        "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+        "status": "failed"
+      },
+      {
+        "check": "m6_disposition",
+        "reason": "Unexecuted M6 requires an explicit protocol-backed methodological limitation",
+        "status": "failed"
+      },
+      {
+        "check": "environment_locks",
+        "reason": "Paper manifest lacks the complete scientific environment lock identity",
+        "status": "failed"
+      },
+      {
+        "check": "benchmark_environment",
+        "reason": "'benchmark_environment'",
+        "status": "failed"
+      },
+      {
+        "check": "claim_ledger",
+        "reason": "No auditable manuscript claim ledger",
+        "status": "failed"
+      },
+      {
+        "check": "review:tests",
+        "reason": "'reviews'",
+        "status": "failed"
+      },
+      {
+        "check": "review:clean_room",
+        "reason": "'reviews'",
+        "status": "failed"
+      },
+      {
+        "check": "review:public_safety",
+        "reason": "'reviews'",
+        "status": "failed"
+      },
+      {
+        "check": "review:citation",
+        "reason": "'reviews'",
+        "status": "failed"
+      },
+      {
+        "check": "citation_metadata",
+        "reason": "'citation'",
+        "status": "failed"
+      },
+      {
+        "check": "reproducibility_manifest",
+        "reason": "Reproducibility manifest is absent, incomplete, or has an unknown schema",
+        "status": "failed"
+      },
+      {
+        "check": "committed_release_evidence",
+        "reason": "Command '['git', '-C', '/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data', 'ls-files', '--error-unmatch', '--', 'CITATION.cff', 'environment.yml', 'publication/baseline/manifest.json', 'publication/paper_artifact_manifest.json', 'publication/registry.json', 'pyproject.toml', 'requirements.txt', 'scripts/aggregate_publication_campaign.py', 'scripts/publication_campaign_job.py', 'scripts/publication_inventory.py', 'scripts/run_publication_batch.py', 'scripts/run_publication_benchmark.py', 'scripts/run_publication_campaign.py', 'scripts/summarize_publication.py', 'scripts/validate_publication_campaign_smoke.py', 'scripts/validate_publication_handoff.py', 'scripts/validate_publication_release.py', 'scripts/verify_publication_campaign.py', 'src/publication/__init__.py', 'src/publication/ablations.py', 'src/publication/acquisition.py', 'src/publication/batch.py', 'src/publication/benchmark.py', 'src/publication/benchmark_runner.py', 'src/publication/calibration.py', 'src/publication/campaign.py', 'src/publication/campaign_plan.py', 'src/publication/campaign_preflight.py', 'src/publication/campaign_reporting.py', 'src/publication/campaign_worker.py', 'src/publication/contracts.py', 'src/publication/environment_guard.py', 'src/publication/handoff_validation.py', 'src/publication/inference.py', 'src/publication/numerical_checks.py', 'src/publication/observational.py', 'src/publication/release.py', 'src/publication/reporting.py', 'src/publication/simulation.py', 'src/publication/target_reporting.py']' returned non-zero exit status 1.",
+        "status": "failed"
+      }
+    ],
+    "declared_final_attempts": 0,
+    "environment": {
+      "expected_python_version": "3.14.6",
+      "packages": {
+        "arviz": {
+          "expected": "1.3.0",
+          "installed": "1.3.0"
+        },
+        "astropy": {
+          "expected": "8.0.1",
+          "installed": "8.0.1"
+        },
+        "astroquery": {
+          "expected": "0.4.11",
+          "installed": "0.4.11"
+        },
+        "beautifulsoup4": {
+          "expected": "4.15.0",
+          "installed": "4.15.0"
+        },
+        "exoplanet": {
+          "expected": "0.6.0",
+          "installed": "0.6.0"
+        },
+        "exoplanet-core": {
+          "expected": "0.4.0",
+          "installed": "0.4.0"
+        },
+        "h5netcdf": {
+          "expected": "1.8.1",
+          "installed": "1.8.1"
+        },
+        "h5py": {
+          "expected": "3.16.0",
+          "installed": "3.16.0"
+        },
+        "lightkurve": {
+          "expected": "2.6.0",
+          "installed": "2.6.0"
+        },
+        "lxml": {
+          "expected": "6.1.2",
+          "installed": "6.1.2"
+        },
+        "matplotlib": {
+          "expected": "3.11.1",
+          "installed": "3.11.1"
+        },
+        "numpy": {
+          "expected": "2.4.6",
+          "installed": "2.4.6"
+        },
+        "pandas": {
+          "expected": "2.3.3",
+          "installed": "2.3.3"
+        },
+        "pymc": {
+          "expected": "6.3.1",
+          "installed": "6.3.1"
+        },
+        "pytensor": {
+          "expected": "3.3.0",
+          "installed": "3.3.0"
+        },
+        "requests": {
+          "expected": "2.34.2",
+          "installed": "2.34.2"
+        },
+        "ruff": {
+          "expected": "0.16.1",
+          "installed": "0.16.1"
+        },
+        "scipy": {
+          "expected": "1.18.1",
+          "installed": "1.18.1"
+        },
+        "tqdm": {
+          "expected": "4.68.2",
+          "installed": "4.68.2"
+        }
+      },
+      "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python_version": "3.14.6"
+    },
+    "failed_check_count": 17,
+    "generated_at_utc": "2026-09-26T20:10:12.064253+00:00",
+    "interpretation": "Validation approval is limited to declared contracts; it does not prove novelty, scientific truth, authorship, or absence of all privacy/licensing risks.",
+    "release_passed": false,
+    "schema_version": "publication-release-audit-v1",
+    "status": "incomplete",
+    "status_counts": {}
+  }
+}

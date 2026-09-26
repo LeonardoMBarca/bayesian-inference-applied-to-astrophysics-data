@@ -1,0 +1,2430 @@
+{
+  "claim_limit": "Smoke is engineering only. Final fixed-truth coverage is not SBC. Numeric posteriors include rejected/nonconverged outputs; sampler-conditioned coverage is separately reported. Missing intervals are not measured noncoverage. Expected presampling identity rejections are rejected, not technical failures, with downstream diagnostics unavailable. Zero-jitter boundary truth under a continuous prior need not be inside positive equal-tailed intervals.",
+  "declared_jobs": 5,
+  "known_white_noise_transit_snr_by_scenario": {
+    "completed_fixture": {
+      "available_count": 0,
+      "declared_count": 1,
+      "maximum": null,
+      "mean": null,
+      "minimum": null
+    },
+    "delay_checkpoint": {
+      "available_count": 0,
+      "declared_count": 1,
+      "maximum": null,
+      "mean": null,
+      "minimum": null
+    },
+    "retry_technical": {
+      "available_count": 0,
+      "declared_count": 1,
+      "maximum": null,
+      "mean": null,
+      "minimum": null
+    },
+    "scientific_rejection": {
+      "available_count": 0,
+      "declared_count": 1,
+      "maximum": null,
+      "mean": null,
+      "minimum": null
+    },
+    "tiny_physical": {
+      "available_count": 1,
+      "declared_count": 1,
+      "maximum": 19.09924883061074,
+      "mean": 19.09924883061074,
+      "minimum": 19.09924883061074
+    }
+  },
+  "known_white_noise_transit_snr_definition": "sqrt(sum((truth physical_signal_i - truth baseline)^2 / (supplied normalized_flux_err_i^2 + truth extra_sigma^2))). Post-inference known-design descriptive metric, not a detection significance; ignores stochastic temporal covariance and deterministic systematics. Available only for unablated synthetic inputs with complete signal/error arrays.",
+  "mode": "smoke",
+  "scenarios": {
+    "completed_fixture": {
+      "declared_count": 1,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "b": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "depth": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "extra_sigma": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "full_duration": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "r": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "t0": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        }
+      },
+      "present_count": 1,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 1,
+        "missing": 0
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "delay_checkpoint": {
+      "declared_count": 1,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "b": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "depth": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "extra_sigma": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "full_duration": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "r": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "t0": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        }
+      },
+      "present_count": 1,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 1,
+        "missing": 0
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "retry_technical": {
+      "declared_count": 1,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.20654931437723745,
+            1.0
+          ],
+          "passed_count": 1,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "b": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "depth": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "extra_sigma": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "full_duration": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "r": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "t0": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        }
+      },
+      "present_count": 1,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 1,
+        "missing": 0
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "scientific_rejection": {
+      "declared_count": 1,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_all_declared_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "passed_count": 0,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 1.0,
+          "rejection_rate_evaluated": 1.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_all_declared_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "passed_count": 0,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 1.0,
+          "rejection_rate_evaluated": 1.0,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_all_declared_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "passed_count": 0,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 1.0,
+          "rejection_rate_evaluated": 1.0,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "b": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "depth": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "extra_sigma": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "full_duration": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "r": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        },
+        "t0": {
+          "absolute_bias": null,
+          "bias": null,
+          "coverage": {
+            "0.5": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.5,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.8": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.8,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            },
+            "0.94": {
+              "covered_count": 0,
+              "empirical_coverage_numeric": null,
+              "mean_interval_width": null,
+              "nominal": 0.94,
+              "numeric_count": 0,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": null
+            }
+          },
+          "mae": null,
+          "mean_absolute_calibration_error": null,
+          "mean_posterior_sd": null,
+          "missing_or_invalid_count": 1,
+          "numeric_count": 0,
+          "relative_bias": null,
+          "rmse": null
+        }
+      },
+      "present_count": 1,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "missing": 0,
+        "rejected": 1
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "tiny_physical": {
+      "declared_count": 1,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_all_declared_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "passed_count": 0,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 1.0,
+          "rejection_rate_evaluated": 1.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_all_declared_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "passed_count": 0,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 1.0,
+          "rejection_rate_evaluated": 1.0,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 1,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_all_declared_wilson95": [
+            0.0,
+            0.7934506856227626
+          ],
+          "passed_count": 0,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 1.0,
+          "rejection_rate_evaluated": 1.0,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": 16.241413302541677,
+          "bias": 16.241413302541677,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 7.770202468411107,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.8,
+              "calibration_error_numeric": -0.8,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 16.28491531369739,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.94,
+              "calibration_error_numeric": -0.94,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 20.528142429376082,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            }
+          },
+          "mae": 16.241413302541677,
+          "mean_absolute_calibration_error": 0.7466666666666667,
+          "mean_posterior_sd": 5.872031119896315,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": 3.2482826605083353,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 16.241413302541677,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        },
+        "b": {
+          "absolute_bias": 0.09194381798621598,
+          "bias": 0.09194381798621598,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": 0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.1887806736537868,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.26720029360143116,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.3209529925576309,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.09194381798621598,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.10681957957072619,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": 0.3064793932873866,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 0.09194381798621598,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        },
+        "depth": {
+          "absolute_bias": 0.0026209014239877318,
+          "bias": -0.0026209014239877318,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0034226096126236736,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.005948738002833378,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.006721188451110251,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.0026209014239877318,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.002217694429888326,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": -0.40951584749808306,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 0.0026209014239877318,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        },
+        "extra_sigma": {
+          "absolute_bias": 0.002023542959341234,
+          "bias": 0.002023542959341234,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0005858979407325389,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.8,
+              "calibration_error_numeric": -0.8,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0010109569798482355,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.94,
+              "calibration_error_numeric": -0.94,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0012925057329280475,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            }
+          },
+          "mae": 0.002023542959341234,
+          "mean_absolute_calibration_error": 0.7466666666666667,
+          "mean_posterior_sd": 0.0004049950325017616,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": 10.11771479670617,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 0.002023542959341234,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        },
+        "full_duration": {
+          "absolute_bias": 0.05059358801996738,
+          "bias": -0.05059358801996738,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.007107313849452181,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.8,
+              "calibration_error_numeric": -0.8,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.01392061783626174,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.94,
+              "calibration_error_numeric": -0.94,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.019578871793519803,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            }
+          },
+          "mae": 0.05059358801996738,
+          "mean_absolute_calibration_error": 0.7466666666666667,
+          "mean_posterior_sd": 0.005641604219262298,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": -0.759043810148222,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 0.05059358801996738,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        },
+        "r": {
+          "absolute_bias": 0.02130328050261656,
+          "bias": -0.02130328050261656,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.031111900927619895,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.049537932423994416,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.054459314510177076,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.02130328050261656,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.018502770305614046,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": -0.266291006282707,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 0.02130328050261656,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        },
+        "t0": {
+          "absolute_bias": 0.05327170933144557,
+          "bias": 0.05327170933144557,
+          "bias_conditional_on_sampler": null,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.003957949677850415,
+              "nominal": 0.5,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.8,
+              "calibration_error_numeric": -0.8,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.33146016795163585,
+              "nominal": 0.8,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.0,
+                0.7934506856227626
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": null,
+              "coverage_conditional_on_scientific_gate": null,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.39650513041654567,
+              "nominal": 0.94,
+              "numeric_count": 1,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                0.0,
+                0.7934506856227626
+              ],
+              "sampler_passed_numeric_count": 0,
+              "scientific_gate_passed_numeric_count": 0,
+              "wilson95_conditional_on_sampler": null,
+              "wilson95_conditional_on_scientific_gate": null,
+              "wilson95_numeric": [
+                0.20654931437723745,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.05327170933144557,
+          "mean_absolute_calibration_error": 0.45333333333333337,
+          "mean_posterior_sd": 0.122527094900358,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 1,
+          "relative_bias": 53.27170933144557,
+          "relative_bias_nonzero_truth_count": 1,
+          "rmse": 0.05327170933144557,
+          "rmse_conditional_on_sampler": null,
+          "sampler_passed_numeric_count": 0
+        }
+      },
+      "present_count": 1,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "missing": 0,
+        "rejected": 1
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    }
+  }
+}

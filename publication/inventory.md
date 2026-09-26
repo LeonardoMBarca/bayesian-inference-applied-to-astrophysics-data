@@ -1,7 +1,7 @@
 # Publication experiment inventory
 
 Declared final attempts: 0
-Pilot attempts (excluded): 0
+Pilot attempts (excluded): 2
 
 | Experiment | Scenario | Replicate | Run | Status |
 |---|---|---|---|---|

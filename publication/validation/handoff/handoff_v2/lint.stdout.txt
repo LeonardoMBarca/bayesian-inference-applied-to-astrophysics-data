@@ -1,0 +1,29 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_publication_campaign_plan.py:15:1
+   |
+13 |   sys.path.insert(0, str(ROOT / "src"))
+14 |
+15 | / from publication.campaign_plan import build_plan, freeze_plan, seed, source_identity, uncommitted_sources  # noqa: E402
+16 | | from publication.campaign_worker import (  # noqa: E402
+17 | |     accept_child_result,
+18 | |     classify_result,
+19 | |     execute_attempt,
+20 | |     prepare_synthetic,
+21 | | )
+   | |_^
+help: Organize imports
+   |
+14 |
+   - from publication.campaign_plan import build_plan, freeze_plan, seed, source_identity, uncommitted_sources  # noqa: E402
+15 + from publication.campaign_plan import (  # noqa: E402
+16 +     build_plan,
+17 +     freeze_plan,
+18 +     seed,
+19 +     source_identity,
+20 +     uncommitted_sources,
+21 + )
+22 | from publication.campaign_worker import (  # noqa: E402
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

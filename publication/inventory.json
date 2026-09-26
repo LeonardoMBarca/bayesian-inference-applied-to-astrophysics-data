@@ -3,8 +3,29 @@
   "declared_final_attempts": 0,
   "denominator_policy": "Every declared final attempt remains represented, including missing, rejected and failed attempts.",
   "integrity_valid": true,
-  "pilot_runs": [],
-  "registry_sha256": "c718e5a207b2805b86d98fa5ed36ffc705cac0107d98a89c45e4a1f4f17bb3ff",
+  "pilot_runs": [
+    {
+      "identity": {
+        "experiment_id": "PUB-02",
+        "replicate_id": "rep_0000",
+        "run_id": "pilot_001",
+        "scenario_id": "deep_short"
+      },
+      "path": "publication/experiments/PUB-02/deep_short/rep_0000/pilot_001",
+      "status": "failed"
+    },
+    {
+      "identity": {
+        "experiment_id": "PUB-02",
+        "replicate_id": "rep_0000",
+        "run_id": "pilot_001",
+        "scenario_id": "shallow_short"
+      },
+      "path": "publication/experiments/PUB-02/shallow_short/rep_0000/pilot_001",
+      "status": "failed"
+    }
+  ],
+  "registry_sha256": "b03df5e4c03ce15c0ca102396fab586f4fdce63a2d0158a0d7df70c6dd395987",
   "runs": [],
   "schema_version": "publication-inventory-v1",
   "status_counts": {},

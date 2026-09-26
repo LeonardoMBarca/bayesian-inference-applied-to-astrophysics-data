@@ -1,0 +1,395 @@
+{
+  "schema_version": "campaign-execution-preflight-v1",
+  "passed": true,
+  "errors": [],
+  "campaign_id": "tcc_campaign_v1",
+  "actual_scientific_interpreter": "/home/leonardo_barca/mc3/bin/python3.14",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "sources": [
+    {
+      "role": "PUB-03 exact historical input",
+      "path": "tables/bayesian_physical_transit/kepler_10_b/runs/scientific_003/modeling_input_physical.csv",
+      "expected_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+      "actual_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+      "size_bytes": 1363536,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 hat_p_7_b RAW",
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009131105131_llc.fits",
+      "expected_sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
+      "actual_sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
+      "size_bytes": 77760,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 hat_p_7_b RAW",
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009166043257_llc.fits",
+      "expected_sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
+      "actual_sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
+      "size_bytes": 192960,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 hat_p_7_b RAW",
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009259160929_llc.fits",
+      "expected_sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
+      "actual_sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
+      "size_bytes": 466560,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 kepler_10_b RAW",
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009231120729_slc.fits",
+      "expected_sha256": "f001f56563054b4daf9da68112159528a5e84a44d92a2e601f7891dc0487fae9",
+      "actual_sha256": "f001f56563054b4daf9da68112159528a5e84a44d92a2e601f7891dc0487fae9",
+      "size_bytes": 4432320,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 kepler_10_b RAW",
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009291181958_slc.fits",
+      "expected_sha256": "3ae9807752ea630af439c34faeabfafdca462f165eb5110a66f2a257d8903b7a",
+      "actual_sha256": "3ae9807752ea630af439c34faeabfafdca462f165eb5110a66f2a257d8903b7a",
+      "size_bytes": 4484160,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 kepler_10_b RAW",
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009350160919_slc.fits",
+      "expected_sha256": "da39b6917d57b1c3b85be1a8261c4ba7431feff48b8b643cc0c59dce7ac8dafb",
+      "actual_sha256": "da39b6917d57b1c3b85be1a8261c4ba7431feff48b8b643cc0c59dce7ac8dafb",
+      "size_bytes": 3844800,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 tres_2_b RAW",
+      "path": "data/raw/mast/lightkurve/tres_2_b/kepler/mastDownload/Kepler/kplr011446443_lc_Q111111110111011101/kplr011446443-2009131105131_llc.fits",
+      "expected_sha256": "e1699c5dd0089c35d908b711b302f72ba974edc68e030dae3e9a65d5065f7d0c",
+      "actual_sha256": "e1699c5dd0089c35d908b711b302f72ba974edc68e030dae3e9a65d5065f7d0c",
+      "size_bytes": 77760,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 tres_2_b RAW",
+      "path": "data/raw/mast/lightkurve/tres_2_b/kepler/mastDownload/Kepler/kplr011446443_lc_Q111111110111011101/kplr011446443-2009166043257_llc.fits",
+      "expected_sha256": "10bfca91bdd928deda2e638de7a27cdc940b879452408a96b5be6146944639e9",
+      "actual_sha256": "10bfca91bdd928deda2e638de7a27cdc940b879452408a96b5be6146944639e9",
+      "size_bytes": 192960,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 tres_2_b RAW",
+      "path": "data/raw/mast/lightkurve/tres_2_b/kepler/mastDownload/Kepler/kplr011446443_lc_Q111111110111011101/kplr011446443-2009259160929_llc.fits",
+      "expected_sha256": "6d41c0b2a8784c922789c5ceb53258b795d7b220c6026ff514d86c81dde65e83",
+      "actual_sha256": "6d41c0b2a8784c922789c5ceb53258b795d7b220c6026ff514d86c81dde65e83",
+      "size_bytes": 466560,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 hd_189733_b RAW",
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2021204101404-s0041-0000000256364928-0212-s/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+      "expected_sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+      "actual_sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+      "size_bytes": 1944000,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 hd_189733_b RAW",
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2022190063128-s0054-0000000256364928-0227-s/tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+      "expected_sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+      "actual_sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+      "size_bytes": 1918080,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 hd_189733_b RAW",
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2024196212429-s0081-0000000256364928-0276-s/tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+      "expected_sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+      "actual_sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+      "size_bytes": 1946880,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 kepler_4_b RAW",
+      "path": "publication/inputs/raw/kepler_4_b/kplr011853905-2009131105131_llc.fits",
+      "expected_sha256": "d72d5104bbefb9778039bb1105d6d06858a54c10bbedc9c871e1e3725c7b2eec",
+      "actual_sha256": "d72d5104bbefb9778039bb1105d6d06858a54c10bbedc9c871e1e3725c7b2eec",
+      "size_bytes": 77760,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 kepler_4_b RAW",
+      "path": "publication/inputs/raw/kepler_4_b/kplr011853905-2009166043257_llc.fits",
+      "expected_sha256": "33f6d14d7400de3846b3209af61b95236ebdf653f159d19e801fa1c5379f59ab",
+      "actual_sha256": "33f6d14d7400de3846b3209af61b95236ebdf653f159d19e801fa1c5379f59ab",
+      "size_bytes": 192960,
+      "matched": true
+    },
+    {
+      "role": "PUB-05 kepler_4_b RAW",
+      "path": "publication/inputs/raw/kepler_4_b/kplr011853905-2009259160929_llc.fits",
+      "expected_sha256": "0dff14da7c6d748edbbd0108bec0351f37ff7f2ea345a22fce4c006b38da0c91",
+      "actual_sha256": "0dff14da7c6d748edbbd0108bec0351f37ff7f2ea345a22fce4c006b38da0c91",
+      "size_bytes": 466560,
+      "matched": true
+    }
+  ],
+  "branch": "publication-grade-validation",
+  "scientific_environment": {
+    "schema_version": "scientific-environment-preflight-v1",
+    "passed": true,
+    "python_expected": "3.14.6",
+    "python_actual": "3.14.6",
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": {
+        "expected": "2.4.6",
+        "actual": "2.4.6",
+        "matched": true
+      },
+      "pandas": {
+        "expected": "2.3.3",
+        "actual": "2.3.3",
+        "matched": true
+      },
+      "scipy": {
+        "expected": "1.18.1",
+        "actual": "1.18.1",
+        "matched": true
+      },
+      "requests": {
+        "expected": "2.34.2",
+        "actual": "2.34.2",
+        "matched": true
+      },
+      "astropy": {
+        "expected": "8.0.1",
+        "actual": "8.0.1",
+        "matched": true
+      },
+      "astroquery": {
+        "expected": "0.4.11",
+        "actual": "0.4.11",
+        "matched": true
+      },
+      "lightkurve": {
+        "expected": "2.6.0",
+        "actual": "2.6.0",
+        "matched": true
+      },
+      "beautifulsoup4": {
+        "expected": "4.15.0",
+        "actual": "4.15.0",
+        "matched": true
+      },
+      "lxml": {
+        "expected": "6.1.2",
+        "actual": "6.1.2",
+        "matched": true
+      },
+      "tqdm": {
+        "expected": "4.68.2",
+        "actual": "4.68.2",
+        "matched": true
+      },
+      "matplotlib": {
+        "expected": "3.11.1",
+        "actual": "3.11.1",
+        "matched": true
+      },
+      "pymc": {
+        "expected": "6.3.1",
+        "actual": "6.3.1",
+        "matched": true
+      },
+      "pytensor": {
+        "expected": "3.3.0",
+        "actual": "3.3.0",
+        "matched": true
+      },
+      "arviz": {
+        "expected": "1.3.0",
+        "actual": "1.3.0",
+        "matched": true
+      },
+      "exoplanet": {
+        "expected": "0.6.0",
+        "actual": "0.6.0",
+        "matched": true
+      },
+      "exoplanet-core": {
+        "expected": "0.4.0",
+        "actual": "0.4.0",
+        "matched": true
+      },
+      "h5netcdf": {
+        "expected": "1.8.1",
+        "actual": "1.8.1",
+        "matched": true
+      },
+      "h5py": {
+        "expected": "3.16.0",
+        "actual": "3.16.0",
+        "matched": true
+      },
+      "ruff": {
+        "expected": "0.16.1",
+        "actual": "0.16.1",
+        "matched": true
+      }
+    },
+    "errors": [],
+    "requirements_sha256": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+    "baseline_manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+    "limitations": "Exact direct pinned distributions and Python version; not a proof of bit-identical native libraries, compiler or complete transitive environment. Package code integrity requires separately frozen source/environment artifacts."
+  },
+  "protected_baseline": {
+    "verified_artifacts": 26,
+    "missing_external": [],
+    "status": "verified",
+    "manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d"
+  },
+  "benchmark_environment": {
+    "python_version": "3.12.14",
+    "executable": "/home/leonardo_barca/publication-benchmark-conda/bin/python",
+    "packages": {
+      "Cython": "3.3.0",
+      "Jinja2": "3.1.6",
+      "MarkupSafe": "3.0.3",
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "Sphinx": "9.1.0",
+      "alabaster": "1.0.0",
+      "annotated-types": "0.8.0",
+      "anyio": "4.15.1",
+      "astropy": "8.0.1",
+      "astropy-iers-data": "0.2026.9.21.0.56.25",
+      "asttokens": "3.0.2",
+      "attrs": "26.1.0",
+      "babel": "2.18.0",
+      "batman-package": "2.5.3",
+      "beautifulsoup4": "4.15.0",
+      "bleach": "6.4.0",
+      "blosc2": "4.13.1",
+      "celerite": "0.4.3",
+      "certifi": "2026.7.22",
+      "charset-normalizer": "3.5.1",
+      "comm": "0.2.3",
+      "contourpy": "1.4.0",
+      "corner": "2.3.0",
+      "cycler": "0.12.1",
+      "debugpy": "1.8.22",
+      "defusedxml": "0.7.1",
+      "dill": "0.4.1",
+      "docutils": "0.22.4",
+      "dynesty": "3.1.0",
+      "emcee": "3.1.6",
+      "executing": "2.2.1",
+      "fastjsonschema": "2.22.2",
+      "fonttools": "4.66.0",
+      "george": "0.4.4",
+      "h11": "0.16.0",
+      "h2": "4.4.1",
+      "h5py": "3.16.0",
+      "hpack": "4.2.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "hyperframe": "6.1.0",
+      "idna": "3.20",
+      "imagesize": "2.0.1",
+      "ipykernel": "7.3.0",
+      "ipython": "9.17.1",
+      "ipython_pygments_lexers": "1.1.1",
+      "jedi": "0.20.0",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "juliet": "2.2.10",
+      "jupyter_client": "8.10.0",
+      "jupyter_core": "5.9.1",
+      "jupyterlab_pygments": "0.3.0",
+      "kiwisolver": "1.5.1",
+      "markdown-it-py": "4.2.0",
+      "matplotlib": "3.11.2",
+      "matplotlib-inline": "0.2.2",
+      "mdurl": "0.1.2",
+      "mistune": "3.3.4",
+      "msgpack": "1.2.2",
+      "multiprocess": "0.70.19",
+      "nbclient": "0.11.0",
+      "nbconvert": "7.17.1",
+      "nbformat": "5.11.1",
+      "nbsphinx": "0.9.3",
+      "ndindex": "1.10.1",
+      "nest-asyncio2": "1.7.3",
+      "numexpr": "2.14.2",
+      "numpy": "2.5.3",
+      "packaging": "26.3",
+      "pandas": "3.0.6",
+      "pandocfilters": "1.5.1",
+      "parso": "0.8.7",
+      "pexpect": "4.9.0",
+      "pillow": "12.3.0",
+      "pip": "26.2.1",
+      "platformdirs": "4.12.0",
+      "prompt_toolkit": "3.0.53",
+      "psutil": "7.2.2",
+      "ptyprocess": "0.7.0",
+      "pure_eval": "0.2.4",
+      "py-cpuinfo": "9.0.0",
+      "pydantic": "2.13.5",
+      "pydantic_core": "2.46.5",
+      "pyerfa": "2.0.1.5",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0",
+      "pyzmq": "27.2.0",
+      "radvel": "1.6.5",
+      "referencing": "0.37.0",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "roman-numerals": "4.1.0",
+      "rpds-py": "2026.6.3",
+      "scipy": "1.18.1",
+      "setuptools": "83.0.0",
+      "six": "1.17.0",
+      "snowballstemmer": "3.1.1",
+      "soupsieve": "2.10",
+      "sphinxcontrib-applehelp": "2.0.0",
+      "sphinxcontrib-devhelp": "2.0.0",
+      "sphinxcontrib-htmlhelp": "2.1.0",
+      "sphinxcontrib-jsmath": "1.0.1",
+      "sphinxcontrib-qthelp": "2.0.0",
+      "sphinxcontrib-serializinghtml": "2.0.0",
+      "stack-data": "0.6.3",
+      "tables": "3.11.1",
+      "threadpoolctl": "3.7.0",
+      "tinycss2": "1.5.1",
+      "tornado": "6.5.10",
+      "traitlets": "5.16.1",
+      "typing-inspection": "0.4.4",
+      "typing_extensions": "4.16.0",
+      "ultranest": "4.5.2",
+      "urllib3": "2.8.0",
+      "wcwidth": "0.9.1",
+      "webencodings": "0.6.1",
+      "wheel": "0.47.0"
+    },
+    "source_sha256": {
+      "batman/__init__.py": "ba401a1b44f5319d19208648632c3c7de87d51bf8248d20b0ad09ea50ed7e99e",
+      "batman/openmp.py": "b5fa237399a3820047d04f7630f27f15c326538027b64adbc868743b1d137e18",
+      "batman/plots.py": "569d5f9068e891cc89ff5f55fb922ba6c619c1a74b1d39b597c1d5c37cd81f12",
+      "batman/tests.py": "d4d9900843f8560f7da02f750f629a060c095dc8b56f0be5e71443adc90dcce2",
+      "batman/transitmodel.py": "d5851c5544d869d40e6cc2f7e4b5b060eb927b3d787640c1408d4976c34a264c",
+      "juliet/KeplerOrbit.py": "843aab708f6081ec328ed3831ca73bfd88679ad58db4a419664b6274515b9b95",
+      "juliet/__init__.py": "b2a9baccb074e692834b39cefb708afeb6c1688ffa17b4276960ee2224a0c5f7",
+      "juliet/__main__.py": "d5b66ddbae7230277d7ebf664e41c60fe01f46a456702a2048ef1150fbcb36dc",
+      "juliet/_version.py": "72150d6f43be0c819bc39c0d150e1f741de2c4ab0e19581b3d89925ac856efb4",
+      "juliet/fit.py": "65c7800fdeefbb96f3f38eee748243458b174d2d5d811a44f3cff3ae7afb299e",
+      "juliet/plots.py": "2e018702c68aff539896d08da828fa6a326769da5a341a69badbaa33821c0465",
+      "juliet/test_utils.py": "3343c510ccc097600d7b54c54619836c360e3d75d2749cc319685bf6437c6d0f",
+      "juliet/utils.py": "a88f1acb264aa375f0e799a30c6125b76ea4d332644387a9241da27575dfff26"
+    },
+    "passed": true,
+    "errors": []
+  }
+}

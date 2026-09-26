@@ -1,0 +1,206 @@
+{
+  "baseline": {
+    "manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+    "missing_external": [],
+    "status": "verified",
+    "verified_artifacts": 26
+  },
+  "checks": [
+    {
+      "check": "protected_baseline",
+      "status": "passed"
+    },
+    {
+      "check": "registry_schema",
+      "status": "passed"
+    },
+    {
+      "check": "registry_integrity",
+      "status": "passed"
+    },
+    {
+      "check": "runtime_snapshot",
+      "status": "passed"
+    },
+    {
+      "check": "scientific_runtime",
+      "status": "passed"
+    },
+    {
+      "check": "paper_manifest",
+      "reason": "[Errno 2] No such file or directory: '/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/publication/paper_artifact_manifest.json'",
+      "status": "failed"
+    },
+    {
+      "check": "paper_manifest_schema",
+      "reason": "Missing/unknown publication-paper-artifacts-v1 schema",
+      "status": "failed"
+    },
+    {
+      "check": "required_family:PUB-02",
+      "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+      "status": "failed"
+    },
+    {
+      "check": "required_family:PUB-03",
+      "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+      "status": "failed"
+    },
+    {
+      "check": "required_family:PUB-04",
+      "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+      "status": "failed"
+    },
+    {
+      "check": "required_family:PUB-05",
+      "reason": "Mandatory scientific family has no declared final batch and frozen protocol",
+      "status": "failed"
+    },
+    {
+      "check": "m6_disposition",
+      "reason": "Unexecuted M6 requires an explicit protocol-backed methodological limitation",
+      "status": "failed"
+    },
+    {
+      "check": "environment_locks",
+      "reason": "Paper manifest lacks the complete scientific environment lock identity",
+      "status": "failed"
+    },
+    {
+      "check": "benchmark_environment",
+      "reason": "'benchmark_environment'",
+      "status": "failed"
+    },
+    {
+      "check": "claim_ledger",
+      "reason": "No auditable manuscript claim ledger",
+      "status": "failed"
+    },
+    {
+      "check": "review:tests",
+      "reason": "'reviews'",
+      "status": "failed"
+    },
+    {
+      "check": "review:clean_room",
+      "reason": "'reviews'",
+      "status": "failed"
+    },
+    {
+      "check": "review:public_safety",
+      "reason": "'reviews'",
+      "status": "failed"
+    },
+    {
+      "check": "review:citation",
+      "reason": "'reviews'",
+      "status": "failed"
+    },
+    {
+      "check": "citation_metadata",
+      "reason": "'citation'",
+      "status": "failed"
+    },
+    {
+      "check": "reproducibility_manifest",
+      "reason": "Reproducibility manifest is absent, incomplete, or has an unknown schema",
+      "status": "failed"
+    },
+    {
+      "check": "committed_release_evidence",
+      "reason": "Command '['git', '-C', '/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data', 'ls-files', '--error-unmatch', '--', 'CITATION.cff', 'environment.yml', 'publication/baseline/manifest.json', 'publication/paper_artifact_manifest.json', 'publication/registry.json', 'pyproject.toml', 'requirements.txt', 'scripts/aggregate_publication_campaign.py', 'scripts/publication_campaign_job.py', 'scripts/publication_inventory.py', 'scripts/run_publication_batch.py', 'scripts/run_publication_benchmark.py', 'scripts/run_publication_campaign.py', 'scripts/summarize_publication.py', 'scripts/validate_publication_campaign_smoke.py', 'scripts/validate_publication_handoff.py', 'scripts/validate_publication_release.py', 'scripts/verify_publication_campaign.py', 'src/publication/__init__.py', 'src/publication/ablations.py', 'src/publication/acquisition.py', 'src/publication/batch.py', 'src/publication/benchmark.py', 'src/publication/benchmark_runner.py', 'src/publication/calibration.py', 'src/publication/campaign.py', 'src/publication/campaign_plan.py', 'src/publication/campaign_preflight.py', 'src/publication/campaign_reporting.py', 'src/publication/campaign_worker.py', 'src/publication/contracts.py', 'src/publication/environment_guard.py', 'src/publication/handoff_validation.py', 'src/publication/inference.py', 'src/publication/numerical_checks.py', 'src/publication/observational.py', 'src/publication/release.py', 'src/publication/reporting.py', 'src/publication/simulation.py', 'src/publication/target_reporting.py']' returned non-zero exit status 1.",
+      "status": "failed"
+    }
+  ],
+  "declared_final_attempts": 0,
+  "environment": {
+    "expected_python_version": "3.14.6",
+    "packages": {
+      "arviz": {
+        "expected": "1.3.0",
+        "installed": "1.3.0"
+      },
+      "astropy": {
+        "expected": "8.0.1",
+        "installed": "8.0.1"
+      },
+      "astroquery": {
+        "expected": "0.4.11",
+        "installed": "0.4.11"
+      },
+      "beautifulsoup4": {
+        "expected": "4.15.0",
+        "installed": "4.15.0"
+      },
+      "exoplanet": {
+        "expected": "0.6.0",
+        "installed": "0.6.0"
+      },
+      "exoplanet-core": {
+        "expected": "0.4.0",
+        "installed": "0.4.0"
+      },
+      "h5netcdf": {
+        "expected": "1.8.1",
+        "installed": "1.8.1"
+      },
+      "h5py": {
+        "expected": "3.16.0",
+        "installed": "3.16.0"
+      },
+      "lightkurve": {
+        "expected": "2.6.0",
+        "installed": "2.6.0"
+      },
+      "lxml": {
+        "expected": "6.1.2",
+        "installed": "6.1.2"
+      },
+      "matplotlib": {
+        "expected": "3.11.1",
+        "installed": "3.11.1"
+      },
+      "numpy": {
+        "expected": "2.4.6",
+        "installed": "2.4.6"
+      },
+      "pandas": {
+        "expected": "2.3.3",
+        "installed": "2.3.3"
+      },
+      "pymc": {
+        "expected": "6.3.1",
+        "installed": "6.3.1"
+      },
+      "pytensor": {
+        "expected": "3.3.0",
+        "installed": "3.3.0"
+      },
+      "requests": {
+        "expected": "2.34.2",
+        "installed": "2.34.2"
+      },
+      "ruff": {
+        "expected": "0.16.1",
+        "installed": "0.16.1"
+      },
+      "scipy": {
+        "expected": "1.18.1",
+        "installed": "1.18.1"
+      },
+      "tqdm": {
+        "expected": "4.68.2",
+        "installed": "4.68.2"
+      }
+    },
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_version": "3.14.6"
+  },
+  "failed_check_count": 17,
+  "generated_at_utc": "2026-09-26T20:10:12.064253+00:00",
+  "interpretation": "Validation approval is limited to declared contracts; it does not prove novelty, scientific truth, authorship, or absence of all privacy/licensing risks.",
+  "release_passed": false,
+  "schema_version": "publication-release-audit-v1",
+  "status": "incomplete",
+  "status_counts": {}
+}

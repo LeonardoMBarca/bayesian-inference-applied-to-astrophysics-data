@@ -1,0 +1,31 @@
+{
+  "campaign_id": "tcc_campaign_v1",
+  "mode": "final",
+  "status": "NOT_INITIALIZED",
+  "declared_jobs": 117,
+  "attempted_jobs": 0,
+  "status_counts": {
+    "PLANNED": 117
+  },
+  "status_counts_by_family": {
+    "PUB-02": {
+      "PLANNED": 80
+    },
+    "PUB-03": {
+      "PLANNED": 2
+    },
+    "PUB-04": {
+      "PLANNED": 30
+    },
+    "PUB-05": {
+      "PLANNED": 5
+    }
+  },
+  "active_seconds_checkpointed": 0.0,
+  "max_campaign_hours": 36,
+  "preflight_errors": [
+    "Scientific source edits are not committed",
+    "Scientific campaign source differs from frozen tested source; prepare a new audited freeze before execution"
+  ],
+  "progress_semantics": "Declared only: no persisted state or evidence exists; nothing has been executed."
+}

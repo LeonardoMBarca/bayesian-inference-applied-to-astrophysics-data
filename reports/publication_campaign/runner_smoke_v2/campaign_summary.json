@@ -1,0 +1,3206 @@
+{
+  "aggregation_environment": {
+    "packages": {
+      "h5netcdf": "1.8.1",
+      "matplotlib": "3.11.1",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.18.1",
+      "xarray": "2026.7.0"
+    },
+    "python_version": "3.14.6"
+  },
+  "all_declared_scientific_jobs_finished": true,
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "authoritative": true,
+      "code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_v2.json",
+        "--job-id",
+        "PUB-02__completed_fixture__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "b54e986e7d2883d4fa8fd71ea71923be53c14cefdbf52747a6f49af83310eb8f",
+      "dataset_id": null,
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-09-26T19:22:25.058327+00:00",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": null,
+      "integrity_valid": true,
+      "job_id": "PUB-02__completed_fixture__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000",
+      "process": {
+        "pid": 1150,
+        "platform": "linux",
+        "start_token": "linux:257cda6e-2ac0-4c2c-baf5-daab9595e444:8903"
+      },
+      "replicate_id": "rep_0000",
+      "result_status": "completed",
+      "return_code": 0,
+      "return_code_known": true,
+      "scenario_id": "completed_fixture",
+      "seeds": {
+        "generation": 1042961772,
+        "inference": 937657516,
+        "predictive": 4169349848,
+        "resampling": 493114827
+      },
+      "started_at_utc": "2026-09-26T19:22:23.142146+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__completed_fixture__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__completed_fixture__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false
+    },
+    {
+      "attempt_index": 0,
+      "authoritative": true,
+      "code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_v2.json",
+        "--job-id",
+        "PUB-02__delay_checkpoint__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "3d54aacebc6c90956974946fc41a90d2f235d455459b6086e889fba38417c9a0",
+      "dataset_id": null,
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-09-26T19:22:39.725951+00:00",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": null,
+      "integrity_valid": true,
+      "job_id": "PUB-02__delay_checkpoint__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000",
+      "process": {
+        "pid": 1155,
+        "platform": "linux",
+        "start_token": "linux:257cda6e-2ac0-4c2c-baf5-daab9595e444:9180"
+      },
+      "replicate_id": "rep_0000",
+      "result_status": "completed",
+      "return_code": 0,
+      "return_code_known": true,
+      "scenario_id": "delay_checkpoint",
+      "seeds": {
+        "generation": 4162549620,
+        "inference": 2345421223,
+        "predictive": 3424105156,
+        "resampling": 2524646695
+      },
+      "started_at_utc": "2026-09-26T19:22:25.930136+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__delay_checkpoint__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__delay_checkpoint__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false
+    },
+    {
+      "attempt_index": 0,
+      "authoritative": false,
+      "code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_v2.json",
+        "--job-id",
+        "PUB-02__retry_technical__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "f4aff8073692a5bdfefd9bed56f0cf1ebfd11bc3dd268ac1d796a85362382de7",
+      "dataset_id": null,
+      "error": "Simulated transient I/O failure",
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-09-26T19:22:55.622203+00:00",
+      "gates": {
+        "ppc": false,
+        "provenance": false,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": null,
+      "integrity_valid": true,
+      "job_id": "PUB-02__retry_technical__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_000",
+      "process": {
+        "pid": 1238,
+        "platform": "linux",
+        "start_token": "linux:257cda6e-2ac0-4c2c-baf5-daab9595e444:11959"
+      },
+      "replicate_id": "rep_0000",
+      "result_status": "failed",
+      "return_code": 1,
+      "return_code_known": true,
+      "scenario_id": "retry_technical",
+      "seeds": {
+        "generation": 498260140,
+        "inference": 3232804525,
+        "predictive": 1684572512,
+        "resampling": 1004681230
+      },
+      "started_at_utc": "2026-09-26T19:22:53.723549+00:00",
+      "status": "FAILED_TECHNICAL",
+      "stderr_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__retry_technical__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__retry_technical__rep_0000.attempt000.stdout.log",
+      "technical_retryable": true
+    },
+    {
+      "attempt_index": 1,
+      "authoritative": true,
+      "code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_v2.json",
+        "--job-id",
+        "PUB-02__retry_technical__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001"
+      ],
+      "completion_manifest_sha256": "81873dc90b8b63605def6ec73549cb1f3b7b01d8e23bc08fa988293a67b3e848",
+      "dataset_id": null,
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-09-26T19:22:58.232008+00:00",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": null,
+      "integrity_valid": true,
+      "job_id": "PUB-02__retry_technical__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001",
+      "process": {
+        "pid": 1240,
+        "platform": "linux",
+        "start_token": "linux:257cda6e-2ac0-4c2c-baf5-daab9595e444:12223"
+      },
+      "replicate_id": "rep_0000",
+      "result_status": "completed",
+      "return_code": 0,
+      "return_code_known": true,
+      "scenario_id": "retry_technical",
+      "seeds": {
+        "generation": 498260140,
+        "inference": 3232804525,
+        "predictive": 1684572512,
+        "resampling": 1004681230
+      },
+      "started_at_utc": "2026-09-26T19:22:56.393310+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__retry_technical__rep_0000.attempt001.stderr.log",
+      "stdout_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__retry_technical__rep_0000.attempt001.stdout.log",
+      "technical_retryable": false
+    },
+    {
+      "attempt_index": 0,
+      "authoritative": true,
+      "code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_v2.json",
+        "--job-id",
+        "PUB-02__scientific_rejection__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "19765fb602638b334d1cb43ff405c42ab587ccc84eefdebc0a4ee4b2b4bb2ea7",
+      "dataset_id": null,
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-09-26T19:23:00.166003+00:00",
+      "gates": {
+        "ppc": false,
+        "provenance": false,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": null,
+      "integrity_valid": true,
+      "job_id": "PUB-02__scientific_rejection__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000",
+      "process": {
+        "pid": 1242,
+        "platform": "linux",
+        "start_token": "linux:257cda6e-2ac0-4c2c-baf5-daab9595e444:12466"
+      },
+      "replicate_id": "rep_0000",
+      "result_status": "rejected",
+      "return_code": 0,
+      "return_code_known": true,
+      "scenario_id": "scientific_rejection",
+      "seeds": {
+        "generation": 3681071574,
+        "inference": 3350620160,
+        "predictive": 1017530765,
+        "resampling": 3065294797
+      },
+      "started_at_utc": "2026-09-26T19:22:58.864519+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__scientific_rejection__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__scientific_rejection__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false
+    },
+    {
+      "attempt_index": 0,
+      "authoritative": true,
+      "code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_v2.json",
+        "--job-id",
+        "PUB-02__tiny_physical__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "4d0cedd999a0650e6b6c3c11c95a6561cb3d22879ff17b4edb7fd1cc824aad5e",
+      "dataset_id": "synthetic-ca115877ed5ecc79c311",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-09-26T19:23:40.051652+00:00",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "ca115877ed5ecc79c3118cff426ef7b840d47c6f2830cae5ee9774b0b5f636e5",
+      "integrity_valid": true,
+      "job_id": "PUB-02__tiny_physical__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000",
+      "process": {
+        "pid": 1263,
+        "platform": "linux",
+        "start_token": "linux:257cda6e-2ac0-4c2c-baf5-daab9595e444:12663"
+      },
+      "replicate_id": "rep_0000",
+      "result_status": "rejected",
+      "return_code": 0,
+      "return_code_known": true,
+      "scenario_id": "tiny_physical",
+      "seeds": {
+        "generation": 2517976443,
+        "inference": 3443709629,
+        "predictive": 2913336814,
+        "resampling": 2303949600
+      },
+      "started_at_utc": "2026-09-26T19:23:00.821092+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__tiny_physical__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/runner_smoke_v2/PUB-02/PUB-02__tiny_physical__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false
+    }
+  ],
+  "campaign_id": "runner_smoke_v2",
+  "campaign_initial_code_commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+  "campaign_state_status": "COMPLETED",
+  "claim_limit": "Smoke campaign is infrastructure evidence only. Missing, blocked, failed and rejected jobs remain visible. Numeric metrics are descriptive until complete frozen-protocol scientific evidence, sampler/PPC checks and independent review support stronger claims. No M6 or paper-ready claim is inferred from implementation.",
+  "complete_declared_batch": true,
+  "computational_gates_passed_count": 3,
+  "declared_jobs": 5,
+  "families": {
+    "PUB-02": {
+      "claim_limit": "Smoke is engineering only. Final fixed-truth coverage is not SBC. Numeric posteriors include rejected/nonconverged outputs; sampler-conditioned coverage is separately reported. Missing intervals are not measured noncoverage. Expected presampling identity rejections are rejected, not technical failures, with downstream diagnostics unavailable. Zero-jitter boundary truth under a continuous prior need not be inside positive equal-tailed intervals.",
+      "declared_jobs": 5,
+      "known_white_noise_transit_snr_by_scenario": {
+        "completed_fixture": {
+          "available_count": 0,
+          "declared_count": 1,
+          "maximum": null,
+          "mean": null,
+          "minimum": null
+        },
+        "delay_checkpoint": {
+          "available_count": 0,
+          "declared_count": 1,
+          "maximum": null,
+          "mean": null,
+          "minimum": null
+        },
+        "retry_technical": {
+          "available_count": 0,
+          "declared_count": 1,
+          "maximum": null,
+          "mean": null,
+          "minimum": null
+        },
+        "scientific_rejection": {
+          "available_count": 0,
+          "declared_count": 1,
+          "maximum": null,
+          "mean": null,
+          "minimum": null
+        },
+        "tiny_physical": {
+          "available_count": 1,
+          "declared_count": 1,
+          "maximum": 19.09924883061074,
+          "mean": 19.09924883061074,
+          "minimum": 19.09924883061074
+        }
+      },
+      "known_white_noise_transit_snr_definition": "sqrt(sum((truth physical_signal_i - truth baseline)^2 / (supplied normalized_flux_err_i^2 + truth extra_sigma^2))). Post-inference known-design descriptive metric, not a detection significance; ignores stochastic temporal covariance and deterministic systematics. Available only for unablated synthetic inputs with complete signal/error arrays.",
+      "mode": "smoke",
+      "scenarios": {
+        "completed_fixture": {
+          "declared_count": 1,
+          "execution_failure_rate_all_declared": 0.0,
+          "gates": {
+            "ppc": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            },
+            "sampler": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            },
+            "scientific": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            }
+          },
+          "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+          "interval_kind": "equal_tailed",
+          "missing_ids": [],
+          "parameters": {
+            "a": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "b": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "depth": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "extra_sigma": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "full_duration": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "r": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "t0": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            }
+          },
+          "present_count": 1,
+          "schema_version": "fixed-truth-calibration-v1",
+          "status_counts": {
+            "completed": 1,
+            "missing": 0
+          },
+          "unavailable_final_rate_all_declared": 0.0
+        },
+        "delay_checkpoint": {
+          "declared_count": 1,
+          "execution_failure_rate_all_declared": 0.0,
+          "gates": {
+            "ppc": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            },
+            "sampler": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            },
+            "scientific": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            }
+          },
+          "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+          "interval_kind": "equal_tailed",
+          "missing_ids": [],
+          "parameters": {
+            "a": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "b": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "depth": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "extra_sigma": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "full_duration": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "r": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "t0": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            }
+          },
+          "present_count": 1,
+          "schema_version": "fixed-truth-calibration-v1",
+          "status_counts": {
+            "completed": 1,
+            "missing": 0
+          },
+          "unavailable_final_rate_all_declared": 0.0
+        },
+        "retry_technical": {
+          "declared_count": 1,
+          "execution_failure_rate_all_declared": 0.0,
+          "gates": {
+            "ppc": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            },
+            "sampler": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            },
+            "scientific": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 1.0,
+              "pass_rate_all_declared_wilson95": [
+                0.20654931437723745,
+                1.0
+              ],
+              "passed_count": 1,
+              "rejected_count": 0,
+              "rejection_rate_all_declared": 0.0,
+              "rejection_rate_evaluated": 0.0,
+              "unevaluated_count": 0
+            }
+          },
+          "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+          "interval_kind": "equal_tailed",
+          "missing_ids": [],
+          "parameters": {
+            "a": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "b": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "depth": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "extra_sigma": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "full_duration": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "r": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "t0": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            }
+          },
+          "present_count": 1,
+          "schema_version": "fixed-truth-calibration-v1",
+          "status_counts": {
+            "completed": 1,
+            "missing": 0
+          },
+          "unavailable_final_rate_all_declared": 0.0
+        },
+        "scientific_rejection": {
+          "declared_count": 1,
+          "execution_failure_rate_all_declared": 0.0,
+          "gates": {
+            "ppc": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 0.0,
+              "pass_rate_all_declared_wilson95": [
+                0.0,
+                0.7934506856227626
+              ],
+              "passed_count": 0,
+              "rejected_count": 1,
+              "rejection_rate_all_declared": 1.0,
+              "rejection_rate_evaluated": 1.0,
+              "unevaluated_count": 0
+            },
+            "sampler": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 0.0,
+              "pass_rate_all_declared_wilson95": [
+                0.0,
+                0.7934506856227626
+              ],
+              "passed_count": 0,
+              "rejected_count": 1,
+              "rejection_rate_all_declared": 1.0,
+              "rejection_rate_evaluated": 1.0,
+              "unevaluated_count": 0
+            },
+            "scientific": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 0.0,
+              "pass_rate_all_declared_wilson95": [
+                0.0,
+                0.7934506856227626
+              ],
+              "passed_count": 0,
+              "rejected_count": 1,
+              "rejection_rate_all_declared": 1.0,
+              "rejection_rate_evaluated": 1.0,
+              "unevaluated_count": 0
+            }
+          },
+          "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+          "interval_kind": "equal_tailed",
+          "missing_ids": [],
+          "parameters": {
+            "a": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "b": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "depth": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "extra_sigma": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "full_duration": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "r": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            },
+            "t0": {
+              "absolute_bias": null,
+              "bias": null,
+              "coverage": {
+                "0.5": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.5,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.8": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.8,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                },
+                "0.94": {
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": null,
+                  "mean_interval_width": null,
+                  "nominal": 0.94,
+                  "numeric_count": 0,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "wilson95_numeric": null
+                }
+              },
+              "mae": null,
+              "mean_absolute_calibration_error": null,
+              "mean_posterior_sd": null,
+              "missing_or_invalid_count": 1,
+              "numeric_count": 0,
+              "relative_bias": null,
+              "rmse": null
+            }
+          },
+          "present_count": 1,
+          "schema_version": "fixed-truth-calibration-v1",
+          "status_counts": {
+            "missing": 0,
+            "rejected": 1
+          },
+          "unavailable_final_rate_all_declared": 0.0
+        },
+        "tiny_physical": {
+          "declared_count": 1,
+          "execution_failure_rate_all_declared": 0.0,
+          "gates": {
+            "ppc": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 0.0,
+              "pass_rate_all_declared_wilson95": [
+                0.0,
+                0.7934506856227626
+              ],
+              "passed_count": 0,
+              "rejected_count": 1,
+              "rejection_rate_all_declared": 1.0,
+              "rejection_rate_evaluated": 1.0,
+              "unevaluated_count": 0
+            },
+            "sampler": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 0.0,
+              "pass_rate_all_declared_wilson95": [
+                0.0,
+                0.7934506856227626
+              ],
+              "passed_count": 0,
+              "rejected_count": 1,
+              "rejection_rate_all_declared": 1.0,
+              "rejection_rate_evaluated": 1.0,
+              "unevaluated_count": 0
+            },
+            "scientific": {
+              "evaluated_count": 1,
+              "pass_rate_all_declared": 0.0,
+              "pass_rate_all_declared_wilson95": [
+                0.0,
+                0.7934506856227626
+              ],
+              "passed_count": 0,
+              "rejected_count": 1,
+              "rejection_rate_all_declared": 1.0,
+              "rejection_rate_evaluated": 1.0,
+              "unevaluated_count": 0
+            }
+          },
+          "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+          "interval_kind": "equal_tailed",
+          "missing_ids": [],
+          "parameters": {
+            "a": {
+              "absolute_bias": 16.241413302541677,
+              "bias": 16.241413302541677,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": -0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 7.770202468411107,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.8,
+                  "calibration_error_numeric": -0.8,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 16.28491531369739,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.94,
+                  "calibration_error_numeric": -0.94,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 20.528142429376082,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                }
+              },
+              "mae": 16.241413302541677,
+              "mean_absolute_calibration_error": 0.7466666666666667,
+              "mean_posterior_sd": 5.872031119896315,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": 3.2482826605083353,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 16.241413302541677,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            },
+            "b": {
+              "absolute_bias": 0.09194381798621598,
+              "bias": 0.09194381798621598,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": 0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.1887806736537868,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.19999999999999996,
+                  "calibration_error_numeric": 0.19999999999999996,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.26720029360143116,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.06000000000000005,
+                  "calibration_error_numeric": 0.06000000000000005,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.3209529925576309,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                }
+              },
+              "mae": 0.09194381798621598,
+              "mean_absolute_calibration_error": 0.25333333333333335,
+              "mean_posterior_sd": 0.10681957957072619,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": 0.3064793932873866,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 0.09194381798621598,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            },
+            "depth": {
+              "absolute_bias": 0.0026209014239877318,
+              "bias": -0.0026209014239877318,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": -0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.0034226096126236736,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.19999999999999996,
+                  "calibration_error_numeric": 0.19999999999999996,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.005948738002833378,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.06000000000000005,
+                  "calibration_error_numeric": 0.06000000000000005,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.006721188451110251,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                }
+              },
+              "mae": 0.0026209014239877318,
+              "mean_absolute_calibration_error": 0.25333333333333335,
+              "mean_posterior_sd": 0.002217694429888326,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": -0.40951584749808306,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 0.0026209014239877318,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            },
+            "extra_sigma": {
+              "absolute_bias": 0.002023542959341234,
+              "bias": 0.002023542959341234,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": -0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.0005858979407325389,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.8,
+                  "calibration_error_numeric": -0.8,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.0010109569798482355,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.94,
+                  "calibration_error_numeric": -0.94,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.0012925057329280475,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                }
+              },
+              "mae": 0.002023542959341234,
+              "mean_absolute_calibration_error": 0.7466666666666667,
+              "mean_posterior_sd": 0.0004049950325017616,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": 10.11771479670617,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 0.002023542959341234,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            },
+            "full_duration": {
+              "absolute_bias": 0.05059358801996738,
+              "bias": -0.05059358801996738,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": -0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.007107313849452181,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.8,
+                  "calibration_error_numeric": -0.8,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.01392061783626174,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.94,
+                  "calibration_error_numeric": -0.94,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.019578871793519803,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                }
+              },
+              "mae": 0.05059358801996738,
+              "mean_absolute_calibration_error": 0.7466666666666667,
+              "mean_posterior_sd": 0.005641604219262298,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": -0.759043810148222,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 0.05059358801996738,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            },
+            "r": {
+              "absolute_bias": 0.02130328050261656,
+              "bias": -0.02130328050261656,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": -0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.031111900927619895,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.19999999999999996,
+                  "calibration_error_numeric": 0.19999999999999996,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.049537932423994416,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.06000000000000005,
+                  "calibration_error_numeric": 0.06000000000000005,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.054459314510177076,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                }
+              },
+              "mae": 0.02130328050261656,
+              "mean_absolute_calibration_error": 0.25333333333333335,
+              "mean_posterior_sd": 0.018502770305614046,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": -0.266291006282707,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 0.02130328050261656,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            },
+            "t0": {
+              "absolute_bias": 0.05327170933144557,
+              "bias": 0.05327170933144557,
+              "bias_conditional_on_sampler": null,
+              "coverage": {
+                "0.5": {
+                  "absolute_calibration_error_numeric": 0.5,
+                  "calibration_error_numeric": -0.5,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.003957949677850415,
+                  "nominal": 0.5,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.8": {
+                  "absolute_calibration_error_numeric": 0.8,
+                  "calibration_error_numeric": -0.8,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 0,
+                  "empirical_coverage_numeric": 0.0,
+                  "mean_interval_width": 0.33146016795163585,
+                  "nominal": 0.8,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.0,
+                    0.7934506856227626
+                  ]
+                },
+                "0.94": {
+                  "absolute_calibration_error_numeric": 0.06000000000000005,
+                  "calibration_error_numeric": 0.06000000000000005,
+                  "coverage_conditional_on_sampler": null,
+                  "coverage_conditional_on_scientific_gate": null,
+                  "covered_and_scientific_gate_passed_count": 0,
+                  "covered_count": 1,
+                  "empirical_coverage_numeric": 1.0,
+                  "mean_interval_width": 0.39650513041654567,
+                  "nominal": 0.94,
+                  "numeric_count": 1,
+                  "operational_covered_and_passed_rate_all_declared": 0.0,
+                  "operational_wilson95_all_declared": [
+                    0.0,
+                    0.7934506856227626
+                  ],
+                  "sampler_passed_numeric_count": 0,
+                  "scientific_gate_passed_numeric_count": 0,
+                  "wilson95_conditional_on_sampler": null,
+                  "wilson95_conditional_on_scientific_gate": null,
+                  "wilson95_numeric": [
+                    0.20654931437723745,
+                    1.0
+                  ]
+                }
+              },
+              "mae": 0.05327170933144557,
+              "mean_absolute_calibration_error": 0.45333333333333337,
+              "mean_posterior_sd": 0.122527094900358,
+              "missing_or_invalid_count": 0,
+              "numeric_count": 1,
+              "relative_bias": 53.27170933144557,
+              "relative_bias_nonzero_truth_count": 1,
+              "rmse": 0.05327170933144557,
+              "rmse_conditional_on_sampler": null,
+              "sampler_passed_numeric_count": 0
+            }
+          },
+          "present_count": 1,
+          "schema_version": "fixed-truth-calibration-v1",
+          "status_counts": {
+            "missing": 0,
+            "rejected": 1
+          },
+          "unavailable_final_rate_all_declared": 0.0
+        }
+      }
+    }
+  },
+  "family_filter": null,
+  "generator_source_checksums": {
+    "scripts/__init__.py": "9f06f0ee0e2eef776a9909a6c42d16cf5bb75178c651b76cf31d238d9e5594b0",
+    "scripts/_network_guard/sitecustomize.py": "47c63e849e5cc1542cf7b9898bdd5fd8ef905bd6f81374f97307c94cfbf4c767",
+    "scripts/aggregate_publication_campaign.py": "99d5822b180c2372d48244ef4ab8129c8c10e322e5acf5efb3f9c8ec774685f4",
+    "scripts/analyze_gold_lightcurve.py": "3d9a00ea2f27d8587801092abccb1ef64b5010cba7dc2fc9caff4f8ee5eec06d",
+    "scripts/build_gold_data.py": "eda5861e670aca1221780257bcbde6791f19a7fe993b72a01eeb717e210ce06b",
+    "scripts/build_gold_selection_report.py": "e964e168e3f1f5337c9a09c175def38dbe728d6923230159f03281af19129375",
+    "scripts/build_model_run_inventory.py": "279316aed0c5327adefb8750588dbe193b8184bfb4907106dbbbd67014788f48",
+    "scripts/build_silver_catalogs.py": "27bba420f2f178112f54b970077e47851ba33b482be54add5de30dced0371370",
+    "scripts/build_silver_data.py": "24c8b15bf942362b3de80cc8299168d0f815d8e00c8c95fad25d78240e379f09",
+    "scripts/build_silver_etd.py": "47bf0dfc038bb7d20e339a554994876f0e80b6c0342336df038028bd2b2cfbff",
+    "scripts/build_silver_lightcurves.py": "932fbe4989da85bf48415f36488ac97803faee821f94c11d0b9710b4fcafa032",
+    "scripts/download_etd_varastro.py": "ee809ada9386bc1f2879686184ed49323f2d291cabaf34fc50df32bbf1e45369",
+    "scripts/download_mast_lightcurves.py": "b575d63fc111b30c3ebcce8547f63fa7a361100b021cea556db15a556cf17c7f",
+    "scripts/download_nasa_exoplanet_archive.py": "1f9a9c74afc749bcbd93a7114d5fc1697502c00feee208026d722967ed7aa5e0",
+    "scripts/download_raw_data.py": "52ad23bf006674ab30bce7916c527f5ae8f91d5e77d80d0f6549a2390fefb8b9",
+    "scripts/gold_data_config.py": "b7238cfa5a7030ff31cee398c0a56bb63b41e3b07de435724d9056b89aa92aab",
+    "scripts/inspect_benchmark_environment.py": "1f1becfe9ddbdb27a85c5ee570fec7892ab6de63cd97fd8ee764188fdb831222",
+    "scripts/prepare_tcc_protocols.py": "d3329f7b4ea2fe7210843ff1c3cac8826a0c80cceb64a3e0bc92042f1f83ebb6",
+    "scripts/publication_campaign_job.py": "8dc55511558d0262171b058534d0fd15b9f60d3a890389272000e9e80ef67351",
+    "scripts/publication_inventory.py": "f7bede8eaf30265680b18a76429b7fa8e286d54951b6855ec7efb34665cc5f60",
+    "scripts/raw_data_config.py": "3aa2ad9dc4ea90f5b511a27cddd46d0f8c5089464c37007f915b9ded815f6d3b",
+    "scripts/rebuild_m5_artifacts.py": "158fc056bdfcad1c93422ab0579d8dc139b93185cc5084880c098f4a9aaba240",
+    "scripts/refresh_raw_manifest_state.py": "d70686e889fe965802869782e61856b018c7ac04bbfac15ca97364ed09a23d8c",
+    "scripts/run_bayesian_baseline.py": "933578abff57fcdf6d8d4080bc97a501237f2990f45cb8748d040ec39b6519da",
+    "scripts/run_bayesian_baseline_nuts_robust.py": "2b1db993d2d2a95a10ab91207760d5831bc95b0443749fa487f7f8b79b4c20fb",
+    "scripts/run_bayesian_noise_injection.py": "cea1da97955076375d88c3379b82605c499d07844ec2f0a931853f8cb207c9e7",
+    "scripts/run_bayesian_physical_transit.py": "0c602620ba1de46c3e0aa14068827a010df1e6a8799d4bc6d9f71af4703bdeba",
+    "scripts/run_bayesian_predictive_phase_regression.py": "1d6fc1422ea4d3923553ed6d927592860123c30e2b1c7317493c4b25ee29df0d",
+    "scripts/run_bayesian_sensitivity.py": "772d30a5abe7d6d19760daec656b8e0c38bf0fc772f750719963e384d74995af",
+    "scripts/run_bayesian_trapezoid_transit.py": "39c0154d39a8226cd17dc84b64b8f979eae0e4eadc81906b526149bb2c239654",
+    "scripts/run_ci_tests.py": "ec9a35c5b94a0602840c3b799b9cc9ec1efb11f09ee816c1ef9e706a716fe67d",
+    "scripts/run_kepler_10b.py": "a3eecf5d65faa565ec6120af66562772a6e6cfd0b531df5bfc643c1008c0b657",
+    "scripts/run_model_comparison.py": "418efb807816cd4215a9188def56f33c3ba0c4eb48e7509aa125c3e149d6fa43",
+    "scripts/run_publication_batch.py": "5b0a418019afc8880163929a2893848b36fbcb05feb464428940a174556423c6",
+    "scripts/run_publication_benchmark.py": "e3ecd32ce25b74958c0e87186b17d0098bd1ab92494350d14ebe2db7ffd6142c",
+    "scripts/run_publication_campaign.py": "0a38647c3bbf7b6f0688f00730e9c2aaac6b4bc355aba4f9f5e709545926c4aa",
+    "scripts/silver_data_config.py": "13cc6a0569e88323d4cca2fb441e5bca598c720be8df8b5c442861dbcbf6178a",
+    "scripts/smoke_benchmark_worker.py": "beddd1b31ad44cbcadda352f0309bed1d85f378308ba2fd8b41d5cb43b2a7f2d",
+    "scripts/static_validate.py": "94f8b3ec1b82219f0d748f5c9d30b7c46bf54885504344c8eedde094219e6473",
+    "scripts/summarize_bayesian_sensitivity.py": "98878016dc71339bf9c86d2202fd5fdc12ac9dc6776c14ac60b35355d262989e",
+    "scripts/summarize_publication.py": "c304fca90824c50c57c3cf800fc2d15c3b7788877e49afc462ad71d23ecbe291",
+    "scripts/validate_benchmark_adapter.py": "c65d74f5af5487d835924396d2c1c96056c73db7b92261c4bb1f13f648522850",
+    "scripts/validate_clean_rebuild.py": "e9c006213fc6d292ace116435b373cadc176f795589adadfea53635c31443e63",
+    "scripts/validate_hardened_artifacts.py": "16af14c0be0cbf9a00fa48128adbe75d99776cbde00393df38e3b835ce9895ad",
+    "scripts/validate_publication_campaign_smoke.py": "6a9f113c1c4b2aa4fd2f1415fe86f9236a9eb62f84d06aefdd41ab4fb1187df6",
+    "scripts/validate_publication_handoff.py": "a87bfb7adb65a2c077226c005a21d4116d71befd0f2a3884481ecc713dea344f",
+    "scripts/validate_publication_release.py": "3efd63fcfffc071f0db30221dc94ca360a1d43bdcf891b0665da6e56cf619694",
+    "scripts/verify_publication_campaign.py": "ca09e62a995aac248a4217ff37016abe62b1bdf4b8ee43c3fd8bc53f8a209db6",
+    "scripts/verify_scientific_environment.py": "819c1d85751bed0dc0f58e341537ac000d274416714bc029e6c319193d2271d2",
+    "src/bayesian_modeling/__init__.py": "f126644ec66cd17114f1f2f04b3c60dfe95f4682a6aa654604064c9a7e43658f",
+    "src/bayesian_modeling/comparison.py": "ee1ca92c0748c42a784894cb7332242fe678d00c9a32dfa627c9899c57d937bd",
+    "src/bayesian_modeling/contracts.py": "55b796c5a8026129747b5dee8d80b4b0dab6bcdcfb8f82d72a0f513a35d8a27c",
+    "src/bayesian_modeling/legacy/__init__.py": "9884f027781d4280d9c4d246dbfde37c3391ece53bb75821ff306f72af12ed9c",
+    "src/bayesian_modeling/legacy/baseline.py": "ef6949592290efd8f2ae63216e5ecd479fa2f8b1b6bcd6b9352f9121510a7662",
+    "src/bayesian_modeling/legacy/baseline_nuts_robust.py": "d6d81561673f8a6c0d1b34d747bdf41050f26797941b0882907ebe48ee44c6c2",
+    "src/bayesian_modeling/legacy/predictive_phase_regression.py": "cafee8cf38cafbe65224df4ee2fa7f0cd6193f1e66ff26c5937b2a54ff96d9cb",
+    "src/bayesian_modeling/legacy/trapezoid_transit.py": "7d30cfee6c180c9e0bee89bbdf5044337f8b49ff9882ffdfaf1a26cff251080e",
+    "src/bayesian_modeling/noise_experiments.py": "877838ffb6ea902394506a04a8c5027aeed5d41baee28ebb7339efc5930a54f1",
+    "src/bayesian_modeling/physical_transit.py": "def27faf0ec79af509c493ebe72e3c8e7eb26bf1c58dd703b6a2dde1fe01a1dd",
+    "src/bayesian_modeling/sensitivity.py": "811a9c48eaa510d8f416edb92a2aefb06a410386271c9564b618151be2c7dc0d",
+    "src/gold_analysis/__init__.py": "62f5a094f458d29e59b2ae16388a9588116b023971dcd305b681e29702aca84d",
+    "src/gold_analysis/lightcurve.py": "47894aadf68af8310efd817faf350264400afb320dca5401579151743923f3f3",
+    "src/gold_processing/__init__.py": "80c3f091cc810deeea019f54b8f0ababcf43b33884f5f0bf4c3e41a654c2c8c9",
+    "src/gold_processing/config.py": "ebb09b9e007c0c0cfad9171706b1af021da4845848f399ca6c07146fd14bca5c",
+    "src/gold_processing/lightcurve_preparation.py": "c065c4f2e71e68887a3d1091dddcfe409716e8e2c82214e121808095500f35ef",
+    "src/gold_processing/manifests.py": "a3855ea7620a3857a623ceddda2e5c2b1ca68570c59385d62af23d1816720e87",
+    "src/gold_processing/pipeline.py": "3a8d93952741bc9a21d3deb1d79a1c606252852ce9f18954cd4caab5ddf13e1e",
+    "src/gold_processing/selection.py": "9d51516e977d6ecf6b28bfa39ef5967a6144f72b834dcd582e711a606f73cbc7",
+    "src/gold_processing/utils.py": "47873f9b47888e480eda83d12a1b4ed0c1e9456a75a026f833bc09de462f5dc6",
+    "src/gold_processing/validation.py": "903581823c5fa06f58f142b856bf9ea4406839c1aa559d72d4f3e648fba510f2",
+    "src/lightcurve_cadence.py": "ac2636c55a426e5d0be4aa547e6326e630cc72b77cbca308e91084355f4cace2",
+    "src/lightcurve_selection.py": "90511d9c9a702b8e04b78669e34214fbe89dde3befe2a55815e2829be001eabc",
+    "src/portable_paths.py": "8db75be2f6fd23156203146b5d5ac0cabf4c59f9dcadca2ddf8a9167abd4412c",
+    "src/project_config.py": "3c2e214b2e9f0f008bb92751719dd4ee5f736ab5e604f9a0e092d354461c6d50",
+    "src/publication/__init__.py": "c39280f4b4883684f582c6ac96a79e00e8966210a57a93002234f94691f28eda",
+    "src/publication/ablations.py": "b206901e67fd98045c63b347336321ed8af9525d3a28f71a0f00e98138fb8753",
+    "src/publication/acquisition.py": "8c04262a6e765f05fa9fccb381635012c33fe00eee06045e2004423a06701a82",
+    "src/publication/batch.py": "4b57d63a594e4c29cd42b84bf20c7ed1d81bbbe2135c084e88ca0708422cca9c",
+    "src/publication/benchmark.py": "389f1224573722a8a1456953fb2ec3342f6e7aefeccb7376f5de3fa98f461202",
+    "src/publication/benchmark_runner.py": "6a3ad99a186e2e9cb5357b48734368444a8a30ba1571ae050d8978146cfdddcc",
+    "src/publication/calibration.py": "83d10a0e9ff9cbe919df78b60888907d1190bac22882c234161468daf3a463b8",
+    "src/publication/campaign.py": "b52b0b551ab788fbfcd51365b851d5de83e4042591d9b780bfdbb94ad24cf863",
+    "src/publication/campaign_plan.py": "b1284c531898ad0749524880c377473da612fe821897c922362f213c5a2fac87",
+    "src/publication/campaign_preflight.py": "b97e5c9b3817bcb1713096373dd8bb485a06b6acd50bf3d192d69dc26d0508d8",
+    "src/publication/campaign_reporting.py": "641a4ff3a1db22a03b0fc56aa749822ac1a17e7652886516a57f4578aa4aad7e",
+    "src/publication/campaign_worker.py": "9811207b86e8e8efcbdf1f168bb5d9f8c3b2994e384053e9a4573210a4f10c4d",
+    "src/publication/contracts.py": "f8ff9a9d55d3304c2857ed69d6d6e3e02d053a7d3ba2cc203a6372fde1106db8",
+    "src/publication/environment_guard.py": "2f9e74b8a9509b7517412e8475d696915c823a3f9e8c655d496d35e9e2b59147",
+    "src/publication/handoff_validation.py": "f4bc81525ea6b07022c4d832eb7ccdfbc4a8936c71100ba69acdea5f434cee8a",
+    "src/publication/inference.py": "45bf6baba7162172a8b742ca71c3ac049d630dd2884473614959bca78623b10e",
+    "src/publication/numerical_checks.py": "1db4c9502b9781fc1aecc2dbce5a7ed974a98368bd89e9b094c7b4820278278a",
+    "src/publication/observational.py": "7e086aac3cf7f83e9af3b759281bed1e43f3ab4253850656cf2c1fcf361924f0",
+    "src/publication/release.py": "ab0b28e82ec19d7d5dcae4ddc8e6f59046da72f9189e97f2684c156d65d122db",
+    "src/publication/reporting.py": "f161defd53e571c436872ed5ab921a56bc07b0668e8d13b8eb23237948700d54",
+    "src/publication/simulation.py": "123b18417f50b5640d729ffd049fc3025aed2fb6b08945868e1279fd842edf56",
+    "src/publication/target_reporting.py": "cb726e6502f37dd6936a469d0f09d477676eb9f6c72226e78b32dddb3c8a2276",
+    "src/raw_ingestion/__init__.py": "cc1c578df0bddcc4cc2b6d29eac21a75b181df3481233429a7a0858b8b61ed41",
+    "src/raw_ingestion/config.py": "0a3ae8d606513a1b820c3a2b8129f3d4b0a4f8bf7b341c02f641d503d5ab0142",
+    "src/raw_ingestion/etd.py": "3e654652200b68e17f240bdfc32a3c669a1796fd5bfe8031b7e57fcba097b001",
+    "src/raw_ingestion/exomast.py": "3548f9055c4b7ece123f6548faeca08030d0a2ea37cef5175c4fc2ecf932697d",
+    "src/raw_ingestion/mast.py": "2c21ab0742d90a6230310e973187e032334d157b86399bd3729966657f6effc0",
+    "src/raw_ingestion/nasa_exoplanet_archive.py": "7f706bf37b3d6f4917427ae8481bb2277b42d3780d658e58c9fd11a8d40cf829",
+    "src/raw_ingestion/pipeline.py": "3eed7b292727849e9941b8411342630563d8342e17d44860ebd78b9034549f84",
+    "src/raw_ingestion/utils.py": "b161637e477faaadb865e0819d21655f44b18ee85413d567b9bd8328b32bbc4a",
+    "src/repository_tools/__init__.py": "8e32848fdc1df3463889a384e22b9205155634127bf7d8cb77bf85e4fb114778",
+    "src/repository_tools/artifact_validation.py": "29f91e57aff929f2f8fda689951f166d25872326350ba1f3388bde839b422c93",
+    "src/repository_tools/ci_tests.py": "986341ca9ea8edf1ffeb02c5bd322de15e16c84a663e3a2d2b0bbda1b21f310e",
+    "src/repository_tools/clean_rebuild.py": "55afd2c1c9422a65b5b5019626eb54b6ba91b21dd040e681422009f68d88d3b6",
+    "src/repository_tools/environment_validation.py": "57ab023b4baf93dc5ee7e12e0206aa0f6abc3c6c1fada2fa58b6d4de3f3d3e41",
+    "src/repository_tools/model_run_inventory.py": "c1bd35432fd5a1c3194313fe6c72e87841a1b29d59c808851eae440a7cf24800",
+    "src/repository_tools/static_validation.py": "8f13a69c83b75fdc60887b98b71854e9ea8eece74db98033fe1fdb6a062857a5",
+    "src/silver_processing/__init__.py": "cf1c587b9cda45984e94780f4bbc753249083aba46b855636afe3b9cff28be25",
+    "src/silver_processing/catalogs_exomast.py": "62892362f17307818aa2a3887902eacfadac9ba12285f8abf414e9cb2120790b",
+    "src/silver_processing/catalogs_nasa.py": "ae0b998f98c0cc01c6877c079249b101391c9b44caf3e561775b795a005ebd7f",
+    "src/silver_processing/config.py": "79a8cfcd85a2bcf7725214f20b1eedcdbad02e13cdd38d9135623672b217fdfc",
+    "src/silver_processing/lightcurves_etd.py": "e9bd0d5d15f1daaffb611fc537439bf5999320306b3b93a142ba4fddd9d3b9a9",
+    "src/silver_processing/lightcurves_mast.py": "561e2dc91a9aa89fd8690edb1e10d9c7d1c98d854c64d431778a5dcdb546a2f1",
+    "src/silver_processing/manifests.py": "a3ccecc04be233bc275afbd70d4afae6c69edab0fff426dff8769f07598e34bf",
+    "src/silver_processing/pipeline.py": "231a3439575ab5269919f43008a225c4b1c200392ff0d6a20406e58e9984d779",
+    "src/silver_processing/utils.py": "0bfcad0ec03d86957af335ae34bf7243a40df0e321c91c5158de173a104d948c",
+    "src/silver_processing/validation.py": "9a6844610c417f34ecf3497b76e70f18a12f3cf7da1c12a2bbf0639fe6917c20"
+  },
+  "integrity_errors": [],
+  "jobs": [
+    {
+      "attempt_count": 1,
+      "authoritative_attempt_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000",
+      "computational_gates_passed": true,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__completed_fixture__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_v2__PUB-02__completed_fixture__rep_0000",
+      "scenario_id": "completed_fixture",
+      "scientifically_interpretable": false,
+      "seeds": {
+        "generation": 1042961772,
+        "inference": 937657516,
+        "predictive": 4169349848,
+        "resampling": 493114827
+      },
+      "source_paths": [
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/completion_manifest.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/job.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/result.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/worker_metadata.json"
+      ],
+      "status": "COMPLETED"
+    },
+    {
+      "attempt_count": 1,
+      "authoritative_attempt_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000",
+      "computational_gates_passed": true,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__delay_checkpoint__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_v2__PUB-02__delay_checkpoint__rep_0000",
+      "scenario_id": "delay_checkpoint",
+      "scientifically_interpretable": false,
+      "seeds": {
+        "generation": 4162549620,
+        "inference": 2345421223,
+        "predictive": 3424105156,
+        "resampling": 2524646695
+      },
+      "source_paths": [
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/completion_manifest.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/job.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/result.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/worker_metadata.json"
+      ],
+      "status": "COMPLETED"
+    },
+    {
+      "attempt_count": 2,
+      "authoritative_attempt_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001",
+      "computational_gates_passed": true,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__retry_technical__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_v2__PUB-02__retry_technical__rep_0000",
+      "scenario_id": "retry_technical",
+      "scientifically_interpretable": false,
+      "seeds": {
+        "generation": 498260140,
+        "inference": 3232804525,
+        "predictive": 1684572512,
+        "resampling": 1004681230
+      },
+      "source_paths": [
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/completion_manifest.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/job.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/result.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/worker_metadata.json"
+      ],
+      "status": "COMPLETED"
+    },
+    {
+      "attempt_count": 1,
+      "authoritative_attempt_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000",
+      "computational_gates_passed": false,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__scientific_rejection__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_v2__PUB-02__scientific_rejection__rep_0000",
+      "scenario_id": "scientific_rejection",
+      "scientifically_interpretable": false,
+      "seeds": {
+        "generation": 3681071574,
+        "inference": 3350620160,
+        "predictive": 1017530765,
+        "resampling": 3065294797
+      },
+      "source_paths": [
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/completion_manifest.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/job.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/result.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/worker_metadata.json"
+      ],
+      "status": "COMPLETED_REJECTED"
+    },
+    {
+      "attempt_count": 1,
+      "authoritative_attempt_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000",
+      "computational_gates_passed": false,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__tiny_physical__rep_0000",
+      "known_white_noise_transit_snr": 19.09924883061074,
+      "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_v2__PUB-02__tiny_physical__rep_0000",
+      "scenario_id": "tiny_physical",
+      "scientifically_interpretable": false,
+      "seeds": {
+        "generation": 2517976443,
+        "inference": 3443709629,
+        "predictive": 2913336814,
+        "resampling": 2303949600
+      },
+      "source_paths": [
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/completion_manifest.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/inference_command.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/inference_config.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/inference_started.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/input.csv",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/job.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/predictive_summary.csv",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/result.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/sampler_summary.csv",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/trace.nc",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/truth.json",
+        "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/worker_metadata.json"
+      ],
+      "status": "COMPLETED_REJECTED"
+    }
+  ],
+  "mode": "smoke",
+  "preflight_errors": [],
+  "schema_version": "publication-campaign-aggregate-v1",
+  "scientifically_interpretable_count": 0,
+  "source_checksums": {
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/completion_manifest.json": "b54e986e7d2883d4fa8fd71ea71923be53c14cefdbf52747a6f49af83310eb8f",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/job.json": "7ba58a24b0a90d4cfb58d2a48d7ad0c81e042ec5b6412ec94a022aed293f41ca",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/result.json": "82d5f2bc11ff34616437937d5d5754ddee660ee74c633f768fc61ae242f45150",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000/attempt_000/worker_metadata.json": "73ebc67dd38e448a068e8c9c9bc7c4b79d90fc0d7d1d126e5181d5b183362fda",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/completion_manifest.json": "3d54aacebc6c90956974946fc41a90d2f235d455459b6086e889fba38417c9a0",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/job.json": "1dfcd1818804fd4202505b27bd4490321c492ce837f7fdda56575864a5f2b3e2",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/result.json": "82d5f2bc11ff34616437937d5d5754ddee660ee74c633f768fc61ae242f45150",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000/worker_metadata.json": "c98fb124d548200213e033132c54dca7b787aa70fe1a101e7b1ac303672f8a3b",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_000/completion_manifest.json": "f4aff8073692a5bdfefd9bed56f0cf1ebfd11bc3dd268ac1d796a85362382de7",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_000/job.json": "fdde8bf6f397a2fa0d277b9434f6a0fbf4436b74ce0ba5e78d97b00d3e7ae133",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_000/result.json": "d9acd233b749e4cc31cf2a8dcc223b95b591ff96a1b266ce80022566ffc6bae9",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_000/worker_metadata.json": "afcd051beac651dddd45a7805d19cd1a63f768e2e53a678d3dabacc7305c3507",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/completion_manifest.json": "81873dc90b8b63605def6ec73549cb1f3b7b01d8e23bc08fa988293a67b3e848",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/job.json": "fdde8bf6f397a2fa0d277b9434f6a0fbf4436b74ce0ba5e78d97b00d3e7ae133",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/result.json": "82d5f2bc11ff34616437937d5d5754ddee660ee74c633f768fc61ae242f45150",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/retry_technical/rep_0000/attempt_001/worker_metadata.json": "48d98c63f319dea9953dcc718e754aee932553cc8694bbae23a2fe456e6ebc6c",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/completion_manifest.json": "19765fb602638b334d1cb43ff405c42ab587ccc84eefdebc0a4ee4b2b4bb2ea7",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/job.json": "53d37dc7a1b3a7661b3510d10cbef1690bc230b27786925efbd3a405533bfdac",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/result.json": "255dfcb45ea8fb266014dbd54cf8cba4ae01b470a87d66770247fce6f0747a42",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/scientific_rejection/rep_0000/attempt_000/worker_metadata.json": "14b6a132a8e6eaddadc8eceafdbbc6fd7ea0e842b20407c848909c2f582c5e4b",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/completion_manifest.json": "4d0cedd999a0650e6b6c3c11c95a6561cb3d22879ff17b4edb7fd1cc824aad5e",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/inference_command.json": "4326deaa230140d2fd2edfc2d7b155db8efc1dd6e82e5bc9d5e649f93b2f1aaa",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/inference_config.json": "a5c8585856c022940b1be8a7f93e05ff79d6af981a2f377f47d0b619a33a6723",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/inference_started.json": "c1b932664ca6e3c0b64ac8ef1873fbff78ed89aaaec5055eb482c39e12f7b4d4",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/input.csv": "ca115877ed5ecc79c3118cff426ef7b840d47c6f2830cae5ee9774b0b5f636e5",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/job.json": "83779e55eb9c93242a43221e0c8485820d687666b234ed3bd9043094f89840e3",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/predictive_summary.csv": "5b1b2f00540bc62965c582c1575b7027b38c8535759a661aa3758d4db1af8a0c",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/result.json": "9761aeeda724bb9aeb4b14d3f1929907cb41f474aa2cbb422cc10fda45532180",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/sampler_summary.csv": "2ca806edfba81b4061aeb03ab1d4781999a9c506783d1b1b32af87d14a317af3",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/trace.nc": "35127162a1768df5a6a172bc24ffc7ca0f63c8f98e2d18e303cf0bc86b322bab",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/truth.json": "5fa3da1cb0c3ffca4453a17ef813d916aa923e2125818821722347167bfb4447",
+    "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/tiny_physical/rep_0000/attempt_000/worker_metadata.json": "7c679fd3a5e9f6c22391a2267cc10033d5fe4df18c5f2043052b20d9a6cd3cc0",
+    "configs/publication/runner_smoke_v2.json": "929794967c6c1ddfa2e6f046c6bddefe56e42f9fde13e43e8088a9c97496c3b7",
+    "publication/baseline/environment/requirements.txt": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+    "publication/baseline/manifest.json": "fe5f9d6b3ce469ae0f51353b0413dca0a602fbdb76e2ba733f0bb55bdb41cfc6",
+    "publication/environments/benchmark-conda-explicit.txt": "660b20904b1ce1541c8d4cf643a56f49498f7f087033d05c504961d2e3446bda",
+    "publication/environments/benchmark-environment.json": "ee002b57de8e395b719cc239cb38ae3d10380c5d129bc112fecc90ca73832327",
+    "publication/environments/benchmark-requirements.txt": "020bc995f5e425307b63e52ed58f536ad0c74cda857abd44ab3106540c29f065",
+    "reports/publication_campaign/runner_smoke_v2/campaign_state_snapshot.json": "4f0339fb310d423341b81f231ae1d7a7b091b2459b7ff40129d01c07fa1a0b10",
+    "scripts/__init__.py": "9f06f0ee0e2eef776a9909a6c42d16cf5bb75178c651b76cf31d238d9e5594b0",
+    "scripts/_network_guard/sitecustomize.py": "47c63e849e5cc1542cf7b9898bdd5fd8ef905bd6f81374f97307c94cfbf4c767",
+    "scripts/aggregate_publication_campaign.py": "99d5822b180c2372d48244ef4ab8129c8c10e322e5acf5efb3f9c8ec774685f4",
+    "scripts/analyze_gold_lightcurve.py": "3d9a00ea2f27d8587801092abccb1ef64b5010cba7dc2fc9caff4f8ee5eec06d",
+    "scripts/build_gold_data.py": "eda5861e670aca1221780257bcbde6791f19a7fe993b72a01eeb717e210ce06b",
+    "scripts/build_gold_selection_report.py": "e964e168e3f1f5337c9a09c175def38dbe728d6923230159f03281af19129375",
+    "scripts/build_model_run_inventory.py": "279316aed0c5327adefb8750588dbe193b8184bfb4907106dbbbd67014788f48",
+    "scripts/build_silver_catalogs.py": "27bba420f2f178112f54b970077e47851ba33b482be54add5de30dced0371370",
+    "scripts/build_silver_data.py": "24c8b15bf942362b3de80cc8299168d0f815d8e00c8c95fad25d78240e379f09",
+    "scripts/build_silver_etd.py": "47bf0dfc038bb7d20e339a554994876f0e80b6c0342336df038028bd2b2cfbff",
+    "scripts/build_silver_lightcurves.py": "932fbe4989da85bf48415f36488ac97803faee821f94c11d0b9710b4fcafa032",
+    "scripts/download_etd_varastro.py": "ee809ada9386bc1f2879686184ed49323f2d291cabaf34fc50df32bbf1e45369",
+    "scripts/download_mast_lightcurves.py": "b575d63fc111b30c3ebcce8547f63fa7a361100b021cea556db15a556cf17c7f",
+    "scripts/download_nasa_exoplanet_archive.py": "1f9a9c74afc749bcbd93a7114d5fc1697502c00feee208026d722967ed7aa5e0",
+    "scripts/download_raw_data.py": "52ad23bf006674ab30bce7916c527f5ae8f91d5e77d80d0f6549a2390fefb8b9",
+    "scripts/gold_data_config.py": "b7238cfa5a7030ff31cee398c0a56bb63b41e3b07de435724d9056b89aa92aab",
+    "scripts/inspect_benchmark_environment.py": "1f1becfe9ddbdb27a85c5ee570fec7892ab6de63cd97fd8ee764188fdb831222",
+    "scripts/prepare_tcc_protocols.py": "d3329f7b4ea2fe7210843ff1c3cac8826a0c80cceb64a3e0bc92042f1f83ebb6",
+    "scripts/publication_campaign_job.py": "8dc55511558d0262171b058534d0fd15b9f60d3a890389272000e9e80ef67351",
+    "scripts/publication_inventory.py": "f7bede8eaf30265680b18a76429b7fa8e286d54951b6855ec7efb34665cc5f60",
+    "scripts/raw_data_config.py": "3aa2ad9dc4ea90f5b511a27cddd46d0f8c5089464c37007f915b9ded815f6d3b",
+    "scripts/rebuild_m5_artifacts.py": "158fc056bdfcad1c93422ab0579d8dc139b93185cc5084880c098f4a9aaba240",
+    "scripts/refresh_raw_manifest_state.py": "d70686e889fe965802869782e61856b018c7ac04bbfac15ca97364ed09a23d8c",
+    "scripts/run_bayesian_baseline.py": "933578abff57fcdf6d8d4080bc97a501237f2990f45cb8748d040ec39b6519da",
+    "scripts/run_bayesian_baseline_nuts_robust.py": "2b1db993d2d2a95a10ab91207760d5831bc95b0443749fa487f7f8b79b4c20fb",
+    "scripts/run_bayesian_noise_injection.py": "cea1da97955076375d88c3379b82605c499d07844ec2f0a931853f8cb207c9e7",
+    "scripts/run_bayesian_physical_transit.py": "0c602620ba1de46c3e0aa14068827a010df1e6a8799d4bc6d9f71af4703bdeba",
+    "scripts/run_bayesian_predictive_phase_regression.py": "1d6fc1422ea4d3923553ed6d927592860123c30e2b1c7317493c4b25ee29df0d",
+    "scripts/run_bayesian_sensitivity.py": "772d30a5abe7d6d19760daec656b8e0c38bf0fc772f750719963e384d74995af",
+    "scripts/run_bayesian_trapezoid_transit.py": "39c0154d39a8226cd17dc84b64b8f979eae0e4eadc81906b526149bb2c239654",
+    "scripts/run_ci_tests.py": "ec9a35c5b94a0602840c3b799b9cc9ec1efb11f09ee816c1ef9e706a716fe67d",
+    "scripts/run_kepler_10b.py": "a3eecf5d65faa565ec6120af66562772a6e6cfd0b531df5bfc643c1008c0b657",
+    "scripts/run_model_comparison.py": "418efb807816cd4215a9188def56f33c3ba0c4eb48e7509aa125c3e149d6fa43",
+    "scripts/run_publication_batch.py": "5b0a418019afc8880163929a2893848b36fbcb05feb464428940a174556423c6",
+    "scripts/run_publication_benchmark.py": "e3ecd32ce25b74958c0e87186b17d0098bd1ab92494350d14ebe2db7ffd6142c",
+    "scripts/run_publication_campaign.py": "0a38647c3bbf7b6f0688f00730e9c2aaac6b4bc355aba4f9f5e709545926c4aa",
+    "scripts/silver_data_config.py": "13cc6a0569e88323d4cca2fb441e5bca598c720be8df8b5c442861dbcbf6178a",
+    "scripts/smoke_benchmark_worker.py": "beddd1b31ad44cbcadda352f0309bed1d85f378308ba2fd8b41d5cb43b2a7f2d",
+    "scripts/static_validate.py": "94f8b3ec1b82219f0d748f5c9d30b7c46bf54885504344c8eedde094219e6473",
+    "scripts/summarize_bayesian_sensitivity.py": "98878016dc71339bf9c86d2202fd5fdc12ac9dc6776c14ac60b35355d262989e",
+    "scripts/summarize_publication.py": "c304fca90824c50c57c3cf800fc2d15c3b7788877e49afc462ad71d23ecbe291",
+    "scripts/validate_benchmark_adapter.py": "c65d74f5af5487d835924396d2c1c96056c73db7b92261c4bb1f13f648522850",
+    "scripts/validate_clean_rebuild.py": "e9c006213fc6d292ace116435b373cadc176f795589adadfea53635c31443e63",
+    "scripts/validate_hardened_artifacts.py": "16af14c0be0cbf9a00fa48128adbe75d99776cbde00393df38e3b835ce9895ad",
+    "scripts/validate_publication_campaign_smoke.py": "6a9f113c1c4b2aa4fd2f1415fe86f9236a9eb62f84d06aefdd41ab4fb1187df6",
+    "scripts/validate_publication_handoff.py": "a87bfb7adb65a2c077226c005a21d4116d71befd0f2a3884481ecc713dea344f",
+    "scripts/validate_publication_release.py": "3efd63fcfffc071f0db30221dc94ca360a1d43bdcf891b0665da6e56cf619694",
+    "scripts/verify_publication_campaign.py": "ca09e62a995aac248a4217ff37016abe62b1bdf4b8ee43c3fd8bc53f8a209db6",
+    "scripts/verify_scientific_environment.py": "819c1d85751bed0dc0f58e341537ac000d274416714bc029e6c319193d2271d2",
+    "src/bayesian_modeling/__init__.py": "f126644ec66cd17114f1f2f04b3c60dfe95f4682a6aa654604064c9a7e43658f",
+    "src/bayesian_modeling/comparison.py": "ee1ca92c0748c42a784894cb7332242fe678d00c9a32dfa627c9899c57d937bd",
+    "src/bayesian_modeling/contracts.py": "55b796c5a8026129747b5dee8d80b4b0dab6bcdcfb8f82d72a0f513a35d8a27c",
+    "src/bayesian_modeling/legacy/__init__.py": "9884f027781d4280d9c4d246dbfde37c3391ece53bb75821ff306f72af12ed9c",
+    "src/bayesian_modeling/legacy/baseline.py": "ef6949592290efd8f2ae63216e5ecd479fa2f8b1b6bcd6b9352f9121510a7662",
+    "src/bayesian_modeling/legacy/baseline_nuts_robust.py": "d6d81561673f8a6c0d1b34d747bdf41050f26797941b0882907ebe48ee44c6c2",
+    "src/bayesian_modeling/legacy/predictive_phase_regression.py": "cafee8cf38cafbe65224df4ee2fa7f0cd6193f1e66ff26c5937b2a54ff96d9cb",
+    "src/bayesian_modeling/legacy/trapezoid_transit.py": "7d30cfee6c180c9e0bee89bbdf5044337f8b49ff9882ffdfaf1a26cff251080e",
+    "src/bayesian_modeling/noise_experiments.py": "877838ffb6ea902394506a04a8c5027aeed5d41baee28ebb7339efc5930a54f1",
+    "src/bayesian_modeling/physical_transit.py": "def27faf0ec79af509c493ebe72e3c8e7eb26bf1c58dd703b6a2dde1fe01a1dd",
+    "src/bayesian_modeling/sensitivity.py": "811a9c48eaa510d8f416edb92a2aefb06a410386271c9564b618151be2c7dc0d",
+    "src/gold_analysis/__init__.py": "62f5a094f458d29e59b2ae16388a9588116b023971dcd305b681e29702aca84d",
+    "src/gold_analysis/lightcurve.py": "47894aadf68af8310efd817faf350264400afb320dca5401579151743923f3f3",
+    "src/gold_processing/__init__.py": "80c3f091cc810deeea019f54b8f0ababcf43b33884f5f0bf4c3e41a654c2c8c9",
+    "src/gold_processing/config.py": "ebb09b9e007c0c0cfad9171706b1af021da4845848f399ca6c07146fd14bca5c",
+    "src/gold_processing/lightcurve_preparation.py": "c065c4f2e71e68887a3d1091dddcfe409716e8e2c82214e121808095500f35ef",
+    "src/gold_processing/manifests.py": "a3855ea7620a3857a623ceddda2e5c2b1ca68570c59385d62af23d1816720e87",
+    "src/gold_processing/pipeline.py": "3a8d93952741bc9a21d3deb1d79a1c606252852ce9f18954cd4caab5ddf13e1e",
+    "src/gold_processing/selection.py": "9d51516e977d6ecf6b28bfa39ef5967a6144f72b834dcd582e711a606f73cbc7",
+    "src/gold_processing/utils.py": "47873f9b47888e480eda83d12a1b4ed0c1e9456a75a026f833bc09de462f5dc6",
+    "src/gold_processing/validation.py": "903581823c5fa06f58f142b856bf9ea4406839c1aa559d72d4f3e648fba510f2",
+    "src/lightcurve_cadence.py": "ac2636c55a426e5d0be4aa547e6326e630cc72b77cbca308e91084355f4cace2",
+    "src/lightcurve_selection.py": "90511d9c9a702b8e04b78669e34214fbe89dde3befe2a55815e2829be001eabc",
+    "src/portable_paths.py": "8db75be2f6fd23156203146b5d5ac0cabf4c59f9dcadca2ddf8a9167abd4412c",
+    "src/project_config.py": "3c2e214b2e9f0f008bb92751719dd4ee5f736ab5e604f9a0e092d354461c6d50",
+    "src/publication/__init__.py": "c39280f4b4883684f582c6ac96a79e00e8966210a57a93002234f94691f28eda",
+    "src/publication/ablations.py": "b206901e67fd98045c63b347336321ed8af9525d3a28f71a0f00e98138fb8753",
+    "src/publication/acquisition.py": "8c04262a6e765f05fa9fccb381635012c33fe00eee06045e2004423a06701a82",
+    "src/publication/batch.py": "4b57d63a594e4c29cd42b84bf20c7ed1d81bbbe2135c084e88ca0708422cca9c",
+    "src/publication/benchmark.py": "389f1224573722a8a1456953fb2ec3342f6e7aefeccb7376f5de3fa98f461202",
+    "src/publication/benchmark_runner.py": "6a3ad99a186e2e9cb5357b48734368444a8a30ba1571ae050d8978146cfdddcc",
+    "src/publication/calibration.py": "83d10a0e9ff9cbe919df78b60888907d1190bac22882c234161468daf3a463b8",
+    "src/publication/campaign.py": "b52b0b551ab788fbfcd51365b851d5de83e4042591d9b780bfdbb94ad24cf863",
+    "src/publication/campaign_plan.py": "b1284c531898ad0749524880c377473da612fe821897c922362f213c5a2fac87",
+    "src/publication/campaign_preflight.py": "b97e5c9b3817bcb1713096373dd8bb485a06b6acd50bf3d192d69dc26d0508d8",
+    "src/publication/campaign_reporting.py": "641a4ff3a1db22a03b0fc56aa749822ac1a17e7652886516a57f4578aa4aad7e",
+    "src/publication/campaign_worker.py": "9811207b86e8e8efcbdf1f168bb5d9f8c3b2994e384053e9a4573210a4f10c4d",
+    "src/publication/contracts.py": "f8ff9a9d55d3304c2857ed69d6d6e3e02d053a7d3ba2cc203a6372fde1106db8",
+    "src/publication/environment_guard.py": "2f9e74b8a9509b7517412e8475d696915c823a3f9e8c655d496d35e9e2b59147",
+    "src/publication/handoff_validation.py": "f4bc81525ea6b07022c4d832eb7ccdfbc4a8936c71100ba69acdea5f434cee8a",
+    "src/publication/inference.py": "45bf6baba7162172a8b742ca71c3ac049d630dd2884473614959bca78623b10e",
+    "src/publication/numerical_checks.py": "1db4c9502b9781fc1aecc2dbce5a7ed974a98368bd89e9b094c7b4820278278a",
+    "src/publication/observational.py": "7e086aac3cf7f83e9af3b759281bed1e43f3ab4253850656cf2c1fcf361924f0",
+    "src/publication/release.py": "ab0b28e82ec19d7d5dcae4ddc8e6f59046da72f9189e97f2684c156d65d122db",
+    "src/publication/reporting.py": "f161defd53e571c436872ed5ab921a56bc07b0668e8d13b8eb23237948700d54",
+    "src/publication/simulation.py": "123b18417f50b5640d729ffd049fc3025aed2fb6b08945868e1279fd842edf56",
+    "src/publication/target_reporting.py": "cb726e6502f37dd6936a469d0f09d477676eb9f6c72226e78b32dddb3c8a2276",
+    "src/raw_ingestion/__init__.py": "cc1c578df0bddcc4cc2b6d29eac21a75b181df3481233429a7a0858b8b61ed41",
+    "src/raw_ingestion/config.py": "0a3ae8d606513a1b820c3a2b8129f3d4b0a4f8bf7b341c02f641d503d5ab0142",
+    "src/raw_ingestion/etd.py": "3e654652200b68e17f240bdfc32a3c669a1796fd5bfe8031b7e57fcba097b001",
+    "src/raw_ingestion/exomast.py": "3548f9055c4b7ece123f6548faeca08030d0a2ea37cef5175c4fc2ecf932697d",
+    "src/raw_ingestion/mast.py": "2c21ab0742d90a6230310e973187e032334d157b86399bd3729966657f6effc0",
+    "src/raw_ingestion/nasa_exoplanet_archive.py": "7f706bf37b3d6f4917427ae8481bb2277b42d3780d658e58c9fd11a8d40cf829",
+    "src/raw_ingestion/pipeline.py": "3eed7b292727849e9941b8411342630563d8342e17d44860ebd78b9034549f84",
+    "src/raw_ingestion/utils.py": "b161637e477faaadb865e0819d21655f44b18ee85413d567b9bd8328b32bbc4a",
+    "src/repository_tools/__init__.py": "8e32848fdc1df3463889a384e22b9205155634127bf7d8cb77bf85e4fb114778",
+    "src/repository_tools/artifact_validation.py": "29f91e57aff929f2f8fda689951f166d25872326350ba1f3388bde839b422c93",
+    "src/repository_tools/ci_tests.py": "986341ca9ea8edf1ffeb02c5bd322de15e16c84a663e3a2d2b0bbda1b21f310e",
+    "src/repository_tools/clean_rebuild.py": "55afd2c1c9422a65b5b5019626eb54b6ba91b21dd040e681422009f68d88d3b6",
+    "src/repository_tools/environment_validation.py": "57ab023b4baf93dc5ee7e12e0206aa0f6abc3c6c1fada2fa58b6d4de3f3d3e41",
+    "src/repository_tools/model_run_inventory.py": "c1bd35432fd5a1c3194313fe6c72e87841a1b29d59c808851eae440a7cf24800",
+    "src/repository_tools/static_validation.py": "8f13a69c83b75fdc60887b98b71854e9ea8eece74db98033fe1fdb6a062857a5",
+    "src/silver_processing/__init__.py": "cf1c587b9cda45984e94780f4bbc753249083aba46b855636afe3b9cff28be25",
+    "src/silver_processing/catalogs_exomast.py": "62892362f17307818aa2a3887902eacfadac9ba12285f8abf414e9cb2120790b",
+    "src/silver_processing/catalogs_nasa.py": "ae0b998f98c0cc01c6877c079249b101391c9b44caf3e561775b795a005ebd7f",
+    "src/silver_processing/config.py": "79a8cfcd85a2bcf7725214f20b1eedcdbad02e13cdd38d9135623672b217fdfc",
+    "src/silver_processing/lightcurves_etd.py": "e9bd0d5d15f1daaffb611fc537439bf5999320306b3b93a142ba4fddd9d3b9a9",
+    "src/silver_processing/lightcurves_mast.py": "561e2dc91a9aa89fd8690edb1e10d9c7d1c98d854c64d431778a5dcdb546a2f1",
+    "src/silver_processing/manifests.py": "a3ccecc04be233bc275afbd70d4afae6c69edab0fff426dff8769f07598e34bf",
+    "src/silver_processing/pipeline.py": "231a3439575ab5269919f43008a225c4b1c200392ff0d6a20406e58e9984d779",
+    "src/silver_processing/utils.py": "0bfcad0ec03d86957af335ae34bf7243a40df0e321c91c5158de173a104d948c",
+    "src/silver_processing/validation.py": "9a6844610c417f34ecf3497b76e70f18a12f3cf7da1c12a2bbf0639fe6917c20"
+  },
+  "source_state_jobs_fingerprint": "d260666b3b2a160dbbf580175593b58b308aa9e8b38f4111e914a8df6ab4d1e4",
+  "source_state_path": "artifacts/publication_campaign/runner_smoke_v2/campaign_state.json",
+  "status_counts": {
+    "COMPLETED": 3,
+    "COMPLETED_REJECTED": 2
+  },
+  "total_attempts": 6
+}
