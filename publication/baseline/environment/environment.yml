@@ -1,0 +1,8 @@
+name: bayesian-astrophysics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.14.6
+  - pip
+  - pip:
+      - -r requirements.txt

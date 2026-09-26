@@ -1,0 +1,8 @@
+# Publication identity is byte-based and must survive Windows/Linux checkouts.
+publication/**/*.json text eol=lf
+publication/**/*.csv text eol=lf
+publication/**/*.md text eol=lf
+publication/baseline/environment/* -text
+src/publication/*.py text eol=lf
+docs/publication/*.json text eol=lf
+docs/publication/*.md text eol=lf
