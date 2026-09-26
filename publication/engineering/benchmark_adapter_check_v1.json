@@ -1,0 +1,54 @@
+{
+  "status": "failed",
+  "evidence_class": "engineering_numeric_check_not_final_inference",
+  "fixture_sha256": "28353d7d77e522f04dc84925e1dc433d6c0b9b66a45d26b7e3d68676e4f45c55",
+  "adapter_version": "juliet-2.2.10-adapter-v1",
+  "versions": {
+    "juliet": "2.2.10",
+    "batman-package": "2.5.3",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "cases": [
+    {
+      "case_id": "deep_long",
+      "max_abs_flux_difference": 1.0949599005272148e-09,
+      "tolerance_fraction": 2e-08,
+      "passed": true
+    },
+    {
+      "case_id": "shallow_short",
+      "max_abs_flux_difference": 4.012113086204749e-09,
+      "tolerance_fraction": 2e-08,
+      "passed": true
+    },
+    {
+      "case_id": "grazing_long",
+      "max_abs_flux_difference": 5.42521583213329e-10,
+      "tolerance_fraction": 2e-08,
+      "passed": true
+    }
+  ],
+  "installed_contract": {
+    "passed": false,
+    "model_ok": true,
+    "rows": 60,
+    "exposure_groups": 2,
+    "shared_nuisances": true,
+    "max_abs_flux_error": 2.220446049250313e-16,
+    "flux_tolerance": 1e-12,
+    "absolute_log_likelihood_error": 2.6147972675971687e-12,
+    "likelihood_tolerance": 1e-07,
+    "max_halfnormal_quantile_error_ppm": 2.1847881725989282e-08,
+    "prior_tolerance_ppm": 1e-08,
+    "half_normal_quantiles_tested": [
+      1e-08,
+      0.01,
+      0.5,
+      0.94,
+      0.999999
+    ],
+    "dynesty_accepts_rstate": true,
+    "sampler_executed": false
+  }
+}

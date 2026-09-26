@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from bayesian_modeling.contracts import TransitModelOptions  # noqa: E402
 from publication.inference import (  # noqa: E402
     file_hash,
+    finite_json,
     posterior_intervals,
     read_input,
     residual_correlations,
@@ -24,6 +25,10 @@ from publication.inference import (  # noqa: E402
 
 
 class PublicationInferenceTests(unittest.TestCase):
+    def test_failed_nonfinite_diagnostics_remain_valid_json(self):
+        result = finite_json({"diagnostic": float("nan"), "nested": [float("inf"), .5]})
+        self.assertEqual(json.loads(json.dumps(result, allow_nan=False)), {"diagnostic": None, "nested": [None, .5]})
+
     def test_quantiles_are_equal_tailed_not_mislabeled_hdi(self):
         result = posterior_intervals(np.arange(101.))
         self.assertEqual(result["intervals"]["0.5"], [25., 75.])
@@ -45,6 +50,14 @@ class PublicationInferenceTests(unittest.TestCase):
             with self.subTest(kwargs=kwargs), self.assertRaises(ValueError):
                 TransitModelOptions(**kwargs)
 
+    def test_embedded_observational_dataset_identity_is_checked(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "input.csv"
+            pd.DataFrame({"dataset_id": ["wrong"]}).to_csv(path, index=False)
+            with self.assertRaisesRegex(ValueError, "row dataset identity"):
+                read_input(path, {"input_sha256": file_hash(path), "dataset_id": "expected",
+                                  "expected_dataset_id": "expected", "input_kind": "observational"})
+
     def test_correlation_does_not_cross_segment_or_transit_gaps(self):
         frame = pd.DataFrame({"time": np.r_[np.arange(100), np.arange(100)+1000],
                               "segment_id": ["a"] * 200})
@@ -60,6 +73,12 @@ class PublicationInferenceTests(unittest.TestCase):
         self.assertNotIn("publication.simulation", imports)
         self.assertNotIn('"--truth"', source)
         self.assertNotIn('"truth.json"', source)
+
+    def test_constant_residuals_do_not_masquerade_as_temporal_diagnostic_pass(self):
+        frame = pd.DataFrame({"time": np.arange(30), "segment_id": ["one"] * 30})
+        result = residual_correlations(frame, np.zeros(30))
+        self.assertFalse(result["assessable"])
+        self.assertTrue(all(row["correlation"] is None for row in result["lags"]))
 
     def test_historical_run_collision_preserves_bytes(self):
         from bayesian_modeling.physical_transit import run_m5

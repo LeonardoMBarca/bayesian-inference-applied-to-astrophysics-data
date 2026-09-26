@@ -1,0 +1,388 @@
+{
+  "status": "rejected",
+  "gates": {
+    "provenance": true,
+    "sampler": false,
+    "ppc": false,
+    "scientific": false
+  },
+  "dataset_id": "synthetic-46853ee4a95ea17ce6bd",
+  "input_sha256": "46853ee4a95ea17ce6bd7126d1f7092d797c1bd27abc7a3b8487801b0430b3ea",
+  "model": {
+    "adapter_version": "juliet-2.2.10-adapter-v2",
+    "row_count": 60,
+    "array_sha256": "b2e348a03f21ebf319632c81cb1c7c04882435cdb1c74f9cdc05186945ac7db6",
+    "row_indices_by_instrument": {
+      "B000": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ]
+    },
+    "physical_exposure_seconds_by_instrument": {
+      "B000": 120.0
+    },
+    "shared_instrument_suffix": "B000",
+    "phase_unit": "day",
+    "flux_unit": "relative fraction",
+    "jitter_unit_in_juliet": "ppm",
+    "time_transformation": "input phase days passed unchanged; fixed-period white likelihood",
+    "exposure_quadrature": "M5 midpoint-Riemann matched by contracting batman stencil span (n-1)/n; no physical-exposure change",
+    "jitter_prior_scale_fraction": 0.0037499999999997496,
+    "baseline_mapping": "B=1+theta0; mflux=0, mdilution=1, constant regressor",
+    "radius_prior": {
+      "distribution": "Uniform",
+      "support": [
+        0.001,
+        0.2
+      ]
+    },
+    "historical_baseline_comparison": "different radius prior; requires new companion run",
+    "dataset_id": "synthetic-46853ee4a95ea17ce6bd",
+    "input_sha256": "46853ee4a95ea17ce6bd7126d1f7092d797c1bd27abc7a3b8487801b0430b3ea"
+  },
+  "parameters": {
+    "r": {
+      "mean": 0.060826277654006514,
+      "median": 0.06082627765400652,
+      "sd": 7.005296315471557e-18,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.06082627765400652,
+          0.06082627765400652
+        ],
+        "0.8": [
+          0.06082627765400652,
+          0.06082627765400652
+        ],
+        "0.94": [
+          0.06082627765400652,
+          0.06082627765400652
+        ]
+      }
+    },
+    "b": {
+      "mean": 0.9275021870025674,
+      "median": 0.9275021870025674,
+      "sd": 0.0,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.9275021870025674,
+          0.9275021870025674
+        ],
+        "0.8": [
+          0.9275021870025674,
+          0.9275021870025674
+        ],
+        "0.94": [
+          0.9275021870025674,
+          0.9275021870025674
+        ]
+      }
+    },
+    "a": {
+      "mean": 8.329632400671494,
+      "median": 8.329632400671496,
+      "sd": 1.7933558567607186e-15,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          8.329632400671496,
+          8.329632400671496
+        ],
+        "0.8": [
+          8.329632400671496,
+          8.329632400671496
+        ],
+        "0.94": [
+          8.329632400671496,
+          8.329632400671496
+        ]
+      }
+    },
+    "t0": {
+      "mean": 0.04343255841820613,
+      "median": 0.043432558418206146,
+      "sd": 1.4010592630943114e-17,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.043432558418206146,
+          0.043432558418206146
+        ],
+        "0.8": [
+          0.043432558418206146,
+          0.043432558418206146
+        ],
+        "0.94": [
+          0.043432558418206146,
+          0.043432558418206146
+        ]
+      }
+    },
+    "q1": {
+      "mean": 0.7057680735335947,
+      "median": 0.7057680735335945,
+      "sd": 2.241694820950898e-16,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.7057680735335945,
+          0.7057680735335945
+        ],
+        "0.8": [
+          0.7057680735335945,
+          0.7057680735335945
+        ],
+        "0.94": [
+          0.7057680735335945,
+          0.7057680735335945
+        ]
+      }
+    },
+    "q2": {
+      "mean": 0.7441258551892561,
+      "median": 0.7441258551892563,
+      "sd": 2.241694820950898e-16,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.7441258551892563,
+          0.7441258551892563
+        ],
+        "0.8": [
+          0.7441258551892563,
+          0.7441258551892563
+        ],
+        "0.94": [
+          0.7441258551892563,
+          0.7441258551892563
+        ]
+      }
+    },
+    "baseline": {
+      "mean": 0.9957157047678362,
+      "median": 0.995715704767836,
+      "sd": 2.241694820950898e-16,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.995715704767836,
+          0.995715704767836
+        ],
+        "0.8": [
+          0.995715704767836,
+          0.995715704767836
+        ],
+        "0.94": [
+          0.995715704767836,
+          0.995715704767836
+        ]
+      }
+    },
+    "extra_sigma": {
+      "mean": 0.0031018741047896805,
+      "median": 0.00310187410478968,
+      "sd": 4.378310197169723e-19,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.00310187410478968,
+          0.00310187410478968
+        ],
+        "0.8": [
+          0.00310187410478968,
+          0.00310187410478968
+        ],
+        "0.94": [
+          0.00310187410478968,
+          0.00310187410478968
+        ]
+      }
+    },
+    "depth": {
+      "mean": 0.0036998360532422927,
+      "median": 0.003699836053242293,
+      "sd": 4.378310197169723e-19,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.003699836053242293,
+          0.003699836053242293
+        ],
+        "0.8": [
+          0.003699836053242293,
+          0.003699836053242293
+        ],
+        "0.94": [
+          0.003699836053242293,
+          0.003699836053242293
+        ]
+      }
+    },
+    "full_duration": {
+      "mean": 0.0396225367253063,
+      "median": 0.03962253672530629,
+      "sd": 1.4010592630943114e-17,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.03962253672530629,
+          0.03962253672530629
+        ],
+        "0.8": [
+          0.03962253672530629,
+          0.03962253672530629
+        ],
+        "0.94": [
+          0.03962253672530629,
+          0.03962253672530629
+        ]
+      }
+    }
+  },
+  "diagnostics": {
+    "sampler": "dynesty-static",
+    "likelihood_calls": 124,
+    "iterations": 33,
+    "budget_stopped": true,
+    "weighted_ess": 1.0119795687883568,
+    "logz": 243.16845325849346,
+    "logz_error": 1.9120388409039353,
+    "passed": false,
+    "termination_semantics": "No maxcall/maxiter limit reached; run_nested only declares dlogz stopping otherwise. This is a numerical screen, not proof of exhaustive multimodal exploration.",
+    "rhat_bfmi": "not applicable to unordered nested samples"
+  },
+  "sampling": {
+    "nlive": 20,
+    "dlogz": 0.1,
+    "maxcall": 100,
+    "maxiter": null,
+    "minimum_weighted_ess": 400,
+    "maximum_logz_error": 0.5,
+    "predictive_draws": 20
+  },
+  "residual_metrics": {
+    "posterior_predictive_interval_94_coverage_observed_points": 0.8166666666666667,
+    "standardized_residual_std": 1.0079908922178928,
+    "rmse": 0.003745017753921773
+  },
+  "residual_correlation": {
+    "method": "within-segment cadence-contiguous Pearson; Bonferroni normal reference",
+    "familywise_alpha_per_run": 0.01,
+    "lags": [
+      {
+        "lag": 1,
+        "pairs": 59,
+        "correlation": 0.945610146330629,
+        "normal_reference_bound": 0.4023139786177475,
+        "flagged": true
+      },
+      {
+        "lag": 2,
+        "pairs": 58,
+        "correlation": 0.8938149513750427,
+        "normal_reference_bound": 0.4057673808307695,
+        "flagged": true
+      },
+      {
+        "lag": 3,
+        "pairs": 57,
+        "correlation": 0.8182138484409902,
+        "normal_reference_bound": 0.4093112680367,
+        "flagged": true
+      },
+      {
+        "lag": 4,
+        "pairs": 56,
+        "correlation": 0.7385738561093748,
+        "normal_reference_bound": 0.4129496619721525,
+        "flagged": true
+      },
+      {
+        "lag": 5,
+        "pairs": 55,
+        "correlation": 0.6639830867307904,
+        "normal_reference_bound": 0.4166868391595614,
+        "flagged": true
+      }
+    ],
+    "flagged": true
+  },
+  "scale_checks": {
+    "extra_sigma_to_measurement_sigma": 4.1358321397198505,
+    "radius_ratio_boundary_fraction": 0.0
+  },
+  "wall_seconds": 6.220027054999999,
+  "warnings": [
+    "The sampling was stopped short due to maxiter/maxcall limit the delta(log(z)) criterion is not achieved; posterior may be poorly sampled",
+    "unclosed file <_io.BufferedWriter name='publication/engineering/benchmark_worker_smoke_v1/pilot_000/juliet_native/_dynesty_NS_posteriors.pkl'>"
+  ],
+  "determinism": "Seeded dynesty weighted samples; separate seeded canonical resampling and PPC. Native juliet resampled arrays/pickle are retained but not canonical deterministic posterior artifacts.",
+  "canonical_array_sha256": "eb76d30e9b356447aa7ed4b7a586887b42e618c2b1faa0b099ecea1d23b7af4f",
+  "artifact_sha256": {
+    "weighted_nested_samples.npz": "2b7814632a90d92a5cc81288d0a1ed8e88c597c9d2443d67e9cdd23df357d105",
+    "posterior_samples.npz": "b3e4e6e4395d34180920804515e309b1ffc20dab713dbc8f383edda7ecbb2f57",
+    "predictive_summary.csv": "c43ca40f56daa662a75827d94ad79aff805c51b2a4f7bad77b8b94e7bf2122ee"
+  },
+  "interpretation": "Matched companion implementation check only; historical scientific_003 has a different radius prior. Nested-sampler and predictive gates do not prove calibration."
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "benchmark-installation-history-v1",
+  "date": "2026-09-26",
+  "evidence_class": "engineering_setup_not_scientific_experiment",
+  "canonical_scientific_environment_modified": false,
+  "attempts": [
+    {
+      "order": 1,
+      "environment": "isolated system-Python virtual environment",
+      "python": "3.12.3",
+      "action": "python3.12 -m venv <new-prefix>",
+      "outcome": "failed",
+      "reason": "System Python ensurepip unavailable; partial pipless venv retained."
+    },
+    {
+      "order": 2,
+      "environment": "same isolated partial virtual environment",
+      "python": "3.12.3",
+      "action": "pip --python <isolated-prefix>/bin/python install pip juliet==2.2.10",
+      "outcome": "failed",
+      "reason": "UltraNest source build could not find Python.h; system Python development headers absent.",
+      "note": "pip was invoked from the existing environment but --python explicitly targeted the separate prefix; no packages were installed into the canonical environment."
+    },
+    {
+      "order": 3,
+      "environment": "new isolated conda prefix",
+      "python": "3.12.14",
+      "action": "conda create --prefix <distinct-new-prefix> python=3.12 pip",
+      "outcome": "passed",
+      "reason": "Conda Python includes required development headers. No apt/system change was required."
+    },
+    {
+      "order": 4,
+      "environment": "new isolated conda prefix",
+      "python": "3.12.14",
+      "action": "python -m pip install juliet==2.2.10 --report <install-report>",
+      "outcome": "passed_installation_imports_and_pip_check",
+      "ultranest_wheel": {
+        "filename": "ultranest-4.5.2-cp312-cp312-linux_x86_64.whl",
+        "size_bytes": 557594,
+        "sha256": "61d01b4ef24dcad683c6b93e2b362349a4e8bc78e1c34fabb06cc3e65ff71213"
+      }
+    }
+  ],
+  "interpretation": "Installation success alone is not benchmark completion; installed API, numerical, likelihood and future sampler checks are separate requirements."
+}

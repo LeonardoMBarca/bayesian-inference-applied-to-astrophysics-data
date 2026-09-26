@@ -20,6 +20,7 @@ from publication.observational import (  # noqa: E402
     prepare_target,
     target_outcome_table,
     target_registry,
+    verify_prepared_target,
 )
 
 
@@ -119,6 +120,9 @@ class PublicationObservationalTests(unittest.TestCase):
             self.assertTrue(set(["source_row_index", "source_fits_sha256", "segment_id", "phase", "time"]).issubset(model_input))
             self.assertEqual(set(model_input.planet_slug), {"hat_p_7_b"})
             self.assertEqual(first["source_artifacts"][0]["sha256"], checksum)
+            validation = verify_prepared_target(root, first)
+            self.assertTrue(validation["all_row_dataset_and_target_ids_match"])
+            self.assertFalse(validation["sampler_executed"])
             with self.assertRaises(FileExistsError):
                 prepare_target(root, protocol, "hat_p_7_b", "fixture_one", allow_draft=True)
 

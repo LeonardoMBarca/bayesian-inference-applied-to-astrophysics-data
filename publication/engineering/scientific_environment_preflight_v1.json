@@ -1,0 +1,108 @@
+{
+  "schema_version": "scientific-environment-preflight-v1",
+  "passed": true,
+  "python_expected": "3.14.6",
+  "python_actual": "3.14.6",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": {
+      "expected": "2.4.6",
+      "actual": "2.4.6",
+      "matched": true
+    },
+    "pandas": {
+      "expected": "2.3.3",
+      "actual": "2.3.3",
+      "matched": true
+    },
+    "scipy": {
+      "expected": "1.18.1",
+      "actual": "1.18.1",
+      "matched": true
+    },
+    "requests": {
+      "expected": "2.34.2",
+      "actual": "2.34.2",
+      "matched": true
+    },
+    "astropy": {
+      "expected": "8.0.1",
+      "actual": "8.0.1",
+      "matched": true
+    },
+    "astroquery": {
+      "expected": "0.4.11",
+      "actual": "0.4.11",
+      "matched": true
+    },
+    "lightkurve": {
+      "expected": "2.6.0",
+      "actual": "2.6.0",
+      "matched": true
+    },
+    "beautifulsoup4": {
+      "expected": "4.15.0",
+      "actual": "4.15.0",
+      "matched": true
+    },
+    "lxml": {
+      "expected": "6.1.2",
+      "actual": "6.1.2",
+      "matched": true
+    },
+    "tqdm": {
+      "expected": "4.68.2",
+      "actual": "4.68.2",
+      "matched": true
+    },
+    "matplotlib": {
+      "expected": "3.11.1",
+      "actual": "3.11.1",
+      "matched": true
+    },
+    "pymc": {
+      "expected": "6.3.1",
+      "actual": "6.3.1",
+      "matched": true
+    },
+    "pytensor": {
+      "expected": "3.3.0",
+      "actual": "3.3.0",
+      "matched": true
+    },
+    "arviz": {
+      "expected": "1.3.0",
+      "actual": "1.3.0",
+      "matched": true
+    },
+    "exoplanet": {
+      "expected": "0.6.0",
+      "actual": "0.6.0",
+      "matched": true
+    },
+    "exoplanet-core": {
+      "expected": "0.4.0",
+      "actual": "0.4.0",
+      "matched": true
+    },
+    "h5netcdf": {
+      "expected": "1.8.1",
+      "actual": "1.8.1",
+      "matched": true
+    },
+    "h5py": {
+      "expected": "3.16.0",
+      "actual": "3.16.0",
+      "matched": true
+    },
+    "ruff": {
+      "expected": "0.16.1",
+      "actual": "0.16.1",
+      "matched": true
+    }
+  },
+  "errors": [],
+  "requirements_sha256": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+  "baseline_manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+  "limitations": "Exact direct pinned distributions and Python version; not a proof of bit-identical native libraries, compiler or complete transitive environment. Package code integrity requires separately frozen source/environment artifacts."
+}

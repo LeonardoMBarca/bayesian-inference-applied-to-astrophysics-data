@@ -1,0 +1,17 @@
+{
+  "schema_version": "engineering-check-amendments-v1",
+  "scientific_protocol_amendment": false,
+  "entries": [
+    {
+      "id": "benchmark-numerics-001",
+      "date": "2026-09-26",
+      "observed_before_change": "benchmark_adapter_check_v1.json: forward and likelihood pass; inverse-CDF difference2.1847881725989282e-8ppm exceeds fixed1e-8ppm test tolerance at an extreme quantile.",
+      "change": "Test defining HalfNormal CDF identity within32float64eps and bound quantile error by32eps/pdf at each reference quantile; include deliberately1%wrong prior-scale negative control.",
+      "justification": "Inverse-CDF conditioning diverges in extreme tails; the absolute ppm test did not account for mathematically expected amplification of rounding. The distribution-defining CDF check avoids scale-dependent tolerance tuning.",
+      "unchanged": ["all priors", "likelihood", "observations", "forward tolerance", "likelihood tolerance", "all scientific thresholds"],
+      "preserved_failure": "publication/engineering/benchmark_adapter_check_v1.json",
+      "new_check": "publication/engineering/benchmark_adapter_check_v2.json",
+      "scope": "Engineering only; no final posterior comparisons observed or executed."
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "experiment_id": "PUB-05",
+  "protocol_version": "1.0.0",
+  "protocol_status": "FROZEN",
+  "selection_status": "FROZEN",
+  "selection_freeze_date_utc": "2026-09-26",
+  "scope": "Autonomous final campaign protocol; all five selected inputs available. No final PUB-05 inference has been performed at freeze.",
+  "date_catalogs_verified_utc": "2026-09-26",
+  "scientific_question": "Across five preselected observational regimes, when do provenance, sampler, PPC and scientific interpretation gates pass or fail?",
+  "hypothesis": "Method scope varies with depth, exposure and astrophysical variability; universal interpretability is not assumed.",
+  "declared_target_ids": [
+    "hat_p_7_b",
+    "kepler_10_b",
+    "tres_2_b",
+    "hd_189733_b",
+    "kepler_4_b"
+  ],
+  "selection_rule": "Two fixed anchors plus one high-impact long-cadence giant, one active-star short-cadence giant and one intermediate Neptune-size long-cadence system, chosen from public pre-fit characteristics.",
+  "inclusion": "Confirmed transiting system; public Kepler/TESS PDCSAP FITS with measured uncertainty, TDB/BJD reference, target ID, segment and exposure; exactly three preselected products; failures remain listed.",
+  "exclusions": "Nonzero mission quality flags, nonfinite time/flux/error/exposure, nonpositive measured errors; no clipping by residuals or inferred posterior quality.",
+  "targets": [
+    {
+      "config": {
+        "planet_name": "HAT-P-7 b",
+        "host_star": "HAT-P-7",
+        "planet_slug": "hat_p_7_b",
+        "mission": "Kepler",
+        "priority": 1,
+        "orbital_period_days": 2.20474,
+        "transit_midpoint_bjd": 2454954.358572,
+        "transit_duration_hours": 3.88216,
+        "transit_depth_percent": 0.6,
+        "planet_radius_earth": 16.92559,
+        "stellar_radius_solar": 2,
+        "cadence_preference": "long",
+        "phase_window_days": 0.3,
+        "baseline_min_abs_phase_days": 0.2,
+        "baseline_max_abs_phase_days": 0.3,
+        "exposure_oversample": 15
+      },
+      "selection_role": "Fixed deep hot-Jupiter anchor; long exposure",
+      "archive_identity": {
+        "header_key": "KEPLERID",
+        "value": 10666592
+      },
+      "time_reference_bjd": 2454833,
+      "expected_source_count": 3,
+      "source_references": [
+        "src/project_config.py at protected baseline 7489a90689a753bea5243f86c1489329916c98e2",
+        "https://exoplanetarchive.ipac.caltech.edu/overview/HAT-P-7%20b"
+      ],
+      "sources": [
+        {
+          "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009131105131_llc.fits",
+          "sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009166043257_llc.fits",
+          "sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009259160929_llc.fits",
+          "sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        }
+      ]
+    },
+    {
+      "config": {
+        "planet_name": "Kepler-10 b",
+        "host_star": "Kepler-10",
+        "planet_slug": "kepler_10_b",
+        "mission": "Kepler",
+        "priority": 2,
+        "orbital_period_days": 0.8374907,
+        "transit_midpoint_bjd": 2455034.08687,
+        "transit_duration_hours": 1.811,
+        "transit_depth_percent": 0.01919,
+        "planet_radius_earth": 1.47,
+        "stellar_radius_solar": 1.065,
+        "cadence_preference": "short",
+        "phase_window_days": 0.15,
+        "baseline_min_abs_phase_days": 0.08,
+        "baseline_max_abs_phase_days": 0.15,
+        "exposure_oversample": 15
+      },
+      "selection_role": "Fixed shallow small-planet anchor; short exposure; historical scientific_003 is not overwritten",
+      "archive_identity": {
+        "header_key": "KEPLERID",
+        "value": 11904151
+      },
+      "time_reference_bjd": 2454833,
+      "expected_source_count": 3,
+      "source_references": [
+        "src/project_config.py at protected baseline 7489a90689a753bea5243f86c1489329916c98e2",
+        "https://exoplanetarchive.ipac.caltech.edu/overview/Kepler-10%20b"
+      ],
+      "sources": [
+        {
+          "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009231120729_slc.fits",
+          "sha256": "f001f56563054b4daf9da68112159528a5e84a44d92a2e601f7891dc0487fae9",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009291181958_slc.fits",
+          "sha256": "3ae9807752ea630af439c34faeabfafdca462f165eb5110a66f2a257d8903b7a",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009350160919_slc.fits",
+          "sha256": "da39b6917d57b1c3b85be1a8261c4ba7431feff48b8b643cc0c59dce7ac8dafb",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        }
+      ]
+    },
+    {
+      "config": {
+        "planet_name": "TrES-2 b",
+        "host_star": "TrES-2",
+        "planet_slug": "tres_2_b",
+        "mission": "Kepler",
+        "priority": 3,
+        "orbital_period_days": 2.470613377,
+        "transit_midpoint_bjd": 2454955.763305,
+        "transit_duration_hours": 1.74319,
+        "transit_depth_percent": 1.42309,
+        "planet_radius_earth": 13.04,
+        "stellar_radius_solar": 0.964,
+        "cadence_preference": "long",
+        "phase_window_days": 0.15,
+        "baseline_min_abs_phase_days": 0.08,
+        "baseline_max_abs_phase_days": 0.15,
+        "exposure_oversample": 15
+      },
+      "selection_role": "High-impact/near-grazing geometry and exposure-sensitive long cadence; not asserted strictly grazing",
+      "archive_identity": {
+        "header_key": "KEPLERID",
+        "value": 11446443
+      },
+      "time_reference_bjd": 2454833,
+      "expected_source_count": 3,
+      "source_references": [
+        "NASA Exoplanet Archive q1_q17_dr25_koi K00001.01; fetched 2026-09-26",
+        "https://arxiv.org/abs/1205.0969",
+        "https://exoplanetarchive.ipac.caltech.edu/docs/Kepler_KOI_docs.html"
+      ],
+      "sources": [
+        {
+          "path": "data/raw/mast/lightkurve/tres_2_b/kepler/mastDownload/Kepler/kplr011446443_lc_Q111111110111011101/kplr011446443-2009131105131_llc.fits",
+          "sha256": "e1699c5dd0089c35d908b711b302f72ba974edc68e030dae3e9a65d5065f7d0c",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/tres_2_b/kepler/mastDownload/Kepler/kplr011446443_lc_Q111111110111011101/kplr011446443-2009166043257_llc.fits",
+          "sha256": "10bfca91bdd928deda2e638de7a27cdc940b879452408a96b5be6146944639e9",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/tres_2_b/kepler/mastDownload/Kepler/kplr011446443_lc_Q111111110111011101/kplr011446443-2009259160929_llc.fits",
+          "sha256": "6d41c0b2a8784c922789c5ceb53258b795d7b220c6026ff514d86c81dde65e83",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        }
+      ]
+    },
+    {
+      "config": {
+        "planet_name": "HD 189733 b",
+        "host_star": "HD 189733",
+        "planet_slug": "hd_189733_b",
+        "mission": "TESS",
+        "priority": 4,
+        "orbital_period_days": 2.2185752,
+        "transit_midpoint_bjd": 2453955.5255511,
+        "transit_duration_hours": 1.803648,
+        "transit_depth_percent": 2.4,
+        "planet_radius_earth": 12.66617,
+        "stellar_radius_solar": 0.75,
+        "cadence_preference": "short",
+        "phase_window_days": 0.15,
+        "baseline_min_abs_phase_days": 0.08,
+        "baseline_max_abs_phase_days": 0.15,
+        "exposure_oversample": 15
+      },
+      "selection_role": "Active/spotted-star challenge, deep transit and TESS120s; model inadequacy is an allowed outcome",
+      "archive_identity": {
+        "header_key": "TICID",
+        "value": 256364928
+      },
+      "time_reference_bjd": 2457000,
+      "expected_source_count": 3,
+      "source_references": [
+        "NASA Exoplanet Archive ps HD 189733 b / Baluev et al.2015 for paired period/epoch/duration; fetched 2026-09-26",
+        "https://doi.org/10.1093/mnras/stv788",
+        "https://exoplanetarchive.ipac.caltech.edu/overview/HD%20189733",
+        "https://arxiv.org/abs/0707.1940",
+        "https://arxiv.org/abs/0802.2722"
+      ],
+      "ephemeris_caveat": "Paired period, midpoint and duration from Baluev et al.2015. Fixed period and long extrapolation to TESS remain conditioning assumptions; sector-dependent phase drift is assessed, not tuned to posterior. Contextual radius/depth fields remain pscomppars values, not priors.",
+      "sources": [
+        {
+          "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2021204101404-s0041-0000000256364928-0212-s/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+          "sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2022190063128-s0054-0000000256364928-0227-s/tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+          "sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        },
+        {
+          "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2024196212429-s0081-0000000256364928-0276-s/tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+          "sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+          "source": "MAST frozen historical RAW; read-only reuse"
+        }
+      ]
+    },
+    {
+      "config": {
+        "planet_name": "Kepler-4 b",
+        "host_star": "Kepler-4",
+        "planet_slug": "kepler_4_b",
+        "mission": "Kepler",
+        "priority": 5,
+        "orbital_period_days": 3.213668926,
+        "transit_midpoint_bjd": 2454956.611878,
+        "transit_duration_hours": 3.98235,
+        "transit_depth_percent": 0.07278,
+        "planet_radius_earth": 4.13,
+        "stellar_radius_solar": 1.545,
+        "cadence_preference": "long",
+        "phase_window_days": 0.3,
+        "baseline_min_abs_phase_days": 0.2,
+        "baseline_max_abs_phase_days": 0.3,
+        "exposure_oversample": 15
+      },
+      "selection_role": "Intermediate Neptune-size/depth regime, long-cadence challenge between giant and shallow anchor",
+      "archive_identity": {
+        "header_key": "KEPLERID",
+        "value": 11853905
+      },
+      "time_reference_bjd": 2454833,
+      "expected_source_count": 3,
+      "source_references": [
+        "NASA Exoplanet Archive q1_q17_dr25_koi K00007.01; fetched 2026-09-26",
+        "https://arxiv.org/abs/1001.0604",
+        "https://archive.stsci.edu/prepds/kepler_hlsp/",
+        "https://archive.stsci.edu/kepler/download_options.html"
+      ],
+      "acquisition_status": "COMPLETED",
+      "sources": [
+        {
+          "path": "publication/inputs/raw/kepler_4_b/kplr011853905-2009131105131_llc.fits",
+          "sha256": "d72d5104bbefb9778039bb1105d6d06858a54c10bbedc9c871e1e3725c7b2eec",
+          "source": "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/kplr011853905-2009131105131_llc.fits",
+          "size_bytes": 77760,
+          "quarter": 0
+        },
+        {
+          "path": "publication/inputs/raw/kepler_4_b/kplr011853905-2009166043257_llc.fits",
+          "sha256": "33f6d14d7400de3846b3209af61b95236ebdf653f159d19e801fa1c5379f59ab",
+          "source": "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/kplr011853905-2009166043257_llc.fits",
+          "size_bytes": 192960,
+          "quarter": 1
+        },
+        {
+          "path": "publication/inputs/raw/kepler_4_b/kplr011853905-2009259160929_llc.fits",
+          "sha256": "0dff14da7c6d748edbbd0108bec0351f37ff7f2ea345a22fce4c006b38da0c91",
+          "source": "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/kplr011853905-2009259160929_llc.fits",
+          "size_bytes": 466560,
+          "quarter": 2
+        }
+      ],
+      "acquisition_policy": {
+        "archive_directory": "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/",
+        "directory_listing_verified_utc_date": "2026-09-26",
+        "preselected_product_urls": [
+          "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/kplr011853905-2009131105131_llc.fits",
+          "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/kplr011853905-2009166043257_llc.fits",
+          "https://archive.stsci.edu/pub/kepler/lightcurves/0118/011853905/kplr011853905-2009259160929_llc.fits"
+        ],
+        "mission": "Kepler",
+        "cadence": "long",
+        "product_suffix": "_llc.fits",
+        "quarter_selection": [
+          0,
+          1,
+          2
+        ],
+        "count": 3,
+        "duplicate_product_tiebreak": "latest archived processing version within quarter; lexicographic product ID if metadata otherwise tied",
+        "destination": "publication/inputs/raw/kepler_4_b/",
+        "failure_policy": "retain target as failed_data_access if required quarters cannot be acquired; do not replace with easier target"
+      },
+      "acquisition_manifest": {
+        "path": "publication/inputs/raw/kepler_4_b/acquisition_manifest.json",
+        "sha256": "ddad19c75c3dae141c4030a65e25eef4989cebec29a374a4b59dcc7b30cbe448"
+      }
+    }
+  ],
+  "catalog_queries": [
+    {
+      "endpoint": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+      "format": "json",
+      "query": "select kepoi_name,kepid,kepler_name,koi_period,koi_time0bk,koi_duration,koi_depth,koi_ror,koi_impact,koi_srad,koi_prad from q1_q17_dr25_koi where kepoi_name in ('K00007.01','K00001.01')",
+      "unit_mapping": "koi_time0bk+2454833=BJD_TDB; koi_depth_ppm/10000=percent; koi_duration=hour",
+      "returned_selection_metadata": [
+        {
+          "kepoi_name": "K00001.01",
+          "kepid": 11446443,
+          "koi_impact": 0.818,
+          "koi_ror": 0.123871
+        },
+        {
+          "kepoi_name": "K00007.01",
+          "kepid": 11853905,
+          "koi_impact": 0.021,
+          "koi_ror": 0.02447
+        }
+      ]
+    },
+    {
+      "endpoint": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+      "format": "json",
+      "query": "select pl_name,hostname,pl_orbper,pl_tranmid,pl_trandur,pl_trandep,pl_ratror,pl_ratdor,pl_imppar,pl_rade,st_rad,pl_orbper_reflink,pl_tranmid_reflink,pl_trandur_reflink,pl_trandep_reflink from pscomppars where pl_name in ('TrES-2 b','HD 189733 b','Kepler-4 b')",
+      "use": "Context only; use paired ephemerides for all newly selected targets. Catalog values are not independent posterior validation."
+    },
+    {
+      "endpoint": "https://exoplanetarchive.ipac.caltech.edu/TAP/sync",
+      "format": "json",
+      "query": "select pl_name,pl_orbper,pl_tranmid,pl_trandur,pl_refname from ps where pl_name='HD 189733 b' and pl_refname like '%Baluev%'",
+      "use": "Paired HD189733 ephemeris/duration from Baluev et al.2015, chosen before inference for source consistency."
+    }
+  ],
+  "preprocessing": {
+    "flux_source": "PDCSAP_FLUX",
+    "quality_required": 0,
+    "normalization": "source-FITS segment out-of-transit median",
+    "transit_exclusion_duration_multiplier": 1.5,
+    "minimum_baseline_points_per_segment": 20,
+    "max_points_per_segment": 1000,
+    "thinning": "shared M5 stratified_phase_thin; phase-uniform each segment, not outcome-selected",
+    "detrending": "none beyond public PDCSAP plus segment median; temporal misspecification may fail gate"
+  },
+  "inference": {
+    "model_family": "M5-publication-v1",
+    "likelihood": "independent heteroscedastic Normal + inferred white jitter",
+    "period": "fixed to per-target protocol ephemeris",
+    "eccentricity": 0,
+    "limb_darkening": "quadratic q1,q2 Uniform(0,1)",
+    "scaled_semimajor_axis_prior": "a/Rs ~ Uniform(2,50)",
+    "impact_parameter_prior": "b ~ Uniform(0,1); does not cover grazing b>1",
+    "baseline_prior_mean": 1,
+    "transit_center_prior_mean_days": 0,
+    "jitter_prior": "extra_sigma ~ HalfNormal(max(5 * median(supplied_error),0.0005))",
+    "radius_prior_median": 0.04,
+    "radius_prior_log_sigma": 0.9,
+    "baseline_prior_sigma": 0.02,
+    "t0_prior_sigma_days": 0.025,
+    "jitter_error_multiplier": 5,
+    "jitter_floor_fraction": 0.0005,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "oversample": 15,
+    "sampling": {
+      "draws": 800,
+      "tune": 1000,
+      "chains": 4,
+      "cores": 4,
+      "target_accept": 0.95
+    }
+  },
+  "replication": {
+    "runs_per_target": 1,
+    "total_declared_final_runs": 5,
+    "replicate_id": "rep_0000",
+    "scientific_resampling_retries": 0,
+    "operational_restart_policy": "An interrupted infrastructure attempt may restart under the campaign's predeclared retry policy with identical dataset/config/seeds and a new attempt ID; all attempts remain. A sampler/PPC/scientific rejection is terminal, never a trigger for resampling. Do not choose the best posterior among attempts."
+  },
+  "seed_policy": "publication.campaign_plan.seed(campaign_id, experiment='PUB-05', scenario=target slug, replicate='rep_0000', stream='inference' or 'predictive'): first32bits SHA256 canonical JSON ['campaign-seed-v1',campaign_id,experiment,scenario,replicate,stream]. Campaign namespaces are distinct; attempt/run retry identity never changes the seed.",
+  "primary_metrics": [
+    "per-target data/provenance status",
+    "sampler/PPC/scientific gates with rejection reason",
+    "r,depth,b,a,t0,full_duration posterior distributions",
+    "residual structure by actual time/segment",
+    "gate pass fraction with all five targets in denominator, descriptive only; missing is not a measured gate rejection"
+  ],
+  "secondary_metrics": [
+    "relative interval width versus transit scale",
+    "wall time",
+    "contextual catalog comparison with dependency caveat"
+  ],
+  "failed_missing_policy": "Every preselected system remains in output table with failure stage; no replacement or best-seed selection; missing not counted as success.",
+  "permitted_interpretation": "Descriptive characterization of these five selected systems/regimes, not a population estimate or universal exoplanet inference claim.",
+  "stop_invalidation": "Wrong source hash/target/cadence/time convention, protocol drift or implementation bug invalidates affected run; preserve artifacts and amend before new ID.",
+  "outputs": [
+    "isolated Silver/Gold/model input + manifest",
+    "per-target posterior/trace/diagnostics/PPC",
+    "all-target outcome table including failed/missing",
+    "regime and uncertainty figures",
+    "human-readable limitations"
+  ],
+  "amendments": [],
+  "freeze_requirements": [
+    "Pre-acquisition target selection committed as recorded in selection_snapshot",
+    "All 15 exact sources have frozen SHA-256; new Kepler-4 acquisition manifest is content-addressed",
+    "This FROZEN full protocol must be committed before registration/execution; runner verifies unchanged HEAD bytes",
+    "Seeds derive from declared target identities; attempts preserve errors and never select by posterior quality",
+    "Protected scientific_003 and all historical paths remain byte-identical"
+  ],
+  "protocol_freeze_date_utc": "2026-09-26",
+  "selection_snapshot": {
+    "path": "publication/protocols/PUB-05-draft.json",
+    "sha256": "35e94846800868980efdbc6140956d365c0da865476a36792052bfa2ca16c720",
+    "commit": "c8efd26c4df1d944628a1f1c845b459c88fcd681",
+    "note": "Preserved immutable pre-acquisition selection snapshot; its inference DRAFT status is superseded only by this separate final protocol."
+  },
+  "identity_policy": {
+    "scenario_id": "target config.planet_slug",
+    "replicate_id": "rep_0000",
+    "run_id": "campaign ID + job ID + attempt index; safe lowercase ASCII alphanumeric/underscore/hyphen <=96 chars",
+    "preparation_output": "publication/observational/PUB-05/<target>/<run_id>/",
+    "source_checks": "Verify every frozen FITS SHA-256 before and after preparation; no target replacement or source omission",
+    "historical_baseline": "scientific_003 and historical RAW/Silver/Gold remain unchanged; new Gold is publication-isolated"
+  },
+  "gates": {
+    "sampler": {
+      "max_rhat": 1.01,
+      "min_effective_sample_size": 400,
+      "divergences": 0,
+      "min_bfmi": 0.3,
+      "missing_or_nonfinite": "reject; convergence is necessary, not scientific validity"
+    },
+    "posterior_predictive": {
+      "pointwise_predictive_interval": 0.94,
+      "observed_point_coverage_range": [
+        0.8,
+        0.99
+      ],
+      "standardized_residual_sd_range": [
+        0.5,
+        2
+      ],
+      "temporal_residuals": {
+        "within_segment_chronological_lags": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selected_pair_rule": "Within each segment, selected-observation time[i+lag]-time[i] <= (lag+0.5)*median(diff(selected time)); the median selected gap is a spacing proxy, not original instrumental cadence",
+        "bound": "abs(Pearson_r) <= norm.ppf(1 - 0.01/(2*5))/sqrt(pair_count); at least 11 pairs per evaluated lag",
+        "familywise_alpha_per_run": 0.01,
+        "minimum_assessable_finite_lags": 1,
+        "unavailable_policy": "Nonfinite or degenerate correlations are null/unavailable. Positive PPC requires at least one finite evaluated lag; all lag-level availability is retained. No assessable lag cannot pass PPC.",
+        "limitations": "Gap-filtered selected-observation lags are not necessarily contiguous original cadences after thinning. Normal-reference bounds are approximate for fitted residuals; unavailable lags and unobserved original-cadence correlation cannot be interpreted as absence of temporal structure."
+      }
+    },
+    "physical": {
+      "max_jitter_to_median_error": 20,
+      "max_radius_review_bound_fraction": 0.05,
+      "radius_review_bounds": [
+        0.00349,
+        0.24751
+      ],
+      "radius_review_semantics": "Inherited M5 astrophysical review range, NOT LogNormal prior support boundaries."
+    },
+    "provenance": {
+      "dataset_id_required": true,
+      "preprocessing_status": "segment_normalized",
+      "minimum_segments": 1,
+      "positive_median_exposure_required": true
+    },
+    "promotion": "scientific requires all inherited sampler/PPC/physical/provenance rules plus publication temporal PPC; missing/failed/not_interpretable never promotes",
+    "diagnostic_limitations": "Thresholds are predeclared screening rules, not calibrated universal tests. Tree depth is reported diagnostically; no LOO ranking. Calibration/gate performance is investigated separately in PUB-02/PUB-04."
+  },
+  "expected_result_parameters": [
+    "r",
+    "depth",
+    "b",
+    "a",
+    "t0",
+    "full_duration",
+    "extra_sigma"
+  ],
+  "interval_definition": "Equal-tailed posterior intervals at 50%,80%,94%; no observational coverage claim without known truth.",
+  "hypothesis_rejection": "If the declared workflow cannot produce interpretable results in one or more regimes, restrict supported scope accordingly; five failures would reject a useful multi-regime applicability claim. Failure counts are not population rates.",
+  "publication_caveats": [
+    "Five purposively selected systems are not an unbiased population sample.",
+    "Catalog ephemeris/duration influence folding and preprocessing; catalog posterior comparisons are contextual, not independent validation.",
+    "M5 has white jitter only; active-star temporal structure, fixed-period drift and occulted spots can legitimately cause rejection.",
+    "Thinning weakens high-frequency residual diagnostics and limits comparisons of nominal SNR across targets.",
+    "Segment median normalization uncertainty is not propagated.",
+    "r^2 is geometric depth, not observed limb-darkened transit depth."
+  ]
+}

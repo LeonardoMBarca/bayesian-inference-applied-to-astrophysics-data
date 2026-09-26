@@ -3,6 +3,21 @@ publication/**/*.json text eol=lf
 publication/**/*.csv text eol=lf
 publication/**/*.md text eol=lf
 publication/baseline/environment/* -text
-src/publication/*.py text eol=lf
+src/**/*.py text eol=lf
+scripts/*.py text eol=lf
+configs/publication/*.json text eol=lf
+artifacts/publication_campaign/**/*.json text eol=lf
+artifacts/publication_campaign/**/*.csv text eol=lf
+reports/publication_campaign/** text eol=lf
 docs/publication/*.json text eol=lf
 docs/publication/*.md text eol=lf
+CITATION.cff text eol=lf
+REPRODUCIBILITY_MANIFEST.json text eol=lf
+publication/engineering/** -text
+publication/experiments/** -text
+publication/observational/** -text
+artifacts/publication_campaign/** -text
+publication/validation/**/*.txt text eol=lf
+reports/PUBLICATION_CAMPAIGN_HANDOFF.md text eol=lf
+publication/environments/* -text
+*.fits binary

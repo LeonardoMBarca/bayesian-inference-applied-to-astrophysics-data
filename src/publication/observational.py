@@ -44,7 +44,7 @@ def _digest(payload: Any) -> str:
 
 
 def _safe_identifier(value: str) -> str:
-    if not isinstance(value, str) or re.fullmatch(r"[a-z][a-z0-9_]{0,79}", value) is None:
+    if not isinstance(value, str) or re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,95}", value) is None:
         raise ValueError(f"Unsafe publication target/run identifier: {value!r}")
     return value
 
@@ -141,7 +141,7 @@ def prepare_target(
     if target_slug not in registry:
         raise ValueError(f"Undeclared target {target_slug!r}")
     _safe_identifier(run_id)
-    if protocol.get("protocol_status") != "FROZEN" and not allow_draft:
+    if protocol.get("protocol_status") not in {"FROZEN", "AMENDED"} and not allow_draft:
         raise ValueError("Final data preparation requires a FROZEN protocol")
     target_entry = registry[target_slug]
     target = TargetConfig(**target_entry["config"])
@@ -258,7 +258,7 @@ def prepare_target(
                 "Catalog ephemeris and duration condition phase folding and normalization; catalog comparison is contextual, not independent validation.",
                 "PDCSAP includes mission pipeline processing and may not remove astrophysical variability.",
                 "Median segment calibration is estimated, but its uncertainty is not propagated in M5.",
-                "Phase-uniform thinning can remove time-adjacent residual pairs; chronological diagnostics must account for gaps.",
+                "Phase-uniform thinning removes original-cadence adjacency. Residual diagnostics use gap-filtered selected-observation lags, not necessarily instrumental-cadence lags; at least one finite lag is required to assess temporal PPC.",
                 "No final interpretability claim follows from successful data preparation.",
             ],
         })
@@ -271,6 +271,92 @@ def prepare_target(
         raise
     (output / "preparation_manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False), encoding="utf-8")
     return manifest
+
+
+def verify_prepared_target(root: Path, manifest: Mapping[str, Any]) -> dict[str, Any]:
+    """Read back immutable preparation and validate the actual inference input.
+
+    This does not build a probabilistic graph or run a sampler. Scientific
+    interpretation remains unavailable until the separate inference/gates.
+    """
+    from publication.contracts import safe_path
+    from publication.inference import read_input
+
+    root = root.resolve()
+    if manifest.get("status") != "completed":
+        raise ValueError("Cannot validate an incomplete observational preparation")
+    output = safe_path(root, manifest["output_directory"])
+    for name, checksum in manifest["artifacts"].items():
+        if _hash(safe_path(output, name)) != checksum:
+            raise ValueError(f"Prepared artifact checksum mismatch: {name}")
+    expected = dataset_id_from_signature(manifest["target_id"], manifest["dataset_signature"])
+    if expected != manifest["dataset_id"]:
+        raise ValueError("Prepared dataset signature/ID mismatch")
+    config = {"input_sha256": manifest["input_sha256"], "dataset_id": expected,
+              "expected_dataset_id": expected, "input_kind": "observational"}
+    frame = read_input(output / "model_input.csv", config)
+    if not frame.dataset_id.eq(expected).all() or not frame.planet_slug.eq(manifest["target_id"]).all():
+        raise ValueError("Prepared input rows contain inconsistent target/dataset identities")
+    if len(frame) != manifest["modeling_row_count"] or frame.segment_id.nunique() != manifest["segment_count"]:
+        raise ValueError("Prepared input counts differ from the recorded manifest")
+    if frame[["source_fits_sha256", "source_row_index"]].duplicated().any():
+        raise ValueError("Prepared input repeats original FITS rows")
+    for source in manifest["source_artifacts"]:
+        if _hash(safe_path(root, source["path"])) != source["sha256"]:
+            raise ValueError("RAW source changed after observational preparation")
+    return {
+        "schema_version": "publication-observational-readback-v1", "status": "passed",
+        "purpose": manifest["purpose"], "target_id": manifest["target_id"],
+        "dataset_id": expected, "input_sha256": manifest["input_sha256"],
+        "input_path": (output / "model_input.csv").relative_to(root).as_posix(),
+        "preparation_manifest_path": (output / "preparation_manifest.json").relative_to(root).as_posix(),
+        "preparation_manifest_sha256": _hash(output / "preparation_manifest.json"),
+        "source_count": len(manifest["source_artifacts"]), "segment_count": int(frame.segment_id.nunique()),
+        "silver_row_count": manifest["silver_row_count"], "quality_row_count": manifest["quality_row_count"],
+        "quality_removed_count": manifest["quality_removed_count"], "modeling_row_count": len(frame),
+        "median_exposure_seconds": float(frame.exposure_time_seconds.median()),
+        "normalization_status": manifest["preprocessing_status"],
+        "normalized_error_median": float(frame.normalized_flux_err.median()),
+        "source_rows_unique": True, "all_row_dataset_and_target_ids_match": True,
+        "artifacts_verified": dict(manifest["artifacts"]),
+        "sampler_executed": False, "scientific_result_available": False,
+        "interpretation": "Engineering data-preparation/readback evidence only; no posterior, gate pass or astrophysical claim.",
+    }
+
+
+def prepare_observational_target(
+    root: Path, protocol_path: Path, target_slug: str, run_id: str, *,
+    expected_protocol_sha256: str | None = None,
+    expected_protocol_canonical_sha256: str | None = None,
+) -> dict[str, Any]:
+    """Campaign API: verify committed file/canonical hashes, then prepare once.
+
+    ``expected_protocol_sha256`` means file bytes, never canonical JSON bytes.
+    This entry point has no pilot escape hatch; test/engineering callers use
+    ``prepare_target(..., allow_draft=True)`` explicitly instead.
+    """
+    from publication.contracts import committed_protocol
+
+    root = root.resolve()
+    path = protocol_path if protocol_path.is_absolute() else root / protocol_path
+    path = path.resolve()
+    identity = committed_protocol(root, path.relative_to(root).as_posix())
+    if expected_protocol_sha256 is not None and identity["sha256"] != expected_protocol_sha256:
+        raise ValueError("Campaign protocol file SHA-256 mismatch")
+    if expected_protocol_canonical_sha256 is not None and identity["canonical_json_sha256"] != expected_protocol_canonical_sha256:
+        raise ValueError("Campaign protocol canonical JSON SHA-256 mismatch")
+    protocol = json.loads(path.read_text(encoding="utf-8"))
+    result = prepare_target(root, protocol, target_slug, run_id)
+    validation = verify_prepared_target(root, result)
+    # Preserve the preparation manifest's original canonical protocol digest;
+    # expose unambiguous file/canonical identities to the campaign result.
+    return {
+        **result, "protocol_identity": identity, "input_validation": validation,
+        "protocol_file_sha256": identity["sha256"],
+        "protocol_canonical_sha256": identity["canonical_json_sha256"],
+        "input_path": (Path(result["output_directory"]) / "model_input.csv").as_posix(),
+        "preparation_manifest_path": (Path(result["output_directory"]) / "preparation_manifest.json").as_posix(),
+    }
 
 
 def main() -> None:

@@ -1,0 +1,109 @@
+{
+  "experiment_id": "PUB-03",
+  "protocol_version": "1.0.0",
+  "protocol_status": "FROZEN",
+  "freeze_note": "Candidate frozen specification; final execution is forbidden until this exact file and the declared attempts are committed by the campaign coordinator. No final posterior result informed this specification.",
+  "question": "Do exoplanet/PyMC and independent batman/juliet/dynesty recover compatible posterior distributions from identical Kepler-10 b observations under matched physical and statistical assumptions?",
+  "hypothesis": "Matched predictions and priors can yield compatible posterior distributions despite different numerical engines and samplers; disagreement or numerical inadequacy remains reportable.",
+  "selection_reference": "docs/publication/BENCHMARK_SELECTION.md",
+  "primary_benchmark": "juliet 2.2.10, batman-package 2.5.3, dynesty 3.1.0",
+  "independence_limit": "Independent transit implementation and sampler; same observations and physical assumptions. Computational agreement is not independent astrophysical truth or proof of uncertainty calibration.",
+  "scenarios": [
+    {"scenario_id": "kepler_10_b_local", "replicate_ids": ["rep_0000"], "engine": "local_companion", "comparison_id": "kepler_10_matched"},
+    {"scenario_id": "kepler_10_b_external", "replicate_ids": ["rep_0000"], "engine": "juliet", "comparison_id": "kepler_10_matched"}
+  ],
+  "total_declared_final_attempts": 2,
+  "dataset": {
+    "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+    "input_path": "tables/bayesian_physical_transit/kepler_10_b/runs/scientific_003/modeling_input_physical.csv",
+    "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+    "array_sha256": "9db0789e256ef2e931901ea301163e693453b35a8e174c03985dfe68258f11d9",
+    "rows": 3000,
+    "segments": 3,
+    "exposure_seconds": [58.84876286472961],
+    "row_selection": "Exactly all historical M5 input rows, unchanged and in original order. No Silver/Gold regeneration or posterior-dependent clipping."
+  },
+  "inference": {
+    "period_days": 0.8374907,
+    "radius_prior_uniform": [0.001, 0.2],
+    "radius_prior_median": null,
+    "baseline_prior_sigma": 0.02,
+    "t0_prior_sigma_days": 0.025,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "oversample": 15,
+    "preprocessing_status": "segment_normalized",
+    "sampling": {"draws": 2000, "tune": 2000, "chains": 4, "cores": 4, "target_accept": 0.97, "linker": "auto"}
+  },
+  "benchmark_sampling": {
+    "nlive": 500,
+    "dlogz": 0.1,
+    "maxcall": 500000,
+    "maxiter": null,
+    "minimum_weighted_ess": 400,
+    "maximum_logz_error": 0.5,
+    "predictive_draws": 400
+  },
+  "benchmark_environment_sha256": "ee002b57de8e395b719cc239cb38ae3d10380c5d129bc112fecc90ca73832327",
+  "comparison_contract": [
+    {"item": "observations", "status": "matched", "rule": "Same input bytes, rows, errors, exposures, segments and numerical array SHA256."},
+    {"item": "units/time", "status": "matched", "rule": "Relative flux/errors, original phase in DAYS unchanged, circular fixed period .8374907 days. Original time retained for temporal residual diagnostics, not replaced by phase order."},
+    {"item": "geometry", "status": "matched", "rule": "r=p_p1 Uniform(.001,.2); b=b_p1 Uniform(0,1); a=a_p1 Uniform(2,50); e=0, omega=90deg; i=acos(b/a). No redundant density prior. New shared Uniform prior is not scientific_003's historical LogNormal."},
+    {"item": "limb darkening", "status": "matched", "rule": "Quadratic law; independent q1,q2 Uniform(0,1); u1=2sqrt(q1)q2, u2=sqrt(q1)(1-2q2)."},
+    {"item": "baseline", "status": "matched", "rule": "Local B~Normal(1,.02). juliet constant regressor theta0~Normal(0,.02), mdilution=1,mflux=0; B=1+theta0. One shared offset, no added segment fit parameters."},
+    {"item": "t0", "status": "matched", "rule": "Normal(0,.025) DAYS relative to stored phase center; no literature transit-time likelihood added."},
+    {"item": "noise", "status": "matched", "rule": "Independent Normal variance sigma_i^2+j^2. j~HalfNormal(max(5median(sigma_i),.0005)); juliet sigma_w=1e6*j ppm, zero-mean TruncatedNormal [0,+infinity]. No temporal covariance."},
+    {"item": "exposure integration", "status": "matched", "rule": "15 equal-weight midpoint Riemann nodes at original exposure; batman endpoint span contracted by14/15 for identical nodes. Physical exposure metadata unchanged. Exact exposure groups share every nuisance prior."},
+    {"item": "forward numerical values", "status": "approximately_matched", "rule": "Independent routines are not bit-identical. Pre-final engineering 3-regime fixture tolerance2e-8 relative flux; errors are recorded. This finite grid is not a global accuracy proof."},
+    {"item": "sampler", "status": "not_matchable", "rule": "PyMC NUTS versus static dynesty multi/rwalk, serial external worker. Diagnose each appropriately; no Rhat/BFMI on unordered nested samples."}
+  ],
+  "seed_policy": "campaign_plan.seed(campaign_id,'PUB-03',engine_scenario_id,'rep_0000',stream): first32bits SHA256 of canonical JSON ['campaign-seed-v1',campaign_id,experiment_id,scenario_id,replicate_id,stream]. Engine scenarios kepler_10_b_local and kepler_10_b_external; streams inference,predictive,resampling. Store all integer seeds in the committed campaign ledger before execution. No reseeding/selection; any technical retry uses the identical seed and is separately recorded. Numerical-gate rejection is never retried to seek a pass.",
+  "primary_parameters": ["r", "depth", "b", "a", "t0", "full_duration", "extra_sigma"],
+  "derived_parameters": "Geometric depth=r^2; T14=P/pi asin(sqrt(((1+r)^2-b^2)/(a^2-b^2))) DAYS; not observed limb-darkened depth.",
+  "primary_metrics": ["absolute difference of posterior means / sqrt(sd_local^2+sd_external^2)", "50/80/94 equal-tailed interval overlap", "interval-width ratios external/local", "Wasserstein1 distance / pooled posterior SD", "empirical CDF maximum distance without iid KS-test pvalue"],
+  "secondary_metrics": ["parameter correlations", "posterior predictive curves and standardized residuals", "temporal residual correlations", "sampler diagnostics", "wall time", "Monte Carlo uncertainty sensitivity"],
+  "discrepancy_flags": "Descriptive material-disagreement flags: standardized center difference>2, 94% interval disjoint, width ratio outside [.5,2], standardized Wasserstein>1 or empiricalCDF distance>.2. These are investigation triggers, not hypothesis-test levels or proof of equivalence if not exceeded. Always publish continuous metrics.",
+  "gates": {
+    "local": "All scalar Rhat<=1.01, bulk/tailESS>=400, zero divergences, BFMI>=.30; inherited plus temporal publication PPC and provenance checks.",
+    "external": "Budget limit not reached, weighted nested ESS>=400, logZ standard error<=.5. This does not prove discovery of every mode; inspect warnings and posterior geometry. maxcall/maxiter stop means rejected, never successful convergence.",
+    "ppc": "Observed94 predictive coverage [.80,.99], standardized residual SD [.5,2]; within-segment gap-filtered selected-observation lag correlations as shared inference.residual_correlations. Cadence proxy is median selected time spacing, not native-cadence exclusion: PASS cannot rule out short-timescale noise removed by downsampling. At least one finite evaluable lag is required; undefined/insufficient-pair correlation is unavailable and rejects positive scientific interpretation, not an observed correlation failure. Jitter/median_error<=20, inherited radius review-range mass<=.05 outside [.00349,.24751]. Heuristics, not calibrated tests.",
+    "comparison": "Positive compatibility claim requires both numerical gates and a valid comparison contract. Rejected/unresolved runs may support negative or inconclusive findings, never positive external validation. No evidence/LOO ranking."
+  },
+  "inclusion": "Both declared engine attempts on identical observations. No rejection based on agreement, posterior width, unfavorable physical estimate or seed.",
+  "exclusion": "Engineering fixtures/pilots excluded from final inference claims. No final target, row or attempt exclusions.",
+  "failure_policy": "Preserve partial outputs, warnings, failed/timeout status and every declared attempt. Missing posterior means missing comparison, not zero discrepancy. No automatic best-of retry. An implementation defect requires dated amendment and new run identity; original evidence remains.",
+  "pilot_policy": "Tiny nlive20/maxcall100 pilot may test parser/RNG/termination only. Deliberate stopping should fail promotion. No pilot posterior comparison is final evidence.",
+  "rng_contract": "Seed dynesty with explicit Generator through the tested ExplicitRNGNestedSampler bridge: juliet2.2.10 otherwise silently drops rstate because dynesty3.1.0 inherits its constructor. The bridge delegates unchanged to the installed class and restores it after the serial worker fit. juliet native equal-weight resampling also omits RNG: retain native files but derive canonical posterior separately from raw weighted samples using an independent seeded Generator. No native unseeded resample may feed comparisons.",
+  "outputs": ["both config/input identities/results/diagnostics/PPC", "local trace", "external raw nested weighted samples", "external seeded posterior arrays", "comparison JSON and CSV", "posterior/predictive comparison figures", "human-readable report", "status/checksums/environment and protocol hashes"],
+  "allowed_interpretation": "Computational compatibility or disagreement conditional on these priors, exact rows and white likelihood; no recalibration or rewrite of historical scientific_003; no claim of catalog-independent truth or population generalization.",
+  "hypothesis_rejection": "Material posterior disagreement unexplained by finite computation rejects compatibility under this contract. Failed sampler/PPC or budget exhaustion makes positive compatibility unsupported, not automatically a defect of either transit engine.",
+  "discrepancy_investigation_order": ["input identity", "parameter definitions", "priors", "exposure and limb darkening", "likelihood", "sampler", "implementation"],
+  "amendments": [
+    {
+      "id": "preexecution-001",
+      "date": "2026-09-26",
+      "before_any_final_batch": true,
+      "change": "Local PyMC linker cvm to auto; use campaign-seed-v1 namespaced seed ledger and engine-specific scenario IDs.",
+      "reason": "Compiler pilot publication/validation/compiler_pilot_001.json verified log-density/gradient numerical equivalence and lower compilation/evaluation cost for auto. User-directed autonomous campaign requires a committed campaign namespace and explicit engine jobs.",
+      "scientific_effect": "No prior, likelihood, observation, threshold or outcome metric change. No final posterior result observed."
+    },
+    {
+      "id": "preexecution-002",
+      "date": "2026-09-26",
+      "before_any_final_batch": true,
+      "change": "Explicit constructor RNG bridge for juliet2.2.10/dynesty3.1.0; canonical resampling uses an independent explicit Generator.",
+      "reason": "Two identical tiny pilots were nondeterministic under juliet's inherited-constructor introspection. Original failed smoke_v1 retained. Bridged smoke_v2 repeats produce identical canonical posterior hashes and correctly reject budget-limited attempts.",
+      "scientific_effect": "Makes predeclared seeds effective without changing prior, likelihood, dynesty algorithm or thresholds. No final inference has run."
+    },
+    {
+      "id": "preexecution-003",
+      "date": "2026-09-26",
+      "before_any_final_batch": true,
+      "change": "Clarify selected-observation lag semantics; require at least one finite evaluable temporal-correlation lag for positive PPC promotion.",
+      "reason": "Hostile review found that downsampled median time spacing is not native cadence, and a missing/NaN correlation must not be read as evidence of absence.",
+      "scientific_effect": "Fail closed on unavailable diagnostics; no correlation amplitude, PPC coverage or sampler threshold relaxed. Final evidence remains unobserved."
+    }
+  ]
+}

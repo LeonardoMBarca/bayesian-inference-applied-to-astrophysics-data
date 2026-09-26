@@ -1,10 +1,12 @@
 # PUB-05 — frozen pre-result target selection
 
-Status: target selection FROZEN; inference protocol still DRAFT, not final evidence. The authoritative
-machine-readable counterpart is
-`publication/protocols/PUB-05-draft.json`. No new target inference or Kepler-4
-FITS download was performed while drafting this document. Catalog/header
-inspection is selection evidence, not a scientific result.
+Status: selection and final inference protocol FROZEN, with execution deferred
+to the autonomous campaign. The authoritative final configuration is
+`publication/protocols/PUB-05.json`; no final PUB-05 inference has been executed.
+The pre-acquisition selection remains unchanged in
+`publication/protocols/PUB-05-draft.json`, committed at
+`c8efd26c4df1d944628a1f1c845b459c88fcd681` before any Kepler-4 download.
+Catalog/header inspection and acquisition are provenance, not scientific results.
 
 ## Question and selection rule
 
@@ -26,7 +28,7 @@ gate decision, fitted residual, or agreement with a catalog value.
 | Kepler-10 b | Fixed shallow small-planet anchor; short exposure | Existing three Kepler short-cadence products, Q2/Q3, 58.85 s | Protected target configuration; `scientific_003` unchanged |
 | TrES-2 b | High-impact, near-grazing geometry; finite-exposure challenge | Existing Kepler Q0/Q1/Q2, 1765.46 s | DR25 KOI K00001.01; published geometry study |
 | HD 189733 b | Active/spotted-star challenge; short exposure | Existing TESS sectors 41/54/81, 120 s | Public activity/spot evidence; archive ephemeris |
-| Kepler-4 b | Intermediate depth, Neptune-size; long exposure | Planned Kepler Q0/Q1/Q2, long cadence | DR25 KOI K00007.01; discovery paper |
+| Kepler-4 b | Intermediate depth, Neptune-size; long exposure | Preselected Kepler Q0/Q1/Q2, acquired after selection commit | DR25 KOI K00007.01; discovery paper |
 
 TrES-2 is described as near-grazing in the literature; this is not an assertion
 that it is a strictly grazing transit (`b > 1-r`).
@@ -100,10 +102,17 @@ silently reduce the source set or replace a target. Any changed acquisition
 policy, target or model must have a dated amendment preserving the original
 selection and reason.
 
-## Frozen-analysis draft
+The three exact Kepler-4 URLs were acquired on 2026-09-26 after the selection
+commit. All passed target/quarter/TDB/long-exposure/PDCSAP checks. Readback
+SHA-256 values and HTTP retrieval metadata are recorded in
+`publication/inputs/raw/kepler_4_b/acquisition_manifest.json`; the final protocol
+binds that manifest and all three FITS. Existing RAW files were not modified.
+Acquisition is exclusive: an existing destination fails rather than overwriting.
 
-The final protocol must be committed separately after acquisition metadata are
-verified. Proposed settings, agreed before final results:
+## Frozen analysis
+
+The final protocol must be committed before the campaign starts. Its settings
+were chosen before any final PUB-05 inference:
 
 - PDCSAP flux/errors; mission quality flag exactly zero; discard only
   nonfinite values and nonpositive supplied errors/exposures. No residual
@@ -121,12 +130,19 @@ verified. Proposed settings, agreed before final results:
   Catalog depth is not used to tune the radius prior.
 - One final run per target: four chains, 1000 tuning plus 800 retained draws,
   target acceptance 0.95, deterministic ID-derived seeds. No best-seed selection
-  or automatic retries. Any corrected attempt gets a new ID.
+  or automatic scientific resampling. An infrastructure interruption may be
+  restarted under the campaign policy with identical seeds/config and a new
+  attempt ID; the original remains visible. A failed scientific gate is terminal.
 
-The full freeze must state the same sampler/PPC/scientific gate definitions as
-the validated publication inference implementation, including limitations of
-temporal diagnostics after thinning. Numerical thresholds are not defined by
-whether the observational outputs happen to pass.
+The JSON records numerical sampler/PPC/scientific gate definitions, including
+five gap-filtered selected-observation residual lags. The median selected time
+gap is a spacing proxy, not the original instrumental cadence after thinning.
+Nonfinite/degenerate lags remain unavailable, and positive PPC requires at least
+one finite evaluated lag. The normal-reference bounds are approximate after
+fitting; this does not establish absence of correlation at discarded cadences.
+Radius review limits are inherited astrophysical screening bounds,
+not boundaries of the unbounded LogNormal prior. Numerical thresholds were not
+chosen according to observational posterior outcomes.
 
 ## Required outcomes and interpretation
 
@@ -160,7 +176,7 @@ default and always rejects an existing output directory. The explicit
 automatically final evidence.
 
 No PUB-05 scientific result, gate pass rate or generalization conclusion is
-available from this draft. Completion requires the frozen final batch,
+available yet. Completion requires the frozen final batch,
 all-target aggregates, figures/tables and a registry-backed interpretation.
 
 ## Engineering evidence (not final scientific results)
@@ -179,5 +195,35 @@ The temporary process read the draft before the source-consistency revision
 that paired HD 189733's period/duration with its Baluev epoch. Thus its HD
 preparation is evidence of adapter mechanics only, not a dataset validated
 against the final frozen ephemeris. No posterior was computed or inspected to
-make that revision. The final five-target preparation and inference still
-require protocol freeze, acquisition completion and versioned artifacts.
+make that revision. Acquisition is now complete; final five-target preparation
+and inference remain deferred to the user-executed campaign and require its
+versioned artifacts.
+
+## Autonomous interfaces and aggregate evidence
+
+`publication.observational.prepare_observational_target` accepts the repository
+root, frozen protocol path, selected slug and unique campaign/job/attempt run
+ID. It verifies committed protocol bytes and optional file/canonical hashes,
+then returns repository-relative input/manifest paths and content identities.
+Seed identity does not depend on run or retry identifiers.
+
+`publication.target_reporting.write_target_report` takes all declared campaign
+outcomes, including failures, and verifies corresponding result/preparation
+JSONs and prepared-data hashes. It generates `aggregate.json`, `targets.csv`,
+`posterior_intervals.csv`, three figures, `REPORT.md` and a freshness manifest
+under `reports/publication_campaign/<campaign_id>/PUB-05/` for the campaign
+(the standalone adapter also permits `publication/derived/`). Rejected posterior intervals are retained but
+marked unpromotable. Unavailable gates remain distinct from measured rejection.
+The reports explicitly avoid unknown-truth coverage, population generalization,
+independent-catalog-validation and precision-equals-accuracy claims.
+
+The final engineering check also prepared all three newly acquired Kepler-4
+products under the explicit `PILOT` ID `engineering_prep_v1`, without MCMC.
+The machine-readable readback report and generated narrative are
+`publication/validation/kepler_4_engineering_preparation.json` and `.md`.
+They bind the isolated preparation manifest and CSV checksums, verify the
+dataset signature and every modeling row's target/dataset/source-row identity,
+and record the full 15-source frozen inventory checksum check. All 18 focused
+observational/reporting/campaign-reporting tests passed after this addition;
+focused Ruff checks also passed. These are engineering checks, not PUB-05
+posterior results or evidence of multi-target scientific validity.

@@ -20,6 +20,23 @@ PARAMETERS = ("baseline", "r", "b", "a", "t0", "q1", "q2", "extra_sigma", "depth
 REQUIRED_COLUMNS = {"phase", "time", "normalized_flux", "normalized_flux_err", "exposure_time_seconds", "segment_id"}
 
 
+class InputIdentityError(ValueError):
+    def __init__(self, message: str, reason_code: str):
+        super().__init__(message)
+        self.reason_code = reason_code
+
+
+def finite_json(value):
+    """Retain failed/unavailable diagnostics as JSON null, never invalid NaN."""
+    if isinstance(value, dict):
+        return {key: finite_json(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [finite_json(item) for item in value]
+    if isinstance(value, (float, np.floating)):
+        return float(value) if np.isfinite(value) else None
+    return value
+
+
 def file_hash(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -31,12 +48,14 @@ def file_hash(path: Path) -> str:
 def read_input(path: Path, config: dict) -> pd.DataFrame:
     """Validate exact observations before graph construction or sampling."""
     if file_hash(path) != config["input_sha256"]:
-        raise ValueError("inference input SHA-256 mismatch")
+        raise InputIdentityError("inference input SHA-256 mismatch", "input_sha256_mismatch")
     if not config.get("dataset_id") or config.get("expected_dataset_id") != config["dataset_id"]:
-        raise ValueError("inference dataset identity mismatch")
+        raise InputIdentityError("inference dataset identity mismatch", "dataset_identity_mismatch")
     if config.get("input_kind") == "synthetic" and config["dataset_id"] != f"synthetic-{config['input_sha256'][:20]}":
         raise ValueError("synthetic identity is not content-bound")
     frame = pd.read_csv(path)
+    if "dataset_id" in frame and (frame.dataset_id.isna().any() or not frame.dataset_id.eq(config["dataset_id"]).all()):
+        raise ValueError("observational row dataset identity differs from inference configuration")
     if not REQUIRED_COLUMNS.issubset(frame):
         raise ValueError(f"missing required input columns: {REQUIRED_COLUMNS - set(frame)}")
     if len(frame) < 12 or frame["segment_id"].isna().any():
@@ -70,7 +89,7 @@ def sampler_summary(idata, names: list[str]) -> pd.DataFrame:
 
 
 def residual_correlations(frame: pd.DataFrame, residual: np.ndarray, max_lag: int = 5) -> dict:
-    """Within-segment/cadence pairs only; no phase-folded artificial adjacency.
+    """Within-segment selected-observation lags; no folded artificial adjacency.
 
     Normal-reference bounds are exploratory approximations, not an exact test
     for fitted residuals. Familywise .01 across the declared five lags per run.
@@ -93,13 +112,20 @@ def residual_correlations(frame: pd.DataFrame, residual: np.ndarray, max_lag: in
             left.extend(z[:-lag][valid])
             right.extend(z[lag:][valid])
         n = len(left)
-        correlation = float(np.corrcoef(left, right)[0, 1]) if n > 10 else None
+        variable = n > 10 and np.std(left) > 0 and np.std(right) > 0
+        correlation = float(np.corrcoef(left, right)[0, 1]) if variable else None
+        if correlation is not None and not np.isfinite(correlation):
+            correlation = None
         bound = float(norm.ppf(1 - 0.01 / (2 * max_lag)) / np.sqrt(n)) if n > 10 else None
         entries.append({"lag": lag, "pairs": n, "correlation": correlation,
                         "normal_reference_bound": bound,
+                        "available": correlation is not None,
                         "flagged": correlation is not None and abs(correlation) > bound})
-    return {"method": "within-segment cadence-contiguous Pearson; Bonferroni normal reference",
+    return {"method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+            "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+            "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
             "familywise_alpha_per_run": 0.01, "lags": entries,
+            "assessable": any(row["available"] for row in entries),
             "flagged": any(row["flagged"] for row in entries)}
 
 
@@ -142,6 +168,10 @@ def make_model(frame: pd.DataFrame, config: dict):
 def fit(input_path: Path, config: dict, output: Path) -> dict:
     """One declared attempt, no auto-retry or posterior-dependent configuration."""
     import pymc as pm
+    import pytensor
+
+    if pytensor.config.floatX != "float64":
+        raise ValueError("Publication inference requires float64; remove incompatible PYTENSOR_FLAGS")
 
     from bayesian_modeling.contracts import evaluate_interpretation_gate
     from bayesian_modeling.physical_transit import (
@@ -208,7 +238,7 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
     )
     # Preserve the exact inherited M5 gate separately. The publication gate adds
     # a predeclared temporal check; it never rewrites historical M5 decisions.
-    ppc_ok = gate["posterior_predictive_adequate"] and not correlations["flagged"]
+    ppc_ok = gate["posterior_predictive_adequate"] and correlations["assessable"] and not correlations["flagged"]
     gates = {"provenance": True, "sampler": gate["sampler_converged"], "ppc": ppc_ok,
              "scientific": gate["scientifically_interpretable"] and ppc_ok}
     result = {
@@ -218,6 +248,7 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
         "residual_correlation": correlations, "scale_checks": scale,
         "inherited_m5_gate": gate, "gates": gates,
         "model": specification, "sampling": sampling, "environment": build_environment_summary(),
+        "numerical_precision": {"floatX": pytensor.config.floatX, "linker": sampling.get("linker", "auto")},
         "wall_seconds": time.perf_counter() - started,
         "trace_sha256": file_hash(output / "trace.nc"),
         "interpretation": "Conditional on frozen protocol and aggregate calibration; no automatic physical claim.",
@@ -243,18 +274,24 @@ def main() -> None:
     with marker.open("x", encoding="utf-8") as handle:
         json.dump({"input_sha256": config["input_sha256"], "config_sha256": file_hash(args.config)}, handle)
     try:
+        failure_stage = "environment_validation"
+        if config.get("campaign_mode") == "final":
+            from publication.environment_guard import require_scientific_environment
+            require_scientific_environment(Path(__file__).resolve().parents[2])
+        failure_stage = "input_validation"
         read_input(args.input, config)
         provenance_valid = True
+        failure_stage = "inference"
         result = fit(args.input, config, args.output)
     except Exception as exc:
         import traceback
         provenance_valid = locals().get("provenance_valid", False)
         result = {"status": "failed", "error": repr(exc), "traceback": traceback.format_exc(),
-                  "failure_stage": "inference" if provenance_valid else "input_validation",
+                  "failure_stage": failure_stage, "failure_code": getattr(exc, "reason_code", None),
                   "gates": {"provenance": provenance_valid, "sampler": False, "ppc": False, "scientific": False},
                   "gate_evaluation": {"provenance": "passed" if provenance_valid else "rejected", "sampler": "unavailable", "ppc": "unavailable", "scientific": "not_promotable"}}
     with (args.output / "result.json").open("x", encoding="utf-8") as handle:
-        json.dump(result, handle, indent=2, allow_nan=False)
+        json.dump(finite_json(result), handle, indent=2, allow_nan=False)
     print(json.dumps({"status": result["status"], "output": str(args.output)}), flush=True)
     if result["status"] == "failed":
         raise SystemExit(1)

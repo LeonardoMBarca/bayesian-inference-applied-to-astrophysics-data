@@ -1,0 +1,148 @@
+{
+  "experiment_id": "PUB-04",
+  "protocol_version": "draft-1",
+  "protocol_status": "DRAFT",
+  "execution_authorized": false,
+  "freeze_preconditions": [
+    "P2-P3 methodological review completed and recorded",
+    "Pilot runtime, errors, sampler settings and final replicate precision reviewed without selecting favorable outcomes",
+    "Final protocol, all run identities and full paired scenario list committed before final execution"
+  ],
+  "scientific_question": "Which preprocessing/model assumptions affect recovery and which gates detect predeclared failure controls beyond sampler convergence?",
+  "hypotheses": [
+    "Exposure integration can materially change transit geometry and uncertainty at 1765 s exposures.",
+    "Ignoring inter-segment offsets can distort physical inference; sampler convergence alone need not reject this misspecification.",
+    "Ignoring true additional white jitter can understate uncertainty or impair predictive adequacy.",
+    "An excessively informative wrong radius prior can dominate inference despite superficially regular sampling.",
+    "Corrupted input identity must fail before sampling; under-sampling should fail numerical gates.",
+    "A predeclared unmodeled deterministic sinusoid may yield sampler-pass but predictive/scientific-fail outcomes; this is investigated, not guaranteed."
+  ],
+  "truth": {"r": 0.07, "b": 0.4, "a": 7.0, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0005},
+  "paired_designs": [
+    {
+      "pair_id": "long_segment_offsets",
+      "design": {"window_days": 0.15, "cadence_seconds": 1800, "exposure_time_seconds": 1765, "measurement_sigma": 0.0002, "segments": 3, "transits_per_segment": 4, "segment_gap_periods": 1, "oversample": 31, "heteroscedastic": true, "include_raw_flux": true, "segment_offsets": [0.98, 1.0, 1.02], "noise": {"kind": "none"}, "systematic": null},
+      "variants": ["baseline", "exposure_off", "global_normalization", "no_jitter", "strong_wrong_radius_prior", "invalid_input_hash", "dataset_identity_mismatch", "insufficient_sampling"]
+    },
+    {
+      "pair_id": "short_temporal_systematic",
+      "design": {"window_days": 0.15, "cadence_seconds": 180, "exposure_time_seconds": 120, "measurement_sigma": 0.0002, "segments": 3, "transits_per_segment": 2, "segment_gap_periods": 1, "oversample": 31, "heteroscedastic": true, "include_raw_flux": true, "segment_offsets": [0.98, 1.0, 1.02], "noise": {"kind": "none"}, "systematic": null},
+      "variants": [
+        {"variant_id": "baseline", "intervention": "baseline", "systematic": null},
+        {"variant_id": "deterministic_sine", "intervention": "baseline", "systematic": {"amplitude_fraction": 0.001, "period_days": 0.06, "phase_radians": 0.4}}
+      ],
+      "pairing_rule": "Generate both variants with the same pair_id/replicate generation seed. Only deterministic systematic differs; measurement and jitter arrays remain identical."
+    }
+  ],
+  "normalization": {
+    "implementation": "publication.ablations.estimate_normalization",
+    "baseline_method": "empirical_per_segment_oot_median",
+    "negative_control_method": "empirical_global_oot_median",
+    "oot_mask": "abs(phase_days) > 0.10",
+    "minimum_oot_points": 3,
+    "truth_usage": "None. The known segment offsets are never supplied to normalization or inference.",
+    "uncertainty_policy": "Flux and measured flux errors are divided by the same estimated median. Median estimation uncertainty is not separately propagated by M5; retain this as a limitation common to the controls.",
+    "metadata_policy": "Persist estimated median/count per group, mask, source/output hashes and method in preprocessing.json. Mark global-normalized input honestly; report numerical/PPC effects separately from policy rejection."
+  },
+  "inference": {
+    "input_kind": "synthetic",
+    "period_days": 1.0,
+    "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+    "radius_prior_median": 0.04,
+    "radius_prior_log_sigma": 0.9,
+    "baseline_prior_sigma": 0.02,
+    "t0_prior_sigma_days": 0.025,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "oversample": 15,
+    "preprocessing_status": "segment_normalized",
+    "sampling": {"draws": 1000, "tune": 1000, "chains": 4, "cores": 4, "target_accept": 0.95},
+    "model_family": "M5-publication-v1",
+    "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+    "other_priors": {"baseline": "Normal(1,0.02)", "b": "Uniform(0,1)", "a": "Uniform(2,50)", "t0": "Normal(0,0.025 day)", "q1": "Uniform(0,1)", "q2": "Uniform(0,1)", "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))"},
+    "fixed_orbit": {"eccentricity": 0.0, "period_days": 1.0},
+    "derived": {"depth": "r^2 geometric area ratio, not limb-darkened observed depth", "duration": "Circular first-to-fourth contact duration before exposure smearing"}
+  },
+  "interventions": {
+    "baseline": {"changed_factor": "none; common empirical per-segment preprocessing"},
+    "exposure_off": {"changed_fields": {"integrate_exposure": false}, "same_input_required": true},
+    "global_normalization": {"changed_factor": "global instead of per-segment empirical OOT scale", "same_raw_realization_required": true, "derived_changes": ["normalized_flux", "normalized_flux_err", "input hash", "dataset identity", "honest preprocessing status"]},
+    "no_jitter": {"changed_fields": {"infer_jitter": false}, "same_input_required": true},
+    "strong_wrong_radius_prior": {"changed_fields": {"radius_prior_median": 0.025, "radius_prior_log_sigma": 0.01}, "same_input_required": true, "label": "deliberately pathological negative control, not a plausible sensitivity profile"},
+    "invalid_input_hash": {"changed_fields": {"input_sha256": "0000000000000000000000000000000000000000000000000000000000000000"}, "same_input_required": true, "expected_rejection_stage": "input_validation_before_sampling"},
+    "dataset_identity_mismatch": {"changed_factor": "append -deliberate-mismatch only to expected_dataset_id", "same_input_required": true, "expected_rejection_stage": "input_validation_before_sampling"},
+    "insufficient_sampling": {"changed_fields": {"sampling.draws": 20, "sampling.tune": 20}, "same_input_required": true, "chains": 4},
+    "deterministic_sine": {"changed_factor": "add predeclared deterministic sinusoid in the generator, not stochastic correlated noise", "same_measurement_and_jitter_realization_required": true, "inference_model_unchanged": true}
+  },
+  "replication_plan": {
+    "replicates_per_pair": 10,
+    "replicate_count_status": "DRAFT_COST_REVIEW_REQUIRED",
+    "long_pair_attempts_per_replicate": 8,
+    "short_pair_attempts_per_replicate": 2,
+    "total_declared_attempts_if_frozen_unchanged": 100,
+    "expected_sampling_attempts": 80,
+    "expected_pre_sampling_identity_rejections": 20,
+    "precision_note": "Ten pairs prioritize large intervention effect estimates; a binomial frequency near 0.5 has SE about 0.158 and 0/10 events has a Wilson 95% upper bound about 0.278. This is not a precise gate-error or calibration study; report Wilson intervals and rely on larger P2 batches for coverage. Final count needs pre-result cost justification.",
+    "pilot_policy": "Separate pilot protocol/IDs; retain every pilot but exclude them from final effect/coverage/failure estimates. No seed chosen by outcomes."
+  },
+  "seed_policy": {
+    "generation": "publication.ablations.paired_generation_seed(PUB-04,pair_id,replicate_id); independent of variant ID",
+    "inference_and_predictive": "deterministic_seed(PUB-04,pair_id + '_' + variant_id,replicate_id,stream=inference|predictive); one declared attempt, no posterior draw reuse",
+    "replicate_id_format": "rep_0000 through rep_0009 if the draft count is retained",
+    "run_id": "final_001 only after freeze and committed registry declaration",
+    "retry_policy": "No retries into an existing attempt. Infrastructure failures are preserved; any new attempt requires an amendment and new run identity."
+  },
+  "primary_metrics": [
+    "Paired posterior mean and median shifts in r, geometric depth, b, a, t0, full duration and jitter",
+    "Paired radius shift standardized by baseline posterior SD; descriptive, not an independent-sample test",
+    "Paired 94% interval-width ratio and SD ratio",
+    "Separate provenance, sampler, PPC, scientific-scale and final-interpretability gate outcomes",
+    "Count/fraction of sampler-pass but PPC/scientific-fail attempts",
+    "Presampling rejection rates for each invalid-identity control"
+  ],
+  "secondary_metrics": [
+    "Bias, absolute/relative bias, RMSE and 50/80/94 equal-tailed coverage by variant; descriptive with finite-replicate uncertainty",
+    "Residual RMSE/standardized scale and cadence-contiguous residual correlations",
+    "Sampler R-hat, ESS bulk/tail, divergences, BFMI, tree-depth warnings",
+    "Wall time and parameter uncertainty width",
+    "Data-known-control detection sensitivity and nominal-control rejection rates"
+  ],
+  "diagnostic_rules": {
+    "provenance": "Exact input SHA-256, synthetic identity bound to bytes, expected_dataset_id match, required finite columns, segment and positive exposure/error metadata",
+    "sampler": {"max_r_hat": 1.01, "min_ess": 400, "max_divergences": 0, "min_bfmi": 0.3},
+    "ppc": "Frozen inherited M5 coverage/standardized residual-scale rules plus publication within-segment cadence-contiguous residual autocorrelation check over lags 1-5, Bonferroni normal-reference familywise alpha=.01. This residual reference is approximate after fitting and preprocessing; assess its rejection rate empirically.",
+    "scientific_scale": "Retain inherited M5 radius review range/jitter scale/preprocessing checks and their original thresholds. Do not relabel the radius review interval as prior support.",
+    "gate_reporting": "Never replace unavailable downstream checks after presampling rejection with empirically evaluated failures. Report null/unavailable plus failure_stage. Decompose scientific-scale reasons from inherited gate and final interpretability from publication gates."
+  },
+  "inclusion": "Every declared variant and replicate, irrespective of convergence, posterior agreement, prior domination or apparent visual quality.",
+  "exclusion": "None based on results. A demonstrable implementation/protocol bug invalidates affected evidence only through a documented amendment; original attempts remain visible.",
+  "missing_failed_policy": "All declared attempts enter attempted/gate-rate denominators. Paired posterior effects require both numerical posterior summaries and list unavailable pairs explicitly; never silently treat incomplete pairs as zero effect. Show all-numerically-available and both-gates-passed summaries separately.",
+  "statistical_analysis": {
+    "pairing_unit": "Independent generated realization identified by pair_id and replicate_id",
+    "effect_summary": "All replicate-level effects, paired mean/median and empirical distribution; no best-run exemplar selection. Report Monte Carlo uncertainty from posterior draws separately from across-replicate variation.",
+    "rate_uncertainty": "Wilson 95% binomial intervals with attempted denominators; pair-complete effect summaries identify their own denominator.",
+    "false_positive_definition": "Invalid rejection by the deterministic provenance check on correct identity is a genuine provenance false positive. On nominal white-noise controls, sampler-pass but PPC rejection is a nominal-control rejection proxy, not an exact Type-I error guarantee because empirical normalization and fitted residuals alter the reference distribution.",
+    "false_negative_definition": "A corrupted-identity input accepted for sampling is a provenance false negative. Failure to flag the deliberately injected deterministic temporal control is detection non-rejection, reported with quantitative distortion; exposure/no-jitter/strong-prior acceptance alone is not called a false negative unless the predeclared truth-based performance criterion also fails.",
+    "truth_based_performance_flag": "Post hoc evaluation only: posterior mean of r differs from truth by >10% AND the 94% equal-tailed interval excludes truth. Report its joint occurrence with scientific gate acceptance; do not use truth to change inference or observational gates.",
+    "coverage_caveat": "A single 94% interval miss is not itself proof of an invalid inference; expected noncoverage and low replicate precision must be explicit.",
+    "multiple_comparisons": "Predeclared descriptive effects and interval estimates, no post-selected primary outcome or universal significance claim.",
+    "model_comparison": "No LOO/WAIC ranking is a primary outcome; no formal ranking without matched likelihood/observations and acceptable Pareto-k diagnostics."
+  },
+  "planned_outputs": {
+    "per_run": ["run_config.json", "input.csv", "truth.json outside inference process", "inference_config.json", "preprocessing.json", "result.json", "diagnostics", "trace where sampling occurred", "checksums.json", "append-only status events"],
+    "aggregate": ["publication/PUB-04/aggregate.json", "publication/PUB-04/paired_effects.csv", "publication/PUB-04/failure_matrix.csv", "publication/PUB-04/report.md"],
+    "figures": ["paired parameter shifts by intervention", "interval-width ratio by intervention", "separate gate outcome matrix", "sampler-pass PPC/scientific-fail control traces/residuals with deterministic first-eligible selection rule or all replicates"],
+    "lineage": "Aggregate lists every registry declared_run_paths and every result_source_sha256, plus source hashes for all derived tables/figures."
+  },
+  "interpretation_rules": [
+    "Removing a component only supports its practical importance when the paired effect or validity change is quantified, not because the feature exists.",
+    "No observed sampler-pass/PPC-fail case means the planned empirical demonstration was not achieved; do not change the sinusoid, seed or thresholds to manufacture one after freezing.",
+    "A sampler-pass/PPC-fail realization supports convergence-not-sufficient only if provenance and diagnostics are correctly recorded; do not present a prior-dominated or nonconverged run as that demonstration.",
+    "Negative controls are successful tests when they expose the declared failure, not when the science gate passes.",
+    "P4 remains draft and cannot support final claims until all freeze and execution criteria are met."
+  ],
+  "invalidation_conditions": ["truth leakage into inference or normalization", "unrecorded input mismatch outside a declared identity control", "unrecorded parameter/gate/seed alteration", "shared output directory overwrite", "missing declared attempts hidden from aggregates"],
+  "amendments": []
+}

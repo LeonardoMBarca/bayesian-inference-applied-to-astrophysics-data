@@ -1,0 +1,33 @@
+{
+  "mode": "pilot",
+  "input_kind": "synthetic",
+  "dataset_id": "synthetic-46853ee4a95ea17ce6bd",
+  "expected_dataset_id": "synthetic-46853ee4a95ea17ce6bd",
+  "input_sha256": "46853ee4a95ea17ce6bd7126d1f7092d797c1bd27abc7a3b8487801b0430b3ea",
+  "period_days": 2.0,
+  "radius_prior_uniform": [
+    0.001,
+    0.2
+  ],
+  "radius_prior_median": null,
+  "baseline_prior_sigma": 0.02,
+  "t0_prior_sigma_days": 0.025,
+  "jitter_error_multiplier": 5.0,
+  "jitter_floor_fraction": 0.0005,
+  "infer_jitter": true,
+  "integrate_exposure": true,
+  "oversample": 15,
+  "inference_seed": 72971,
+  "resampling_seed": 182739,
+  "predictive_seed": 82912,
+  "benchmark_environment_sha256": "ee002b57de8e395b719cc239cb38ae3d10380c5d129bc112fecc90ca73832327",
+  "benchmark_sampling": {
+    "nlive": 20,
+    "dlogz": 0.1,
+    "maxcall": 100,
+    "maxiter": null,
+    "minimum_weighted_ess": 400,
+    "maximum_logz_error": 0.5,
+    "predictive_draws": 20
+  }
+}

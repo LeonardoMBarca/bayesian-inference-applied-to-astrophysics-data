@@ -1,0 +1,39 @@
+{
+  "schema_version": "publication-observational-readback-v1",
+  "status": "passed",
+  "purpose": "PILOT",
+  "target_id": "kepler_4_b",
+  "dataset_id": "kepler_4_b-0d6f5de5a962f7ed",
+  "input_sha256": "dbed4135314849f0d12826c86d67b7d1ab18c3563f245424563fb2a8bbcc1caa",
+  "input_path": "publication/observational/PUB-05/kepler_4_b/engineering_prep_v1/model_input.csv",
+  "preparation_manifest_path": "publication/observational/PUB-05/kepler_4_b/engineering_prep_v1/preparation_manifest.json",
+  "preparation_manifest_sha256": "f40e2bb392fc74720e45ea3bc2b50da25604612003cd80ba8ecebcf21679e5ee",
+  "source_count": 3,
+  "segment_count": 3,
+  "silver_row_count": 6469,
+  "quality_row_count": 5463,
+  "quality_removed_count": 1006,
+  "modeling_row_count": 1052,
+  "median_exposure_seconds": 1765.462885941888,
+  "normalization_status": "segment_normalized",
+  "normalized_error_median": 0.00007006273881415837,
+  "source_rows_unique": true,
+  "all_row_dataset_and_target_ids_match": true,
+  "artifacts_verified": {
+    "gold_lightcurve.csv": "dc5a6f3a147ca848006d8a67f48d603ed801e3666cd7c4ce93f810e7772b0aed",
+    "model_input.csv": "dbed4135314849f0d12826c86d67b7d1ab18c3563f245424563fb2a8bbcc1caa",
+    "segment_diagnostics.csv": "a77ad1dd349ec2769791375e5bf95e6d88e9d9aa54a3df39f2c995f2975ec1e3",
+    "silver_fits_metadata.csv": "1e680583ed694e845a3f2a88890c56752ba51fbbe38654bb326f576ff19c9bfd",
+    "silver_lightcurve.csv": "35167d9626fd5be3e39ce67eb0ccb6e4a7d5a2375c45ecdb5d5f046ff2cd845a"
+  },
+  "sampler_executed": false,
+  "scientific_result_available": false,
+  "interpretation": "Engineering data-preparation/readback evidence only; no posterior, gate pass or astrophysical claim.",
+  "validation_date_utc": "2026-09-26",
+  "frozen_selected_source_readback": {
+    "verified_source_count": 15,
+    "target_count": 5,
+    "implementation": "WSL/Linux pathlib/hashlib; Windows PowerShell 5.1 Get-FileHash failed to resolve a >260-character TESS path, not missing/corrupt bytes"
+  },
+  "reproduce_command": "PYTHONPATH=src python -c \"import json,pathlib; from publication.observational import verify_prepared_target; root=pathlib.Path.cwd(); p=root/'publication/observational/PUB-05/kepler_4_b/engineering_prep_v1/preparation_manifest.json'; print(json.dumps(verify_prepared_target(root,json.loads(p.read_text())),indent=2))\""
+}
