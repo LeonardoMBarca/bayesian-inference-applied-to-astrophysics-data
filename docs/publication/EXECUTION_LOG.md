@@ -106,3 +106,13 @@ benchmark source hashes, protected baseline/ref identities, and all 15 target
 source FITS before spending the campaign budget. Review also added embedded
 dataset-ID rejection, float64 enforcement, full imported-source binding and
 explicit temporal-diagnostic unavailability after thinning.
+
+The final reporting review added the predeclared P3 distribution and predictive
+figures, with bijective row mapping to the exact shared input and explicit
+unavailable placeholders for missing evidence. P2 bias-versus-SNR now uses a
+post-inference known-white-noise design metric, never truth-informed fitting or
+a claimed detection significance. These derived-only changes do not resample or
+alter any existing scientific result. The source/seed ledger is refreshed before
+any final campaign starts; completed engineering attempts retain their original
+source identity. Nested Python entry points also have an explicit LF checkout
+policy so Windows does not silently change content-addressed scientific sources.

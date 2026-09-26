@@ -132,6 +132,8 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
                     for key, filename in (("truth", "truth.json"), ("preparation", "preparation.json")):
                         if filename in completion["artifacts"]:
                             row[key] = _read(path / filename)
+                    if row["payload"].get("kind") == "synthetic" and "physical_signal" in (row.get("truth") or {}).get("components", {}):
+                        row["known_white_noise_transit_snr"] = _known_white_noise_snr(path / "input.csv", row["truth"])
             except (OSError, ValueError, KeyError, TypeError, CampaignIntegrityError) as exc:
                 message = f"{job_id} attempt {index}: {exc}"
                 local_errors.append(message)
@@ -151,6 +153,20 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
         )
         jobs.append(row)
     return {"jobs": jobs, "attempts": attempts, "source_checksums": sources, "integrity_errors": errors}
+
+
+def _known_white_noise_snr(input_path: Path, truth: dict) -> float:
+    """Post-inference design metric, not a detection statistic or GP-aware SNR."""
+    with input_path.open(encoding="utf-8", newline="") as stream:
+        errors = np.array([float(row["normalized_flux_err"]) for row in csv.DictReader(stream)])
+    signal = np.asarray(truth["components"]["physical_signal"], dtype=float) - truth["truth"]["baseline"]
+    if signal.shape != errors.shape or not len(signal) or not np.isfinite(signal).all() or not np.isfinite(errors).all() or (errors <= 0).any():
+        raise ValueError("Known-white SNR signal/error arrays differ or are invalid")
+    jitter = float(truth["truth"]["extra_sigma"])
+    if not np.isfinite(jitter) or jitter < 0:
+        raise ValueError("Known-white SNR requires a finite nonnegative true jitter")
+    variance = errors**2 + jitter**2
+    return float(np.sqrt(np.sum(signal**2 / variance)))
 
 
 def _scientific_summary(row: dict) -> dict | None:
@@ -178,14 +194,21 @@ def calibration_report(rows: list[dict], output: Path, *, mode: str) -> dict:
     grouped: dict[str, list[dict]] = defaultdict(list)
     for row in rows:
         grouped[row["scenario_id"]].append(row)
-    scenarios, table, recovery = {}, [], []
+    scenarios, table, recovery, scenario_snr = {}, [], [], {}
     for scenario, declared in grouped.items():
         summaries = [summary for row in declared if (summary := _scientific_summary(row)) is not None]
         metrics = coverage_metrics(summaries, [row["replicate_id"] for row in declared])
         scenarios[scenario] = metrics
+        available_snr = [row["known_white_noise_transit_snr"] for row in declared if row.get("known_white_noise_transit_snr") is not None]
+        scenario_snr[scenario] = {"mean": float(np.mean(available_snr)) if available_snr else None,
+                                  "minimum": min(available_snr) if available_snr else None,
+                                  "maximum": max(available_snr) if available_snr else None,
+                                  "available_count": len(available_snr), "declared_count": len(declared)}
         for name, parameter in metrics["parameters"].items():
             for level, coverage in parameter["coverage"].items():
                 table.append({"scenario_id": scenario, "parameter": name, "nominal": float(level),
+                              "known_white_noise_transit_snr_mean": scenario_snr[scenario]["mean"],
+                              "known_white_noise_transit_snr_available_count": len(available_snr),
                               **{key: value for key, value in parameter.items() if key != "coverage"}, **coverage})
         for summary in summaries:
             for name, parameter in summary.get("parameters", {}).items():
@@ -194,13 +217,43 @@ def calibration_report(rows: list[dict], output: Path, *, mode: str) -> dict:
                                      "status": summary["status"], "truth": parameter["truth"], "mean": parameter["mean"],
                                      "sd": parameter["sd"], "scientific_gate": summary.get("gates", {}).get("scientific")})
     payload = {"scenarios": scenarios, "mode": mode, "declared_jobs": len(rows),
+               "known_white_noise_transit_snr_by_scenario": scenario_snr,
+               "known_white_noise_transit_snr_definition": "sqrt(sum((truth physical_signal_i - truth baseline)^2 / (supplied normalized_flux_err_i^2 + truth extra_sigma^2))). Post-inference known-design descriptive metric, not a detection significance; ignores stochastic temporal covariance and deterministic systematics. Available only for unablated synthetic inputs with complete signal/error arrays.",
                "claim_limit": "Smoke is engineering only. Final fixed-truth coverage is not SBC. Numeric posteriors include rejected/nonconverged outputs; sampler-conditioned coverage is separately reported. Missing intervals are not measured noncoverage. Expected presampling identity rejections are rejected, not technical failures, with downstream diagnostics unavailable. Zero-jitter boundary truth under a continuous prior need not be inside positive equal-tailed intervals."}
     output.mkdir(parents=True, exist_ok=True)
     _write(output / "calibration.json", payload)
     _table(output / "calibration.csv", table)
     _table(output / "posterior_recovery.csv", recovery, ["scenario_id", "replicate_id", "parameter", "status", "truth", "mean", "sd", "scientific_gate"])
     _calibration_figures(scenarios, recovery, output)
+    _bias_snr_figure(scenarios, scenario_snr, output)
     return payload
+
+
+def _bias_snr_figure(scenarios: dict, scenario_snr: dict, output: Path) -> None:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    fig, axes = plt.subplots(2, 4, figsize=(15, 8), constrained_layout=True)
+    for ax, parameter in zip(axes.flat, PARAMETERS, strict=False):
+        count = 0
+        for name, metrics in scenarios.items():
+            snr, bias = scenario_snr[name]["mean"], metrics["parameters"][parameter]["bias"]
+            if snr is not None and bias is not None:
+                ax.scatter(snr, bias, label=name)
+                count += 1
+        if count:
+            ax.axhline(0, color="black", linewidth=.7)
+        else:
+            ax.text(.5, .5, "UNAVAILABLE\nRequires truth signal + posterior", ha="center", va="center", transform=ax.transAxes, fontsize=8)
+        ax.set(title=parameter, xlabel="Known-white design SNR (not detection significance)", ylabel="Posterior mean bias")
+    axes.flat[-1].axis("off")
+    handles, labels = axes.flat[0].get_legend_handles_labels()
+    if handles:
+        axes.flat[-1].legend(handles, labels, loc="center", fontsize=7)
+    fig.suptitle("Bias versus known-white transit scale; temporal covariance ignored, rejected posteriors retained")
+    fig.savefig(output / "bias_vs_snr.png", dpi=160)
+    plt.close(fig)
 
 
 def _calibration_figures(scenarios: dict, recovery: list[dict], output: Path) -> None:
@@ -325,6 +378,8 @@ def ablation_report(rows: list[dict], output: Path) -> dict:
 def benchmark_report(root: Path, rows: list[dict], output: Path) -> dict:
     """Compare sealed distributions only under matched input/inference contract."""
     payload: dict = {"status": "unavailable", "declared_jobs": len(rows), "reason": "Both sealed benchmark engine results and posterior arrays are required"}
+    local_arrays = external_arrays = predictive = None
+    predictive_reason = "Both sealed predictive summaries and identical input files are required"
     local = next((row for row in rows if row["payload"].get("kind") == "benchmark_local"), None)
     external = next((row for row in rows if row["payload"].get("kind") == "benchmark_external"), None)
     if (local and external and local.get("result") and external.get("result")
@@ -354,10 +409,149 @@ def benchmark_report(root: Path, rows: list[dict], output: Path) -> dict:
                            material_discrepancy_parameters=[name for name, values in comparison["parameters"].items() if values["material_discrepancy_flag"]],
                            claim_limit="Distribution agreement is not proof of correctness; inspect both engines' diagnostics, prior conditioning, Monte Carlo uncertainty and preserved discrepancies.")
             _table(output / "posterior_comparison.csv", [{"parameter": name, **values} for name, values in comparison["parameters"].items()])
+        if all("predictive_summary.csv" in artifacts and "input.csv" in artifacts for artifacts in (local_artifacts, external_artifacts)):
+            try:
+                predictive, mapping = _benchmark_predictive_data(local_dir, external_dir, left["input_sha256"])
+                difference = predictive.external_minus_local_ppm.to_numpy()
+                payload["predictive_comparison"] = {
+                    "status": "compared_descriptively", "row_mapping": mapping,
+                    "max_absolute_mean_difference_ppm": float(np.max(np.abs(difference))),
+                    "rms_mean_difference_ppm": float(np.sqrt(np.mean(difference**2))),
+                    "difference_definition": "1e6 * (external juliet posterior predictive latent mean - local M5 latent mean); not a significance test",
+                }
+                predictive_reason = None
+            except ValueError as exc:
+                predictive_reason = str(exc)
+                payload["validation_errors"] = [f"Predictive comparison invalid: {exc}"]
     if payload["status"] == "unavailable":
         _table(output / "posterior_comparison.csv", [], ["parameter", "status"])
+    if predictive is None:
+        payload["predictive_comparison"] = {"status": "unavailable", "reason": predictive_reason,
+                                            "max_absolute_mean_difference_ppm": None, "rms_mean_difference_ppm": None}
+        _table(output / "predictive_comparison.csv", [], ["input_row_index", "local_posterior_mean", "external_posterior_mean", "external_minus_local_ppm"])
+    else:
+        predictive.to_csv(output / "predictive_comparison.csv", index=False, float_format="%.17g", lineterminator="\n")
+    payload["figures"] = {
+        "posterior_comparison.png": {"status": "available" if local_arrays is not None else "unavailable", "reason": payload.get("reason")},
+        "predictive_comparison.png": {"status": "available" if predictive is not None else "unavailable", "reason": predictive_reason},
+    }
+    _benchmark_figures(output, local_arrays, external_arrays, predictive,
+                       posterior_reason=payload.get("reason"), predictive_reason=predictive_reason,
+                       both_interpretable=payload.get("both_scientifically_interpretable", False))
     _write(output / "benchmark.json", payload)
     return payload
+
+
+def _benchmark_predictive_data(local_dir: Path, external_dir: Path, input_sha256: str):
+    """Map both predictions to exact shared input rows, independently of CSV order.
+
+    Sorting by segment/time supports explicit permutations, never interpolation.
+    Tiny read/write tolerances admit decimal roundoff, not changed observations.
+    """
+    import pandas as pd
+
+    for folder in (local_dir, external_dir):
+        if sha256_file(folder / "input.csv") != input_sha256:
+            raise ValueError("Predictive source input checksum differs from benchmark contract")
+    data = pd.read_csv(local_dir / "input.csv")
+    columns = {"time", "phase", "segment_id", "normalized_flux"}
+    if not columns.issubset(data) or data.empty or data.segment_id.isna().any():
+        raise ValueError("Predictive comparison input is missing required row identities")
+    numeric = data[["time", "phase", "normalized_flux"]].to_numpy(dtype=float)
+    if not np.isfinite(numeric).all():
+        raise ValueError("Nonfinite predictive input identity")
+    data = data.reset_index(drop=True)
+    data["segment_id"] = data.segment_id.astype(str)
+    result = data[["time", "phase", "segment_id"]].copy()
+    result.insert(0, "input_row_index", np.arange(len(data)))
+    result["observed"] = data.normalized_flux
+    mappings = {}
+    time_tolerance_days, flux_tolerance, phase_tolerance_days = 1e-10, 1e-12, 1e-12
+    for engine, folder in (("local", local_dir), ("external", external_dir)):
+        curve = pd.read_csv(folder / "predictive_summary.csv")
+        if not {"time", "phase", "segment_id", "observed", "posterior_mean"}.issubset(curve) or len(curve) != len(data):
+            raise ValueError(f"{engine} predictive row count/columns differ from shared input")
+        if curve.segment_id.isna().any() or not np.isfinite(curve[["time", "phase", "observed", "posterior_mean"]].to_numpy(dtype=float)).all():
+            raise ValueError(f"{engine} predictive rows contain missing identities/nonfinite values")
+        curve["segment_id"] = curve.segment_id.astype(str)
+        if set(curve.segment_id) != set(data.segment_id):
+            raise ValueError(f"{engine} predictive segments differ from shared input")
+        order = np.empty(len(data), dtype=int)
+        for segment in sorted(set(data.segment_id)):
+            input_positions = data.index[data.segment_id == segment].to_numpy()
+            curve_positions = curve.index[curve.segment_id == segment].to_numpy()
+            input_positions = input_positions[np.argsort(data.loc[input_positions, "time"].to_numpy(), kind="stable")]
+            curve_positions = curve_positions[np.argsort(curve.loc[curve_positions, "time"].to_numpy(), kind="stable")]
+            times = data.loc[input_positions, "time"].to_numpy()
+            if len(input_positions) != len(curve_positions) or (np.diff(times) <= 2*time_tolerance_days).any():
+                raise ValueError(f"{engine} predictive row mapping is ambiguous or incomplete")
+            if not np.allclose(times, curve.loc[curve_positions, "time"], rtol=0, atol=time_tolerance_days):
+                raise ValueError(f"{engine} predictive times differ from shared input")
+            order[input_positions] = curve_positions
+        aligned = curve.iloc[order]
+        if not np.allclose(data.phase, aligned.phase, rtol=0, atol=phase_tolerance_days) or not np.allclose(data.normalized_flux, aligned.observed, rtol=0, atol=flux_tolerance):
+            raise ValueError(f"{engine} predictive phase/observed values differ from shared input")
+        result[f"{engine}_posterior_mean"] = aligned.posterior_mean.to_numpy()
+        mappings[engine] = {"reordered": not np.array_equal(order, np.arange(len(data))),
+                            "predictive_row_index_for_input_order": order.tolist()}
+    result["external_minus_local_ppm"] = 1e6 * (result.external_posterior_mean - result.local_posterior_mean)
+    return result, {"method": "Bijective segment/time sort to original input order; no interpolation or row dropping",
+                    "input_sha256": input_sha256, "rows": len(data), "engines": mappings,
+                    "time_roundoff_tolerance_days": time_tolerance_days,
+                    "phase_roundoff_tolerance_days": phase_tolerance_days,
+                    "observed_flux_roundoff_tolerance_fraction": flux_tolerance}
+
+
+def _benchmark_figures(output: Path, local: dict | None, external: dict | None, predictive, *,
+                       posterior_reason: str | None, predictive_reason: str | None,
+                       both_interpretable: bool) -> None:
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    def unavailable(ax, reason: str | None) -> None:
+        ax.axis("off")
+        ax.text(.5, .58, "UNAVAILABLE", ha="center", va="center", fontsize=16, transform=ax.transAxes)
+        ax.text(.5, .42, reason or "Missing sealed evidence; no numerical comparison", ha="center", va="center",
+                fontsize=9, wrap=True, transform=ax.transAxes)
+
+    if local is None or external is None:
+        fig, ax = plt.subplots(figsize=(10, 4), constrained_layout=True)
+        unavailable(ax, posterior_reason)
+    else:
+        units = {"r": "Rp/Rs", "depth": "r squared (geometric fraction)", "b": "impact parameter", "a": "a/Rs",
+                 "t0": "transit center offset (day)", "full_duration": "contact duration (day)", "extra_sigma": "white jitter (relative flux)"}
+        fig, axes = plt.subplots(2, 4, figsize=(15, 8), constrained_layout=True)
+        for ax, name in zip(axes.flat, PARAMETERS, strict=False):
+            for label, arrays, color in (("Local M5", local, "#2466a8"), ("External juliet/dynesty", external, "#c56619")):
+                values = np.sort(np.asarray(arrays[name]).reshape(-1))
+                ax.step(values, np.arange(1, len(values)+1)/len(values), where="post", label=label, color=color)
+            ax.set(title=name, xlabel=units[name], ylabel="Empirical posterior CDF", ylim=(0, 1))
+        axes.flat[-1].axis("off")
+        handles, labels = axes.flat[0].get_legend_handles_labels()
+        axes.flat[-1].legend(handles, labels, loc="center", fontsize=9)
+    fig.suptitle("Posterior distribution comparison — descriptive, not an equivalence test" + ("" if both_interpretable else "\nOne or both results not promotable; diagnostics remain decisive"))
+    fig.savefig(output / "posterior_comparison.png", dpi=160)
+    plt.close(fig)
+    if predictive is None:
+        fig, ax = plt.subplots(figsize=(10, 4), constrained_layout=True)
+        unavailable(ax, predictive_reason)
+    else:
+        fig, axes = plt.subplots(2, 1, figsize=(11, 7), sharex=True, constrained_layout=True)
+        axes[0].scatter(predictive.phase, predictive.observed, color="gray", alpha=.35, s=4, label="Identical observed input")
+        for index, (_, segment) in enumerate(predictive.groupby("segment_id", sort=True)):
+            ordered = segment.sort_values("phase", kind="stable")
+            axes[0].plot(ordered.phase, ordered.local_posterior_mean, color="#2466a8", linewidth=1.2, label="Local M5 mean" if index == 0 else None)
+            axes[0].plot(ordered.phase, ordered.external_posterior_mean, color="#c56619", linestyle="--", linewidth=1.2, label="External juliet/dynesty mean" if index == 0 else None)
+            axes[1].plot(ordered.phase, ordered.external_minus_local_ppm, linewidth=1, label=str(ordered.segment_id.iloc[0]))
+        axes[0].set(ylabel="Relative flux", title="Posterior latent means at the same observations; lines separated by segment")
+        axes[0].legend(fontsize=9)
+        axes[1].axhline(0, color="black", linewidth=.7)
+        axes[1].set(xlabel="Centered phase (day)", ylabel="External minus local mean (ppm)")
+        axes[1].legend(fontsize=7, title="Segment")
+    fig.suptitle("Predictive comparison — exact shared input, explicit row mapping" + ("" if both_interpretable else "\nOne or both results not promotable; small differences do not validate either model"))
+    fig.savefig(output / "predictive_comparison.png", dpi=160)
+    plt.close(fig)
 
 
 def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = None) -> Path:
@@ -409,13 +603,14 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
         try:
             if name in {"PUB-02", "PUB-04"}:
                 summaries[name] = calibration_report(selected, destination, mode=plan["mode"])
-                family_artifacts += [destination / filename for filename in ("calibration.json", "calibration.csv", "posterior_recovery.csv", "coverage.png", "bias.png", "width.png", "recovery.png", "gate_rates.png")]
+                family_artifacts += [destination / filename for filename in ("calibration.json", "calibration.csv", "posterior_recovery.csv", "coverage.png", "bias.png", "bias_vs_snr.png", "width.png", "recovery.png", "gate_rates.png")]
                 if name == "PUB-04":
                     summaries[name]["ablations"] = ablation_report(selected, destination)
                     family_artifacts += [destination / filename for filename in ("ablation.json", "paired_effects.csv", "gate_matrix.csv", "paired_effects.png")]
             elif name == "PUB-03":
                 summaries[name] = benchmark_report(root, selected, destination)
-                family_artifacts += [destination / filename for filename in ("benchmark.json", "posterior_comparison.csv")]
+                generation_errors.extend(summaries[name].get("validation_errors", []))
+                family_artifacts += [destination / filename for filename in ("benchmark.json", "posterior_comparison.csv", "predictive_comparison.csv", "posterior_comparison.png", "predictive_comparison.png")]
             elif name == "PUB-05":
                 from publication.target_reporting import write_target_report
 

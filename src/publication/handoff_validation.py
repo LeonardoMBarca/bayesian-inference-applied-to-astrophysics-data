@@ -48,10 +48,13 @@ def main() -> None:
     plan = build_plan(root, Path(DEFAULT_CONFIG))
     tests_output = (output / "practical_suite.stdout.txt").read_text()
     count = re.findall(r'"tests_run":\s*(\d+)', tests_output)
+    skipped = re.findall(r'"skipped":\s*(\d+)', tests_output)
+    suite_passed = next(item["passed"] for item in checks if item["name"] == "practical_suite")
     payload = {"schema_version": "publication-handoff-validation-v1", "validation_id": args.validation_id,
                "passed": all(item["passed"] for item in checks) and not plan["preflight_errors"],
                "checks": checks, "plan_preflight_errors": plan["preflight_errors"],
-               "practical_tests_passed": int(count[-1]) if count else None,
+               "practical_tests_passed": int(count[-1]) if count and suite_passed else None,
+               "practical_tests_skipped": int(skipped[-1]) if skipped else None,
                "source_checksums": source_identity(root),
                "code_commit": subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"]).decode().strip(),
                "final_scientific_campaign_executed": False,
@@ -85,11 +88,21 @@ def main() -> None:
                      "reports/publication_campaign/tcc_campaign_v1/PUB-04/ablation.json",
                      "reports/publication_campaign/tcc_campaign_v1/PUB-05/aggregate.json"],
                  "claim_rule": "Current engineering/pilots do not establish final coverage, recovery, external agreement or generalization. Future files are required outputs, not existing evidence."}
+    family_outputs = {
+        "PUB-02": ["calibration.csv", "posterior_recovery.csv", "coverage.png", "bias.png", "bias_vs_snr.png", "width.png", "recovery.png", "gate_rates.png"],
+        "PUB-03": ["posterior_comparison.csv", "predictive_comparison.csv", "posterior_comparison.png", "predictive_comparison.png"],
+        "PUB-04": ["calibration.json", "calibration.csv", "posterior_recovery.csv", "coverage.png", "bias.png", "width.png", "recovery.png", "gate_rates.png", "paired_effects.csv", "gate_matrix.csv", "paired_effects.png"],
+        "PUB-05": ["targets.csv", "posterior_intervals.csv", "posterior_intervals.png", "gate_outcomes.png", "regime_precision.png", "REPORT.md"],
+    }
+    inventory["future_user_campaign_outputs"] += [
+        f"reports/publication_campaign/{plan['campaign_id']}/{family}/{filename}"
+        for family, filenames in family_outputs.items() for filename in filenames
+    ]
     inventory_path = root / "docs/publication/TCC_PAPER_SOURCE_INVENTORY.json"
     inventory_path.write_text(json.dumps(inventory, indent=2) + "\n", encoding="utf-8", newline="\n")
     lines = ["# Entrega do runner e estado científico", "",
              f"Validação de infraestrutura: **{'PASS' if payload['passed'] else 'FAIL'}**. Commit testado: `{payload['code_commit']}`.",
-             f"Suíte prática: {payload['practical_tests_passed']} testes aprovados quando disponível; detalhes e stderr preservados em `{(output/'validation.json').relative_to(root).as_posix()}`.",
+             f"Suíte prática: {payload['practical_tests_passed']} testes aprovados, {payload['practical_tests_skipped']} ignorados; um valor nulo significa ausência de confirmação. Detalhes e stderr preservados em `{(output/'validation.json').relative_to(root).as_posix()}`.",
              "", "## Escopo entregue", "",
              "Runner autônomo, protocolos pré-batch, ledger de seeds/IDs, isolamento de tentativas, checkpoint/retomada, limite de CPU/tempo, logs separados, estados e gates distintos, agregação por família, freshness e hashes, tarefas VSCode e operação tmux. Não depende de Codex.",
              f"Campanha final declarada: {len(plan['jobs'])} trabalhos. Estimativa de planejamento: {plan['estimated_total_hours']:.2f} h; teto suave configurado: {plan['resources']['max_campaign_hours']} h. Não é garantia de conclusão.",
@@ -100,13 +113,13 @@ def main() -> None:
               "", "## Evidência já disponível e resultados negativos", "",
               "Baseline científico histórico e 26 artefatos protegidos verificados; 15 entradas FITS disponíveis. Matriz de 24 fontes primárias delimita contribuição como integração e avaliação, sem alegação de prioridade. Benchmark escolhido antes das comparações.",
               "Dois pilotos P2 de sizing fizeram sampling e falharam na etapa ArviZ; traces/falhas preservados. O primeiro smoke externo revelou seed ignorada pela ponte juliet/dynesty: corrigido sem alterar priors/likelihood. Dois pilotos corrigidos repetiram o hash canônico, mas foram rejeitados pelo orçamento intencionalmente insuficiente. Isso não prova concordância posterior final.",
-              "Smoke runner v2: cinco trabalhos, seis tentativas; três fixtures concluídas e duas rejeições (uma física com20draws). Uma falha técnica anterior ao retry permanece. Stop/resume e nova chamada não duplicaram concluídos. Nenhum fixture/piloto é promovido a conclusão científica. Smoke v1 interrompido permanece auditável.",
+              "Smoke runner v2: cinco trabalhos, seis tentativas; três fixtures concluídas e duas rejeições (uma física com 20 draws). Uma falha técnica anterior ao retry permanece. Stop/resume e nova chamada não duplicaram concluídos. Nenhum fixture/piloto é promovido a conclusão científica. Smoke v1 interrompido permanece auditável.",
               "", "## Perguntas ainda abertas", "",
-              "Coverage/bias finais, compatibilidade independente, efeitos de ablations e generalização multi-alvo aguardam a execução do usuário. Intervalos de coverage terão precisão limitada com20replicações. P4 tem3pares: efeitos descritivos, não taxas de erro precisas. Não foi demonstrado ainda um caso final sampler-converged/scientifically-invalid.",
+              "Coverage/bias finais, compatibilidade independente, efeitos de ablations e generalização multi-alvo aguardam a execução do usuário. Intervalos de coverage terão precisão limitada com 20 replicações. P4 tem 3 pares: efeitos descritivos, não taxas de erro precisas. Não foi demonstrado ainda um caso final sampler-converged/scientifically-invalid.",
               "M5 usa jitter branco independente. OU exploratório e M6/GP foram adiados por prazo; não há alegação de tratamento de ruído correlacionado. Normalização P2 é exata e conhecida; P4/P5 estimam medianas e não propagam toda essa incerteza. Período/catálogos condicionam análise observacional, portanto comparação de catálogo não é validação independente. Diagnósticos temporais após thinning não excluem correlação na cadência nativa.",
               "", "## Auditoria e reprodutibilidade", "",
               "Testes incluem truth leakage, determinismo, identidade de dataset, falhas preservadas, denominadores, mapping externo, gates, corrupção, processo órfão, budget, isolamento e freshness. Preflight verifica ambientes e fontes antes do P2. A revisão hostil corrigiu inconsistência de dataset embutido, RNG externo, códigos exatos de controle e subprocesso não-zero, entre outros. Nenhum threshold foi afrouxado para salvar observações.",
-              "A release científica completa permanece INCOMPLETA. Ainda não houve clean-room de todos os117resultados, arquivamento público integral de traces nem DOI. As fixtures clean-room/testes de infraestrutura não substituem isso. `publication/release_audit.json` não é autorização para publicação.",
+              "A release científica completa permanece INCOMPLETA. Ainda não houve clean-room de todos os 117 resultados, arquivamento público integral de traces nem DOI. As fixtures clean-room/testes de infraestrutura não substituem isso. `publication/release_audit.json` não é autorização para publicação.",
               "", "## Operação e fontes para TCC/paper", "", "```sh",
               "python scripts/run_publication_campaign.py --dry-run", "python scripts/run_publication_campaign.py --resume",
               "python scripts/run_publication_campaign.py --status", "python scripts/run_publication_campaign.py --stop",

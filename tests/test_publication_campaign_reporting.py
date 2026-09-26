@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from publication.campaign_reporting import (  # noqa: E402
+    _known_white_noise_snr,
     ablation_report,
     aggregate_campaign,
     benchmark_report,
@@ -29,6 +30,41 @@ def dump(path: Path, payload: dict) -> None:
 
 
 class PublicationCampaignReportingTests(unittest.TestCase):
+    def benchmark_fixture(self, root: Path) -> list[dict]:
+        import numpy as np
+        import pandas as pd
+        import xarray as xr
+
+        phase = np.linspace(-.1, .1, 12)
+        latent = 1 - .001 * np.exp(-(phase/.03)**2)
+        data = pd.DataFrame({"phase": phase, "time": 100 + np.arange(12)*.001,
+                             "segment_id": ["first"] * 6 + ["second"] * 6,
+                             "normalized_flux": latent + .00001 * np.sin(np.arange(12)),
+                             "normalized_flux_err": .0001, "exposure_time_seconds": 60.})
+        samples = {name: np.linspace(value*.9, value*1.1, 20) for name, value in
+                   {"r": .1, "depth": .01, "b": .4, "a": 8., "t0": .001, "full_duration": .08, "extra_sigma": .0001}.items()}
+        rows = []
+        for engine in ("local", "external"):
+            path = root / engine
+            path.mkdir()
+            data.to_csv(path / "input.csv", index=False, float_format="%.17g")
+            digest = sha256_file(path / "input.csv")
+            dump(path / "inference_config.json", {"period_days": 1., "oversample": 15})
+            curve = data[["time", "phase", "segment_id"]].copy()
+            curve["observed"] = data.normalized_flux
+            curve["posterior_mean"] = latent if engine == "local" else latent + 3e-6 + phase*2e-6
+            if engine == "external":
+                curve = curve.iloc[::-1]
+            curve.to_csv(path / "predictive_summary.csv", index=False)
+            if engine == "local":
+                xr.Dataset({name: (("chain", "draw"), values.reshape(2, 10)) for name, values in samples.items()}).to_netcdf(path / "trace.nc", group="posterior", engine="h5netcdf")
+            else:
+                np.savez_compressed(path / "posterior_samples.npz", **{name: values*1.01 for name, values in samples.items()})
+            rows.append({"payload": {"kind": f"benchmark_{engine}"}, "result": {"status": "rejected", "dataset_id": "fixture", "input_sha256": digest},
+                         "scientifically_interpretable": False, "authoritative_attempt_dir": engine,
+                         "completion": {"artifacts": {p.name: sha256_file(p) for p in path.iterdir()}}})
+        return rows
+
     def fixture(self, root: Path) -> tuple[dict, dict]:
         jobs = []
         for replicate in range(4):
@@ -172,6 +208,82 @@ class PublicationCampaignReportingTests(unittest.TestCase):
             report = benchmark_report(root, rows, root)
             self.assertEqual(report["status"], "unavailable")
             self.assertNotIn("comparison", report)
+            self.assertEqual(report["predictive_comparison"]["status"], "unavailable")
+            self.assertIsNone(report["predictive_comparison"]["rms_mean_difference_ppm"])
+            for filename in ("posterior_comparison.png", "predictive_comparison.png"):
+                self.assertEqual(report["figures"][filename]["status"], "unavailable")
+                self.assertGreater((root / filename).stat().st_size, 5000)
+
+    def test_benchmark_figures_and_predictive_rows_map_to_original_input(self) -> None:
+        import numpy as np
+        import pandas as pd
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            rows = self.benchmark_fixture(root)
+            report = benchmark_report(root, rows, root)
+            self.assertEqual(report["status"], "compared_descriptively")
+            self.assertFalse(report["both_scientifically_interpretable"])
+            self.assertEqual(report["predictive_comparison"]["status"], "compared_descriptively")
+            self.assertTrue(report["predictive_comparison"]["row_mapping"]["engines"]["external"]["reordered"])
+            self.assertFalse(report["predictive_comparison"]["row_mapping"]["engines"]["local"]["reordered"])
+            table = pd.read_csv(root / "predictive_comparison.csv")
+            np.testing.assert_allclose(table.external_minus_local_ppm, 3 + table.phase*2, rtol=0, atol=1e-8)
+            np.testing.assert_array_equal(table.input_row_index, np.arange(12))
+            for filename in ("posterior_comparison.png", "predictive_comparison.png"):
+                self.assertEqual(report["figures"][filename]["status"], "available")
+                self.assertGreater((root / filename).stat().st_size, 10000)
+
+    def test_predictive_identity_mismatch_is_unavailable_not_zero_disagreement(self) -> None:
+        import pandas as pd
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            rows = self.benchmark_fixture(root)
+            curve_path = root / "external/predictive_summary.csv"
+            curve = pd.read_csv(curve_path)
+            curve.loc[0, "observed"] += .001
+            curve.to_csv(curve_path, index=False)
+            report = benchmark_report(root, rows, root)
+            self.assertEqual(report["predictive_comparison"]["status"], "unavailable")
+            self.assertIn("phase/observed", report["validation_errors"][0])
+            self.assertIsNone(report["predictive_comparison"]["rms_mean_difference_ppm"])
+            self.assertEqual(report["figures"]["predictive_comparison.png"]["status"], "unavailable")
+
+    def test_missing_benchmark_figures_are_bound_by_campaign_manifest(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            plan, state = self.fixture(root)
+            for index, job in enumerate(plan["jobs"]):
+                job["experiment_id"] = "PUB-03"
+                job["payload"] = {"kind": "benchmark_local" if index == 0 else "benchmark_external"}
+            plan["jobs"] = plan["jobs"][:2]
+            state["jobs"] = {job["job_id"]: {**job, "status": "PLANNED", "attempts": []} for job in plan["jobs"]}
+            dump(root / "artifacts/publication_campaign/report_fixture/campaign_state.json", state)
+            with patch("publication.campaign_reporting.build_plan", return_value=plan):
+                output = aggregate_campaign(root, Path("config.json"))
+            manifest = json.loads((output / "artifact_manifest.json").read_text())
+            for filename in ("posterior_comparison.png", "predictive_comparison.png", "predictive_comparison.csv"):
+                relative = "PUB-03/" + filename
+                self.assertEqual(manifest["artifacts"][relative], sha256_file(output / relative))
+            validate_campaign_report(root, output)
+
+    def test_known_white_snr_is_posthoc_scaled_and_excludes_correlated_variance(self) -> None:
+        import math
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "input.csv"
+            path.write_text("normalized_flux_err\n0.003\n0.004\n", encoding="utf-8")
+            truth = {"truth": {"baseline": 1., "extra_sigma": .004},
+                     "components": {"physical_signal": [.99, .98], "correlated_noise": [10., -10.]}}
+            expected = math.sqrt(.01**2/(.003**2+.004**2) + .02**2/(.004**2+.004**2))
+            self.assertAlmostEqual(_known_white_noise_snr(path, truth), expected)
+            truth["components"]["correlated_noise"] = [0., 0.]
+            self.assertAlmostEqual(_known_white_noise_snr(path, truth), expected)
+            truth["components"]["physical_signal"] = [.99]
+            with self.assertRaisesRegex(ValueError, "signal/error arrays"):
+                _known_white_noise_snr(path, truth)
 
     def test_incomplete_ablation_pairs_are_unavailable_not_zero(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
