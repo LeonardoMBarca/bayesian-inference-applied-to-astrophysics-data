@@ -2,6 +2,7 @@
 
 import copy
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -11,7 +12,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from publication.campaign_plan import build_plan, freeze_plan, seed, source_identity  # noqa: E402
+from publication.campaign_plan import build_plan, freeze_plan, seed, source_identity, uncommitted_sources  # noqa: E402
 from publication.campaign_worker import (  # noqa: E402
     accept_child_result,
     classify_result,
@@ -21,6 +22,21 @@ from publication.campaign_worker import (  # noqa: E402
 
 
 class CampaignPlanTests(unittest.TestCase):
+    def test_source_git_blob_identity_detects_modified_untracked_and_deleted_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "src").mkdir()
+            source = root / "src/model.py"
+            source.write_bytes(b"answer = 42\n")
+            for command in (["init", "-q"], ["add", "src/model.py"],
+                            ["-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "commit", "-qm", "fixture"]):
+                subprocess.run(["git", "-C", str(root), *command], check=True, capture_output=True)
+            self.assertEqual(uncommitted_sources(root, source_identity(root)), [])
+            source.write_bytes(b"answer = 43\n")
+            self.assertEqual(uncommitted_sources(root, source_identity(root)), ["src/model.py"])
+            source.unlink()
+            (root / "src/new.py").write_bytes(b"new = True\n")
+            self.assertEqual(uncommitted_sources(root, source_identity(root)), ["src/model.py", "src/new.py"])
     def test_nonzero_child_cannot_promote_a_written_posterior(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)

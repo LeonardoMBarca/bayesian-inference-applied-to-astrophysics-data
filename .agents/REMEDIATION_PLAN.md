@@ -4,6 +4,14 @@ This is the persistent backlog for Codex. Do not mark an item `DONE` until its a
 
 Status: `TODO`, `IN_PROGRESS`, `BLOCKED`, `DONE`.
 
+Publication-cycle note (2026-09-26): the validated hardening baseline below
+remains protected. New publication engineering is isolated on
+`publication-grade-validation`; see `.agents/PUBLICATION_PLAN.md` and
+`reports/PUBLICATION_CAMPAIGN_HANDOFF.md`. The latest user scope requests an
+autonomous validated runner, not agent execution of final scientific batches.
+Research outcomes remain pending; runner implementation is not a new claim of
+calibration, external agreement, generalization or full-paper reproducibility.
+
 ## P0 — Scientific/provenance correctness
 
 ### P0.1 — Make M5 target-safe

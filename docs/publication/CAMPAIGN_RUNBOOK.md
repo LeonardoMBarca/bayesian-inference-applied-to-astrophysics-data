@@ -76,6 +76,13 @@ computador. Após reboot, abra WSL/tmux novamente e use `--resume`.
 Fontes operacionais: [manual introdutório oficial do tmux](https://github.com/tmux/tmux/wiki/Getting-Started)
 e [comandos oficiais WSL](https://learn.microsoft.com/en-us/windows/wsl/basic-commands).
 
+A identidade de código compara os arquivos Python com os blobs commitados,
+sem varrer o grande índice RAW do WSL. Referências técnicas:
+[git-ls-tree](https://git-scm.com/docs/git-ls-tree) e
+[formato dos objetos Git](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
+O ledger usa SHA-256 dos arquivos; o hash do blob Git é uma verificação adicional,
+não uma substituição dos checksums científicos.
+
 ## 5. Progresso
 
 ```sh

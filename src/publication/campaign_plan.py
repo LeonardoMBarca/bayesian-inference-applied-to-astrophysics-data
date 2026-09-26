@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import re
 import subprocess
@@ -38,6 +39,36 @@ def source_identity(root: Path) -> dict:
     paths = list((root / "src").rglob("*.py"))
     paths += list((root / "scripts").glob("*.py"))
     return {path.relative_to(root).as_posix(): sha256_file(path) for path in sorted(set(paths)) if path.is_file()}
+
+
+def uncommitted_sources(root: Path, sources: dict) -> list[str]:
+    """Compare actual source bytes to HEAD blobs without refreshing the huge RAW index.
+
+    Sources are LF-normalized by .gitattributes. Git's object hash binds the
+    canonical blob header plus file bytes; the release ledger separately uses
+    SHA-256 file hashes. Both SHA-1 and SHA-256 Git object formats are supported.
+    """
+    records = subprocess.check_output(["git", "-C", str(root), "ls-tree", "-rz", "HEAD", "--", "src", "scripts"])
+    committed = {}
+    for record in records.split(b"\0"):
+        if record:
+            metadata, path = record.split(b"\t", 1)
+            _, kind, digest = metadata.split()
+            if kind == b"blob":
+                committed[path.decode("utf-8")] = digest.decode("ascii")
+    changed = []
+    for path in sources:
+        expected = committed.get(path)
+        if expected is None:
+            changed.append(path)
+            continue
+        content = (root / path).read_bytes()
+        algorithm = "sha1" if len(expected) == 40 else "sha256"
+        actual = hashlib.new(algorithm, b"blob " + str(len(content)).encode() + b"\0" + content).hexdigest()
+        if actual != expected:
+            changed.append(path)
+    changed.extend(path for path in committed if path.endswith(".py") and path not in sources)
+    return sorted(changed)
 
 
 def build_plan(root: Path, config_path: Path) -> dict:
@@ -150,10 +181,9 @@ def build_plan(root: Path, config_path: Path) -> dict:
     frozen = root / frozen_path
     if mode == "final":
         try:
-            if subprocess.run(["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", "src", "scripts"], check=False).returncode:
-                errors.append("Scientific source edits are not committed")
-            if subprocess.check_output(["git", "-C", str(root), "ls-files", "--others", "--exclude-standard", "--", "src", "scripts"]).strip():
-                errors.append("Untracked source files must be reviewed and committed before final execution")
+            current_sources = source_identity(root)
+            if changed := uncommitted_sources(root, current_sources):
+                errors.append("Scientific sources differ from committed HEAD: " + ", ".join(changed))
             stored = read_json(frozen)
             if stored["scientific_config_sha256"] != digest:
                 errors.append("Scientific config/protocol changed: prepare and commit a NEW campaign identity; never modify an active campaign")
@@ -161,7 +191,6 @@ def build_plan(root: Path, config_path: Path) -> dict:
             expected_jobs = [{key: job[key] for key in ("job_id", "experiment_id", "scenario_id", "replicate_id", "run_id", "seeds", "payload")} for job in jobs]
             if stored["declared_jobs"] != expected_jobs:
                 errors.append("Declared jobs/seeds differ from the frozen plan")
-            current_sources = source_identity(root)
             if stored["source_checksums"] != current_sources:
                 errors.append("Scientific campaign source differs from frozen tested source; prepare a new audited freeze before execution")
             if subprocess.check_output(["git", "-C", str(root), "show", f"HEAD:{frozen_path}"]) != frozen.read_bytes():
