@@ -30,9 +30,9 @@ Never convert a failed/rejected run to `COMPLETED` by editing its historical art
 
 | ID | Family | Core question | Protocol | Status | Final evidence |
 |---|---|---|---|---|---|
-| PUB-00 | baseline freeze | Can the validated TCC baseline be cryptographically and semantically frozen? | to create | PLANNED | — |
-| PUB-01 | novelty/literature map | What is genuinely new relative to published tools/workflows? | to create | PLANNED | — |
-| PUB-02 | injection–recovery calibration | Does the workflow recover known truths with calibrated uncertainty? | to create | PLANNED | — |
+| PUB-00 | baseline freeze | Can the validated TCC baseline be cryptographically and semantically frozen? | `publication/baseline/README.md` (identity-verification contract, not a scientific batch) | COMPLETED | 26 artifacts verified; 12 contract tests; `publication/baseline/VALIDATION.md`; commit `06003cf` |
+| PUB-01 | novelty/literature map | What is genuinely new relative to published tools/workflows? | `docs/publication/NOVELTY_MATRIX.json` search scope | COMPLETED | 24 primary-source records; scoped integration/evaluation positioning, not priority proof |
+| PUB-02 | injection–recovery calibration | Does the workflow recover known truths with calibrated uncertainty? | `publication/protocols/PUB-02-pilot.json` (pilot only; final protocol pending) | PILOT | Physical simulator and full-denominator metrics tested; pilot failures preserved; no final calibration claim |
 | PUB-03 | independent benchmark | Does an independent published implementation obtain compatible inference? | to create | PLANNED | — |
 | PUB-04 | ablations/failure gates | Which design choices matter and do gates reject invalid cases? | to create | PLANNED | — |
 | PUB-05 | multi-target validation | Across which real observational regimes does the workflow succeed/fail? | to create | PLANNED | — |

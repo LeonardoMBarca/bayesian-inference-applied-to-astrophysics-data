@@ -1,0 +1,38 @@
+{
+  "experiment_id": "PUB-02",
+  "protocol_version": "pilot-1",
+  "protocol_status": "PILOT",
+  "purpose": "Debug physical simulation/inference wiring and estimate CPU cost; not final calibration evidence.",
+  "inclusion": "Both declared scenarios, one realization each; preserve every attempt and do not promote to final evidence.",
+  "scenarios": [
+    {
+      "scenario_id": "deep_short",
+      "truth": {"r": 0.10, "b": 0.3, "a": 5.0, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0002},
+      "design": {"window_days": 0.12, "cadence_seconds": 180, "exposure_time_seconds": 120, "measurement_sigma": 0.001, "segments": 2, "transits_per_segment": 1, "oversample": 31}
+    },
+    {
+      "scenario_id": "shallow_short",
+      "truth": {"r": 0.014, "b": 0.45, "a": 3.3, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0001},
+      "design": {"window_days": 0.15, "cadence_seconds": 120, "exposure_time_seconds": 60, "measurement_sigma": 0.00015, "segments": 2, "transits_per_segment": 1, "oversample": 31}
+    }
+  ],
+  "inference": {
+    "period_days": 1.0,
+    "known_design_assumptions": "Only period, time convention, exposure and supplied uncertainties are known; no injected fitted parameter sets an inference prior.",
+    "radius_prior_median": 0.04,
+    "radius_prior_log_sigma": 0.9,
+    "baseline_prior_sigma": 0.02,
+    "t0_prior_sigma_days": 0.025,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "oversample": 15,
+    "preprocessing_status": "segment_normalized",
+    "sampling": {"draws": 500, "tune": 500, "chains": 4, "cores": 4, "target_accept": 0.95}
+  },
+  "seed_policy": "SHA-256 stable identities with separate simulation/inference/predictive streams",
+  "metrics": ["wall_seconds", "sampler_diagnostics", "runtime_errors"],
+  "interpretation": "Implementation feasibility only. No calibration or astrophysical claim.",
+  "amendments": []
+}

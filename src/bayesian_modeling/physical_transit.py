@@ -41,6 +41,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from bayesian_modeling.contracts import (  # noqa: E402
     M5Paths,
     PriorProfile,
+    TransitModelOptions,
     build_m5_paths,
     evaluate_interpretation_gate,
     get_prior_profile,
@@ -297,8 +298,11 @@ def build_model(
     phase_grid: np.ndarray,
     target: TargetConfig,
     prior_profile: PriorProfile | None = None,
+    *,
+    options: TransitModelOptions | None = None,
 ) -> pm.Model:
     selected_profile = prior_profile or get_prior_profile("baseline")
+    options = options or TransitModelOptions()
     phase = prepared["phase"].to_numpy(dtype=float)
     observed = prepared["normalized_flux"].to_numpy(dtype=float)
     sigma_observed = prepared["normalized_flux_err"].to_numpy(dtype=float)
@@ -307,16 +311,21 @@ def build_model(
     coords = {"observation": np.arange(len(prepared)), "grid": np.arange(len(phase_grid))}
 
     with pm.Model(coords=coords) as model:
-        baseline = pm.Normal("baseline", mu=1.0, sigma=0.02)
-        radius_ratio = pm.LogNormal(
-            "r",
-            mu=np.log(target.reference_radius_ratio_from_depth),
-            sigma=selected_profile.radius_ratio_log_sigma,
-        )
+        if options.mutable_observations:
+            observed = pm.Data("observed_flux", observed, dims="observation")
+        baseline = pm.Normal("baseline", mu=1.0, sigma=options.baseline_prior_sigma)
+        if options.radius_prior_uniform is not None:
+            radius_ratio = pm.Uniform("r", lower=options.radius_prior_uniform[0], upper=options.radius_prior_uniform[1])
+        else:
+            radius_ratio = pm.LogNormal(
+                "r",
+                mu=np.log(options.radius_prior_median or target.reference_radius_ratio_from_depth),
+                sigma=selected_profile.radius_ratio_log_sigma,
+            )
         impact_parameter = pm.Uniform("b", lower=0.0, upper=1.0)
         scaled_semimajor_axis = pm.Uniform("a", lower=2.0, upper=50.0)
         transit_center = pm.Normal(
-            "t0", mu=0.0, sigma=target.transit_duration_days / 4.0
+            "t0", mu=0.0, sigma=options.transit_center_prior_sigma_days or target.transit_duration_days / 4.0
         )
         # Kipping's triangular parameterization: uniform q1/q2 maps to the
         # physically allowed quadratic limb-darkening region.
@@ -341,7 +350,7 @@ def build_model(
                 orbit=orbit,
                 r=radius_ratio,
                 t=phase,
-                texp=exposure_days,
+                texp=exposure_days if options.integrate_exposure else None,
                 oversample=target.exposure_oversample,
             ).flatten(),
             dims="observation",
@@ -353,14 +362,14 @@ def build_model(
                 orbit=orbit,
                 r=radius_ratio,
                 t=phase_grid,
-                texp=grid_exposure_days,
+                texp=grid_exposure_days if options.integrate_exposure else None,
                 oversample=target.exposure_oversample,
             ).flatten(),
             dims="grid",
         )
-        extra_sigma = pm.HalfNormal(
-            "extra_sigma",
-            sigma=jitter_prior_scale(float(np.median(sigma_observed)), selected_profile),
+        extra_sigma = (
+            pm.HalfNormal("extra_sigma", sigma=jitter_prior_scale(float(np.median(sigma_observed)), selected_profile))
+            if options.infer_jitter else pm.Deterministic("extra_sigma", pt.as_tensor_variable(0.0))
         )
         sigma_effective = pm.math.sqrt(sigma_observed**2 + extra_sigma**2)
         pm.Normal(
@@ -1201,6 +1210,12 @@ def run_m5(
 
     target = get_target(target_slug)
     paths = build_paths(target, run_id, project_root)
+    # An existing attempt is evidence, even if interrupted or rejected. Never
+    # erase it while starting another attempt under the same identity.
+    for output in (paths.model_dir, paths.table_dir, paths.figure_dir, paths.report_path):
+        if output.exists():
+            raise FileExistsError(f"Refusing to overwrite existing M5 output: {output}")
+    paths.model_dir.mkdir(parents=True, exist_ok=False)
     ensure_directories(paths)
     status_path = paths.model_dir / "run_status.json"
     started_at = utc_now()

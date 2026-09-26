@@ -20,6 +20,35 @@ class PriorProfile:
     purpose: str
 
 
+@dataclass(frozen=True, slots=True)
+class TransitModelOptions:
+    """Explicit publication interventions; defaults preserve historical M5.
+
+    This object never contains ground truth. Publication protocols serialize it
+    alongside the complete prior specification, rather than relabeling M5 runs.
+    """
+
+    radius_prior_median: float | None = None
+    radius_prior_uniform: tuple[float, float] | None = None
+    baseline_prior_sigma: float = 0.02
+    transit_center_prior_sigma_days: float | None = None
+    infer_jitter: bool = True
+    integrate_exposure: bool = True
+    mutable_observations: bool = False
+
+    def __post_init__(self) -> None:
+        if self.radius_prior_median is not None and self.radius_prior_median <= 0:
+            raise ValueError("radius prior median must be positive")
+        if self.baseline_prior_sigma <= 0:
+            raise ValueError("baseline prior scale must be positive")
+        if self.transit_center_prior_sigma_days is not None and self.transit_center_prior_sigma_days <= 0:
+            raise ValueError("transit-center prior scale must be positive")
+        if self.radius_prior_uniform is not None:
+            low, high = self.radius_prior_uniform
+            if not 0 < low < high < 1 or self.radius_prior_median is not None:
+                raise ValueError("invalid or conflicting radius prior")
+
+
 PRIOR_PROFILES: dict[str, PriorProfile] = {
     "catalog_tighter": PriorProfile(
         name="catalog_tighter",
