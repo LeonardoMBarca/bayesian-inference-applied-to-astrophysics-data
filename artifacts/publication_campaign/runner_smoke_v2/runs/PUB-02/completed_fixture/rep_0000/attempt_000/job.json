@@ -1,0 +1,30 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/runner_smoke_v2.json",
+    "--job-id",
+    "PUB-02__completed_fixture__rep_0000"
+  ],
+  "cores": 1,
+  "estimated_seconds": 30,
+  "experiment_id": "PUB-02",
+  "job_id": "PUB-02__completed_fixture__rep_0000",
+  "max_technical_retries": 1,
+  "output_dir": "artifacts/publication_campaign/runner_smoke_v2/runs/PUB-02/completed_fixture/rep_0000",
+  "payload": {
+    "action": "completed",
+    "kind": "fixture",
+    "scenario_id": "completed_fixture"
+  },
+  "replicate_id": "rep_0000",
+  "run_id": "runner_smoke_v2__PUB-02__completed_fixture__rep_0000",
+  "scenario_id": "completed_fixture",
+  "seeds": {
+    "generation": 1042961772,
+    "inference": 937657516,
+    "predictive": 4169349848,
+    "resampling": 493114827
+  }
+}

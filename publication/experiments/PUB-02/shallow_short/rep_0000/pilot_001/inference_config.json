@@ -1,0 +1,26 @@
+{
+  "baseline_prior_sigma": 0.02,
+  "dataset_id": "synthetic-38d05b0cd0507db651e6",
+  "expected_dataset_id": "synthetic-38d05b0cd0507db651e6",
+  "infer_jitter": true,
+  "inference_seed": 4217233196,
+  "input_sha256": "38d05b0cd0507db651e607a9370f9b0cb25b1c44ddb80f10213b3549874521b1",
+  "integrate_exposure": true,
+  "jitter_error_multiplier": 5.0,
+  "jitter_floor_fraction": 0.0005,
+  "known_design_assumptions": "Only period, time convention, exposure and supplied uncertainties are known; no injected fitted parameter sets an inference prior.",
+  "oversample": 15,
+  "period_days": 1.0,
+  "predictive_seed": 1776483908,
+  "preprocessing_status": "segment_normalized",
+  "radius_prior_log_sigma": 0.9,
+  "radius_prior_median": 0.04,
+  "sampling": {
+    "chains": 4,
+    "cores": 4,
+    "draws": 500,
+    "target_accept": 0.95,
+    "tune": 500
+  },
+  "t0_prior_sigma_days": 0.025
+}

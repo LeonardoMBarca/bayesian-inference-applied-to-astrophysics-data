@@ -1,0 +1,106 @@
+{
+  "experiment_id": "PUB-02",
+  "protocol_version": "draft-1",
+  "protocol_status": "DRAFT",
+  "question": "Under which fixed-truth transit/noise regimes does the shared physical workflow recover parameters and deliver nominal equal-tailed interval coverage?",
+  "hypothesis": "Supported white-noise regimes may exhibit coverage compatible with nominal levels within finite-replication precision; weak identification and correlated misspecification may cause biased or uncalibrated posteriors despite numerical convergence.",
+  "replicates_per_scenario": 100,
+  "total_declared_final_attempts": 600,
+  "replication_precision": "At n=100, binomial SE at p=.50/.80/.94 is .050/.040/.0237, before failed numerical attempts. Report Wilson95; no perfect-calibration claim from an interval covering nominal. Final sizing awaits pilot runtime and any user compute constraint.",
+  "pilot_exclusion": "All pilot_* attempts excluded from final claims and final coverage denominators. Debugging/timing only, all retained.",
+  "scenario_selection": "Predefined regime grid, not a factorial causal experiment: depth, SNR, cadence, impact and jitter vary jointly. Controlled causal comparisons belong to PUB-04. OU cases share shallow white truth/design except correlated stochastic perturbation.",
+  "scenarios": [
+    {
+      "scenario_id": "deep_short",
+      "regime": "deep high-SNR, short exposure",
+      "truth": {"r": 0.10, "b": 0.3, "a": 5.0, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0002},
+      "design": {"window_days": 0.12, "cadence_seconds": 180, "exposure_time_seconds": 120, "measurement_sigma": 0.001, "segments": 2, "transits_per_segment": 1, "oversample": 31}
+    },
+    {
+      "scenario_id": "intermediate_long",
+      "regime": "intermediate depth, integration-sensitive, higher impact",
+      "truth": {"r": 0.04, "b": 0.75, "a": 7.0, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0003},
+      "design": {"window_days": 0.15, "cadence_seconds": 1800, "exposure_time_seconds": 1765.46, "measurement_sigma": 0.0003, "segments": 2, "transits_per_segment": 4, "oversample": 31}
+    },
+    {
+      "scenario_id": "shallow_short",
+      "regime": "Kepler-10-like shallow radius scale; not identical observational cadence/selection",
+      "truth": {"r": 0.014, "b": 0.45, "a": 3.3, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0001},
+      "design": {"window_days": 0.15, "cadence_seconds": 120, "exposure_time_seconds": 60, "measurement_sigma": 0.00015, "segments": 2, "transits_per_segment": 1, "oversample": 31}
+    },
+    {
+      "scenario_id": "near_limit_long",
+      "regime": "near/below useful detection SNR, high impact, long cadence, extra white noise",
+      "truth": {"r": 0.010, "b": 0.9, "a": 3.3, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0003},
+      "design": {"window_days": 0.15, "cadence_seconds": 1800, "exposure_time_seconds": 1765.46, "measurement_sigma": 0.0006, "segments": 2, "transits_per_segment": 4, "oversample": 31}
+    },
+    {
+      "scenario_id": "shallow_ou_weak",
+      "regime": "shallow transit, weak stationary temporal correlation; M5 misspecified",
+      "truth": {"r": 0.014, "b": 0.45, "a": 3.3, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0001},
+      "design": {"window_days": 0.15, "cadence_seconds": 120, "exposure_time_seconds": 60, "measurement_sigma": 0.00015, "segments": 2, "transits_per_segment": 1, "oversample": 31, "noise": {"kind": "ou", "amplitude_fraction": 0.00005, "timescale_days": 0.02}}
+    },
+    {
+      "scenario_id": "shallow_ou_strong",
+      "regime": "shallow transit, strong stationary temporal correlation; M5 misspecified",
+      "truth": {"r": 0.014, "b": 0.45, "a": 3.3, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0001},
+      "design": {"window_days": 0.15, "cadence_seconds": 120, "exposure_time_seconds": 60, "measurement_sigma": 0.00015, "segments": 2, "transits_per_segment": 1, "oversample": 31, "noise": {"kind": "ou", "amplitude_fraction": 0.0002, "timescale_days": 0.02}}
+    }
+  ],
+  "generative_model": {
+    "physical": "Circular orbit, quadratic limb darkening, exposure-integrated exoplanet primitive with 31 midpoint quadrature nodes",
+    "measurement": "Independent Gaussian known heteroscedastic sigma_i: linear .8-to-1.2 times scenario scale per segment",
+    "jitter": "Independent additional zero-mean Gaussian with declared true SD",
+    "correlation": "OU within each segment: covariance amplitude^2 exp(-abs(delta_t)/timescale); gaps evolve over real elapsed time, segments independent",
+    "normalization": "Known calibration in core simulations; no claim of empirical Gold normalization validation from P2 alone",
+    "anti_circularity": "Shared physical primitive explicitly acknowledged. Analytic tests and independent batman forward checks required before final; PUB03 supplies independent posterior implementation evidence. No inference process opens truth.json."
+  },
+  "inference": {
+    "period_days": 1.0,
+    "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+    "radius_prior_median": 0.04,
+    "radius_prior_log_sigma": 0.9,
+    "baseline_prior_sigma": 0.02,
+    "t0_prior_sigma_days": 0.025,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "oversample": 15,
+    "preprocessing_status": "segment_normalized",
+    "sampling": {"draws": 1000, "tune": 1000, "chains": 4, "cores": 4, "target_accept": 0.95, "linker": "cvm"}
+  },
+  "inference_assumptions": {
+    "model_version": "M5-publication-v1",
+    "likelihood": "Independent Gaussian(mu_transit + baseline, sqrt(measured_sigma_i^2 + extra_sigma^2)); no temporal covariance",
+    "orbit": "circular, period fixed; a/Rs Uniform(2,50), b Uniform(0,1), so grazing b>1 is outside supported prior domain",
+    "limb_darkening": "q1,q2 independently Uniform(0,1), Kipping transform",
+    "radius": "LogNormal(log(.04), .9), same population-scale reference for ALL scenarios, not truth-matched",
+    "baseline": "Normal(1,.02) normalized flux",
+    "t0": "Normal(0,.025) days, same across all scenarios",
+    "jitter": "HalfNormal(max(5 median(measured_sigma), .0005)) normalized flux; data-scale rule declared, not truth-informed",
+    "sampler": "PyMC NUTS, jitter+adapt_diag, one attempt per identity, no automatic retries or alternative seeds",
+    "derived": "depth=r^2 geometric; T14=P/pi asin(sqrt(((1+r)^2-b^2)/(a^2-b^2))) in days"
+  },
+  "seed_policy": "First four big-endian SHA-256 bytes of canonical JSON ['publication-seed-v1',experiment,scenario,replicate,stream], as implemented in contracts.deterministic_seed. FINAL streams final_v1_generation, final_v1_inference, final_v1_predictive; pilots have separate pilot_run-ID-prefixed streams. First debugging pilots used unprefixed streams; NONE are reused as final realizations. All 600 final generation seeds checked for collision. No posterior draw reuse or seed selection.",
+  "primary_metrics": ["bias", "absolute_bias", "relative_bias (undefined at zero truth)", "RMSE", "equal-tailed coverage .50/.80/.94 with Wilson95", "posterior SD", "interval width", "calibration error", "execution failure rate", "sampler failure rate", "scientific rejection rate"],
+  "primary_parameters": ["r", "depth", "b", "a", "t0", "full_duration", "extra_sigma"],
+  "secondary_metrics": ["Rhat", "ESS bulk/tail", "divergences", "BFMI", "tree depth", "PPC point coverage", "standardized residual SD", "within-segment residual correlations lags1-5", "jitter/measurement ratio", "radius review-range mass", "wall seconds"],
+  "gates": {
+    "provenance": "Exact input SHA256 and content-derived synthetic dataset ID, committed protocol and complete predeclared registry; no existing-run overwrite",
+    "sampler": "All scalar sampled/derived summary Rhat<=1.01; bulk/tail ESS>=400; zero divergences; BFMI>=.30. Record tree-depth saturation separately; no numerical repair by deleting draws.",
+    "inherited_ppc": "Observed fraction in posterior predictive 94% intervals within [.80,.99], standardized residual SD within [.5,2]; broad screening not an exact calibration test",
+    "temporal_ppc": "No within-segment cadence-contiguous residual correlation at lags1-5 beyond normal Bonferroni reference z_(1-.01/10)/sqrt(Npairs). Approximate fitted-residual screen; false positives/negatives measured, not assumed controlled exactly.",
+    "scale": "Inherited M5 jitter/median_error<=20 and <=5% posterior r outside inherited review interval [.00349,.24751]. This interval is a heuristic scientific review range, not LogNormal support.",
+    "promotion": "Separate provenance, sampler, PPC and final scientific interpretability. Aggregate negative findings can use rejected runs with explicit classification; positive individual claims require all relevant gates."
+  },
+  "inclusion": "Every declared scenario and replicate; no exclusion based on posterior, sampler, gate, seed or favorable recovery",
+  "exclusion": "Pilots excluded by mode; no data-dependent final exclusions",
+  "failure_policy": "All failures remain versioned and count in operational denominators. Missing posterior intervals are missing, not measured noncoverage. Report raw numeric, sampler-conditioned, final-gate-conditioned coverage with separate denominators, and covered-and-passed/all-declared operational rate. No best retry.",
+  "statistical_interpretation": "Fixed-truth conditional repeated-sampling coverage, NOT SBC. Compare estimated frequency with nominal with Wilson95, descriptive across all seven parameters/scenarios; no unadjusted many-test discovery claims. Persistent severe undercoverage means failure of conditional operating performance, not proof of a sampler bug. Large widths may yield coverage but poor precision.",
+  "hypothesis_rejection": "If a supported white regime has precise material bias or undercoverage, cannot claim adequate recovery there. If sampler fails systematically, numerical validity is unresolved. If gates pass known biased/misspecified runs, report false negatives. No threshold tuning to observational agreement.",
+  "outputs": ["per-attempt config/truth/input/result/status/checksums/trace", "aggregate JSON", "calibration and attempts CSV", "coverage with Wilson intervals figure", "bias and gate rates figure", "truth-vs-posterior recovery figure", "parameter uncertainty widths", "human-readable report"],
+  "invalidation": "Truth leakage, incorrect generative signal, wrong likelihood, mutated protocol/data, or incorrect aggregation invalidates affected attempts scientifically; retain originals, log amendment, new run IDs only.",
+  "amendments": [],
+  "freeze_note": "DRAFT ONLY. Compiler equivalence, fixed ArviZ regression, independent forward check, pilot timing and final run registry must be verified before freeze/commit/execution."
+}

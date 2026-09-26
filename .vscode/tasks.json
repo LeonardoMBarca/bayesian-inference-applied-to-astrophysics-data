@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "Publication: Dry Run", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--dry-run"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+    {"label": "Publication: Run / Resume", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--resume"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": [], "presentation": {"reveal": "always", "panel": "dedicated"}},
+    {"label": "Publication: Status", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--status"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+    {"label": "Publication: Stop gracefully", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--stop"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
+    {"label": "Publication: Aggregate Results", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--aggregate"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []}
+  ]
+}

@@ -5,7 +5,8 @@
 Work is confined to `publication-grade-validation`. The protected `main` and
 backup baseline is `7489a90689a753bea5243f86c1489329916c98e2`.
 `scientific_003` is historical validated evidence, not a destination for any new
-inference or artifact regeneration. Publication outputs live under `publication/`.
+inference or artifact regeneration. New outputs are isolated under `publication/`,
+`artifacts/publication_campaign/` and `reports/publication_campaign/`.
 
 ## Dependency-aware implementation and acceptance plan
 
@@ -67,6 +68,41 @@ inference or artifact regeneration. Publication outputs live under `publication/
 - Literature review is explicitly scoped and credits prior calibration,
   transit-injection, provenance and reproducibility work. The separate benchmark
   choice was made from likelihood compatibility, before posterior outcomes.
+- Pre-final review caught a potential pilot/final realization reuse: the initial
+  seed derivation omitted study mode. Before any final batch, final streams were
+  separated as `final_v1_*` from pilot streams; regression tests also prohibit
+  changing a final replicate's data seed merely by renaming a retry. Original
+  pilot artifacts remain unchanged. No final dataset was executed under the
+  earlier ambiguous namespace.
 
 This is a living execution record, not the final scientific report. Terminal
 run artifacts and protocol amendments are never rewritten to improve outcomes.
+
+## Revised user execution contract: autonomous runner
+
+The user instructed that Codex must not babysit hours/days of final computation.
+The runner is therefore delivered for independent user execution, with a 36h
+soft budget, frozen seeds and 117 declared jobs. No final scientific campaign
+was launched during engineering. See `COMPUTE_BUDGET_AMENDMENT.md` for the
+pre-result reduction from 100 replicates/scenario to 20 in four main regimes,
+deferral of OU/M6, and three pairs per ablation design.
+
+The actual integration smoke `runner_smoke_v2` passed: graceful stop, resume,
+completed-output preservation, second-resume idempotence, classified technical
+retry with original failure retained, and scientific rejection without retry.
+The real 20-draw physical fit was rejected, not promoted. The earlier v1 harness
+failed on a transient DrvFS state-file read; bounded retry was added and the
+original attempt was preserved.
+
+Independent juliet engineering uncovered an ignored `rstate` argument in its
+dynesty3 introspection path. The failed nondeterministic smoke is preserved.
+A transparent constructor-signature bridge passes the explicit Generator;
+two subsequent identical tiny pilots produced identical canonical posterior
+hashes. Both were correctly rejected by their deliberately insufficient
+nested-sampling budget. This validates plumbing, not external posterior agreement.
+
+Final preflight verifies the actual two interpreters, package locks, installed
+benchmark source hashes, protected baseline/ref identities, and all 15 target
+source FITS before spending the campaign budget. Review also added embedded
+dataset-ID rejection, float64 enforcement, full imported-source binding and
+explicit temporal-diagnostic unavailability after thinning.

@@ -1,0 +1,18 @@
+{
+  "status": "failed",
+  "error": "TypeError(\"summary() got an unexpected keyword argument 'hdi_prob'. Did you mean 'ci_prob'?\")",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/inference.py\", line 238, in main\n    result = fit(args.input, config, args.output)\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/inference.py\", line 163, in fit\n    summary = az.summary(idata, var_names=diagnostics_names, hdi_prob=.94, round_to=8).reset_index().rename(columns={\"index\": \"parameter\"})\n              ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: summary() got an unexpected keyword argument 'hdi_prob'. Did you mean 'ci_prob'?\n",
+  "failure_stage": "inference",
+  "gates": {
+    "provenance": true,
+    "sampler": false,
+    "ppc": false,
+    "scientific": false
+  },
+  "gate_evaluation": {
+    "provenance": "passed",
+    "sampler": "unavailable",
+    "ppc": "unavailable",
+    "scientific": "not_promotable"
+  }
+}

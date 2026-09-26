@@ -36,7 +36,7 @@ def aggregate(root: Path, protocol_path: Path, *, run_id: str, pilot: bool = Fal
         if not identities:
             raise ValueError("No declared final attempts; cannot generate a final evidence report")
         sources["publication/registry.json"] = sha256_file(root / "publication/registry.json")
-    scenarios, rows, numeric_rows, attempt_rows = {}, [], [], []
+    scenarios, rows, numeric_rows, attempt_rows, signal_to_noise = {}, [], [], [], {}
     for scenario_id in sorted({identity.scenario_id for identity in identities}):
         selected = [identity for identity in identities if identity.scenario_id == scenario_id]
         summaries = []
@@ -48,7 +48,13 @@ def aggregate(root: Path, protocol_path: Path, *, run_id: str, pilot: bool = Fal
             verify_run_artifacts(path)
             result = json.loads((path / "result.json").read_text(encoding="utf-8"))
             truth_path = path / "truth.json"
-            truth = json.loads(truth_path.read_text(encoding="utf-8"))["truth"] if truth_path.exists() else {}
+            truth_metadata = json.loads(truth_path.read_text(encoding="utf-8")) if truth_path.exists() else {}
+            truth = truth_metadata.get("truth", {})
+            if truth and "components" in truth_metadata:
+                data = pd.read_csv(path / "input.csv")
+                signal = np.asarray(truth_metadata["components"]["physical_signal"])
+                variance = data.normalized_flux_err.to_numpy()**2 + truth["extra_sigma"]**2
+                signal_to_noise[scenario_id] = float(np.sqrt(np.sum((signal-truth["baseline"])**2/variance)))
             summary = copy.deepcopy(result)
             summary["replicate_id"] = identity.replicate_id
             for parameter, values in summary.get("parameters", {}).items():
@@ -87,6 +93,8 @@ def aggregate(root: Path, protocol_path: Path, *, run_id: str, pilot: bool = Fal
                "declared_run_paths": [identity.relative_path for identity in identities],
                "result_source_sha256": {name: digest for name, digest in sources.items() if name.endswith("/result.json")},
                "status_counts": attempts.status.value_counts().to_dict(), "scenarios": scenarios,
+               "nominal_white_noise_signal_to_noise": signal_to_noise,
+               "signal_to_noise_definition": "sqrt(sum((true_transit-baseline)^2/(measurement_sigma_i^2+true_white_jitter^2))); ignores temporal covariance and is not a detection significance",
                "source_checksums": sources,
                "claim_limit": "Pilot: feasibility only" if pilot else "Fixed-truth coverage in declared regimes; not SBC or global proof of calibration."}
     dump(output / "aggregate.json", payload)
@@ -131,13 +139,23 @@ def aggregate(root: Path, protocol_path: Path, *, run_id: str, pilot: bool = Fal
     axes[0].set(ylim=(-.03, 1.03), ylabel="Pass count / all declared", title="Unsuccessful/missing attempts remain in denominator")
     axes[0].legend()
     for parameter in ("r", "depth"):
-        axes[1].plot(names, [scenarios[name]["parameters"][parameter].get("relative_bias", np.nan) for name in names], "o-", label=parameter)
+        axes[1].scatter([signal_to_noise.get(name, np.nan) for name in names], [scenarios[name]["parameters"][parameter].get("relative_bias", np.nan) for name in names], label=parameter)
     axes[1].axhline(0, color="black", linewidth=.7)
-    axes[1].set(ylabel="Relative posterior-center bias", title="Scenario-conditioned bias")
+    axes[1].set(xlabel="Nominal white-noise transit SNR (not detection significance)", ylabel="Relative posterior-center bias", title="Scenario-conditioned bias")
     axes[1].legend()
     for ax in axes:
         ax.tick_params(axis="x", rotation=35)
     fig.savefig(output / "failures_bias.png", dpi=170)
+    plt.close(fig)
+    fig, axes = plt.subplots(2, 4, figsize=(15, 7), constrained_layout=True)
+    for ax, parameter in zip(axes.flat, PARAMETERS, strict=False):
+        widths = [scenarios[name]["parameters"][parameter]["coverage"]["0.94"]["mean_interval_width"] for name in names]
+        ax.bar(names, [np.nan if width is None else width for width in widths])
+        ax.set(title=parameter, ylabel="Mean 94% equal-tailed width")
+        ax.tick_params(axis="x", rotation=60, labelsize=6)
+    axes.flat[-1].axis("off")
+    fig.suptitle("Uncertainty sharpness; broad intervals do not by themselves establish useful recovery")
+    fig.savefig(output / "uncertainty_widths.png", dpi=170)
     plt.close(fig)
     lines = [f"# {family} — {run_id}", "", payload["claim_limit"], "",
              f"Declared attempts: {len(identities)}. Complete declared batch: {all_terminal}.",
@@ -160,7 +178,7 @@ def aggregate(root: Path, protocol_path: Path, *, run_id: str, pilot: bool = Fal
         lines.append(f"| {name} | {metrics['declared_count']} | {r['numeric_count']} | {formatted(r['bias'])} | {formatted(r['rmse'])} | {formatted(r['coverage']['0.94']['empirical_coverage_numeric'])} | {metrics['gates']['sampler']['passed_count']} | {metrics['gates']['scientific']['passed_count']} |")
     lines += ["", "All parameters, interval widths and denominators: `calibration.csv` and `aggregate.json`.",
               "Every attempted/missing identity: `attempts.csv`. Per-run posterior recovery: `posterior_recovery.csv`.",
-              "Figures: `coverage.png`, `recovery.png`, `failures_bias.png`.", "",
+              "Figures: `coverage.png`, `recovery.png`, `failures_bias.png`, `uncertainty_widths.png`.", "",
               "No LOO/WAIC ranking is performed by this report. Quantitative claims must respect sampler and protocol status."]
     (output / "REPORT.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     dump(output / "artifact_manifest.json", {"schema_version": "publication-derived-v1", "source_checksums": sources,

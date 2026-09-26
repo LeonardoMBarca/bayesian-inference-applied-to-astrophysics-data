@@ -1,0 +1,43 @@
+{
+  "campaign_id": "tcc_campaign_v1",
+  "mode": "final",
+  "description": "Compute-aware TCC campaign: final science is user-launched, never part of infrastructure validation. No M6 in this deadline-limited campaign.",
+  "protocols": {
+    "PUB-02": "publication/protocols/PUB-02.json",
+    "PUB-03": "publication/protocols/PUB-03.json",
+    "PUB-04": "publication/protocols/PUB-04.json",
+    "PUB-05": "publication/protocols/PUB-05.json"
+  },
+  "resources": {
+    "max_workers": 1,
+    "cores_per_run": 4,
+    "max_campaign_hours": 36,
+    "stop_margin_minutes": 5,
+    "max_runtime_hours": null,
+    "memory_limit_gb": null
+  },
+  "runtime": {
+    "scientific_python": "/home/leonardo_barca/mc3/bin/python3.14",
+    "benchmark_python": "/home/leonardo_barca/publication-benchmark-conda/bin/python",
+    "wsl_distribution": "Ubuntu-24.04"
+  },
+  "technical_retries": 0,
+  "injection_recovery": {
+    "enabled": true,
+    "replicates_per_scenario": 20,
+    "scenario_replicates": {},
+    "estimated_seconds_by_scenario": {
+      "deep_short": 400,
+      "intermediate_long": 600,
+      "shallow_short": 2000,
+      "near_limit_long": 900,
+      "shallow_ou_weak": 2000,
+      "shallow_ou_strong": 2000
+    }
+  },
+  "benchmark": {"enabled": true, "estimated_seconds": 7200},
+  "ablations": {"enabled": true, "replicates_per_pair": 3},
+  "multi_target": {"enabled": true, "estimated_seconds": 3000},
+  "correlated_noise": {"enabled": false},
+  "budget_amendment": "docs/publication/COMPUTE_BUDGET_AMENDMENT.md"
+}

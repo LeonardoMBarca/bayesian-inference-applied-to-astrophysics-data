@@ -1,0 +1,28 @@
+{
+  "campaign_id": "runner_smoke_v1",
+  "mode": "smoke",
+  "description": "Infrastructure fixtures and deliberately under-sampled physical inference; never final scientific evidence.",
+  "resources": {"max_workers": 1, "cores_per_run": 1, "max_campaign_hours": 1, "stop_margin_minutes": 0},
+  "technical_retries": 1,
+  "smoke_jobs": [
+    {"scenario_id": "completed_fixture", "kind": "fixture", "action": "completed"},
+    {"scenario_id": "delay_checkpoint", "kind": "fixture", "action": "completed", "delay_seconds": 12},
+    {"scenario_id": "retry_technical", "kind": "fixture", "action": "technical_fail_once"},
+    {"scenario_id": "scientific_rejection", "kind": "fixture", "action": "scientific_rejection"},
+    {
+      "scenario_id": "tiny_physical", "kind": "synthetic", "estimated_seconds": 240,
+      "scenario": {
+        "truth": {"r": 0.08, "b": 0.3, "a": 5.0, "period_days": 1.0, "q1": 0.25, "q2": 0.3, "baseline": 1.0, "t0": 0.001, "extra_sigma": 0.0002},
+        "design": {"window_days": 0.12, "cadence_seconds": 600, "exposure_time_seconds": 120, "measurement_sigma": 0.001, "segments": 1, "transits_per_segment": 1, "oversample": 15}
+      },
+      "inference": {
+        "input_kind": "synthetic", "period_days": 1.0, "radius_prior_median": 0.04,
+        "radius_prior_log_sigma": 0.9, "baseline_prior_sigma": 0.02, "t0_prior_sigma_days": 0.025,
+        "jitter_error_multiplier": 5.0, "jitter_floor_fraction": 0.0005,
+        "infer_jitter": true, "integrate_exposure": true, "oversample": 15,
+        "preprocessing_status": "segment_normalized",
+        "sampling": {"draws": 20, "tune": 20, "chains": 2, "cores": 1, "target_accept": 0.9, "linker": "auto"}
+      }
+    }
+  ]
+}

@@ -442,6 +442,18 @@ The headline result must not be “we estimated Kepler-10 b”. The paper should
 
 ---
 
+# Current execution handoff (2026-09-26)
+
+The user's latest instruction overrides long-running agent execution: prepare,
+test and commit an autonomous campaign runner, then let the user launch finals.
+`configs/publication/tcc_final_campaign.json` and its frozen job/seed ledger
+implement P2→P3→P4→P5 within a soft36h planning envelope. Four main P2 regimes
+have20 replicates each; P4 has3 paired realizations; all5 selected targets remain.
+OU exploration and P6/M6 are deferred before results for deadline/compute reasons,
+not marked scientifically completed. See `docs/publication/COMPUTE_BUDGET_AMENDMENT.md`.
+Runner readiness does not satisfy the scientific definition of done below;
+coverage, external agreement and generalization remain open empirical questions.
+
 # Phase dependencies
 
 `P0 -> P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P8`

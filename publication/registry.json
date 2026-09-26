@@ -1,19 +1,30 @@
 {
   "base_commit": "7489a90689a753bea5243f86c1489329916c98e2",
+  "campaign_registries": [
+    {
+      "campaign_id": "tcc_campaign_v1",
+      "status": "PLANNED",
+      "config": "configs/publication/tcc_final_campaign.json",
+      "frozen_declaration": "configs/publication/tcc_campaign_v1_plan.json",
+      "execution_state": "artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json",
+      "declared_job_counts": {"PUB-02": 80, "PUB-03": 2, "PUB-04": 30, "PUB-05": 5},
+      "semantics": "Autonomous campaign uses its own frozen job ledger and append-only attempt history; legacy expected_runs below must not be mistaken for the campaign denominator. No final campaign started at handoff."
+    }
+  ],
   "experiments": [
     {
       "expected_runs": [],
       "experiment_id": "PUB-00",
       "family": "baseline_freeze",
       "protocol": null,
-      "status": "planned"
+      "status": "completed"
     },
     {
       "expected_runs": [],
       "experiment_id": "PUB-01",
       "family": "literature",
       "protocol": null,
-      "status": "planned"
+      "status": "completed"
     },
     {
       "expected_runs": [],

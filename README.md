@@ -4,7 +4,28 @@ Software científico do TCC de Leonardo Moraes Barca para ingestão rastreável 
 curvas de luz públicas, preparação RAW/Silver/Gold e inferência bayesiana de
 trânsitos de exoplanetas.
 
-O estado endurecido suporta dois alvos definidos em uma única configuração:
+## Campanha de validação para o TCC
+
+Nesta branch `publication-grade-validation`, a campanha científica autônoma está
+preparada para execução pelo usuário; os resultados finais ainda não existem.
+O baseline `scientific_003` e o commit `7489a90689a753bea5243f86c1489329916c98e2`
+permanecem históricos e não são sobrescritos.
+
+```sh
+python scripts/run_publication_campaign.py --dry-run
+python scripts/run_publication_campaign.py --resume
+```
+
+O [guia operacional](docs/publication/CAMPAIGN_RUNBOOK.md) explica Play no VSCode,
+background com tmux, status, parada, retomada e diretórios dos resultados.
+O [relatório de entrega](reports/PUBLICATION_CAMPAIGN_HANDOFF.md) distingue
+validação de infraestrutura de evidência científica ainda pendente.
+Os cinco alvos da nova campanha são definidos no protocolo congelado
+[`PUB-05.json`](publication/protocols/PUB-05.json), isolado da configuração histórica.
+
+## Baseline científico anterior
+
+O estado endurecido anterior suporta dois alvos definidos em uma única configuração:
 
 | alvo | missão Gold | cadência | papel |
 |---|---|---|---|

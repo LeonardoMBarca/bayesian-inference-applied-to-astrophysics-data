@@ -27,6 +27,19 @@ def write_new(path: Path, payload: dict) -> None:
         handle.write("\n")
 
 
+def attempt_seeds(identity: RunIdentity, *, pilot: bool, generation_scenario: str | None = None) -> dict[str, int]:
+    """Keep final realizations disjoint from pilot noise, including old pilots.
+
+    A repeated attempt at the same FINAL replicate is not a new realization.
+    Pilot IDs receive their own namespace and can never silently become final.
+    """
+    prefix = f"pilot_{identity.run_id}" if pilot else "final_v1"
+    return {stream: deterministic_seed(identity.experiment_id,
+                                       generation_scenario or identity.scenario_id,
+                                       identity.replicate_id, stream=f"{prefix}_{stream}")
+            for stream in ("generation", "inference", "predictive")}
+
+
 def run_synthetic(root: Path, protocol_path: Path, *, pilot: bool = False,
                   run_id: str = "final_001", only_scenario: str | None = None) -> list[dict]:
     from publication.simulation import simulate
@@ -51,8 +64,7 @@ def run_synthetic(root: Path, protocol_path: Path, *, pilot: bool = False,
                     print(f"PRESERVED {identity.relative_path}", flush=True)
                     continue
                 raise FileExistsError(f"Interrupted attempt remains reserved; classify before a new run ID: {destination}")
-            seed_args = (protocol["experiment_id"], scenario["scenario_id"], replicate)
-            seeds = {stream: deterministic_seed(*seed_args, stream=stream) for stream in ("generation", "inference", "predictive")}
+            seeds = attempt_seeds(identity, pilot=pilot)
             destination = reserve_run(root, identity, {"scenario": scenario, "inference": protocol["inference"],
                                       "seeds": seeds, "protocol_sha256": sha256_file(protocol_path)}, protocol_identity, pilot=pilot)
             print(f"START {identity.relative_path}", flush=True)

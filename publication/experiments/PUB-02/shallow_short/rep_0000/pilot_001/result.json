@@ -1,0 +1,18 @@
+{
+  "status": "failed",
+  "error": "TypeError(\"summary() got an unexpected keyword argument 'hdi_prob'. Did you mean 'ci_prob'?\")",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/inference.py\", line 238, in main\n    curve[\"posterior_mean\"] = predicted_mean\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/inference.py\", line 163, in fit\n    started = time.perf_counter()\nTypeError: summary() got an unexpected keyword argument 'hdi_prob'. Did you mean 'ci_prob'?\n",
+  "failure_stage": "inference",
+  "gates": {
+    "provenance": true,
+    "sampler": false,
+    "ppc": false,
+    "scientific": false
+  },
+  "gate_evaluation": {
+    "provenance": "passed",
+    "sampler": "unavailable",
+    "ppc": "unavailable",
+    "scientific": "not_promotable"
+  }
+}

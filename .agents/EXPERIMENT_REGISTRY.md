@@ -32,15 +32,37 @@ Never convert a failed/rejected run to `COMPLETED` by editing its historical art
 |---|---|---|---|---|---|
 | PUB-00 | baseline freeze | Can the validated TCC baseline be cryptographically and semantically frozen? | `publication/baseline/README.md` (identity-verification contract, not a scientific batch) | COMPLETED | 26 artifacts verified; 12 contract tests; `publication/baseline/VALIDATION.md`; commit `06003cf` |
 | PUB-01 | novelty/literature map | What is genuinely new relative to published tools/workflows? | `docs/publication/NOVELTY_MATRIX.json` search scope | COMPLETED | 24 primary-source records; scoped integration/evaluation positioning, not priority proof |
-| PUB-02 | injection–recovery calibration | Does the workflow recover known truths with calibrated uncertainty? | `publication/protocols/PUB-02-pilot.json` (pilot only; final protocol pending) | PILOT | Physical simulator and full-denominator metrics tested; pilot failures preserved; no final calibration claim |
-| PUB-03 | independent benchmark | Does an independent published implementation obtain compatible inference? | to create | PLANNED | — |
-| PUB-04 | ablations/failure gates | Which design choices matter and do gates reject invalid cases? | to create | PLANNED | — |
-| PUB-05 | multi-target validation | Across which real observational regimes does the workflow succeed/fail? | to create | PLANNED | — |
-| PUB-06 | correlated-noise M6 | When temporal correlation exists, does explicit covariance improve calibration? | to create | PLANNED | — |
+| PUB-02 | injection–recovery calibration | Does the workflow recover known truths with calibrated uncertainty? | `publication/protocols/PUB-02.json` | PLANNED | 80 declared final replicates; pilots preserved separately; no final coverage evidence yet |
+| PUB-03 | independent benchmark | Does an independent published implementation obtain compatible inference? | `publication/protocols/PUB-03.json` | PLANNED | juliet adapter numerically and reproducibly tested; two final fits not executed |
+| PUB-04 | ablations/failure gates | Which design choices matter and do gates reject invalid cases? | `publication/protocols/PUB-04.json` | PLANNED | 30 declared attempts, including six identity-negative controls; no final paired effects yet |
+| PUB-05 | multi-target validation | Across which real observational regimes does the workflow succeed/fail? | `publication/protocols/PUB-05.json` | PLANNED | Five targets preselected; all 15 RAW inputs available and hashed; final inference pending |
+| PUB-06 | correlated-noise M6 | When temporal correlation exists, does explicit covariance improve calibration? | `docs/publication/COMPUTE_BUDGET_AMENDMENT.md` | PLANNED (deferred) | Disabled in TCC campaign by user compute/deadline priority; no GP claim |
 | PUB-07 | paper reproducibility release | Can every publication-critical artifact be traced and regenerated? | to create | PLANNED | — |
 | PUB-08 | TCC/paper synthesis | Do final written claims match the validated experiment registry? | to create | PLANNED | — |
 
 ## Required fields for every final experiment protocol
+
+`PUB-01 COMPLETED` refers only to the scoped literature snapshot, not proof of
+novelty. Protocol candidates PUB-02–05 are frozen before the user-launched batch;
+the runner requires their exact committed bytes and the tested-source ledger.
+No pilot or infrastructure fixture is final scientific evidence.
+
+## Autonomous TCC campaign handoff
+
+The latest user instruction explicitly defers execution of the large final
+batch to the user. The deliverable now is a validated autonomous runner, not
+fabricated completion of the research program. The final ledger
+`configs/publication/tcc_campaign_v1_plan.json` declares 117 jobs and seeds;
+after launch the machine-readable status authority is
+`artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json`.
+Legacy `publication/registry.json` links that campaign ledger; its older
+`expected_runs` fields are not the new campaign denominator.
+
+`runner_smoke_v2` validated interruption/resume/idempotence and the physical
+worker with 20 draws. Five jobs and six attempts include the preserved
+technical failure and two rejections; none is a final science result.
+`runner_smoke_v1` remains an interrupted engineering attempt, including its
+state-read/harness failure. See `docs/publication/CAMPAIGN_RUNBOOK.md`.
 
 Each protocol must record:
 
