@@ -99,3 +99,18 @@ A result may support the paper/TCC only when:
 6. documentation is generated from or cross-checked against machine-readable artifacts.
 
 This registry must be updated as work progresses, but never by erasing unfavorable outcomes.
+
+## Runtime amendment, 2026-09-27
+
+The ongoing `tcc_campaign_v1` campaign encountered an operational checkpoint
+replacement failure on Windows/WSL. This is not a scientific rejection. The
+controller exited while its child sealed a valid completion manifest. The
+repair preserves the original final ledger and all finished/rejected attempts;
+it does not change seeds, models, priors, gates or replicate counts.
+
+See `docs/publication/CHECKPOINT_RELIABILITY_AMENDMENT.md`, the separately
+committed `publication/runtime_amendments/tcc_campaign_v1.json`, and the
+engineering-only `checkpoint_repair_v1`/`checkpoint_repair_v2` validation bundles.
+Operational acceptance does not establish calibration or promote scientific
+claims. Current progress remains the live campaign state plus sealed manifests,
+not a hand-maintained count in this document.

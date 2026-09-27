@@ -12,6 +12,16 @@ autonomous validated runner, not agent execution of final scientific batches.
 Research outcomes remain pending; runner implementation is not a new claim of
 calibration, external agreement, generalization or full-paper reproducibility.
 
+## Publication operational incident — Windows/WSL checkpoint replacement
+
+**Status:** IN_PROGRESS (2026-09-27)
+
+Observed controller PermissionError during atomic checkpoint replacement while
+the scientific child completed. Scope: bounded sharing-violation retry,
+delete-shared monitor, truthful liveness and audited runtime-source amendment.
+No scientific design or sealed evidence changes. Acceptance/evidence:
+`docs/publication/CHECKPOINT_RELIABILITY_AMENDMENT.md`.
+
 ## P0 — Scientific/provenance correctness
 
 ### P0.1 — Make M5 target-safe

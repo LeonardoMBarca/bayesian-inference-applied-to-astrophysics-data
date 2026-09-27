@@ -1,0 +1,963 @@
+{
+  "aggregate": {
+    "attempts": [
+      {
+        "command": [
+          "/home/leonardo_barca/mc3/bin/python3.14",
+          "scripts/aggregate_publication_campaign.py",
+          "--config",
+          "configs/publication/runner_smoke_checkpoint_v1.json"
+        ],
+        "finished_at_utc": "2026-09-27T03:49:13.189980+00:00",
+        "process": {
+          "pid": 42948,
+          "platform": "linux",
+          "process_group": 42948,
+          "session_id": 42948,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1836235"
+        },
+        "return_code": 0,
+        "started_at_utc": "2026-09-27T03:49:04.414144+00:00",
+        "status": "COMPLETED",
+        "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/aggregation/campaign.attempt000.stderr.log",
+        "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/aggregation/campaign.attempt000.stdout.log"
+      },
+      {
+        "command": [
+          "/home/leonardo_barca/mc3/bin/python3.14",
+          "scripts/aggregate_publication_campaign.py",
+          "--config",
+          "configs/publication/runner_smoke_checkpoint_v1.json"
+        ],
+        "process": {
+          "pid": 43121,
+          "platform": "linux",
+          "process_group": 43121,
+          "session_id": 43121,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1842678"
+        },
+        "return_code": null,
+        "started_at_utc": "2026-09-27T03:50:07.644184+00:00",
+        "status": "RUNNING",
+        "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/aggregation/campaign.attempt001.stderr.log",
+        "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/aggregation/campaign.attempt001.stdout.log"
+      }
+    ],
+    "source_state_sha256": "e3ae006519a61d73ce11fee0cb654499021808a1b3c7081a6b7cf5231f5db730",
+    "status": "RUNNING"
+  },
+  "available_cpus": 4,
+  "budget": {
+    "active_seconds": 79.85376713900041,
+    "last_checkpoint_utc": "2026-09-27T03:50:07.745823+00:00",
+    "orphan_downtime_seconds": 0.0
+  },
+  "campaign_id": "runner_smoke_checkpoint_v1",
+  "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+  "config_path": "configs/publication/runner_smoke_checkpoint_v1.json",
+  "controller_pid": 42968,
+  "controller_process": {
+    "pid": 42968,
+    "platform": "linux",
+    "process_group": 41145,
+    "session_id": 41145,
+    "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837203"
+  },
+  "created_at_utc": "2026-09-27T03:48:47.008078+00:00",
+  "events": [
+    {
+      "kind": "campaign_declared",
+      "payload": {
+        "jobs": 5,
+        "scientific_config_sha256": "09cfff7d7b67212ded32d29e904b963fb8b78e42a9b3f212e7804e17dbc1ab22"
+      },
+      "previous_sha256": null,
+      "sequence": 0,
+      "sha256": "3e56fc6cd04a9e26cc87687647457ab1af87d97aa71c00a5771d1c28bbec20ee",
+      "timestamp_utc": "2026-09-27T03:48:47.200886+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__completed_fixture__rep_0000",
+        "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/completed_fixture/rep_0000/attempt_000"
+      },
+      "previous_sha256": "3e56fc6cd04a9e26cc87687647457ab1af87d97aa71c00a5771d1c28bbec20ee",
+      "sequence": 1,
+      "sha256": "e8fa6006453daa01648d7ee7ef0f2e322c50b1cfc1be6bb05bf3414e032c0900",
+      "timestamp_utc": "2026-09-27T03:48:48.142260+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__completed_fixture__rep_0000",
+        "process": {
+          "pid": 42923,
+          "platform": "linux",
+          "process_group": 42923,
+          "session_id": 42923,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1834614"
+        }
+      },
+      "previous_sha256": "e8fa6006453daa01648d7ee7ef0f2e322c50b1cfc1be6bb05bf3414e032c0900",
+      "sequence": 2,
+      "sha256": "e691da67fe0b62720bdb55375b24682a204e8aa3cdaa69387e3619c589b5552f",
+      "timestamp_utc": "2026-09-27T03:48:48.278304+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__completed_fixture__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "e691da67fe0b62720bdb55375b24682a204e8aa3cdaa69387e3619c589b5552f",
+      "sequence": 3,
+      "sha256": "05c76108e91ef1666f62980e9d1bd2fdae566b304c62f052ac5f3755d6cdff2b",
+      "timestamp_utc": "2026-09-27T03:48:49.828914+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__delay_checkpoint__rep_0000",
+        "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000"
+      },
+      "previous_sha256": "05c76108e91ef1666f62980e9d1bd2fdae566b304c62f052ac5f3755d6cdff2b",
+      "sequence": 4,
+      "sha256": "305a2eb919a48be5efb5b2261c830075d42fb21d799d9861d4a551be66c308b1",
+      "timestamp_utc": "2026-09-27T03:48:50.249767+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__delay_checkpoint__rep_0000",
+        "process": {
+          "pid": 42927,
+          "platform": "linux",
+          "process_group": 42927,
+          "session_id": 42927,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1834819"
+        }
+      },
+      "previous_sha256": "305a2eb919a48be5efb5b2261c830075d42fb21d799d9861d4a551be66c308b1",
+      "sequence": 5,
+      "sha256": "adc4f24d9186fb826b0635acd42028d4e95f7b00d417223707a63112a439aafa",
+      "timestamp_utc": "2026-09-27T03:48:50.332008+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__delay_checkpoint__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "adc4f24d9186fb826b0635acd42028d4e95f7b00d417223707a63112a439aafa",
+      "sequence": 6,
+      "sha256": "89f0f3d6f936ae45e59efc34c40e9d643082c3e044c277e1fa899268f2768e20",
+      "timestamp_utc": "2026-09-27T03:49:04.219200+00:00"
+    },
+    {
+      "kind": "aggregation_finished",
+      "payload": {
+        "label": "campaign",
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "89f0f3d6f936ae45e59efc34c40e9d643082c3e044c277e1fa899268f2768e20",
+      "sequence": 7,
+      "sha256": "8f0767bd98f9f1cba03e4b1db18be5659d906f06892c16a33d944bc047ff56e3",
+      "timestamp_utc": "2026-09-27T03:49:13.190052+00:00"
+    },
+    {
+      "kind": "controller_checkpointed_exit",
+      "payload": {
+        "status": "STOPPED",
+        "stop_reason": "requested_stop_file"
+      },
+      "previous_sha256": "8f0767bd98f9f1cba03e4b1db18be5659d906f06892c16a33d944bc047ff56e3",
+      "sequence": 8,
+      "sha256": "38ae2e9956d304a94573d02d509ea43cb42b3518c7e281f3e501a0ac7a5dcdc1",
+      "timestamp_utc": "2026-09-27T03:49:13.308571+00:00"
+    },
+    {
+      "kind": "explicit_resume_clears_previous_stop",
+      "payload": {
+        "previous_request": {
+          "reason": "explicit --stop; current workers may finish",
+          "requested_at_utc": "2026-09-27T03:48:50.393000+00:00"
+        }
+      },
+      "previous_sha256": "38ae2e9956d304a94573d02d509ea43cb42b3518c7e281f3e501a0ac7a5dcdc1",
+      "sequence": 9,
+      "sha256": "771dc52e016d9a5ac11688c0b08f142713731e857a5c458b782ca0f6bf76e12a",
+      "timestamp_utc": "2026-09-27T03:49:14.950152+00:00"
+    },
+    {
+      "kind": "campaign_resumed",
+      "payload": {
+        "code_commit": "0a355b96840b181041130e9084668450ef8f5c82"
+      },
+      "previous_sha256": "771dc52e016d9a5ac11688c0b08f142713731e857a5c458b782ca0f6bf76e12a",
+      "sequence": 10,
+      "sha256": "cda2ba840d221f083f5dc3d72fd59561132de457c3cb7e7aad39fb176965df12",
+      "timestamp_utc": "2026-09-27T03:49:15.177553+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000/attempt_000"
+      },
+      "previous_sha256": "cda2ba840d221f083f5dc3d72fd59561132de457c3cb7e7aad39fb176965df12",
+      "sequence": 11,
+      "sha256": "97b897d1874310849872a4b0b9e6e392f3b8ed0c4bb85d0b46d9168a6ee47cef",
+      "timestamp_utc": "2026-09-27T03:49:17.099739+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "process": {
+          "pid": 42993,
+          "platform": "linux",
+          "process_group": 42993,
+          "session_id": 42993,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837565"
+        }
+      },
+      "previous_sha256": "97b897d1874310849872a4b0b9e6e392f3b8ed0c4bb85d0b46d9168a6ee47cef",
+      "sequence": 12,
+      "sha256": "cb82dab20bc437630530a71aa4e23e396ff6dddacb91652c5ade4db74c91b1dd",
+      "timestamp_utc": "2026-09-27T03:49:17.211527+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "return_code": 1,
+        "return_code_known": true,
+        "status": "FAILED_TECHNICAL"
+      },
+      "previous_sha256": "cb82dab20bc437630530a71aa4e23e396ff6dddacb91652c5ade4db74c91b1dd",
+      "sequence": 13,
+      "sha256": "a3ef0687bb59ec2fe4f18c8570b3cc48da430a8286eb64232009c99df716db06",
+      "timestamp_utc": "2026-09-27T03:49:18.904258+00:00"
+    },
+    {
+      "kind": "technical_retry_scheduled",
+      "payload": {
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "preserved_attempt": 0
+      },
+      "previous_sha256": "a3ef0687bb59ec2fe4f18c8570b3cc48da430a8286eb64232009c99df716db06",
+      "sequence": 14,
+      "sha256": "4285e902238638dc13fad4de3c1b578ab6cd4fc5474bebc43723603f89e99558",
+      "timestamp_utc": "2026-09-27T03:49:18.904389+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 1,
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000/attempt_001"
+      },
+      "previous_sha256": "4285e902238638dc13fad4de3c1b578ab6cd4fc5474bebc43723603f89e99558",
+      "sequence": 15,
+      "sha256": "72d231791482af217171f56023b7e393dda206e318e32f66be0ae1291b30593a",
+      "timestamp_utc": "2026-09-27T03:49:19.349830+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 1,
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "process": {
+          "pid": 42997,
+          "platform": "linux",
+          "process_group": 42997,
+          "session_id": 42997,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837791"
+        }
+      },
+      "previous_sha256": "72d231791482af217171f56023b7e393dda206e318e32f66be0ae1291b30593a",
+      "sequence": 16,
+      "sha256": "94baf64f4bb1c0d998872b4f128787880e944f56d785b8e9bf70ca48d1c72c15",
+      "timestamp_utc": "2026-09-27T03:49:19.467090+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 1,
+        "job_id": "PUB-02__retry_technical__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "94baf64f4bb1c0d998872b4f128787880e944f56d785b8e9bf70ca48d1c72c15",
+      "sequence": 17,
+      "sha256": "781ba337510516fe10da2ea59f58dc617732427333a0e9d6cc236b84a5c4aa88",
+      "timestamp_utc": "2026-09-27T03:49:21.595240+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__scientific_rejection__rep_0000",
+        "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/scientific_rejection/rep_0000/attempt_000"
+      },
+      "previous_sha256": "781ba337510516fe10da2ea59f58dc617732427333a0e9d6cc236b84a5c4aa88",
+      "sequence": 18,
+      "sha256": "9a8c50f29ca28f31fee5bd6907c18eeec8e24317b94532a023e3af4c3fa5e54a",
+      "timestamp_utc": "2026-09-27T03:49:22.025636+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__scientific_rejection__rep_0000",
+        "process": {
+          "pid": 43003,
+          "platform": "linux",
+          "process_group": 43003,
+          "session_id": 43003,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1838054"
+        }
+      },
+      "previous_sha256": "9a8c50f29ca28f31fee5bd6907c18eeec8e24317b94532a023e3af4c3fa5e54a",
+      "sequence": 19,
+      "sha256": "d391b93f12de449bb75b711f3f17ed38ba4f82ed8916f1badcddf402d51a79ca",
+      "timestamp_utc": "2026-09-27T03:49:22.100448+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__scientific_rejection__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "d391b93f12de449bb75b711f3f17ed38ba4f82ed8916f1badcddf402d51a79ca",
+      "sequence": 20,
+      "sha256": "f75ee3421ca01be2d1ecafc62836b53266d4fade97ea4f9949b339b1b25c75bb",
+      "timestamp_utc": "2026-09-27T03:49:23.630287+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__tiny_physical__rep_0000",
+        "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/tiny_physical/rep_0000/attempt_000"
+      },
+      "previous_sha256": "f75ee3421ca01be2d1ecafc62836b53266d4fade97ea4f9949b339b1b25c75bb",
+      "sequence": 21,
+      "sha256": "1507da3ea37e9f4c6dd08b451eb303ff82130d6f23ebc878875f62c3ac611c82",
+      "timestamp_utc": "2026-09-27T03:49:23.994899+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__tiny_physical__rep_0000",
+        "process": {
+          "pid": 43014,
+          "platform": "linux",
+          "process_group": 43014,
+          "session_id": 43014,
+          "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1838252"
+        }
+      },
+      "previous_sha256": "1507da3ea37e9f4c6dd08b451eb303ff82130d6f23ebc878875f62c3ac611c82",
+      "sequence": 22,
+      "sha256": "9a8fb8c5447a5dba3fa1ae8714a06b0a13747c03b52fbbb983618f1d51971213",
+      "timestamp_utc": "2026-09-27T03:49:24.071699+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__tiny_physical__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "9a8fb8c5447a5dba3fa1ae8714a06b0a13747c03b52fbbb983618f1d51971213",
+      "sequence": 23,
+      "sha256": "745d69b8dcbe499561eb218e140b1c1a80571ca5e4ca60ddbc9e60d165e4be54",
+      "timestamp_utc": "2026-09-27T03:49:53.431924+00:00"
+    },
+    {
+      "kind": "aggregation_finished",
+      "payload": {
+        "label": "PUB-02",
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "745d69b8dcbe499561eb218e140b1c1a80571ca5e4ca60ddbc9e60d165e4be54",
+      "sequence": 24,
+      "sha256": "700a1e7c202bee3be2d8f633f144ade19ef7c841d8cd11d23ae33da54f647a23",
+      "timestamp_utc": "2026-09-27T03:50:07.325467+00:00"
+    }
+  ],
+  "family_summaries": {
+    "PUB-02": {
+      "attempts": [
+        {
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/aggregate_publication_campaign.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--family",
+            "PUB-02"
+          ],
+          "finished_at_utc": "2026-09-27T03:50:07.325418+00:00",
+          "process": {
+            "pid": 43081,
+            "platform": "linux",
+            "process_group": 43081,
+            "session_id": 43081,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1841282"
+          },
+          "return_code": 0,
+          "started_at_utc": "2026-09-27T03:49:53.663786+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/aggregation/PUB-02.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/aggregation/PUB-02.attempt000.stdout.log"
+        }
+      ],
+      "source_state_sha256": "e3ae006519a61d73ce11fee0cb654499021808a1b3c7081a6b7cf5231f5db730",
+      "status": "COMPLETED"
+    }
+  },
+  "jobs": {
+    "PUB-02__completed_fixture__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--job-id",
+            "PUB-02__completed_fixture__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/completed_fixture/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "23ef7c02d13f1bb2819c2d3c9554003e0692bcd46936f5d0166bf730b1f93379",
+          "dataset_id": null,
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-27T03:48:49.403080+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": null,
+          "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/completed_fixture/rep_0000/attempt_000",
+          "process": {
+            "pid": 42923,
+            "platform": "linux",
+            "process_group": 42923,
+            "session_id": 42923,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1834614"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 680633099,
+            "inference": 3166672224,
+            "predictive": 299497166,
+            "resampling": 2728776221
+          },
+          "started_at_utc": "2026-09-27T03:48:47.903104+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__completed_fixture__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__completed_fixture__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 42923,
+            "platform": "linux",
+            "process_group": 42923,
+            "session_id": 42923,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1834614"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_checkpoint_v1.json",
+        "--job-id",
+        "PUB-02__completed_fixture__rep_0000"
+      ],
+      "created_at_utc": "2026-09-27T03:48:47.007671+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": null,
+      "job_id": "PUB-02__completed_fixture__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/completed_fixture/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_checkpoint_v1__PUB-02__completed_fixture__rep_0000",
+      "scenario_id": "completed_fixture",
+      "seeds": {
+        "generation": 680633099,
+        "inference": 3166672224,
+        "predictive": 299497166,
+        "resampling": 2728776221
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-09-27T03:48:49.828844+00:00"
+    },
+    "PUB-02__delay_checkpoint__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--job-id",
+            "PUB-02__delay_checkpoint__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "7253d6a5744188b65029f4957417ea4b20d43184e2956ac8f480b01115a29265",
+          "dataset_id": null,
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-27T03:49:03.898002+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": null,
+          "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/delay_checkpoint/rep_0000/attempt_000",
+          "process": {
+            "pid": 42927,
+            "platform": "linux",
+            "process_group": 42927,
+            "session_id": 42927,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1834819"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 716801794,
+            "inference": 572601469,
+            "predictive": 143025149,
+            "resampling": 4070364285
+          },
+          "started_at_utc": "2026-09-27T03:48:50.094965+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__delay_checkpoint__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__delay_checkpoint__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 42927,
+            "platform": "linux",
+            "process_group": 42927,
+            "session_id": 42927,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1834819"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_checkpoint_v1.json",
+        "--job-id",
+        "PUB-02__delay_checkpoint__rep_0000"
+      ],
+      "created_at_utc": "2026-09-27T03:48:47.007711+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": null,
+      "job_id": "PUB-02__delay_checkpoint__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/delay_checkpoint/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_checkpoint_v1__PUB-02__delay_checkpoint__rep_0000",
+      "scenario_id": "delay_checkpoint",
+      "seeds": {
+        "generation": 716801794,
+        "inference": 572601469,
+        "predictive": 143025149,
+        "resampling": 4070364285
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-09-27T03:49:04.219178+00:00"
+    },
+    "PUB-02__retry_technical__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--job-id",
+            "PUB-02__retry_technical__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "6f04af123c92a8b52bb6d431851454ece70f5da788aa407024178b1657d813a2",
+          "dataset_id": null,
+          "error": "Simulated transient I/O failure",
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-27T03:49:18.351379+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": false,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": null,
+          "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000/attempt_000",
+          "process": {
+            "pid": 42993,
+            "platform": "linux",
+            "process_group": 42993,
+            "session_id": 42993,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837565"
+          },
+          "return_code": 1,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 1668246220,
+            "inference": 2433883391,
+            "predictive": 478402121,
+            "resampling": 1140765553
+          },
+          "started_at_utc": "2026-09-27T03:49:16.962287+00:00",
+          "status": "FAILED_TECHNICAL",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__retry_technical__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__retry_technical__rep_0000.attempt000.stdout.log",
+          "technical_retryable": true,
+          "worker_session": {
+            "pid": 42993,
+            "platform": "linux",
+            "process_group": 42993,
+            "session_id": 42993,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837565"
+          }
+        },
+        {
+          "attempt_index": 1,
+          "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--job-id",
+            "PUB-02__retry_technical__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000/attempt_001"
+          ],
+          "completion_manifest_sha256": "ef93db4a7be3549230702d6a28b43d4cda42ac5f07a5934287d58c936b9b883b",
+          "dataset_id": null,
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-27T03:49:21.100078+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": null,
+          "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000/attempt_001",
+          "process": {
+            "pid": 42997,
+            "platform": "linux",
+            "process_group": 42997,
+            "session_id": 42997,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837791"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 1668246220,
+            "inference": 2433883391,
+            "predictive": 478402121,
+            "resampling": 1140765553
+          },
+          "started_at_utc": "2026-09-27T03:49:19.171931+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__retry_technical__rep_0000.attempt001.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__retry_technical__rep_0000.attempt001.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 42997,
+            "platform": "linux",
+            "process_group": 42997,
+            "session_id": 42997,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1837791"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_checkpoint_v1.json",
+        "--job-id",
+        "PUB-02__retry_technical__rep_0000"
+      ],
+      "created_at_utc": "2026-09-27T03:48:47.007719+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": null,
+      "job_id": "PUB-02__retry_technical__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_checkpoint_v1__PUB-02__retry_technical__rep_0000",
+      "scenario_id": "retry_technical",
+      "seeds": {
+        "generation": 1668246220,
+        "inference": 2433883391,
+        "predictive": 478402121,
+        "resampling": 1140765553
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-09-27T03:49:21.595199+00:00"
+    },
+    "PUB-02__scientific_rejection__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--job-id",
+            "PUB-02__scientific_rejection__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/scientific_rejection/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "7818b7c7573d80b2af28487db19791373ab498a77fb7340b65c680831b55fb4d",
+          "dataset_id": null,
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-27T03:49:23.173679+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": false,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": null,
+          "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/scientific_rejection/rep_0000/attempt_000",
+          "process": {
+            "pid": 43003,
+            "platform": "linux",
+            "process_group": 43003,
+            "session_id": 43003,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1838054"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 2714113162,
+            "inference": 56441854,
+            "predictive": 3576123919,
+            "resampling": 797369740
+          },
+          "started_at_utc": "2026-09-27T03:49:21.873195+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__scientific_rejection__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__scientific_rejection__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 43003,
+            "platform": "linux",
+            "process_group": 43003,
+            "session_id": 43003,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1838054"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_checkpoint_v1.json",
+        "--job-id",
+        "PUB-02__scientific_rejection__rep_0000"
+      ],
+      "created_at_utc": "2026-09-27T03:48:47.007726+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": false,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": null,
+      "job_id": "PUB-02__scientific_rejection__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/scientific_rejection/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_checkpoint_v1__PUB-02__scientific_rejection__rep_0000",
+      "scenario_id": "scientific_rejection",
+      "seeds": {
+        "generation": 2714113162,
+        "inference": 56441854,
+        "predictive": 3576123919,
+        "resampling": 797369740
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-09-27T03:49:23.630248+00:00"
+    },
+    "PUB-02__tiny_physical__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "0a355b96840b181041130e9084668450ef8f5c82",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/runner_smoke_checkpoint_v1.json",
+            "--job-id",
+            "PUB-02__tiny_physical__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/tiny_physical/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "b3d7cfd90c59462195843268de114febbc639cd4b7ede22bcb6fc241110c88ab",
+          "dataset_id": "synthetic-ec8d72a5571d1d85d9c0",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-27T03:49:51.464235+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": "ec8d72a5571d1d85d9c0004f65185b5051667dc1ce4bf96e508a9427a584fe19",
+          "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/tiny_physical/rep_0000/attempt_000",
+          "process": {
+            "pid": 43014,
+            "platform": "linux",
+            "process_group": 43014,
+            "session_id": 43014,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1838252"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 949251269,
+            "inference": 2779953169,
+            "predictive": 1621241501,
+            "resampling": 262572279
+          },
+          "started_at_utc": "2026-09-27T03:49:23.849213+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__tiny_physical__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/runner_smoke_checkpoint_v1/PUB-02/PUB-02__tiny_physical__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 43014,
+            "platform": "linux",
+            "process_group": 43014,
+            "session_id": 43014,
+            "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1838252"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/runner_smoke_checkpoint_v1.json",
+        "--job-id",
+        "PUB-02__tiny_physical__rep_0000"
+      ],
+      "created_at_utc": "2026-09-27T03:48:47.007732+00:00",
+      "dataset_id": "synthetic-ec8d72a5571d1d85d9c0",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "ec8d72a5571d1d85d9c0004f65185b5051667dc1ce4bf96e508a9427a584fe19",
+      "job_id": "PUB-02__tiny_physical__rep_0000",
+      "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/tiny_physical/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "runner_smoke_checkpoint_v1__PUB-02__tiny_physical__rep_0000",
+      "scenario_id": "tiny_physical",
+      "seeds": {
+        "generation": 949251269,
+        "inference": 2779953169,
+        "predictive": 1621241501,
+        "resampling": 262572279
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-09-27T03:49:53.431872+00:00"
+    }
+  },
+  "mode": "smoke",
+  "plan_identity_sha256": "5cd44b76f685800411727e34a77c5a857f5cf7661f49b8fb49d9bfa0474147f2",
+  "resource_notes": [],
+  "resources": {
+    "cores_per_run": 1,
+    "estimated_run_minutes": 20,
+    "max_campaign_hours": 1,
+    "max_workers": 1,
+    "stop_margin_minutes": 0
+  },
+  "schema_version": "publication-campaign-state-v1",
+  "scientific_config_sha256": "09cfff7d7b67212ded32d29e904b963fb8b78e42a9b3f212e7804e17dbc1ab22",
+  "status": "AGGREGATING",
+  "stop_reason": null,
+  "updated_at_utc": "2026-09-27T03:50:07.745823+00:00"
+}

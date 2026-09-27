@@ -95,6 +95,19 @@ Cada tentativa tem stdout e stderr separados, sem descartar warnings.
 O tempo contabiliza sessões ativas e conservadoramente intervalos sem controle
 em que havia workers registrados; não é tempo de CPU medido pelo kernel.
 
+`status` é o último estado persistido. `effective_status`, `controller_alive`
+e `checkpoint_age_seconds` distinguem atividade real de checkpoint antigo.
+No Windows, use o monitor compatível com substituição atômica do checkpoint:
+
+```powershell
+powershell -NoProfile -File scripts/watch_publication_campaign.ps1 -KeepAwake
+```
+
+`-KeepAwake` impede apenas suspensão automática enquanto o monitor estiver
+aberto e a campanha não tiver estado terminal. Não impede desligamento manual
+ou falta de energia. Veja `MONITOR_WINDOWS.md` e
+`CHECKPOINT_RELIABILITY_AMENDMENT.md` para o incidente e os testes de correção.
+
 ## 6. Parada segura
 
 Em outro terminal:

@@ -1,0 +1,13 @@
+{
+    "status":  "PASS",
+    "kind":  "windows_wsl_checkpoint_integration_not_science",
+    "utc":  "2026-09-27T03:41:30.3836740+00:00",
+    "fixture_directory":  "C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\artifacts\\checkpoint-sharing-c162a26536364327829e857e3d275d8a",
+    "checks":  {
+                   "unshared_delete_reproduces_original_permission_error":  true,
+                   "real_lock_release_recovers_without_restart":  true,
+                   "delete_shared_reader_does_not_block_replace":  true,
+                   "concurrent_reader_200_atomic_writes_no_partial_json":  true
+               },
+    "concurrent_reads":  704
+}

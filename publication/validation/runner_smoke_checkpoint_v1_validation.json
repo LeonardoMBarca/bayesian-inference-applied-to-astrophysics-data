@@ -1,0 +1,18 @@
+{
+  "campaign_id": "runner_smoke_checkpoint_v1",
+  "checks": {
+    "idempotent_second_resume": true,
+    "intentional_graceful_stop": true,
+    "real_physical_smoke_rejected_not_technical": true,
+    "resume_completed_unchanged": true,
+    "scientific_rejection_not_retried": true,
+    "technical_failure_retry_preserved": true
+  },
+  "declared_jobs": 5,
+  "mode": "engineering_smoke_not_final_science",
+  "scientific_claim": "None: 20-draw smoke cannot establish scientific validity.",
+  "state_path": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/campaign_state.json",
+  "state_sha256": "a0eede13ea7bc740dac157060046768f027955f6a3e9f3d6a9f5ae8d90973cb3",
+  "status": "PASS",
+  "total_attempts": 6
+}

@@ -1,0 +1,30 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/runner_smoke_checkpoint_v1.json",
+    "--job-id",
+    "PUB-02__retry_technical__rep_0000"
+  ],
+  "cores": 1,
+  "estimated_seconds": 30,
+  "experiment_id": "PUB-02",
+  "job_id": "PUB-02__retry_technical__rep_0000",
+  "max_technical_retries": 1,
+  "output_dir": "artifacts/publication_campaign/runner_smoke_checkpoint_v1/runs/PUB-02/retry_technical/rep_0000",
+  "payload": {
+    "action": "technical_fail_once",
+    "kind": "fixture",
+    "scenario_id": "retry_technical"
+  },
+  "replicate_id": "rep_0000",
+  "run_id": "runner_smoke_checkpoint_v1__PUB-02__retry_technical__rep_0000",
+  "scenario_id": "retry_technical",
+  "seeds": {
+    "generation": 1668246220,
+    "inference": 2433883391,
+    "predictive": 478402121,
+    "resampling": 1140765553
+  }
+}

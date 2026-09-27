@@ -8,6 +8,7 @@ It never changes a seed, scientific configuration, rejection or finished output.
 from __future__ import annotations
 
 import argparse
+import errno
 import json
 import os
 import re
@@ -42,6 +43,47 @@ def _identifier(value: Any, kind: str) -> str:
     return value
 
 
+def _replace_checkpoint_with_retry(temporary: Path, path: Path, *, exclusive: bool = False) -> None:
+    """Keep the fsynced candidate intact while a Windows/DrvFS reader locks it.
+
+    Retry only sharing/access/busy replacement failures for at most 12 seconds.
+    The old destination is never unlinked, opened for writing or truncated.
+    A persistent failure is raised to the controller, not treated as a save.
+    """
+    started = time.monotonic()
+    deadline, delay, failures = started + 12.0, .025, 0
+    while True:
+        if exclusive and path.exists():
+            raise FileExistsError(path)
+        try:
+            os.replace(temporary, path)
+        except OSError as exc:
+            transient = (exc.errno in {errno.EACCES, errno.EPERM, errno.EBUSY}
+                         or getattr(exc, "winerror", None) in {32, 33})
+            # Disk/full-I/O failures are not sharing violations even if an
+            # unusual exception also carries a Windows sharing-error attribute.
+            if not transient or exc.errno in {errno.ENOSPC, errno.EIO}:
+                raise
+            failures += 1
+            if failures == 1:
+                print(f"WARNING: checkpoint atomic replacement temporarily blocked for {path}: {exc}; "
+                      "retrying for at most 12 seconds without modifying the existing checkpoint.",
+                      file=sys.stderr, flush=True)
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                print(f"ERROR: checkpoint atomic replacement remains blocked for {path} after "
+                      f"{failures} failed attempts; save failed and the existing checkpoint was not modified.",
+                      file=sys.stderr, flush=True)
+                raise
+            time.sleep(min(delay, remaining))
+            delay = min(delay * 2, .5)
+            continue
+        if failures:
+            print(f"WARNING: checkpoint atomic replacement recovered for {path} after {failures} retries "
+                  f"in {time.monotonic() - started:.3f} seconds.", file=sys.stderr, flush=True)
+        return
+
+
 def _atomic_json(path: Path, payload: Any, *, exclusive: bool = False) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if exclusive and path.exists():
@@ -57,7 +99,7 @@ def _atomic_json(path: Path, payload: Any, *, exclusive: bool = False) -> None:
             os.fsync(handle.fileno())
         if exclusive and path.exists():
             raise FileExistsError(path)
-        os.replace(temporary, path)
+        _replace_checkpoint_with_retry(temporary, path, exclusive=exclusive)
     finally:
         if temporary is not None and temporary.exists():
             temporary.unlink()
@@ -395,7 +437,8 @@ class CampaignRunner:
                  "mode": self.plan["mode"], "scientific_config_sha256": self.plan["scientific_config_sha256"],
                  "plan_identity_sha256": _plan_identity(self.plan), "config_path": self.plan.get("config_path"),
                  "status": "PLANNED", "created_at_utc": utc_now(), "updated_at_utc": utc_now(),
-                 "code_commit": _commit(self.root), "controller_pid": os.getpid(), "jobs": jobs,
+                 "code_commit": _commit(self.root), "controller_pid": os.getpid(),
+                 "controller_process": process_identity(os.getpid()), "jobs": jobs,
                  "resources": self.resources, "available_cpus": self.cpu_count,
                  "budget": {"active_seconds": 0.0, "last_checkpoint_utc": utc_now(), "orphan_downtime_seconds": 0.0},
                  "resource_notes": ["Memory limits are advisory estimates, not an OS-enforced allocation cap."] if self.resources.get("memory_limit_gb") else [],
@@ -450,12 +493,23 @@ class CampaignRunner:
                 _journal(self.state, "runtime_resource_change", previous=self.state["resources"], current=self.resources)
             self.state["resources"] = self.resources
             self.state["controller_pid"] = os.getpid()
+            self.state["controller_process"] = process_identity(os.getpid())
             if self.stop_path.exists():
                 _journal(self.state, "explicit_resume_clears_previous_stop", previous_request=_read(self.stop_path))
                 self.stop_path.unlink()
             _journal(self.state, "campaign_resumed", code_commit=_commit(self.root))
         else:
             self.state = self._new_state()
+        amendment = self.plan.get("runtime_amendments")
+        previous_amendment = self.state.get("runtime_amendments")
+        if previous_amendment:
+            previous_entries = previous_amendment["amendments"]
+            if not amendment or amendment["amendments"][:len(previous_entries)] != previous_entries:
+                raise CampaignIntegrityError("Recorded runtime amendment cannot be removed or rewritten")
+        if amendment and amendment != previous_amendment:
+            self.state["runtime_amendments"] = amendment
+            _journal(self.state, "runtime_amendment_verified", metadata=amendment,
+                     code_commit=_commit(self.root))
         self.last_tick = time.monotonic()
         self.session_started = self.last_tick
         self._save()
@@ -869,13 +923,28 @@ def read_status(root: Path, campaign_id: str) -> dict[str, Any]:
         counts[row["status"]] = counts.get(row["status"], 0) + 1
         family_counts = families.setdefault(row["experiment_id"], {})
         family_counts[row["status"]] = family_counts.get(row["status"], 0) + 1
+    age = _elapsed_utc(state["updated_at_utc"], utc_now())
+    # Persisted RUNNING is not proof of process liveness. Never trust a reused PID.
+    controller = process_matches(state.get("controller_process"))
+    workers = {key: process_matches(row["attempts"][-1].get("process"))
+               for key, row in state["jobs"].items() if row["status"] == "RUNNING" and row["attempts"]}
+    effective = state["status"]
+    if state["status"] in {"RUNNING", "AGGREGATING"}:
+        if controller is False:
+            effective = "ORPHANED_WORKERS" if any(value is True for value in workers.values()) else "CONTROLLER_STOPPED"
+        elif age > 30:
+            effective = "CHECKPOINT_STALE"
+        elif controller is None:
+            effective = "LIVENESS_UNCONFIRMED"
     return {"campaign_id": campaign_id, "mode": state["mode"], "status": state["status"],
+            "effective_status": effective, "checkpoint_age_seconds": age,
+            "controller_alive": controller, "worker_liveness": workers,
             "updated_at_utc": state["updated_at_utc"], "declared_jobs": len(state["jobs"]),
             "status_counts": counts, "status_counts_by_family": families,
             "active_seconds_checkpointed": state["budget"]["active_seconds"],
             "max_campaign_hours": state["resources"]["max_campaign_hours"],
             "stop_reason": state.get("stop_reason"),
-            "progress_semantics": "Counts describe persisted attempts, not scientific success; no unsupported ETA is inferred."}
+            "progress_semantics": "Counts/status describe persisted attempts, not liveness or scientific success; consult effective_status/controller_alive. No unsupported ETA is inferred."}
 
 
 def planned_status(plan: dict[str, Any]) -> dict[str, Any]:

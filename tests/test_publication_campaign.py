@@ -273,6 +273,42 @@ class PublicationCampaignTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_completion(attempt)
 
+    def test_status_distinguishes_dead_controller_from_persisted_running(self) -> None:
+        runner = CampaignRunner(self.root, self.plan())
+        state = runner._new_state()
+        state["status"] = "RUNNING"
+        _atomic_json(runner.state_path, state)
+        with patch("publication.campaign.process_matches", return_value=False):
+            status = read_status(self.root, "fixture_campaign")
+        self.assertEqual(status["status"], "RUNNING")
+        self.assertEqual(status["effective_status"], "CONTROLLER_STOPPED")
+        self.assertFalse(status["controller_alive"])
+        self.assertEqual(_state(runner.state_path), state)  # status must remain read-only
+
+    def test_status_without_controller_identity_does_not_claim_liveness(self) -> None:
+        runner = CampaignRunner(self.root, self.plan())
+        state = runner._new_state()
+        state.pop("controller_process")
+        state["status"] = "RUNNING"
+        _atomic_json(runner.state_path, state)
+        status = read_status(self.root, "fixture_campaign")
+        self.assertEqual(status["effective_status"], "LIVENESS_UNCONFIRMED")
+        self.assertIsNone(status["controller_alive"])
+
+    def test_runtime_amendment_is_journaled_without_changing_or_repeating_jobs(self) -> None:
+        plan = self.plan()
+        state = CampaignRunner(self.root, plan).run()
+        before = state["jobs"]
+        plan["runtime_amendments"] = {"path": "fixture-amendment.json", "sha256": "a" * 64,
+                                      "amendments": [{"amendment_id": "runtime-only-001"}]}
+        resumed = CampaignRunner(self.root, plan).run(resume=True)
+        self.assertEqual(resumed["jobs"], before)
+        self.assertEqual(resumed["plan_identity_sha256"], state["plan_identity_sha256"])
+        self.assertTrue(any(event["kind"] == "runtime_amendment_verified" for event in resumed["events"]))
+        plan.pop("runtime_amendments")
+        with self.assertRaisesRegex(CampaignIntegrityError, "amendment cannot be removed"):
+            CampaignRunner(self.root, plan).run(resume=True)
+
     def test_journal_mutation_and_output_collision_fail_closed(self) -> None:
         plan = self.plan()
         runner = CampaignRunner(self.root, plan)

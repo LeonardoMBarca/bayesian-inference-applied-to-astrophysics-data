@@ -1,0 +1,12 @@
+Observed incident excerpt from retained tmux pane %3, controller PID 34789.
+Exit status 1 at 2026-09-27 03:08:38 UTC, before the runtime repair.
+
+src/publication/campaign.py, line 825, run: self._save()
+src/publication/campaign.py, line 415, _save: _atomic_json(self.state_path, self.state)
+src/publication/campaign.py, line 60, _atomic_json: os.replace(temporary, path)
+PermissionError: [Errno 13] Permission denied:
+    artifacts/publication_campaign/tcc_campaign_v1/.campaign_state.json.fplgmqm9.tmp
+    -> artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json
+
+Paths are repository-relative excerpts from the original absolute /mnt/c
+traceback. The worker subsequently sealed shallow_short/rep_0011 as COMPLETED.
