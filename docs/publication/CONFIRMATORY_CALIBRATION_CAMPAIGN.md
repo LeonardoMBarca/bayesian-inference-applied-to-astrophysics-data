@@ -78,6 +78,11 @@ The monitor may be closed without stopping the supervisor. Manual shutdown,
 logoff and power loss still stop computation; resume uses the same command and
 preserves finished runs. See `BACKGROUND_WINDOWS.md` for operational details.
 
+In Windows VS Code, use **Terminal > Run Task** and select
+`Calibration 100x4: Background / Resume (Windows)` or
+`Calibration 100x4: Logs (Windows)`. These tasks explicitly select the new
+campaign; existing Publication tasks still refer to the original campaign.
+
 State: `artifacts/publication_campaign/tcc_calibration_confirmatory_v1/`.
 Logs: `logs/publication_campaign/tcc_calibration_confirmatory_v1/`.
 Automatic final tables, figures and reports:

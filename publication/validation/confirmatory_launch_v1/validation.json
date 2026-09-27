@@ -1,0 +1,191 @@
+{
+  "checked_sha256": {
+    "configs/publication/tcc_calibration_confirmatory_v1.json": "a78d57f7ab13a5bc9612017601088dc1f6e8fea5d659652295f7bc6bba51e4dd",
+    "configs/publication/tcc_calibration_confirmatory_v1_plan.json": "b6dbb7738211e5a4ef11b217721fdb35acd68201beee3be6bbb728e34f4c7ff7",
+    "configs/publication/tcc_campaign_v1_plan.json": "8c5f7407316168162a8862075101969f2f57efddfdfa157c7797052d22caa974",
+    "publication/protocols/PUB-02-confirmatory-v1.json": "709db7d29824f862f9689dc0a921d25f98cfca68617c21f5062db9586834a181",
+    "publication/protocols/PUB-02.json": "2fb9b2434062b755a6bb38285ab69c0f7adcbe47d5e20cccedfe2c1cd0547187",
+    "tests/manual/validate_confirmatory_campaign.py": "9683a801c1cec9a9aa4aa9c2452e745b6fc2258f67acbb05880d8d82c67179d4",
+    "tests/test_confirmatory_campaign.py": "be7f89643c9b879fb8e18fe8482160ba9d9711fc96d0ea074452cf5b7ac8c5fd"
+  },
+  "commit": "ad3514ad4f6d6c02ab0b06b014bb4ef8cd6e5476",
+  "config_path": "configs/publication/tcc_calibration_confirmatory_v1.json",
+  "dry_run": {
+    "estimated_hours": 20.0,
+    "jobs": 400,
+    "preflight_errors": [],
+    "resources": {
+      "cores_per_run": 4,
+      "estimated_run_minutes": 20,
+      "max_campaign_hours": 22,
+      "max_runtime_hours": null,
+      "max_workers": 1,
+      "memory_limit_gb": null,
+      "stop_margin_minutes": 5
+    }
+  },
+  "evidence_sha256": {
+    "dry_run.json": "67ff44666b3ddbe7892eadde9c301e44e37d7e12fdcfcb56ea5afe77df0b4dd5",
+    "dry_run.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests.log": "e2725f383441f87d267a052beb4d3b8104467f19910a06ed43c44131713c516e"
+  },
+  "execution_preflight": {
+    "actual_scientific_interpreter": "/home/leonardo_barca/mc3/bin/python3.14",
+    "branch": "publication-grade-validation",
+    "campaign_id": "tcc_calibration_confirmatory_v1",
+    "errors": [],
+    "passed": true,
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "protected_baseline": {
+      "manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+      "missing_external": [],
+      "status": "verified",
+      "verified_artifacts": 26
+    },
+    "schema_version": "campaign-execution-preflight-v1",
+    "scientific_environment": {
+      "baseline_manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+      "errors": [],
+      "limitations": "Exact direct pinned distributions and Python version; not a proof of bit-identical native libraries, compiler or complete transitive environment. Package code integrity requires separately frozen source/environment artifacts.",
+      "packages": {
+        "arviz": {
+          "actual": "1.3.0",
+          "expected": "1.3.0",
+          "matched": true
+        },
+        "astropy": {
+          "actual": "8.0.1",
+          "expected": "8.0.1",
+          "matched": true
+        },
+        "astroquery": {
+          "actual": "0.4.11",
+          "expected": "0.4.11",
+          "matched": true
+        },
+        "beautifulsoup4": {
+          "actual": "4.15.0",
+          "expected": "4.15.0",
+          "matched": true
+        },
+        "exoplanet": {
+          "actual": "0.6.0",
+          "expected": "0.6.0",
+          "matched": true
+        },
+        "exoplanet-core": {
+          "actual": "0.4.0",
+          "expected": "0.4.0",
+          "matched": true
+        },
+        "h5netcdf": {
+          "actual": "1.8.1",
+          "expected": "1.8.1",
+          "matched": true
+        },
+        "h5py": {
+          "actual": "3.16.0",
+          "expected": "3.16.0",
+          "matched": true
+        },
+        "lightkurve": {
+          "actual": "2.6.0",
+          "expected": "2.6.0",
+          "matched": true
+        },
+        "lxml": {
+          "actual": "6.1.2",
+          "expected": "6.1.2",
+          "matched": true
+        },
+        "matplotlib": {
+          "actual": "3.11.1",
+          "expected": "3.11.1",
+          "matched": true
+        },
+        "numpy": {
+          "actual": "2.4.6",
+          "expected": "2.4.6",
+          "matched": true
+        },
+        "pandas": {
+          "actual": "2.3.3",
+          "expected": "2.3.3",
+          "matched": true
+        },
+        "pymc": {
+          "actual": "6.3.1",
+          "expected": "6.3.1",
+          "matched": true
+        },
+        "pytensor": {
+          "actual": "3.3.0",
+          "expected": "3.3.0",
+          "matched": true
+        },
+        "requests": {
+          "actual": "2.34.2",
+          "expected": "2.34.2",
+          "matched": true
+        },
+        "ruff": {
+          "actual": "0.16.1",
+          "expected": "0.16.1",
+          "matched": true
+        },
+        "scipy": {
+          "actual": "1.18.1",
+          "expected": "1.18.1",
+          "matched": true
+        },
+        "tqdm": {
+          "actual": "4.68.2",
+          "expected": "4.68.2",
+          "matched": true
+        }
+      },
+      "passed": true,
+      "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python_actual": "3.14.6",
+      "python_expected": "3.14.6",
+      "requirements_sha256": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+      "schema_version": "scientific-environment-preflight-v1"
+    },
+    "sources": []
+  },
+  "finished_at_utc": "2026-09-27T16:59:12.741420+00:00",
+  "no_final_inference_started_by_validation": true,
+  "parent_report_validation": {
+    "all_declared_scientific_jobs_finished": true,
+    "artifact_integrity_passed": true,
+    "campaign_id": "tcc_campaign_v1",
+    "claim_limit": "Artifact integrity does not authorize scientific claims or paper release; smoke is infrastructure evidence only.",
+    "complete_declared_batch": true,
+    "declared_jobs": 117,
+    "mode": "final",
+    "scientifically_interpretable_count": 66,
+    "status_counts": {
+      "COMPLETED": 66,
+      "COMPLETED_REJECTED": 51
+    }
+  },
+  "passed": true,
+  "schema_version": "confirmatory-prelaunch-v1",
+  "started_at_utc": "2026-09-27T16:42:07.255867+00:00",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "patterns": [
+      "test_confirmatory_campaign.py",
+      "test_publication_campaign_plan.py",
+      "test_publication_campaign.py",
+      "test_campaign_checkpoint_io.py",
+      "test_publication_campaign_preflight.py",
+      "test_publication_campaign_reporting.py",
+      "test_publication_simulation.py",
+      "test_publication_inference.py"
+    ],
+    "run": 124,
+    "skips": 0
+  }
+}

@@ -1,6 +1,8 @@
 {
   "version": "2.0.0",
   "tasks": [
+    {"label": "Calibration 100x4: Background / Resume (Windows)", "type": "process", "command": "powershell.exe", "args": ["-NoProfile", "-File", "scripts/start_publication_campaign_background.ps1", "-Config", "configs/publication/tcc_calibration_confirmatory_v1.json"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": [], "presentation": {"reveal": "always", "panel": "dedicated"}},
+    {"label": "Calibration 100x4: Logs (Windows)", "type": "process", "command": "powershell.exe", "args": ["-NoProfile", "-File", "scripts/watch_publication_campaign.ps1", "-CampaignId", "tcc_calibration_confirmatory_v1"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": [], "presentation": {"reveal": "always", "panel": "dedicated"}},
     {"label": "Publication: Dry Run", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--dry-run"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": []},
     {"label": "Publication: Run / Resume", "type": "process", "command": "python", "args": ["scripts/run_publication_campaign.py", "--resume"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": [], "presentation": {"reveal": "always", "panel": "dedicated"}},
     {"label": "Publication: Background (Windows)", "type": "process", "command": "powershell.exe", "args": ["-NoProfile", "-File", "scripts/start_publication_campaign_background.ps1"], "options": {"cwd": "${workspaceFolder}"}, "problemMatcher": [], "presentation": {"reveal": "always", "panel": "dedicated"}},
