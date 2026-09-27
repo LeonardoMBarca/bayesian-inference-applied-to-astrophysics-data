@@ -23,6 +23,26 @@ Uma unica leitura, ou estado alternativo:
 .\scripts\watch_publication_campaign.ps1 -RepoRoot 'C:\caminho\fixture' -StatePath 'state.json' -Once
 ```
 
+## Regressao de abertura no Windows PowerShell 5.1
+
+O diretorio padrao e resolvido no corpo do script, nao no valor padrao do
+parametro: em `powershell.exe -NoExit -File`, `$PSScriptRoot` podia estar vazio
+durante a inicializacao dos parametros, causando erro de `Split-Path` antes
+do monitor abrir. O teste reproduz esse erro e verifica a versao corrigida,
+com raiz automatica e explicita, a partir de um diretorio externo ao repositorio.
+Usa apenas um estado sintetico; nao inicia nem reinicia inferencia.
+
+```powershell
+powershell.exe -NoProfile -File .\tests\manual\validate_windows_monitor_startup.ps1 -OutputDirectory publication/validation/monitor_startup_local_001
+```
+
+Escolha um diretorio de evidencia novo a cada teste. Evidencia de 2026-09-27:
+`publication/validation/monitor_startup_v1/validation.json` (3 casos passaram).
+Confirmar apenas que o processo do terminal foi criado nao valida a abertura:
+e necessario verificar o cabecalho, o caminho do estado e a saida do monitor.
+
+## Interpretacao do progresso
+
 O percentual e `(COMPLETED + COMPLETED_REJECTED) / jobs declarados`. Rejeicao
 cientifica nao e falha tecnica nem confirmacao de um resultado fisico valido.
 As demais categorias sao mostradas separadamente.

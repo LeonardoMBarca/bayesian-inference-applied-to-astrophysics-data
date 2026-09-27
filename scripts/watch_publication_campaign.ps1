@@ -1,7 +1,7 @@
 <# Read-only monitor. No campaign command, restart, inference, or file write. #>
 [CmdletBinding()]
 param(
-    [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot),
+    [string]$RepoRoot,
     [string]$StatePath,
     [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9_-]*$')]
     [string]$CampaignId = 'tcc_campaign_v1',
@@ -10,6 +10,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+# Windows PowerShell -NoExit may bind parameter defaults before PSScriptRoot exists.
+# Resolve the default inside the script body, independently of the terminal's cwd.
+if (-not $RepoRoot) { $RepoRoot = Split-Path -Parent $PSScriptRoot }
 $resolvedRepo = [System.IO.Path]::GetFullPath($RepoRoot)
 if (-not $StatePath) {
     $StatePath = "artifacts/publication_campaign/$CampaignId/campaign_state.json"

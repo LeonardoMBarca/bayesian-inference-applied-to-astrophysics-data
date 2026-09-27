@@ -1,0 +1,9 @@
+Split-Path : NÆo ‚ poss¡vel associar o argumento ao parƒmetro 'Path' porque ele ‚ uma cadeia de caracteres vazia.
+No C:\Users\Leonardo Barca\Desktop\workspace\personal\bayesian-inference-applied-to-astrophysics-data\publication\valid
+ation\monitor_startup_v1\old_parameter_default_probe.ps1:2 caractere:47
++ param([string]$RepoRoot = (Split-Path -Parent $PSScriptRoot))
++                                               ~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerShell.Commands.Spli 
+   tPathCommand
+ 

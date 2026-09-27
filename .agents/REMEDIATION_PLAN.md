@@ -32,6 +32,26 @@ an operational cancellation with unknown initiator, not hidden as success.
 The final campaign was resumed through the independent Windows supervisor;
 its current scientific outcomes remain ongoing, not promoted by this repair.
 
+## Publication monitor startup — Windows PowerShell default path
+
+**Status:** DONE (2026-09-27)
+
+The visible log window failed before initialization because `$PSScriptRoot`
+was empty in the parameter default under Windows PowerShell `-NoExit -File`.
+The default repository path now resolves inside the script body. Previous
+checks with an explicit repository path did not cover this invocation; process
+creation alone was insufficient evidence that the monitor started correctly.
+
+Acceptance/evidence: `tests/manual/validate_windows_monitor_startup.ps1`
+reproduces the original failure and passes both corrected default/explicit-path
+cases from an external working directory under the actual PowerShell host.
+All 3 cases passed; evidence is in
+`publication/validation/monitor_startup_v1/validation.json`. The reopened visible
+window produced live log frames; WSL status at 2026-09-27T04:49Z independently
+confirmed controller and worker alive (57/117 jobs finished, including 15
+scientific rejections). No inference was restarted, and no scientific inputs,
+configuration, results or frozen Python sources were changed by this fix.
+
 ## P0 — Scientific/provenance correctness
 
 ### P0.1 — Make M5 target-safe

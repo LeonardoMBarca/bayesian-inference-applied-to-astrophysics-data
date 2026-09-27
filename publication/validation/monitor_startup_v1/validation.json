@@ -1,0 +1,46 @@
+{
+    "monitor_path":  "scripts/watch_publication_campaign.ps1",
+    "schema_version":  "windows-monitor-startup-validation-v1",
+    "host_version":  "10.0.26100.8875 (WinBuild.160101.0800)",
+    "tested_at_utc":  "2026-09-27T04:47:03.2921728+00:00",
+    "monitor_sha256":  "b82d73072329961594c8422dd844d268bd2fed54500041dfdf1bb8fa3060869f",
+    "no_live_state_read":  true,
+    "host":  "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "no_scientific_execution":  true,
+    "status":  "PASS",
+    "cases":  [
+                  {
+                      "stdout":  "publication/validation/monitor_startup_v1/old_default_reproduced.stdout.log",
+                      "working_directory_outside_repo":  true,
+                      "command":  "powershell.exe -NoLogo -NoProfile -NoExit -File \"C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\publication\\validation\\monitor_startup_v1\\old_parameter_default_probe.ps1\" ",
+                      "expected_state_path":  "C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\publication\\validation\\monitor_startup_v1\\fixture_state.json",
+                      "stderr":  "publication/validation/monitor_startup_v1/old_default_reproduced.stderr.log",
+                      "name":  "old_default_reproduced",
+                      "no_exit_host_was_running":  true,
+                      "expected_startup_failure":  true,
+                      "status":  "PASS"
+                  },
+                  {
+                      "stdout":  "publication/validation/monitor_startup_v1/default_repo_root.stdout.log",
+                      "working_directory_outside_repo":  true,
+                      "command":  "powershell.exe -NoLogo -NoProfile -NoExit -File \"C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\scripts\\watch_publication_campaign.ps1\" -Once -StatePath \"publication/validation/monitor_startup_v1/fixture_state.json\"",
+                      "expected_state_path":  "C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\publication\\validation\\monitor_startup_v1\\fixture_state.json",
+                      "stderr":  "publication/validation/monitor_startup_v1/default_repo_root.stderr.log",
+                      "name":  "default_repo_root",
+                      "no_exit_host_was_running":  true,
+                      "expected_startup_failure":  false,
+                      "status":  "PASS"
+                  },
+                  {
+                      "stdout":  "publication/validation/monitor_startup_v1/explicit_repo_root.stdout.log",
+                      "working_directory_outside_repo":  true,
+                      "command":  "powershell.exe -NoLogo -NoProfile -NoExit -File \"C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\scripts\\watch_publication_campaign.ps1\" -Once -StatePath \"publication/validation/monitor_startup_v1/fixture_state.json\" -RepoRoot \"C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\"",
+                      "expected_state_path":  "C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data\\publication\\validation\\monitor_startup_v1\\fixture_state.json",
+                      "stderr":  "publication/validation/monitor_startup_v1/explicit_repo_root.stderr.log",
+                      "name":  "explicit_repo_root",
+                      "no_exit_host_was_running":  true,
+                      "expected_startup_failure":  false,
+                      "status":  "PASS"
+                  }
+              ]
+}
