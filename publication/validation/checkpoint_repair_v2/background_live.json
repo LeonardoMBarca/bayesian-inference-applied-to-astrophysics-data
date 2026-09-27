@@ -1,0 +1,139 @@
+{
+  "schema_version": "publication-background-live-observation-v1",
+  "campaign_id": "tcc_campaign_v1",
+  "observed_at_utc": "2026-09-27T04:30:08.982171+00:00",
+  "operational_validation_status": "PASS_OBSERVED_RECOVERY_AND_NEXT_DISPATCH",
+  "observation_scope": "Read-only process, checkpoint and artifact observations; only this evidence record was written. No campaign stop, restart, state edit, seed change or scientific dispatch was performed by the observer.",
+  "point_in_time_limit": "This records one successful interrupted-attempt recovery and subsequent automatic dispatch. It does not guarantee future liveness, entire-campaign completion, scientific calibration or publication readiness. The campaign remained running after observation.",
+  "launch_log_directory": "logs/publication_campaign/tcc_campaign_v1/20260927T042107564Z_48e9a82e34794461af303a63615f0862",
+  "no_new_wsl_query_window": {
+    "declared_start_utc": "2026-09-27T04:23:19+00:00",
+    "conservative_end_utc": "2026-09-27T04:24:49+00:00",
+    "minimum_seconds": 90,
+    "method": "Observer and coordinating agent refrained from new WSL invocations. The persistent supervisor-owned wsl.exe client remained open. The intermediate checkpoint was read on Windows with FileShare.ReadWrite|Delete, disposing handles before JSON parsing.",
+    "intermediate_windows_observation_utc": "2026-09-27T04:24:36.3525815+00:00",
+    "intermediate_checkpoint_utc": "2026-09-27T04:24:34.515223+00:00",
+    "first_post_window_status_checkpoint_utc": "2026-09-27T04:25:21.566291+00:00",
+    "post_window_controller_alive": true,
+    "post_window_rep12_worker_alive": true,
+    "post_window_checkpoint_age_seconds": 1.181969,
+    "passed": true
+  },
+  "windows_processes": [
+    {
+      "role": "persistent_supervisor",
+      "pid": 7984,
+      "process_name": "powershell",
+      "started_at_utc": "2026-09-27T04:21:07.5940715Z",
+      "start_token": "windows:134349564675940715",
+      "alive_at_final_observation": true
+    },
+    {
+      "role": "persistent_wsl_client",
+      "pid": 38904,
+      "process_name": "wsl",
+      "started_at_utc": "2026-09-27T04:21:09.3315458Z",
+      "start_token": "windows:134349564693315458",
+      "alive_at_final_observation": true
+    }
+  ],
+  "controller_process": {
+    "pid": 776,
+    "platform": "linux",
+    "process_group": 776,
+    "session_id": 776,
+    "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:2031955"
+  },
+  "live_status_snapshot": {
+    "campaign_id": "tcc_campaign_v1",
+    "mode": "final",
+    "status": "RUNNING",
+    "effective_status": "RUNNING",
+    "checkpoint_age_seconds": 1.330826,
+    "controller_alive": true,
+    "worker_liveness": {
+      "PUB-02__shallow_short__rep_0013": true
+    },
+    "updated_at_utc": "2026-09-27T04:30:07.751203+00:00",
+    "declared_jobs": 117,
+    "status_counts": {
+      "COMPLETED": 39,
+      "COMPLETED_REJECTED": 14,
+      "PLANNED": 63,
+      "RUNNING": 1
+    },
+    "status_counts_by_family": {
+      "PUB-02": {
+        "COMPLETED": 39,
+        "COMPLETED_REJECTED": 14,
+        "PLANNED": 26,
+        "RUNNING": 1
+      },
+      "PUB-03": {"PLANNED": 2},
+      "PUB-04": {"PLANNED": 30},
+      "PUB-05": {"PLANNED": 5}
+    },
+    "active_seconds_checkpointed": 28741.014586980065,
+    "max_campaign_hours": 36,
+    "stop_reason": null,
+    "progress_semantics": "Counts/status describe persisted attempts, not liveness or scientific success; consult effective_status/controller_alive. No unsupported ETA is inferred."
+  },
+  "recovered_job": {
+    "job_id": "PUB-02__shallow_short__rep_0012",
+    "all_four_seeds_equal_between_attempts": true,
+    "input_truth_and_inference_config_hashes_equal_between_attempts": true,
+    "seeds_for_both_attempts": {
+      "generation": 2942396775,
+      "inference": 3632801526,
+      "predictive": 426475674,
+      "resampling": 969309856
+    },
+    "common_artifact_sha256": {
+      "input.csv": "e5c0bb48414a406c41634cdb7f888dab7d58ae4bb42195e84d2e6fb7d718ac6c",
+      "truth.json": "b4f63fa78ac8617bfc0fd43e39b39ad782e6030fb6e639b230da9be647e207b8",
+      "inference_config.json": "018e4e7cca44e4f651f032e8649ecc861abfda039c4f8cf2270120e0c3496ba2"
+    },
+    "preserved_cancelled_attempt": {
+      "attempt_index": 0,
+      "status": "CANCELLED",
+      "started_at_utc": "2026-09-27T04:05:26.274523+00:00",
+      "finished_at_utc": "2026-09-27T04:07:55.443803+00:00",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000",
+      "return_code": -15,
+      "process_alive": false,
+      "result_and_completion_manifest_present": false
+    },
+    "recovered_attempt": {
+      "attempt_index": 1,
+      "status": "COMPLETED",
+      "started_at_utc": "2026-09-27T04:23:14.600979+00:00",
+      "finished_at_utc": "2026-09-27T04:28:58.117411+00:00",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_001",
+      "return_code": 0,
+      "process_alive": false,
+      "result_json_sha256": "98c050b1b981bd462a0e931c7107df859e6458a632473fcf14e2a859770e345e",
+      "completion_manifest_json_sha256": "b30e79c7ddf17879bdad2b43dfb4d91b8e67b69130b2d7371575b2e7909e159c"
+    }
+  },
+  "next_automatic_dispatch": {
+    "job_id": "PUB-02__shallow_short__rep_0013",
+    "attempt_index": 0,
+    "status": "RUNNING",
+    "started_at_utc": "2026-09-27T04:29:00.757158+00:00",
+    "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0013/attempt_000",
+    "worker_alive": true,
+    "process": {
+      "pid": 2170,
+      "platform": "linux",
+      "process_group": 2170,
+      "session_id": 2170,
+      "start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:2079113"
+    }
+  },
+  "limitations": [
+    "The previous distro poweroff is an external operational interruption, not evidence of a scientific rejection.",
+    "Process existence was checked using process start tokens for Linux liveness; Windows PIDs and creation times identify the persistent supervisor/client.",
+    "This observation checked the recovered attempt's small artifact hashes and recorded controller acceptance of its completion manifest; it did not independently rehash every posterior array or every historical run.",
+    "The active next worker may finish or fail after this snapshot; no future outcome is asserted."
+  ]
+}

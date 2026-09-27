@@ -10,6 +10,11 @@ Atualiza a cada 10 segundos. `Ctrl+C` fecha apenas o monitor; ele nao inicia,
 reinicia nem encerra controller, worker ou inferencia. Nao escreve no repositorio.
 Nao use `Get-Content -Wait` sobre `campaign_state.json` para substitui-lo.
 
+Para execucao independente desta janela, inicie primeiro o
+[supervisor de background](BACKGROUND_WINDOWS.md). Ele mantem seu proprio
+cliente WSL e sua propria solicitacao KeepAwake; o monitor pode ser fechado.
+Este monitor sozinho nao mantem uma sessao WSL conectada nem inicia ciencia.
+
 Uma unica leitura, ou estado alternativo:
 
 ```powershell

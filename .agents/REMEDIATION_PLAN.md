@@ -7,20 +7,30 @@ Status: `TODO`, `IN_PROGRESS`, `BLOCKED`, `DONE`.
 Publication-cycle note (2026-09-26): the validated hardening baseline below
 remains protected. New publication engineering is isolated on
 `publication-grade-validation`; see `.agents/PUBLICATION_PLAN.md` and
-`reports/PUBLICATION_CAMPAIGN_HANDOFF.md`. The latest user scope requests an
-autonomous validated runner, not agent execution of final scientific batches.
+`reports/PUBLICATION_CAMPAIGN_HANDOFF.md`. The preparation-stage scope requested
+an autonomous validated runner, excluding final batches from engineering tests.
+The user subsequently authorized launch and operational repair of the final
+campaign; scientific trials remain distinct from engineering validation.
 Research outcomes remain pending; runner implementation is not a new claim of
 calibration, external agreement, generalization or full-paper reproducibility.
 
 ## Publication operational incident — Windows/WSL checkpoint replacement
 
-**Status:** IN_PROGRESS (2026-09-27)
+**Status:** DONE (operational acceptance, 2026-09-27)
 
 Observed controller PermissionError during atomic checkpoint replacement while
 the scientific child completed. Scope: bounded sharing-violation retry,
 delete-shared monitor, truthful liveness and audited runtime-source amendment.
 No scientific design or sealed evidence changes. Acceptance/evidence:
 `docs/publication/CHECKPOINT_RELIABILITY_AMENDMENT.md`.
+
+Evidence: 242 tests with zero skips, baseline/static/lint validation, real
+Windows/WSL sharing-lock reproduction/recovery, interrupted/resumed/idempotent
+engineering smoke, and a separate background-supervisor test surviving closure
+of its launcher and monitor. A later system-level WSL poweroff was preserved as
+an operational cancellation with unknown initiator, not hidden as success.
+The final campaign was resumed through the independent Windows supervisor;
+its current scientific outcomes remain ongoing, not promoted by this repair.
 
 ## P0 — Scientific/provenance correctness
 

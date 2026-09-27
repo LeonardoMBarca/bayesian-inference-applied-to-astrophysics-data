@@ -1,0 +1,20 @@
+{
+    "started_at_utc":  "2026-09-27T04:21:09.1178486+00:00",
+    "supervisor_pid":  7984,
+    "wsl_client_pid":  38904,
+    "wsl_client_start_utc":  "2026-09-27T04:21:09.3315458Z",
+    "keep_awake":  "ES_CONTINUOUS|ES_SYSTEM_REQUIRED",
+    "arguments":  [
+                      "--cd",
+                      "C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\bayesian-inference-applied-to-astrophysics-data",
+                      "-d",
+                      "Ubuntu-24.04",
+                      "--exec",
+                      "/home/leonardo_barca/mc3/bin/python3.14",
+                      "-u",
+                      "scripts/run_publication_campaign.py",
+                      "--config",
+                      "configs/publication/tcc_final_campaign.json",
+                      "--resume"
+                  ]
+}

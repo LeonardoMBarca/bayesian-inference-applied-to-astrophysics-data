@@ -115,6 +115,25 @@ Microsoft documents that [systemd services alone do not keep a WSL instance aliv
 That lifecycle limitation motivates the persistent client; it does not prove the
 initiator of this observed poweroff.
 
+The background wrapper was tested independently of MCMC. In
+`publication/engineering/windows_background_validation_001.json`, the launcher
+process had exited, the test monitor was deliberately closed, and the hidden
+supervisor plus its WSL client remained alive 64.016 seconds later. The delay-only
+fixture then exited with code 0; temporary power-request release was confirmed.
+Paths containing spaces and separate stdout/stderr were exercised. Initial harness
+and quoting failures remain in `windows_background_pilot_failures_001.json`.
+
+This launcher and its repeatable test were committed as `df171f1`; neither changed
+the frozen Python source map, protocols, inputs or inference settings.
+
+The final campaign was explicitly resumed through that supervisor at 04:21 UTC.
+The cancelled attempt remains at `attempt_000`; continuation uses `attempt_001`
+with identical input SHA-256 and all four seeds. The supervisor owns the power
+request independently of the visible monitor. The live verification and exact
+progress are recorded in `checkpoint_repair_v2/background_live.json`, including
+a window exceeding 90 seconds without diagnostic WSL invocations. These are
+bounded observations, not a guarantee against future host/external failures.
+
 ## Limits
 
 This does not promise continuity through disk failure, full disk, permanent
