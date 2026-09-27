@@ -98,3 +98,13 @@ Use a new evidence directory for each validation invocation. It verifies
 unchanged science, separate seeds/paths, the locked environment and historical
 baseline, existing parent report integrity, focused tests, and the actual CLI
 dry-run. Runner/source implementations are unchanged by this extension.
+
+## Launch record
+
+The prelaunch validation passed on 2026-09-27 with 124 focused tests, zero
+failures and zero skips; exact environment/baseline verification; parent report
+integrity; and a 400-job CLI dry-run. The campaign was launched at
+`2026-09-27T17:30:18Z` through the independent Windows supervisor, launch ID
+`20260927T173017943Z_7bb0c9e112834c9cb0e2e3460c27e34a`. Initial state recorded
+one RUNNING and 399 PLANNED jobs. This is an operational snapshot only; use the
+machine-readable state for current progress and the final aggregate for results.

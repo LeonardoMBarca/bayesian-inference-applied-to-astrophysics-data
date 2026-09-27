@@ -102,8 +102,9 @@ This registry must be updated as work progresses, but never by erasing unfavorab
 
 ## Independent P2 confirmatory extension, 2026-09-27
 
-`tcc_calibration_confirmatory_v1` is registered **PLANNED** before its first
-final attempt. Protocol: `publication/protocols/PUB-02-confirmatory-v1.json`;
+`tcc_calibration_confirmatory_v1` was registered **PLANNED** before its first
+final attempt and is now **RUNNING**. Protocol:
+`publication/protocols/PUB-02-confirmatory-v1.json`;
 config: `configs/publication/tcc_calibration_confirmatory_v1.json`.
 It declares 100 NEW replicates per each of the four original P2 scenarios
 (400 total), under unchanged truth/design, priors, likelihood, sampler and gates.
@@ -120,6 +121,14 @@ the family-level PLANNED descriptions above are prelaunch historical snapshots.
 The extension does not rerun or replace the parent's rejected P3/P5 outcomes.
 After launch, status authority is
 `artifacts/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state.json`.
+The exact 400-job ledger was committed as `ad3514a` (SHA-256
+`b6dbb7738211e5a4ef11b217721fdb35acd68201beee3be6bbb728e34f4c7ff7`).
+Prelaunch validation passed 124 focused tests with zero skips, exact environment
+and baseline checks, parent-report integrity and the CLI dry-run; evidence is
+`publication/validation/confirmatory_launch_v1/validation.json`. The Windows
+supervisor launched at `2026-09-27T17:30:18Z`; the first final job was recorded
+RUNNING under Linux controller PID 780. Live counts must always be read from the
+state rather than this launch snapshot.
 
 ## Runtime amendment details, 2026-09-27
 
