@@ -59,6 +59,21 @@ de background recomendada: use tmux para poder fechar o VSCode.
 
 ## 4. Background independente da sessão
 
+No **Windows/WSL**, prefira o supervisor independente, que mantém um cliente WSL
+conectado e solicita prevenção de suspensão automática enquanto o runner vive:
+
+```powershell
+powershell.exe -NoProfile -File scripts/start_publication_campaign_background.ps1
+```
+
+No VSCode, use `Publication: Background (Windows)`. O monitor é separado:
+`Publication: Monitor (Windows)`; pode fechá-lo sem encerrar o supervisor.
+Veja [BACKGROUND_WINDOWS.md](BACKGROUND_WINDOWS.md) para logs, status e limites.
+Não depende de Codex, VSCode ou de uma janela de terminal permanecer aberta.
+Isso não protege contra desligamento manual, reboot, logoff ou falta de energia.
+
+No Linux, ou mantendo deliberadamente uma sessão WSL conectada, também há tmux:
+
 O `tmux` foi localizado em `/usr/bin/tmux` nesta instalação. Em um terminal WSL:
 
 ```sh
@@ -69,7 +84,8 @@ tmux new -s tcc-publication
 
 Desconecte com `Ctrl+B`, solte as teclas e pressione `D`. Pode fechar o VSCode e
 o Codex. Para reconectar: `tmux attach -t tcc-publication`.
-Isso preserva o processo ao desconectar o terminal, não após reboot/encerramento
+Isso preserva a sessão do terminal, mas não garante a vida da instância WSL
+após desconectar seu último cliente, nem após reboot/encerramento
 do WSL. Não use `wsl --shutdown` durante a campanha; evite suspensão do
 computador. Após reboot, abra WSL/tmux novamente e use `--resume`.
 

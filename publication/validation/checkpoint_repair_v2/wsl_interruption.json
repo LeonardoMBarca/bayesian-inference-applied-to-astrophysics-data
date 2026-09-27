@@ -1,0 +1,149 @@
+{
+  "schema_version": "publication-operational-incident-v1",
+  "incident_id": "tcc_campaign_v1-wsl-poweroff-20260927T040753Z",
+  "campaign_id": "tcc_campaign_v1",
+  "kind": "runtime_interruption_audit_not_scientific_promotion",
+  "status": "RECORDED",
+  "observed_at_utc": "2026-09-27T04:12:02.754383+00:00",
+  "scientific_interpretation": "Operational cancellation, not sampler failure, failed PPC or scientific rejection. Partial output is not a completed scientific result.",
+  "prior_live_validation": {
+    "path": "publication/validation/checkpoint_repair_v2/post_resume.json",
+    "sha256": "e34195bdf4dec54ec12de58e3c570ce99e83f52bb8d50e9c25ad55bd2a6808cd",
+    "status": "PASS",
+    "observed_at_utc": "2026-09-27T04:07:36.967293+00:00",
+    "controller_alive": true,
+    "active_job": "PUB-02__shallow_short__rep_0012"
+  },
+  "system_observations": {
+    "distribution": "Ubuntu-24.04",
+    "wsl_boot_id": "909833bce6f94bd187a7f19b8dde37ba",
+    "p9io_operation_cancelled_at_utc": "2026-09-27T04:07:53.470746+00:00",
+    "logind_poweroff_at_utc": "2026-09-27T04:07:53.512472+00:00",
+    "journal_stopped_at_utc": "2026-09-27T04:08:00.442902+00:00",
+    "logind_action": "poweroff",
+    "logind_operator_field": "root",
+    "journal_excerpt": "publication/validation/checkpoint_repair_v2/wsl_interruption_journal.txt",
+    "journal_excerpt_sha256": "392de673c0ec589020368977c8c18dda09a554dd9858ec005c05f14e474000fd",
+    "windows_last_boot_utc": "2026-09-16T05:22:06.6974290Z",
+    "windows_last_boot_source": "Read-only Get-CimInstance Win32_OperatingSystem.LastBootUpTime.ToUniversalTime()",
+    "windows_reboot_at_incident_supported": false,
+    "coordinator_observation": "The coordinating agent observed the earlier PowerShell monitor PID 45872 and Windows Terminal were absent after the interruption. This audit does not identify why they exited.",
+    "cause_supported": "The WSL distribution entered a logged poweroff/shutdown sequence while the campaign was active; the worker was terminated with SIGTERM.",
+    "initiator": "UNKNOWN",
+    "not_established": [
+      "A user requested shutdown",
+      "Windows idle shutdown caused this event",
+      "Out-of-memory termination caused this event",
+      "The p9io cancellation caused the poweroff",
+      "The checkpoint-sharing PermissionError recurred"
+    ]
+  },
+  "checkpoint_snapshot": {
+    "path": "artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json",
+    "sha256_at_observation": "95533236f8a41d39b70246996553cd4d7a08103191d6665e421624c178bc4c45",
+    "hash_semantics": "Historical observation of mutable checkpoint bytes; a legitimate later resume will change this file.",
+    "updated_at_utc": "2026-09-27T04:07:58.430404+00:00",
+    "persisted_status": "AGGREGATING",
+    "persisted_status_is_liveness_evidence": false,
+    "stop_reason": "signal:SIGTERM",
+    "initial_code_commit": "da800144f3a09b0a482534be6367dedf5bde91bf",
+    "journal_verified": true,
+    "verification_function": "publication.campaign._verify_journal",
+    "declared_jobs": 117,
+    "job_status_counts": {
+      "COMPLETED": 38,
+      "COMPLETED_REJECTED": 14,
+      "PLANNED": 64,
+      "CANCELLED": 1
+    },
+    "last_journal_event": {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__shallow_short__rep_0012",
+        "return_code": -15,
+        "return_code_known": true,
+        "status": "CANCELLED"
+      },
+      "previous_sha256": "d53677b36b5936d5c8b5b7049796cc34c4dd1cd4755c6dfcdd6fde6cab9a8ba1",
+      "sequence": 170,
+      "sha256": "2e74fca211cc653ba012d348f6615bdb7e5d7e23372a00ae96ca74d199f3c8af",
+      "timestamp_utc": "2026-09-27T04:07:55.482942+00:00"
+    }
+  },
+  "sealed_result_preservation": {
+    "reference_path": "publication/validation/checkpoint_repair_v2/validation.json",
+    "reference_sha256": "07e5522da999fc4fd3539c417e6774258d70e29216c883be3ab06c1951a60ed6",
+    "reference_collection": "preserved_runs",
+    "sealed_runs_checked": 52,
+    "completion_manifest_hash_matches": 52,
+    "result_hash_matches": 52,
+    "sealed_jobs_with_exactly_one_attempt": 52,
+    "mismatches": [],
+    "scope": "Rehashed completion_manifest.json and result.json for every prior sealed run; checked attempt directory counts. Large traces were not rehashed in this bounded incident audit; their prior full validation remains referenced.",
+    "does_not_establish_batch_calibration": true
+  },
+  "cancelled_attempt": {
+    "job_id": "PUB-02__shallow_short__rep_0012",
+    "experiment_id": "PUB-02",
+    "scenario_id": "shallow_short",
+    "replicate_id": "rep_0012",
+    "run_id": "tcc_campaign_v1__PUB-02__shallow_short__rep_0012",
+    "attempt_index": 0,
+    "attempt_directory_count_at_observation": 1,
+    "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000",
+    "status": "CANCELLED",
+    "return_code": -15,
+    "return_code_known": true,
+    "started_at_utc": "2026-09-27T04:05:26.274523+00:00",
+    "finished_at_utc": "2026-09-27T04:07:55.443803+00:00",
+    "code_commit": "bd05deeb66782b0f0de2db1f149a18595b2648ee",
+    "worker_pid": 47923,
+    "worker_start_token": "linux:909833bc-e6f9-4bd1-87a7-f19b8dde37ba:1936302",
+    "state_job_canonical_sha256_at_observation": "cc875e573d5d502337444609aca68f78ce9e49491e9818953d0f084ceb15324d",
+    "seeds": {
+      "generation": 2942396775,
+      "inference": 3632801526,
+      "predictive": 426475674,
+      "resampling": 969309856
+    },
+    "dataset_id_from_inference_config": "synthetic-e5c0bb48414a406c4163",
+    "input_sha256": "e5c0bb48414a406c41634cdb7f888dab7d58ae4bb42195e84d2e6fb7d718ac6c",
+    "completion_manifest_exists": false,
+    "result_exists": false,
+    "error_class": "completion_validation_missing_manifest_after_SIGTERM",
+    "artifact_sha256": {
+      "environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+      "inference_command.json": "1a86eb6f365be3fd8d556a4b3c9f5421bf2853696dd037884cab39bf44eee418",
+      "inference_config.json": "018e4e7cca44e4f651f032e8649ecc861abfda039c4f8cf2270120e0c3496ba2",
+      "inference_started.json": "3e787a81cd6524e730a5ab54dbc3d3383fcc28027ec6df6ab4ec4ac43d6f4716",
+      "input.csv": "e5c0bb48414a406c41634cdb7f888dab7d58ae4bb42195e84d2e6fb7d718ac6c",
+      "job.json": "f087231aec984e2e69a05f968a29db5f8723c1377f739cec243ae60c27a7b967",
+      "truth.json": "b4f63fa78ac8617bfc0fd43e39b39ad782e6030fb6e639b230da9be647e207b8",
+      "worker_metadata.json": "ea96baa9d6980f4ffd55fa209465da96174ffa5f4fa7ef3e9fa140e93fc67261"
+    },
+    "logs": [
+      {
+        "path": "logs/publication_campaign/tcc_campaign_v1/PUB-02/PUB-02__shallow_short__rep_0012.attempt000.stderr.log",
+        "sha256": "9eb069a0f762128814870cc52266a596b21344c4947156450f191dc7f761789b",
+        "observation": "NUTS initialization and four-chain multiprocess sampling announced; no completed posterior result. Numba object-mode warnings are not evidence of the shutdown cause."
+      },
+      {
+        "path": "logs/publication_campaign/tcc_campaign_v1/PUB-02/PUB-02__shallow_short__rep_0012.attempt000.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "observation": "Empty stdout does not demonstrate idle inference."
+      }
+    ],
+    "preservation_requirement": "Retain attempt_000 unchanged. Any authorized recovery must preserve the same job, dataset-generation seeds and inference seeds, while using a new isolated attempt directory; never repeat or overwrite an already sealed result."
+  },
+  "audit_actions": {
+    "scientific_execution_started": false,
+    "campaign_stop_or_resume_requested": false,
+    "source_modified": false,
+    "campaign_state_modified": false,
+    "writes": [
+      "publication/validation/checkpoint_repair_v2/wsl_interruption.json",
+      "publication/validation/checkpoint_repair_v2/wsl_interruption_journal.txt"
+    ]
+  }
+}

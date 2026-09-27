@@ -1,0 +1,47 @@
+{
+  "schema_version": "publication-windows-background-pilot-history-v1",
+  "scope": "engineering only; temporary fake Python runners; no scientific inputs or MCMC",
+  "scientific_runs_executed": 0,
+  "initial_launcher_failure": {
+    "launch_id": "20260927T041325305Z_3ebce13f7d3d47308f8c79050cf3fe26",
+    "supervisor_pid": 41432,
+    "wsl_client_pid": 16292,
+    "started_at_utc": "2026-09-27T04:13:26.5713245+00:00",
+    "finished_at_utc": "2026-09-27T04:13:32.6836763+00:00",
+    "exit_code": 127,
+    "stderr": "/bin/bash: line 1: --cd: command not found",
+    "cause": "Unnecessarily quoting all native command-line tokens made WSL treat its --cd option as a Linux command.",
+    "correction": "Quote only empty arguments or arguments containing whitespace/quotes; retain ordinary option and distribution tokens unquoted.",
+    "keep_awake_release_confirmed": true,
+    "automatic_restart": false
+  },
+  "successful_preliminary_delay_fixture": {
+    "launch_id": "20260927T041356173Z_ab355c1b3fd24716900bc64e8a320566",
+    "supervisor_pid": 20648,
+    "wsl_client_pid": 27372,
+    "fixture_monitor_pid_closed": 2240,
+    "started_at_utc": "2026-09-27T04:13:57.4338960+00:00",
+    "windows_processes_observed_alive_at_utc": "2026-09-27T04:15:02.6385058+00:00",
+    "finished_at_utc": "2026-09-27T04:15:34.4483392+00:00",
+    "exit_code": 0,
+    "keep_awake_release_confirmed": true,
+    "automatic_restart": false,
+    "claim_limit": "Preliminary lifetime evidence; precise post-monitor-close interval is measured by the separate reproducible acceptance harness."
+  },
+  "acceptance_harness_debugging": [
+    {
+      "issue": "PS5 default RepoRoot expression evaluated PSScriptRoot as empty in parameter binding.",
+      "correction": "Resolve an omitted RepoRoot inside the script body."
+    },
+    {
+      "issue": "Capturing the native launcher through a PowerShell pipeline delayed harness progress beyond the launcher lifetime.",
+      "correction": "Use a separate hidden launcher process, verify its exit directly, and read its immutable launch manifest."
+    },
+    {
+      "issue": "File.ReadAllText on redirected stdout encountered a Windows sharing violation.",
+      "correction": "Read test logs with explicit FileShare.ReadWrite|Delete and guaranteed handle disposal."
+    }
+  ],
+  "host_shutdown_cause": "Not established by these tests. No claim that WSL idle shutdown caused the prior interruption.",
+  "acceptance_evidence": "publication/engineering/windows_background_validation_001.json"
+}

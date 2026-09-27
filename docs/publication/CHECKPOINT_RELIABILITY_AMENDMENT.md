@@ -77,6 +77,44 @@ practical suite and baseline validation, with the physical smoke reused only aft
 verifying that `campaign_plan.py` was the sole changed Python source. The controller,
 worker and inference were byte-identical to the passing v1 smoke.
 
+Final acceptance: **242 tests passed, zero skips**, Ruff and static validation
+passed, the historical hardened baseline validator passed, and all 52 sealed
+final completions present before repair passed checksum validation. The physical
+smoke verified graceful stop, resume, idempotence, technical-failure preservation
+and scientific-rejection non-retry. Its six attempts for five engineering jobs
+are not additional final scientific replicates.
+
+Implementation commit: `f5a4851e37cc87f148c8234678e92c8aed06aad8`.
+Runtime-authorization commit: `bd05deeb66782b0f0de2db1f149a18595b2648ee`.
+The post-commit dry-run accepted the amendment with no preflight errors and
+the same 117 declared jobs. No original ledger was refrozen.
+
+## Separate WSL shutdown observed during live acceptance
+
+`checkpoint_repair_v2/post_resume.json` records a point-in-time passing check at
+04:07:36 UTC: the orphan was adopted, the next worker was live, the heartbeat was
+fresh, and all 52 pre-repair sealed manifests/results were unchanged. This is not
+a claim that the process stayed alive indefinitely.
+
+At 04:07:53 UTC the Ubuntu instance received an orderly system-level poweroff;
+the controller recorded `signal:SIGTERM` and the unfinished next attempt became
+`CANCELLED`. The Windows host itself did not reboot. The requesting actor was not
+identified: do not attribute this to the user, memory exhaustion, or idle timeout
+without further evidence. This is distinct from the repaired sharing violation.
+The interruption audit is retained beside the point-in-time validation.
+
+The Windows background launcher therefore retains an attached `wsl.exe` client
+for the controller's entire lifetime, and requests automatic-sleep prevention in
+its hidden supervisor rather than relying on the visible monitor. It does not
+change global WSL/power settings, configure a service, or automatically retry
+science. Closing only the monitor does not close that supervisor. The scientific
+runner still owns locking, graceful stop, budgets and explicit resume of cancelled
+attempts in new attempt directories with the same seeds.
+
+Microsoft documents that [systemd services alone do not keep a WSL instance alive](https://learn.microsoft.com/en-us/windows/wsl/systemd).
+That lifecycle limitation motivates the persistent client; it does not prove the
+initiator of this observed poweroff.
+
 ## Limits
 
 This does not promise continuity through disk failure, full disk, permanent

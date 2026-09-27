@@ -1,0 +1,35 @@
+WSL interruption excerpt; UTC; read-only observation, not a complete system log.
+Distribution: Ubuntu-24.04
+Boot ID: 909833bce6f94bd187a7f19b8dde37ba
+
+Commands used:
+wsl.exe -d Ubuntu-24.04 -- journalctl --utc --since "2026-09-27 04:07:45 UTC" --until "2026-09-27 04:07:54 UTC" --no-pager -o short-iso-precise
+wsl.exe -d Ubuntu-24.04 -- journalctl --since "2026-09-27 04:07:53 UTC" --until "2026-09-27 04:07:54 UTC" -u systemd-logind.service --no-pager -o json
+wsl.exe -d Ubuntu-24.04 -- journalctl --utc --since "2026-09-27 04:07:45 UTC" --until "2026-09-27 04:08:02 UTC" --no-pager -n 70 -o short-iso-precise
+
+Selected observed lines:
+2026-09-27T04:07:53.470449+00:00 DESKTOP-HHJUTG9 Exception:
+2026-09-27T04:07:53.470746+00:00 DESKTOP-HHJUTG9 unknown: Operation canceled @p9io.cpp:258 (AcceptAsync)
+2026-09-27T04:07:53.470824+00:00 DESKTOP-HHJUTG9 unknown:
+2026-09-27T04:07:53.512472+00:00 DESKTOP-HHJUTG9 systemd-logind[171]: The system will power off now!
+2026-09-27T04:08:00.278922+00:00 DESKTOP-HHJUTG9 systemd[1]: Reached target shutdown.target - System Shutdown.
+2026-09-27T04:08:00.280303+00:00 DESKTOP-HHJUTG9 systemd[1]: Finished systemd-poweroff.service - System Power Off.
+2026-09-27T04:08:00.282052+00:00 DESKTOP-HHJUTG9 systemd[1]: Reached target poweroff.target - System Power Off.
+2026-09-27T04:08:00.282864+00:00 DESKTOP-HHJUTG9 systemd[1]: Shutting down.
+2026-09-27T04:08:00.442403+00:00 DESKTOP-HHJUTG9 systemd-journald[42]: Received SIGTERM from PID 1 (systemd-shutdow).
+2026-09-27T04:08:00.442902+00:00 DESKTOP-HHJUTG9 systemd-journald[42]: Journal stopped
+
+Selected machine-readable fields from the logind event:
+_SOURCE_REALTIME_TIMESTAMP=1790482073512472
+__REALTIME_TIMESTAMP=1790482073512553
+_BOOT_ID=909833bce6f94bd187a7f19b8dde37ba
+_PID=171
+_EXE=/usr/lib/systemd/systemd-logind
+CODE_FILE=src/login/logind-wall.c
+CODE_FUNC=warn_wall
+ACTION=poweroff
+OPERATOR=root
+
+Interpretation boundary: OPERATOR=root is a logind event field, not proof of
+the initiating human, Windows process, shutdown mechanism or motive. The p9io
+message precedes poweroff, but temporal order does not establish its cause.

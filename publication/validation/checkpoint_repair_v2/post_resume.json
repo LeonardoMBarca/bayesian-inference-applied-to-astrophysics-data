@@ -1,0 +1,85 @@
+{
+  "kind": "post_repair_live_validation_not_scientific_promotion",
+  "status": "PASS",
+  "observed_at_utc": "2026-09-27T04:07:36.967293+00:00",
+  "acceptance_evidence_sha256": "07e5522da999fc4fd3539c417e6774258d70e29216c883be3ab06c1951a60ed6",
+  "preserved_sealed_runs": 52,
+  "preservation_check": "Completion manifests and result bytes match prior full artifact validation; no newer attempt was appended to a sealed job.",
+  "original_orphan_adopted_without_repeat": true,
+  "source_identity_matches_validated_bytes": true,
+  "journal_verified": true,
+  "runtime_amendment": {
+    "amendments": [
+      {
+        "amendment_id": "checkpoint-sharing-repair-20260927",
+        "approved_source_commit": "f5a4851e37cc87f148c8234678e92c8aed06aad8",
+        "changes": {
+          "src/publication/campaign.py": {
+            "from_sha256": "b52b0b551ab788fbfcd51365b851d5de83e4042591d9b780bfdbb94ad24cf863",
+            "to_sha256": "552e95b0b0eb439e22fab3ba02afa542fcd176ccb773c009a71a4202682b5a2a"
+          },
+          "src/publication/campaign_plan.py": {
+            "from_sha256": "b1284c531898ad0749524880c377473da612fe821897c922362f213c5a2fac87",
+            "to_sha256": "136cd56f553a243de26896f44acdadc5cd3e20039fcaefe10d07d153b963081d"
+          }
+        },
+        "reason": "User-authorized operational repair after controller PermissionError on atomic checkpoint replacement under Windows/WSL. Bounded sharing-lock retries, truthful process liveness and exact runtime amendment validation only. The frozen ledger is anchored to the original campaign initialization commit. No scientific model, likelihood, prior, gate, sampler, dataset, seed, target or replicate-count change; all sealed successes and rejections remain immutable.",
+        "validation_evidence": [
+          {
+            "path": "publication/validation/checkpoint_repair_v1/validation.json",
+            "sha256": "25e02bca88b801d5c2c7e46aa2cc9a9969c51498acc7ffb77edeb74237d349e3"
+          },
+          {
+            "path": "publication/validation/checkpoint_repair_v2/validation.json",
+            "sha256": "07e5522da999fc4fd3539c417e6774258d70e29216c883be3ab06c1951a60ed6"
+          }
+        ]
+      }
+    ],
+    "effective_source_checksums_sha256": "255b204b8684d6de9fed96ce2d9014c40d478ab6769178fdf14b9253e07d8c65",
+    "frozen_plan_sha256": "8c5f7407316168162a8862075101969f2f57efddfdfa157c7797052d22caa974",
+    "path": "publication/runtime_amendments/tcc_campaign_v1.json",
+    "record_commit": "bd05deeb66782b0f0de2db1f149a18595b2648ee",
+    "sha256": "90d8803312bf1dc86b9e9a80842874b47dd7e5e4917fbc4e6a346401900573bc"
+  },
+  "campaign_status": {
+    "campaign_id": "tcc_campaign_v1",
+    "mode": "final",
+    "status": "RUNNING",
+    "effective_status": "RUNNING",
+    "checkpoint_age_seconds": 0.561354,
+    "controller_alive": true,
+    "worker_liveness": {
+      "PUB-02__shallow_short__rep_0012": true
+    },
+    "updated_at_utc": "2026-09-27T04:07:36.404863+00:00",
+    "declared_jobs": 117,
+    "status_counts": {
+      "COMPLETED": 38,
+      "COMPLETED_REJECTED": 14,
+      "PLANNED": 64,
+      "RUNNING": 1
+    },
+    "status_counts_by_family": {
+      "PUB-02": {
+        "COMPLETED": 38,
+        "COMPLETED_REJECTED": 14,
+        "PLANNED": 27,
+        "RUNNING": 1
+      },
+      "PUB-03": {
+        "PLANNED": 2
+      },
+      "PUB-04": {
+        "PLANNED": 30
+      },
+      "PUB-05": {
+        "PLANNED": 5
+      }
+    },
+    "active_seconds_checkpointed": 28210.50190400507,
+    "max_campaign_hours": 36,
+    "stop_reason": null,
+    "progress_semantics": "Counts/status describe persisted attempts, not liveness or scientific success; consult effective_status/controller_alive. No unsupported ETA is inferred."
+  }
+}
