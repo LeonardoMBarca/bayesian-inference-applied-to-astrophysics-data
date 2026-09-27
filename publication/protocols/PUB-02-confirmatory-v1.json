@@ -1,0 +1,319 @@
+{
+  "experiment_id": "PUB-02",
+  "protocol_version": "tcc-confirmatory-1.0.0",
+  "protocol_status": "FROZEN",
+  "question": "Under which fixed-truth transit/noise regimes does the shared physical workflow recover parameters and deliver nominal equal-tailed interval coverage?",
+  "hypothesis": "Supported white-noise regimes may exhibit coverage compatible with nominal levels within finite-replication precision; weak identification and correlated misspecification may cause biased or uncalibrated posteriors despite numerical convergence.",
+  "replicates_per_scenario": 100,
+  "total_declared_final_attempts": 400,
+  "replication_precision": "Four unchanged white-noise regimes with 100 NEW independent datasets each. Binomial SE at p=.50/.80/.94 is .050/.040/.02375 (planning values, not measured results); report Wilson95 intervals and all declared failures. Precision improves but n=100 does not establish exact calibration.",
+  "pilot_exclusion": "All pilot_* attempts excluded from final claims and final coverage denominators. Debugging/timing only, all retained.",
+  "scenario_selection": "Predefined regime grid, not a factorial causal experiment: depth, SNR, cadence, impact and jitter vary jointly. Controlled causal comparisons belong to PUB-04. OU cases share shallow white truth/design except correlated stochastic perturbation.",
+  "scenarios": [
+    {
+      "scenario_id": "deep_short",
+      "regime": "deep high-SNR, short exposure",
+      "truth": {
+        "r": 0.1,
+        "b": 0.3,
+        "a": 5,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "baseline": 1,
+        "t0": 0.001,
+        "extra_sigma": 0.0002
+      },
+      "design": {
+        "window_days": 0.12,
+        "cadence_seconds": 180,
+        "exposure_time_seconds": 120,
+        "measurement_sigma": 0.001,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "oversample": 31
+      }
+    },
+    {
+      "scenario_id": "intermediate_long",
+      "regime": "intermediate depth, integration-sensitive, higher impact",
+      "truth": {
+        "r": 0.04,
+        "b": 0.75,
+        "a": 7,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "baseline": 1,
+        "t0": 0.001,
+        "extra_sigma": 0.0003
+      },
+      "design": {
+        "window_days": 0.15,
+        "cadence_seconds": 1800,
+        "exposure_time_seconds": 1765.46,
+        "measurement_sigma": 0.0003,
+        "segments": 2,
+        "transits_per_segment": 4,
+        "oversample": 31
+      }
+    },
+    {
+      "scenario_id": "shallow_short",
+      "regime": "Kepler-10-like shallow radius scale; not identical observational cadence/selection",
+      "truth": {
+        "r": 0.014,
+        "b": 0.45,
+        "a": 3.3,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "baseline": 1,
+        "t0": 0.001,
+        "extra_sigma": 0.0001
+      },
+      "design": {
+        "window_days": 0.15,
+        "cadence_seconds": 120,
+        "exposure_time_seconds": 60,
+        "measurement_sigma": 0.00015,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "oversample": 31
+      }
+    },
+    {
+      "scenario_id": "near_limit_long",
+      "regime": "near/below useful detection SNR, high impact, long cadence, extra white noise",
+      "truth": {
+        "r": 0.01,
+        "b": 0.9,
+        "a": 3.3,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "baseline": 1,
+        "t0": 0.001,
+        "extra_sigma": 0.0003
+      },
+      "design": {
+        "window_days": 0.15,
+        "cadence_seconds": 1800,
+        "exposure_time_seconds": 1765.46,
+        "measurement_sigma": 0.0006,
+        "segments": 2,
+        "transits_per_segment": 4,
+        "oversample": 31
+      }
+    }
+  ],
+  "generative_model": {
+    "physical": "Circular orbit, quadratic limb darkening, exposure-integrated exoplanet primitive with 31 midpoint quadrature nodes",
+    "measurement": "Independent Gaussian known heteroscedastic sigma_i: linear .8-to-1.2 times scenario scale per segment",
+    "jitter": "Independent additional zero-mean Gaussian with declared true SD",
+    "correlation": "OU within each segment: covariance amplitude^2 exp(-abs(delta_t)/timescale); gaps evolve over real elapsed time, segments independent",
+    "normalization": "Known calibration in core simulations; no claim of empirical Gold normalization validation from P2 alone",
+    "anti_circularity": "Shared physical primitive explicitly acknowledged. Analytic tests and independent batman forward checks required before final; PUB03 supplies independent posterior implementation evidence. No inference process opens truth.json."
+  },
+  "inference": {
+    "period_days": 1,
+    "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+    "radius_prior_median": 0.04,
+    "radius_prior_log_sigma": 0.9,
+    "baseline_prior_sigma": 0.02,
+    "t0_prior_sigma_days": 0.025,
+    "jitter_error_multiplier": 5,
+    "jitter_floor_fraction": 0.0005,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "oversample": 15,
+    "preprocessing_status": "segment_normalized",
+    "sampling": {
+      "draws": 1000,
+      "tune": 1000,
+      "chains": 4,
+      "cores": 4,
+      "target_accept": 0.95,
+      "linker": "auto"
+    }
+  },
+  "inference_assumptions": {
+    "model_version": "M5-publication-v1",
+    "likelihood": "Independent Gaussian(mu_transit + baseline, sqrt(measured_sigma_i^2 + extra_sigma^2)); no temporal covariance",
+    "orbit": "circular, period fixed; a/Rs Uniform(2,50), b Uniform(0,1), so grazing b>1 is outside supported prior domain",
+    "limb_darkening": "q1,q2 independently Uniform(0,1), Kipping transform",
+    "radius": "LogNormal(log(.04), .9), same population-scale reference for ALL scenarios, not truth-matched",
+    "baseline": "Normal(1,.02) normalized flux",
+    "t0": "Normal(0,.025) days, same across all scenarios",
+    "jitter": "HalfNormal(max(5 median(measured_sigma), .0005)) normalized flux; data-scale rule declared, not truth-informed",
+    "sampler": "PyMC NUTS, jitter+adapt_diag, one attempt per identity, no automatic retries or alternative seeds",
+    "derived": "depth=r^2 geometric; T14=P/pi asin(sqrt(((1+r)^2-b^2)/(a^2-b^2))) in days"
+  },
+  "seed_policy": "publication.campaign_plan.seed: first32bits of canonical SHA256 ['campaign-seed-v1',campaign_id,experiment_id,scenario_id,replicate_id,stream]. PUB-04 generation substitutes pair_id for scenario_id. Frozen integer ledger is authoritative. Retries retain seeds; different campaigns have separate namespaces.",
+  "primary_metrics": [
+    "bias",
+    "absolute_bias",
+    "relative_bias (undefined at zero truth)",
+    "RMSE",
+    "equal-tailed coverage .50/.80/.94 with Wilson95",
+    "posterior SD",
+    "interval width",
+    "calibration error",
+    "execution failure rate",
+    "sampler failure rate",
+    "scientific rejection rate"
+  ],
+  "primary_parameters": [
+    "r",
+    "depth",
+    "b",
+    "a",
+    "t0",
+    "full_duration",
+    "extra_sigma"
+  ],
+  "secondary_metrics": [
+    "Rhat",
+    "ESS bulk/tail",
+    "divergences",
+    "BFMI",
+    "tree depth",
+    "PPC point coverage",
+    "standardized residual SD",
+    "within-segment residual correlations lags1-5",
+    "jitter/measurement ratio",
+    "radius review-range mass",
+    "wall seconds"
+  ],
+  "gates": {
+    "provenance": "Exact input SHA256 and content-derived synthetic dataset ID, committed protocol and complete predeclared registry; no existing-run overwrite",
+    "sampler": "All scalar sampled/derived summary Rhat<=1.01; bulk/tail ESS>=400; zero divergences; BFMI>=.30. Record tree-depth saturation separately; no numerical repair by deleting draws.",
+    "inherited_ppc": "Observed fraction in posterior predictive 94% intervals within [.80,.99], standardized residual SD within [.5,2]; broad screening not an exact calibration test",
+    "temporal_ppc": "No within-segment cadence-contiguous residual correlation at lags1-5 beyond normal Bonferroni reference z_(1-.01/10)/sqrt(Npairs). Approximate fitted-residual screen; false positives/negatives measured, not assumed controlled exactly.",
+    "scale": "Inherited M5 jitter/median_error<=20 and <=5% posterior r outside inherited review interval [.00349,.24751]. This interval is a heuristic scientific review range, not LogNormal support.",
+    "promotion": "Separate provenance, sampler, PPC and final scientific interpretability. Aggregate negative findings can use rejected runs with explicit classification; positive individual claims require all relevant gates."
+  },
+  "inclusion": "Every declared scenario and replicate; no exclusion based on posterior, sampler, gate, seed or favorable recovery",
+  "exclusion": "Pilots excluded by mode; no data-dependent final exclusions",
+  "failure_policy": "All failures remain versioned and count in operational denominators. Missing posterior intervals are missing, not measured noncoverage. Report raw numeric, sampler-conditioned, final-gate-conditioned coverage with separate denominators, and covered-and-passed/all-declared operational rate. No best retry.",
+  "statistical_interpretation": "Fixed-truth conditional repeated-sampling coverage, NOT SBC. Compare estimated frequency with nominal with Wilson95, descriptive across all seven parameters/scenarios; no unadjusted many-test discovery claims. Persistent severe undercoverage means failure of conditional operating performance, not proof of a sampler bug. Large widths may yield coverage but poor precision.",
+  "hypothesis_rejection": "If a supported white regime has precise material bias or undercoverage, cannot claim adequate recovery there. If sampler fails systematically, numerical validity is unresolved. If gates pass known biased/misspecified runs, report false negatives. No threshold tuning to observational agreement.",
+  "outputs": [
+    "per-attempt config/truth/input/result/status/checksums/trace",
+    "aggregate JSON",
+    "calibration and attempts CSV",
+    "coverage with Wilson intervals figure",
+    "bias and gate rates figure",
+    "truth-vs-posterior recovery figure",
+    "parameter uncertainty widths",
+    "human-readable report"
+  ],
+  "invalidation": "Truth leakage, incorrect generative signal, wrong likelihood, mutated protocol/data, or incorrect aggregation invalidates affected attempts scientifically; retain originals, log amendment, new run IDs only.",
+  "amendments": [
+    {
+      "date_utc": "2026-09-26",
+      "stage": "before any final scientific attempt",
+      "reason": "User imposed 36h compute ceiling and TCC deadline; pilot timing only, never posterior quality, determines replication reduction.",
+      "reference": "docs/publication/COMPUTE_BUDGET_AMENDMENT.md"
+    },
+    {
+      "date_utc": "2026-09-27",
+      "stage": "after parent final results, before any confirmatory final attempt",
+      "reason": "User-authorized independent equal-N precision extension with 100 new replicates per each of the four original scenarios. No scientific model or gate changes; parent remains frozen.",
+      "reference": "docs/publication/CONFIRMATORY_CALIBRATION_CAMPAIGN.md"
+    }
+  ],
+  "freeze_note": "Prospective specification for tcc_calibration_confirmatory_v1. The original tcc_campaign_v1 results were already inspected. This extension was authorized after that campaign; only the new fixed-N cohort supplies primary confirmatory estimates. Protocol and integer seed ledger must be committed before its first inference.",
+  "temporal_diagnostic_scope": "Within-segment gap-filtered selected-observation lags1-5, not native cadence after thinning. Spacing proxy is median selected time gap. Degenerate/nonfinite/insufficient pairs are unavailable; positive PPC requires at least one finite evaluable lag and no flagged lag. This does not establish absence of correlations at unobserved timescales.",
+  "deferred_scenarios": [
+    {
+      "scenario_id": "shallow_ou_weak",
+      "regime": "shallow transit, weak stationary temporal correlation; M5 misspecified",
+      "truth": {
+        "r": 0.014,
+        "b": 0.45,
+        "a": 3.3,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "baseline": 1,
+        "t0": 0.001,
+        "extra_sigma": 0.0001
+      },
+      "design": {
+        "window_days": 0.15,
+        "cadence_seconds": 120,
+        "exposure_time_seconds": 60,
+        "measurement_sigma": 0.00015,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "oversample": 31,
+        "noise": {
+          "kind": "ou",
+          "amplitude_fraction": 0.00005,
+          "timescale_days": 0.02
+        }
+      }
+    },
+    {
+      "scenario_id": "shallow_ou_strong",
+      "regime": "shallow transit, strong stationary temporal correlation; M5 misspecified",
+      "truth": {
+        "r": 0.014,
+        "b": 0.45,
+        "a": 3.3,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "baseline": 1,
+        "t0": 0.001,
+        "extra_sigma": 0.0001
+      },
+      "design": {
+        "window_days": 0.15,
+        "cadence_seconds": 120,
+        "exposure_time_seconds": 60,
+        "measurement_sigma": 0.00015,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "oversample": 31,
+        "noise": {
+          "kind": "ou",
+          "amplitude_fraction": 0.0002,
+          "timescale_days": 0.02
+        }
+      }
+    }
+  ],
+  "scenario_replicates": {},
+  "deferred_scenario_reason": "The extension repeats all four originally selected white-noise regimes equally. OU scenarios remain deferred and M6 is disabled. No correlated-noise calibration claim from this cohort; completed observational/PPC failures in tcc_campaign_v1 remain part of the overall evidence.",
+  "confirmatory_extension": {
+    "campaign_id": "tcc_calibration_confirmatory_v1",
+    "status_at_registration": "PLANNED",
+    "decision_date_utc": "2026-09-27",
+    "parent_campaign_id": "tcc_campaign_v1",
+    "parent_protocol": {
+      "path": "publication/protocols/PUB-02.json",
+      "sha256": "2fb9b2434062b755a6bb38285ab69c0f7adcbe47d5e20cccedfe2c1cd0547187"
+    },
+    "parent_ledger": {
+      "path": "configs/publication/tcc_campaign_v1_plan.json",
+      "sha256": "8c5f7407316168162a8862075101969f2f57efddfdfa157c7797052d22caa974"
+    },
+    "inspected_parent_summary": {
+      "path": "reports/publication_campaign/tcc_campaign_v1/campaign_summary.json",
+      "sha256": "c785fa40415d82bc99989f5c49c196e1d1fd92f3d2c1174b22fb7b4de9e51b3b"
+    },
+    "rationale": "User authorized more compute after the initial 20-per-scenario campaign completed. Equal fixed-N extension improves precision of conditional coverage/bias and failure rates. All original scenarios retained; no outcome-dependent parameter, prior, gate or sampler change.",
+    "outcome_knowledge": "Parent coverage, bias, gate outcomes, external benchmark and multi-target rejections were inspected before this extension. It is not preregistration of the already observed parent results.",
+    "primary_cohort": "Only the 400 newly declared runs (100 per scenario); new deterministic campaign seed namespace, no re-use of parent draws or data.",
+    "secondary_comparison": "Report new and parent cohorts separately under the same metrics, including all rejected/failed/missing runs. Any later pooled analysis must be explicitly secondary and disclose extension after parent outcomes; never replace primary new-cohort results.",
+    "stopping_rule": "Fixed 100 attempts per scenario; no significance-, coverage-, bias- or gate-dependent stopping, sample-size adaptation, seed replacement or best-run selection. If the 22h soft budget stops dispatch, finish active work and preserve remaining jobs as PLANNED; report incomplete until the frozen remainder is resumed. No automatic cap increase.",
+    "statistical_scope": "Conditional repeated-sampling coverage at four fixed truths, not SBC, population inference, or evidence that the white likelihood handles correlated noise.",
+    "runtime_budget_hours": 22,
+    "parent_checkpointed_active_hours": 13.418050203247507,
+    "planning_hours": 20,
+    "resource_policy": "One inference at a time, four chains and four cores; unchanged sampler. Automatic scientific retries disabled.",
+    "documentation": "docs/publication/CONFIRMATORY_CALIBRATION_CAMPAIGN.md"
+  }
+}

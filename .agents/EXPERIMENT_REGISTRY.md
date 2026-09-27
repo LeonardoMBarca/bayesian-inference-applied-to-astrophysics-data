@@ -100,7 +100,28 @@ A result may support the paper/TCC only when:
 
 This registry must be updated as work progresses, but never by erasing unfavorable outcomes.
 
-## Runtime amendment, 2026-09-27
+## Independent P2 confirmatory extension, 2026-09-27
+
+`tcc_calibration_confirmatory_v1` is registered **PLANNED** before its first
+final attempt. Protocol: `publication/protocols/PUB-02-confirmatory-v1.json`;
+config: `configs/publication/tcc_calibration_confirmatory_v1.json`.
+It declares 100 NEW replicates per each of the four original P2 scenarios
+(400 total), under unchanged truth/design, priors, likelihood, sampler and gates.
+All streams use the new campaign namespace. The primary cohort is independent;
+parent and new results must be reported separately. No best-seed selection or
+outcome-driven stopping is permitted. The 22h additional soft budget and
+post-parent-result decision are documented in
+`docs/publication/CONFIRMATORY_CALIBRATION_CAMPAIGN.md`.
+
+The parent `tcc_campaign_v1` machine state records COMPLETED with 117 terminal
+jobs (66 COMPLETED, 51 COMPLETED_REJECTED) and final aggregation. This is
+execution completion, not completion of scientific audit or evidence promotion;
+the family-level PLANNED descriptions above are prelaunch historical snapshots.
+The extension does not rerun or replace the parent's rejected P3/P5 outcomes.
+After launch, status authority is
+`artifacts/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state.json`.
+
+## Runtime amendment details, 2026-09-27
 
 The ongoing `tcc_campaign_v1` campaign encountered an operational checkpoint
 replacement failure on Windows/WSL. This is not a scientific rejection. The

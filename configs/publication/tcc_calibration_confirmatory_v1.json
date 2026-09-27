@@ -1,0 +1,45 @@
+{
+  "campaign_id": "tcc_calibration_confirmatory_v1",
+  "mode": "final",
+  "description": "Prospective 400-run fixed-N independent P2 extension after inspecting tcc_campaign_v1. Unchanged scenarios/model/priors/sampler/gates; separate cohort.",
+  "protocols": {
+    "PUB-02": "publication/protocols/PUB-02-confirmatory-v1.json"
+  },
+  "resources": {
+    "max_workers": 1,
+    "cores_per_run": 4,
+    "max_campaign_hours": 22,
+    "stop_margin_minutes": 5,
+    "max_runtime_hours": null,
+    "memory_limit_gb": null
+  },
+  "runtime": {
+    "scientific_python": "/home/leonardo_barca/mc3/bin/python3.14",
+    "wsl_distribution": "Ubuntu-24.04"
+  },
+  "technical_retries": 0,
+  "injection_recovery": {
+    "enabled": true,
+    "replicates_per_scenario": 100,
+    "scenario_replicates": {},
+    "estimated_seconds_by_scenario": {
+      "deep_short": 195,
+      "intermediate_long": 75,
+      "shallow_short": 265,
+      "near_limit_long": 185
+    }
+  },
+  "benchmark": {
+    "enabled": false
+  },
+  "ablations": {
+    "enabled": false
+  },
+  "multi_target": {
+    "enabled": false
+  },
+  "correlated_noise": {
+    "enabled": false
+  },
+  "budget_amendment": "docs/publication/CONFIRMATORY_CALIBRATION_CAMPAIGN.md"
+}
