@@ -1,0 +1,604 @@
+{
+  "generated_tables_figures_reports": [
+    "MANUSCRIPT_DRAFT.md",
+    "REPORT.md",
+    "STORAGE_MANIFEST.json",
+    "ablation_paired_effects.csv",
+    "aggregation_environment.json",
+    "attempt_inventory.csv",
+    "calibration_metrics.csv",
+    "captions.json",
+    "claims.json",
+    "coverage_all_parameters.png",
+    "diagnostics.csv",
+    "gate_summary.csv",
+    "radius_bias_and_uncertainty.png",
+    "run_inventory.csv",
+    "summary.json",
+    "targets.csv"
+  ],
+  "schema_version": "tcc-paper-evidence-inventory-v2",
+  "sources": [
+    {
+      "path": "artifacts/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state.json",
+      "sha256": "78af47b81f0c11e27c1e0f7dd486531bbf23c41ff9224422d9f7b9c361c4dc6e"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json",
+      "sha256": "828b59817b79e5bf0a5c0eb30d95991d11e28e8bdec12dd9034eb2aed4567e4e"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/environment_preflight.json",
+      "sha256": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/inference_command.json",
+      "sha256": "1a86eb6f365be3fd8d556a4b3c9f5421bf2853696dd037884cab39bf44eee418"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/inference_config.json",
+      "sha256": "018e4e7cca44e4f651f032e8649ecc861abfda039c4f8cf2270120e0c3496ba2"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/inference_started.json",
+      "sha256": "3e787a81cd6524e730a5ab54dbc3d3383fcc28027ec6df6ab4ec4ac43d6f4716"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/input.csv",
+      "sha256": "e5c0bb48414a406c41634cdb7f888dab7d58ae4bb42195e84d2e6fb7d718ac6c"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/job.json",
+      "sha256": "f087231aec984e2e69a05f968a29db5f8723c1377f739cec243ae60c27a7b967"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/truth.json",
+      "sha256": "b4f63fa78ac8617bfc0fd43e39b39ad782e6030fb6e639b230da9be647e207b8"
+    },
+    {
+      "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-02/shallow_short/rep_0012/attempt_000/worker_metadata.json",
+      "sha256": "ea96baa9d6980f4ffd55fa209465da96174ffa5f4fa7ef3e9fa140e93fc67261"
+    },
+    {
+      "path": "configs/publication/tcc_calibration_confirmatory_v1_plan.json",
+      "sha256": "b6dbb7738211e5a4ef11b217721fdb35acd68201beee3be6bbb728e34f4c7ff7"
+    },
+    {
+      "path": "configs/publication/tcc_campaign_v1_plan.json",
+      "sha256": "8c5f7407316168162a8862075101969f2f57efddfdfa157c7797052d22caa974"
+    },
+    {
+      "path": "docs/publication/BENCHMARK_SELECTION.md",
+      "sha256": "43fc015adcd3b0a8f1c381129bd2fead60227901808c44f1449564a5e6f0a9b2"
+    },
+    {
+      "path": "docs/publication/BIBLIOGRAPHY.md",
+      "sha256": "35be8b991cad3c79e106138ad615f5a4ec4fd9bc51704554acf0f4a4296900d8"
+    },
+    {
+      "path": "docs/publication/CALIBRATION_REVIEW.md",
+      "sha256": "93f30018e7ef1ae170dae27f5e8280647c30e5a46b58de3f2c93fb45cf903806"
+    },
+    {
+      "path": "docs/publication/COMPUTE_BUDGET_AMENDMENT.md",
+      "sha256": "ad0980722e2727750813088b1a0a03f946447c62d9eac3b7f016eb3e3e326525"
+    },
+    {
+      "path": "docs/publication/CONFIRMATORY_RUNTIME_AUDIT.md",
+      "sha256": "16b5d856d176c3383414cbec4bcaf099beffa6f4d9039a6c5ee7ef3229dcabe9"
+    },
+    {
+      "path": "docs/publication/FINAL_EVIDENCE_STORAGE.md",
+      "sha256": "d86cc67bfe0d27e845ae52951045074ec12e437189654aad1c878a8bcb005a39"
+    },
+    {
+      "path": "docs/publication/NOVELTY_MATRIX.json",
+      "sha256": "d42a41aae0db1e12b6780e30a0602900585a2a2d5293bd11701a679daa5af2c2"
+    },
+    {
+      "path": "docs/publication/NOVELTY_MATRIX.md",
+      "sha256": "5d0d67c22a3c43e2790bcd0fc2824e493bae85c1e5ac9228f437395cc57b5a51"
+    },
+    {
+      "path": "docs/publication/POST_CAMPAIGN_SCIENTIFIC_REVIEW.md",
+      "sha256": "b9ca9f2d260cf41d9b6dea819771a5dd819d8f6d91d52186ad3768d364c74ade"
+    },
+    {
+      "path": "docs/publication/TARGET_SELECTION_PROTOCOL.md",
+      "sha256": "ff35140f2fc6419e32142a881db1b7790210e54d15c507f3ae5ae56b137d8d8e"
+    },
+    {
+      "path": "environment.yml",
+      "sha256": "8f88a3da35212a4b44639af2f3ab86ee59548dbab32d60e5ba3c4e373f9e922e"
+    },
+    {
+      "path": "publication/baseline/manifest.json",
+      "sha256": "fe5f9d6b3ce469ae0f51353b0413dca0a602fbdb76e2ba733f0bb55bdb41cfc6"
+    },
+    {
+      "path": "publication/protocols/PUB-02-confirmatory-v1.json",
+      "sha256": "709db7d29824f862f9689dc0a921d25f98cfca68617c21f5062db9586834a181"
+    },
+    {
+      "path": "publication/protocols/PUB-02.json",
+      "sha256": "2fb9b2434062b755a6bb38285ab69c0f7adcbe47d5e20cccedfe2c1cd0547187"
+    },
+    {
+      "path": "publication/protocols/PUB-03.json",
+      "sha256": "5f6b3ab03e8756af9231c3871f987f07a91e587464012e27824f6007525de1bc"
+    },
+    {
+      "path": "publication/protocols/PUB-04.json",
+      "sha256": "c740625ae3b635f000a9a8524b39a530361ca6b464a893f5ae8135733fd397bd"
+    },
+    {
+      "path": "publication/protocols/PUB-05.json",
+      "sha256": "375f26bed0f1dae7d90ba2c2787af924f29454743b5ecb58bac0bed03c243efc"
+    },
+    {
+      "path": "publication/registry.json",
+      "sha256": "52e28bb3a725f5ae7b0ac5735b6dde1ee55f7431dab281b67dde4d9a221bf58e"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "0734e91f988702e5e7f0d61a88bd26392829384ac49a7574741736e43d4bb098"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/REPORT.md",
+      "sha256": "531b29f7d53124eb99f7eb6b2893e658a84aecf0f007c4ac74209940c83d031c"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/artifact_manifest.json",
+      "sha256": "d9be00197495e709674ebefe69a252247a51459f390dee762b2ce6086ab67df5"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/attempts.csv",
+      "sha256": "9842e105447708a0b8a9d3e53c8044a7457c0b1cd075f5b9e2751d12f21b3de1"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/bias.png",
+      "sha256": "55dbcbd6624688b1cf77533acaaf71f5e063fbf54b4b13af258cfb43767f099b"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/bias_vs_snr.png",
+      "sha256": "56e95f7c28890f6ae9810b115b83aad8accc8a51d12c83439a1dcc4dc8ee5fe1"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/calibration.csv",
+      "sha256": "6e0e9badfdd900d4e3dfe048a0a78ae81a94cd24ac43b5af69c8bb62ea3c649a"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/calibration.json",
+      "sha256": "79c3d139b368d5570267de4cd858ccaa540e3db88e8c80af7f5b4322eb30a9d8"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/campaign_state_snapshot.json",
+      "sha256": "30639f76273fec4fe4f0a03631d228ba4ef5b13c0be68aa8d9729e53ec91286d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/coverage.png",
+      "sha256": "d15e6bfcf3ac2d1ce5d23ce376882f81152fe8d690bb57cb027f4e2d49809fce"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/failures.csv",
+      "sha256": "fd5709a660635595b2607587bcdd7c070981b5dd1c34c943c464401d83af7f2d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/gate_rates.png",
+      "sha256": "bd393bd42bb1cd4546d513944e2f082665514e3acb8aab17072c0d4dacc307fc"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/jobs.csv",
+      "sha256": "3150c5a86e1fee600725289ee200e80681fdb7bd4214b66cefedd5521bf7169f"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/posterior_recovery.csv",
+      "sha256": "2260f5eb2329eda55a819111fdad2d5942e088b2efc59e6ee0f8158d30e04582"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/recovery.png",
+      "sha256": "84fe13b3c0de11b3b8e3e5d8de74a681e6e8c3426212d62387c56ec386486b73"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/rejections.csv",
+      "sha256": "36d3386cb075bb6a5df84a955c0063ebfdb4f03e97b2c586ddab6412c3842be9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/summary.json",
+      "sha256": "f625688694e8c455ee8b6bc7c6c7b37f4a3ac97cbe8a8092a20757ad4f753e97"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/width.png",
+      "sha256": "344535ef6851bdf1534f307ebdf76bbda4552124427a47cddde068edff6e8d2a"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/REPORT.md",
+      "sha256": "8cfc8ae5ae8b049d274011b91fc122329660c6202e9e6148b724e29423a86f26"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/artifact_manifest.json",
+      "sha256": "0d11a7a1caf6d11e293f4bd5144248cb636350c84f715a1031f746fc923ac9d8"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/attempts.csv",
+      "sha256": "9842e105447708a0b8a9d3e53c8044a7457c0b1cd075f5b9e2751d12f21b3de1"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state_snapshot.json",
+      "sha256": "30639f76273fec4fe4f0a03631d228ba4ef5b13c0be68aa8d9729e53ec91286d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/campaign_summary.json",
+      "sha256": "3d05967c2cc462cfa350a591f89203790a6f4845e00fa6df37ccd355b18e79f3"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/campaign_summary.md",
+      "sha256": "8cfc8ae5ae8b049d274011b91fc122329660c6202e9e6148b724e29423a86f26"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/failures.csv",
+      "sha256": "fd5709a660635595b2607587bcdd7c070981b5dd1c34c943c464401d83af7f2d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/jobs.csv",
+      "sha256": "3150c5a86e1fee600725289ee200e80681fdb7bd4214b66cefedd5521bf7169f"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/rejections.csv",
+      "sha256": "36d3386cb075bb6a5df84a955c0063ebfdb4f03e97b2c586ddab6412c3842be9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/summary.json",
+      "sha256": "3d05967c2cc462cfa350a591f89203790a6f4845e00fa6df37ccd355b18e79f3"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/REPORT.md",
+      "sha256": "215bc049acdeae52a2e18ab7d7cbb1c144b124a3fae8d1d9c6e8f6a5ab085351"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/artifact_manifest.json",
+      "sha256": "ee4415b1f0dd369fd9ac5fc12c81b59b2f1aed4813f346363e4ddd35a0766bb0"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/attempts.csv",
+      "sha256": "4d5fe79d77a82d5a616ecd4b804d4043ac200843667fe6de3c3572ff36aad634"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/bias.png",
+      "sha256": "d1da74009cf2339a2bdafe6c4bcfa3518fce1ef531fd7804ded37b3b5a8fe9ff"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/bias_vs_snr.png",
+      "sha256": "b26cb4387d496f986d1a439f8593bb21e8e5c5940c607a244a128a295af632f3"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/calibration.csv",
+      "sha256": "cca88583539c8b626c595fdc8bb6302a3bea589bc92e6f8a4bf5dfcd445ef264"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/calibration.json",
+      "sha256": "05465b3fdf3d5c43c696168ca7e07e8fb919a48e2383996144f40c84a4309fbe"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/campaign_state_snapshot.json",
+      "sha256": "71b41fc3ff680574a430e2a893f9cd51d8f7ac6f36f39dc62a1fb8e96345c290"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/coverage.png",
+      "sha256": "ac385544c3cc85b4b5ac7a917724f36a3e3eee73a5f49cbce898e363cc7cfed9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/failures.csv",
+      "sha256": "fd5709a660635595b2607587bcdd7c070981b5dd1c34c943c464401d83af7f2d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/gate_rates.png",
+      "sha256": "1e76a358c0b817d33bf139149ad246f2a01e9b0fc094adbde1d77f5bd75b2d55"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/jobs.csv",
+      "sha256": "a23e29ab8d4a24d50ec70f61ea46dd1b5a406863858c0fcb4034518ca028a094"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/posterior_recovery.csv",
+      "sha256": "ec3a77c8ab07b5d65a263f75b7279a2622efe21225815c609862bc723a3164ec"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/recovery.png",
+      "sha256": "951d0987c1ef5717ef4596f4b5d9b887e124bf774c348a3cff36f845cf5a96ae"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/rejections.csv",
+      "sha256": "c19070665364819baa7541bb1ade9c81b75df044b55303df90bba4a1d6f9b7a7"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/summary.json",
+      "sha256": "be2444339b0a90f39e5e389e261e0baff8b160a6a995333bee466b77f5dd20b6"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-02/width.png",
+      "sha256": "8968a83bdffc31f9c49ad18988494b96e7ee65ee63f2be75d92a897500b27af6"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/REPORT.md",
+      "sha256": "3cea26fe418a124e20900a65f6eae9bd6a0fb1b2d6a8896e1211c980c11d13fe"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/artifact_manifest.json",
+      "sha256": "df2aef04a6d9eb6da09eb865ed8669029a2c5fa12282339f5fad02aa3dfc5e67"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/attempts.csv",
+      "sha256": "73d92d2cf90918dcc130212ac4a37a2c47e38297d8c66e3ca05108b0f53c9be8"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/benchmark.json",
+      "sha256": "01ac25492a180016f50ee0d8a088039a4f6d5166d9f5e15c0a51ff07310e5fd5"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/campaign_state_snapshot.json",
+      "sha256": "71b41fc3ff680574a430e2a893f9cd51d8f7ac6f36f39dc62a1fb8e96345c290"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/failures.csv",
+      "sha256": "1dcffb521829958b37ed5d4ea4e34052c3b4e322f099cbe832f675269a9555fd"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/jobs.csv",
+      "sha256": "935ea3d82884f0800db7504d2e43c9e3a59e950df11742fb8e80eef7d005c4d0"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/posterior_comparison.csv",
+      "sha256": "3da5a249e18bde91b67576dd7e11041779da0ee2ed50a07a647efb4a320be4f8"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/posterior_comparison.png",
+      "sha256": "c8aedecd767a135ae12ac134bb26bffa8700c7cd83914cdd0b18e62aa1aff26c"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/predictive_comparison.csv",
+      "sha256": "89c3fedbb4cd63fdbe6d10e65076fdf2089c00049840457b4440a26bbeeaf96c"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/predictive_comparison.png",
+      "sha256": "1540ad3aa1e646c78d1ca2922a6c22ae486a0a517137fec64d2e6cb1403c53b3"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/rejections.csv",
+      "sha256": "935ea3d82884f0800db7504d2e43c9e3a59e950df11742fb8e80eef7d005c4d0"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-03/summary.json",
+      "sha256": "6800614a7a6cedf4683c06af447d94b77f00148dd58213d503a8b8912dbb38dc"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/REPORT.md",
+      "sha256": "d2966ee1446788b76149525240e5aa4a20d04ffc248c0375eb2a20e83ab6df26"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/ablation.json",
+      "sha256": "034f582e8c9b82d5865a1d5648ea3ef8ffb90a3cfec785bc67270165eecba959"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/artifact_manifest.json",
+      "sha256": "04bbc735f507856dfb90062650bc02da12ca0a5733458b386fea8dba7c15fa97"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/attempts.csv",
+      "sha256": "94f94e9705bca1745522527fda54f3297bc1ad41b382567639d86cb14d7c5bea"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/bias.png",
+      "sha256": "46ca4e3c33bb47974d5d1c84450bdf3f0534c685cd67de6a2f263d49b8d5e641"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/bias_vs_snr.png",
+      "sha256": "4e47f2843eaac60b8e15a91dacfcab20ce5d383db8fe4c13f0d145865106e3ff"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/calibration.csv",
+      "sha256": "494d513b9464e80b4ec70632174d21a2a0b4f5082f2f5231d03df1aa1519af97"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/calibration.json",
+      "sha256": "7a6e2a20d0af983b2646c7be9157e050ab7efe0442ee2b84ec9b5bb30f845cb5"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/campaign_state_snapshot.json",
+      "sha256": "71b41fc3ff680574a430e2a893f9cd51d8f7ac6f36f39dc62a1fb8e96345c290"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/coverage.png",
+      "sha256": "522c91b58c112166fa782a53f5e4c051dbf724d2910c4aeef0c8d49638f305db"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/failures.csv",
+      "sha256": "1dcffb521829958b37ed5d4ea4e34052c3b4e322f099cbe832f675269a9555fd"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/gate_matrix.csv",
+      "sha256": "1769bd1c5ecbedc26071edd4bd1342f8e0b88f2f1089b042b68eb3d6c194a857"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/gate_rates.png",
+      "sha256": "04977948a7a8700b6f1bd7a331a43040020581ba5bb2e4c2c8cd540487a70387"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/jobs.csv",
+      "sha256": "006888c03178b616bd95fefd36114405a33b2308b4c0f7873604f67e390346ad"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/paired_effects.csv",
+      "sha256": "de7e55d5413a3c7b8a20b19cf8bceab4160163aa06cf435367e42bf578644184"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/paired_effects.png",
+      "sha256": "f519621a1e0ecd331415ec0cb614470a23f6cc243de61081180b006d1000c52d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/posterior_recovery.csv",
+      "sha256": "268c233c3c73a839577c8138be92d63a3fd4435f3841864e55b822d945b31d31"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/recovery.png",
+      "sha256": "5eb1fac60741c7ae781bfa5b8d6ffea0dcea5683e99f860afcd4ca8c068b149b"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/rejections.csv",
+      "sha256": "9236b805b9b7758b5c105cf648f022146b5b8fe0e115ab9164edeec35e787609"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/summary.json",
+      "sha256": "34fdf3a163aa4f8d370d565fd398ac8ea00e393031ce2b29c7e74f8383b0fc2a"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-04/width.png",
+      "sha256": "469076bb05401ac5861bee2bdf73c176f34690297125a5409d1b12830edccc4d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/CAMPAIGN_REPORT.md",
+      "sha256": "48b1e0b2eeeeebfc43a15e25460e75bd502daa47f874daf9b32423bceda5c943"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/REPORT.md",
+      "sha256": "24dd759159c0d6a2880d6489e272490f094bc16d7f2975379310bea34d3b2222"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/aggregate.json",
+      "sha256": "fc3919beb05d1b8eb1314dc05ec48b990f081145f33b6faecae69a2cb14ea57c"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/artifact_manifest.json",
+      "sha256": "0fc42bc258897f3b43fa45075c9d57bef93e3c8b993eb44a00e2a7d9de3b0255"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/attempts.csv",
+      "sha256": "e7714c4f4493b2a30679de05598d007219100bc29fa89f57f582df4a22843359"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/campaign_state_snapshot.json",
+      "sha256": "71b41fc3ff680574a430e2a893f9cd51d8f7ac6f36f39dc62a1fb8e96345c290"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/failures.csv",
+      "sha256": "1dcffb521829958b37ed5d4ea4e34052c3b4e322f099cbe832f675269a9555fd"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/gate_outcomes.png",
+      "sha256": "a3e0b67289a758d8f80f2bb6d53af8ae41e7eb8f583937b89c5ca91a4c0c609d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/jobs.csv",
+      "sha256": "f8ae7eefcfa1b43831ff13578b1143b657418739d168a5c9525813b8b2fe00b9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/posterior_intervals.csv",
+      "sha256": "e8e9749305da8637f495a1c732944c633d669ed0d7a4c9f1ad0c3275a9fe2e85"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/posterior_intervals.png",
+      "sha256": "a8f3cb56817e312d967c75e4fe78034c3144cafa861e7e2d22dd37c3216e2306"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/regime_precision.png",
+      "sha256": "5d31c3391df6ee675b430e298f8f5e9b2ad086eefde60c68cb53d1948b11355e"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/rejections.csv",
+      "sha256": "f8ae7eefcfa1b43831ff13578b1143b657418739d168a5c9525813b8b2fe00b9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/summary.json",
+      "sha256": "a9cd6a4bcf1add71e43dab4574e1794596aff52149113791b7f7e99dccc4df2a"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/target_artifact_manifest.json",
+      "sha256": "8dc4459b41e5e73cf8d1c0374a3ee89b3e8d0669e4ff2153d2065957c1ea33bd"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/PUB-05/targets.csv",
+      "sha256": "e013f32cd2069effc99b82b9e8aba7653fa52806f2203b990d02f3f6f9911aca"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/REPORT.md",
+      "sha256": "1ac3fc196c5a379c08d61e64e1d5166b90d870fa7630609e8b711dc01adff25c"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/aggregation_environment.json",
+      "sha256": "b8461b594ed662752abba59818fdae6ec2727994f6f4909f141a7c136a88e8f9"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/artifact_manifest.json",
+      "sha256": "49e2cfc088f1dcd661a0e5124b5d9e81b6cc0b5c271d000fe76e89e63297a7d7"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/attempts.csv",
+      "sha256": "fe05f930dc7066e47f80bd1998628a5328964d811fc542029d1398d9e2d995f2"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/campaign_state_snapshot.json",
+      "sha256": "71b41fc3ff680574a430e2a893f9cd51d8f7ac6f36f39dc62a1fb8e96345c290"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/campaign_summary.json",
+      "sha256": "c785fa40415d82bc99989f5c49c196e1d1fd92f3d2c1174b22fb7b4de9e51b3b"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/campaign_summary.md",
+      "sha256": "1ac3fc196c5a379c08d61e64e1d5166b90d870fa7630609e8b711dc01adff25c"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/failures.csv",
+      "sha256": "fd5709a660635595b2607587bcdd7c070981b5dd1c34c943c464401d83af7f2d"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/jobs.csv",
+      "sha256": "814c2ff11e0c3ef8487ff48319ef4f23503094f8ada9f491e16c73b484e91ce1"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/rejections.csv",
+      "sha256": "4bfd4a4fc2ae5286d1be7219102392416bc55b02477b10d520e1e60257fde39e"
+    },
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/summary.json",
+      "sha256": "c785fa40415d82bc99989f5c49c196e1d1fd92f3d2c1174b22fb7b4de9e51b3b"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9"
+    },
+    {
+      "path": "scripts/build_publication_synthesis.py",
+      "sha256": "b331837939aba10df9b6bfb36c1405dcef2e85195902a63dfb2bc0ef06dcd76d"
+    },
+    {
+      "path": "src/publication/synthesis.py",
+      "sha256": "2f637b9d4ab3661d496d42c968b060df63f0c84c6f3db3f77f25e4b1e2a5cc88"
+    }
+  ],
+  "usage": "Sources for reconstruction; rejected results support only explicitly qualified negative/descriptive claims"
+}

@@ -68,6 +68,9 @@ publication/observational/PUB-05/**/gold_lightcurve.csv
 # Failed derived render retained locally; its failure receipt stays versioned.
 reports/publication_synthesis/tcc_evidence_v1_failed_render_001/*
 !reports/publication_synthesis/tcc_evidence_v1_failed_render_001/INCOMPLETE_RENDER.md
+# Local previews and incomplete staging areas are not sealed paper artifacts.
+reports/publication_synthesis/render-smoke-*/
+reports/publication_synthesis/.synthesis-render-*/
 
 # Optional notebook/application caches
 marimo/_static/

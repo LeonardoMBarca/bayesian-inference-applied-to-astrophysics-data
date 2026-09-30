@@ -1,0 +1,43 @@
+[
+  {
+    "claim_id": "conditional_recovery",
+    "sources": [
+      "reports/publication_campaign/tcc_campaign_v1/PUB-02/calibration.json",
+      "reports/publication_campaign/tcc_calibration_confirmatory_v1/PUB-02/calibration.json"
+    ],
+    "status": "regime_and_parameter_limited",
+    "text": "Known-truth repeated coverage and bias were measured; universal nominal calibration is not supported."
+  },
+  {
+    "claim_id": "external_validation",
+    "sources": [
+      "reports/publication_campaign/tcc_campaign_v1/PUB-03/benchmark.json"
+    ],
+    "status": "positive_claim_not_supported",
+    "text": "External fits completed but scientific diagnostics prohibit positive validation claims."
+  },
+  {
+    "claim_id": "convergence_insufficient",
+    "count": 9,
+    "sources": [
+      "reports/publication_campaign/tcc_campaign_v1/PUB-04/ablation.json"
+    ],
+    "status": "negative_control_evidence"
+  },
+  {
+    "claim_id": "multi_target",
+    "sources": [
+      "reports/publication_campaign/tcc_campaign_v1/PUB-05/aggregate.json"
+    ],
+    "status": "positive_generalization_not_supported",
+    "text": "All preselected targets retained, including rejected fits; no population claim."
+  },
+  {
+    "claim_id": "m6",
+    "sources": [
+      "docs/publication/COMPUTE_BUDGET_AMENDMENT.md"
+    ],
+    "status": "not_executed",
+    "text": "No correlated likelihood performance claim."
+  }
+]
