@@ -1,0 +1,19 @@
+Initializing NUTS using jitter+adapt_diag...
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [baseline, r, b, a, t0, q1, q2, extra_sigma]
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pytensor/link/numba/dispatch/basic.py:234: UserWarning: Numba will use object mode to run QuadSolutionVector's perform method. Set `pytensor.config.compiler_verbose = True` to see more details.
+  warnings.warn(
+/home/leonardo_barca/mc3/lib/python3.14/site-packages/pymc/step_methods/hmc/quadpotential.py:321: RuntimeWarning: overflow encountered in dot
+  return 0.5 * np.dot(x, v_out)
+Sampling 4 chains for 500 tune and 500 draw iterations (2_000 + 2_000 draws total) took 135 seconds.
+The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
+The effective sample size per chain is smaller than 100 for some parameters.  A higher number is needed for reliable rhat and ess computation. See https://arxiv.org/abs/1903.08008 for details
+{"status": "failed", "output": "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/publication/experiments/PUB-02/deep_short/rep_0000/pilot_001"}

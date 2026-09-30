@@ -56,6 +56,10 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python scripts/validate_hardened_artifacts.py
+      - name: Verify protected historical scientific evidence
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python scripts/freeze_audit_protection.py --check
       - name: Rebuild Silver and Gold in an isolated temporary workspace
         if: github.event_name == 'workflow_dispatch'
         env:
