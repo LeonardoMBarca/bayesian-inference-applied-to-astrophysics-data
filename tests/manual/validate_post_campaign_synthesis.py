@@ -47,11 +47,13 @@ def main():
                     "tests/manual/validate_post_campaign_synthesis.py",
                     "reports/publication_synthesis/tcc_evidence_v1/artifact_manifest.json",
                     "requirements.txt", "environment.yml", "pyproject.toml"]
+    missing_sources = [name for name in source_paths if not (ROOT / name).is_file()]
     payload = {"schema_version": "post-campaign-validation-v1", "generated_at_utc": utc_now(),
-               "status": "passed" if all(row["passed"] for row in checks) else "failed", "checks": checks,
+               "status": "passed" if all(row["passed"] for row in checks) and not missing_sources else "failed", "checks": checks,
+               "missing_sources": missing_sources,
                "scope": "Local tests and evidence integrity; expected release rejection is NOT release approval; no clean-room claim",
                "code_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip(),
-               "source_checksums": {name: sha256_file(ROOT / name) for name in source_paths},
+               "source_checksums": {name: sha256_file(ROOT / name) for name in source_paths if name not in missing_sources},
                "logs": {path.name: sha256_file(path) for path in output.iterdir() if path.is_file()}}
     (output / "validation.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
     if payload["status"] != "passed":
