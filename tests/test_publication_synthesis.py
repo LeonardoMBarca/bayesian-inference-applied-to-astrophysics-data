@@ -12,7 +12,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from publication.calibration import coverage_metrics  # noqa: E402
 from publication.synthesis import (  # noqa: E402
     SCHEMA,
+    coverage_error_lengths,
     flatten_calibration,
+    publish_rendered_bundle,
     recompute_calibration,
     summarize_gates,
     validate_declared_summary,
@@ -22,6 +24,92 @@ from publication.synthesis import (  # noqa: E402
 
 
 class PublicationSynthesisTests(unittest.TestCase):
+    def test_rendered_bundle_publishes_manifest_last(self):
+        import os
+        from unittest.mock import patch
+
+        with tempfile.TemporaryDirectory() as temp:
+            rendered, destination = Path(temp) / "rendered", Path(temp) / "published"
+            rendered.mkdir()
+            destination.mkdir()
+            (destination / "artifact_manifest.json").write_bytes(b"previous seal")
+            # Create manifest first to exercise order independently of directory order.
+            for name, value in (("artifact_manifest.json", b"new seal"), ("b.csv", b"second"), ("a.csv", b"first")):
+                (rendered / name).write_bytes(value)
+            replaced = []
+            real_replace = os.replace
+
+            def observe_replace(source, target):
+                replaced.append(source.name)
+                self.assertEqual((destination / "artifact_manifest.json").read_bytes(), b"previous seal")
+                if source.name == "artifact_manifest.json":
+                    self.assertEqual((destination / "a.csv").read_bytes(), b"first")
+                    self.assertEqual((destination / "b.csv").read_bytes(), b"second")
+                return real_replace(source, target)
+
+            with patch("publication.synthesis.os.replace", side_effect=observe_replace):
+                self.assertEqual(publish_rendered_bundle(rendered, destination), destination)
+            self.assertEqual(replaced, ["a.csv", "b.csv", "artifact_manifest.json"])
+            self.assertEqual((destination / "artifact_manifest.json").read_bytes(), b"new seal")
+            self.assertFalse(rendered.exists())
+
+    def test_interrupted_publication_preserves_previous_seal_and_unpublished_files(self):
+        import hashlib
+        import os
+        from unittest.mock import patch
+
+        with tempfile.TemporaryDirectory() as temp:
+            rendered, destination = Path(temp) / "rendered", Path(temp) / "published"
+            rendered.mkdir()
+            destination.mkdir()
+            old_manifest = json.dumps({"artifacts": {"a.csv": hashlib.sha256(b"old a").hexdigest()}}).encode()
+            (destination / "artifact_manifest.json").write_bytes(old_manifest)
+            for name in ("a.csv", "b.csv"):
+                (destination / name).write_bytes(f"old {name[0]}".encode())
+                (rendered / name).write_bytes(f"new {name[0]}".encode())
+            (rendered / "artifact_manifest.json").write_bytes(b"new seal")
+            real_replace = os.replace
+
+            def interrupt_replace(source, target):
+                if source.name == "b.csv":
+                    raise PermissionError("simulated sharing violation")
+                return real_replace(source, target)
+
+            with patch("publication.synthesis.os.replace", side_effect=interrupt_replace):
+                with self.assertRaisesRegex(PermissionError, "sharing violation"):
+                    publish_rendered_bundle(rendered, destination)
+            self.assertEqual((destination / "artifact_manifest.json").read_bytes(), old_manifest)
+            self.assertEqual((destination / "a.csv").read_bytes(), b"new a")
+            self.assertEqual((destination / "b.csv").read_bytes(), b"old b")
+            self.assertEqual((rendered / "b.csv").read_bytes(), b"new b")
+            self.assertEqual((rendered / "artifact_manifest.json").read_bytes(), b"new seal")
+            # The stale seal cannot falsely attest a partially replaced bundle.
+            self.assertNotEqual(hashlib.sha256((destination / "a.csv").read_bytes()).hexdigest(),
+                                json.loads(old_manifest)["artifacts"]["a.csv"])
+
+    def test_unsealed_render_is_rejected_before_destination_changes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            rendered, destination = Path(temp) / "rendered", Path(temp) / "published"
+            rendered.mkdir()
+            (rendered / "a.csv").write_bytes(b"partial rendering")
+            with self.assertRaisesRegex(ValueError, "missing its artifact manifest"):
+                publish_rendered_bundle(rendered, destination)
+            self.assertFalse(destination.exists())
+            self.assertEqual((rendered / "a.csv").read_bytes(), b"partial rendering")
+
+    def test_zero_and_full_coverage_roundoff_plots_without_changing_intervals(self):
+        from publication.calibration import wilson_interval
+
+        bounds = [wilson_interval(0, 100), wilson_interval(100, 100)]
+        preserved = copy.deepcopy(bounds)
+        errors = coverage_error_lengths([0., 1.], bounds)
+        self.assertTrue(all(value >= 0 for side in errors for value in side))
+        self.assertEqual(bounds, preserved)
+        self.assertEqual(errors[0][0], 0.)
+        self.assertEqual(errors[1][1], 0.)
+        with self.assertRaises(ValueError):
+            coverage_error_lengths([.5], [[.6, .9]])
+
     def fixture(self):
         definition = {"job_id": "PUB-02__control__rep_0000", "experiment_id": "PUB-02",
                       "scenario_id": "control", "replicate_id": "rep_0000", "run_id": "fixture_run",
@@ -218,6 +306,27 @@ class PublicationSynthesisTests(unittest.TestCase):
             (root / "artifact_manifest.json").write_text(json.dumps(manifest))
             with self.assertRaisesRegex(ValueError, "unsupported release"):
                 verify_bundle(root, root)
+
+    def test_validation_harness_preserves_receipt_when_source_is_missing(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+
+        from tests.manual import validate_post_campaign_synthesis as audit
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            results = [SimpleNamespace(returncode=value) for value in (0, 0, 0, 0, 1, 1)]
+            with patch.object(audit, "ROOT", root), patch.object(sys, "argv", ["audit", "--output", "publication/validation/missing"]), \
+                    patch.object(audit.subprocess, "run", side_effect=results), \
+                    patch.object(audit.subprocess, "check_output", return_value=b"a" * 40):
+                with self.assertRaises(SystemExit) as caught:
+                    audit.main()
+            self.assertEqual(caught.exception.code, 1)
+            payload = json.loads((root / "publication/validation/missing/validation.json").read_text())
+            self.assertEqual(payload["status"], "failed")
+            self.assertTrue(payload["missing_sources"])
+            self.assertEqual(len(payload["checks"]), 6)
+            self.assertEqual(len(payload["logs"]), 12)
 
 
 if __name__ == "__main__":

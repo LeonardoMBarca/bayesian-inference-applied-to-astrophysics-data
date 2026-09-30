@@ -65,6 +65,10 @@ data/experiments/**/injected_lightcurve.csv
 publication/observational/PUB-05/**/silver_lightcurve.csv
 publication/observational/PUB-05/**/gold_lightcurve.csv
 
+# Failed derived render retained locally; its failure receipt stays versioned.
+reports/publication_synthesis/tcc_evidence_v1_failed_render_001/*
+!reports/publication_synthesis/tcc_evidence_v1_failed_render_001/INCOMPLETE_RENDER.md
+
 # Optional notebook/application caches
 marimo/_static/
 marimo/_lsp/

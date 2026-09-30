@@ -25,6 +25,10 @@ aggregate tables, figures and reports. Include scientific rejections and the
 parent campaign's cancelled attempt. At audit start both final report trees
 and the confirmatory run tree had no Git-tracked files; a later evidence commit
 must be checked explicitly before claiming clean-checkout availability.
+Commit `ad877b1e6815f97812f984374ba5501c289e6f3b` subsequently preserved
+6,426 compact evidence files, including both report trees, all scientific
+rejections and the cancelled preparation attempt. This verifies versioning of
+the compact evidence, not availability of the excluded large inputs/traces.
 
 The global `*.nc` ignore rule already excludes traces from ordinary Git. Exact
 historical trace restoration requires an archive identified by file SHA-256,

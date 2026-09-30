@@ -11,7 +11,10 @@ import argparse
 import copy
 import csv
 import json
+import math
+import os
 import subprocess
+import tempfile
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path, PurePosixPath
@@ -381,6 +384,17 @@ def render_report(payload: dict) -> str:
     return "\n".join(lines)
 
 
+def coverage_error_lengths(points: list[float], bounds: list[list[float]]) -> list[list[float]]:
+    """Clip floating-point endpoint roundoff only, never change stored CIs."""
+    lower, upper = [], []
+    for point, (lo, hi) in zip(points, bounds, strict=True):
+        if not all(math.isfinite(value) for value in (point, lo, hi)) or lo > hi or lo > point + 1e-14 or hi < point - 1e-14:
+            raise ValueError("Coverage point lies outside its uncertainty interval")
+        lower.append(max(0., point - lo))
+        upper.append(max(0., hi - point))
+    return [lower, upper]
+
+
 def figures(output: Path, calibration: dict) -> None:
     import matplotlib
     matplotlib.use("Agg")
@@ -395,8 +409,7 @@ def figures(output: Path, calibration: dict) -> None:
             y = [values[level]["empirical_coverage_numeric"] for level in LEVELS]
             bounds = [values[level]["wilson95_numeric"] for level in LEVELS]
             x = [float(level) + (index - 1.5) * .008 for level in LEVELS]
-            ax.errorbar(x, y, yerr=[[p - b[0] for p, b in zip(y, bounds, strict=True)],
-                                   [b[1] - p for p, b in zip(y, bounds, strict=True)]],
+            ax.errorbar(x, y, yerr=coverage_error_lengths(y, bounds),
                         fmt="o-", capsize=2, ms=3, color=colors[index], label=scenario)
         ax.plot([0, 1], [0, 1], color="0.5", linestyle="--", linewidth=.8)
         ax.set(title=LABELS[parameter], xlim=(.42, 1.01), ylim=(-.03, 1.04), xticks=(.5, .8, .94))
@@ -414,10 +427,10 @@ def figures(output: Path, calibration: dict) -> None:
     for index, scenario in enumerate(scenarios):
         p = data[scenario]["parameters"]["r"]
         axes[0].bar(index, p["relative_bias"] * 100, color=colors[index])
-        for offset, key, label in [(-.24, "rmse", "RMSE of posterior mean"), (0, "mean_posterior_sd", "Mean posterior SD")]:
-            axes[1].bar(index + offset, p[key], width=.22, label=label if index == 0 else None)
+        for offset, key, label, color in [(-.24, "rmse", "RMSE of posterior mean", "#2166ac"), (0, "mean_posterior_sd", "Mean posterior SD", "#d6604d")]:
+            axes[1].bar(index + offset, p[key], width=.22, color=color, label=label if index == 0 else None)
         axes[1].bar(index + .24, p["coverage"]["0.94"]["mean_interval_width"], width=.22,
-                    label="Mean ETI94 width" if index == 0 else None)
+                    color="#4d9221", label="Mean ETI94 width" if index == 0 else None)
     for ax in axes:
         ax.set_xticks(range(len(scenarios)), scenarios, rotation=20, ha="right")
         ax.axhline(0, color="black", linewidth=.6)
@@ -570,6 +583,17 @@ sob protocolo prospectivo, preservando estas coortes como referência.
 """
 
 
+def publish_rendered_bundle(output: Path, destination: Path) -> Path:
+    """Publish rendered files, sealing last; interrupted publication is detectable."""
+    if not (output / "artifact_manifest.json").is_file():
+        raise ValueError("Rendered bundle is missing its artifact manifest")
+    destination.mkdir(parents=True, exist_ok=True)
+    for path in sorted(output.iterdir(), key=lambda path: (path.name == "artifact_manifest.json", path.name)):
+        os.replace(path, destination / path.name)
+    output.rmdir()
+    return destination
+
+
 def build(root: Path, output_relative: str = OUTPUT) -> Path:
     root = root.resolve()
     output = safe_path(root, output_relative)
@@ -656,7 +680,9 @@ def build(root: Path, output_relative: str = OUTPUT) -> Path:
                "src/publication/synthesis.py", "scripts/build_publication_synthesis.py"]
     for name in context:
         sources[name] = sha256_file(root / name)
-    output.mkdir(parents=True, exist_ok=True)
+    destination = output
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output = Path(tempfile.mkdtemp(prefix=".synthesis-render-", dir=output.parent))
     write(output / "summary.json", payload)
     write(output / "aggregation_environment.json", environment)
     write(output / "STORAGE_MANIFEST.json", {"schema_version": "publication-storage-audit-v1",
@@ -688,7 +714,9 @@ def build(root: Path, output_relative: str = OUTPUT) -> Path:
                 "artifacts": {path.name: sha256_file(path) for path in sorted(output.iterdir()) if path.is_file() and path.name != "artifact_manifest.json"},
                 "regenerate_command": "python scripts/build_publication_synthesis.py", "release_approved": False}
     write(output / "artifact_manifest.json", manifest)
-    return output
+    # Seal the manifest last. A failed render leaves the previous complete
+    # bundle untouched; an interrupted publication fails checksum validation.
+    return publish_rendered_bundle(output, destination)
 
 
 def verify_bundle(root: Path, output: Path) -> dict:
