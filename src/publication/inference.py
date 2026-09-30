@@ -156,13 +156,17 @@ def make_model(frame: pd.DataFrame, config: dict):
         jitter_error_multiplier=config["jitter_error_multiplier"],
         jitter_floor_fraction=config["jitter_floor_fraction"], purpose="Frozen publication protocol",
     )
-    model = build_model(frame, np.linspace(frame.phase.min(), frame.phase.max(), 3), target, prior, options=options)
+    center_coordinates = config.get("transit_center_parameterization", "direct")
+    model = build_model(frame, np.linspace(frame.phase.min(), frame.phase.max(), 3), target, prior,
+                        options=options, transit_center_parameterization=center_coordinates)
     return model, {"options": asdict(options), "prior_profile": asdict(prior),
                    "fixed_period_days": config["period_days"], "eccentricity": 0.,
                    "a_prior": [2., 50.], "b_prior": [0., 1.], "q1_q2_prior": [0., 1.],
                    "baseline_prior_mean": 1., "t0_prior_mean_days": 0.,
                    "implementation": "shared bayesian_modeling.physical_transit.build_model",
-                   "family": "M5-publication-v1", "likelihood": "independent Normal: measurement variance + white jitter variance"}
+                   "family": "M5-publication-v2-standardized-t0" if center_coordinates == "standardized" else "M5-publication-v1",
+                   "transit_center_parameterization": center_coordinates,
+                   "likelihood": "independent Normal: measurement variance + white jitter variance"}
 
 
 def fit(input_path: Path, config: dict, output: Path) -> dict:
@@ -191,6 +195,7 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
         if sampling.get("linker") == "cvm":
             from pytensor.compile.mode import Mode
             compile_kwargs = {"mode": Mode(linker="cvm", optimizer="fast_run")}
+        retention = {"discard_tuned_samples": False, "idata_kwargs": {"save_warmup": True}} if sampling.get("save_warmup", False) else {}
         idata = pm.sample(
             draws=sampling["draws"], tune=sampling["tune"], chains=sampling["chains"],
             cores=sampling["cores"], target_accept=sampling["target_accept"],
@@ -198,6 +203,7 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
             nuts_sampler="pymc", var_names=list(PARAMETERS), progressbar=False,
             return_inferencedata=True, blas_cores=1,
             compile_kwargs=compile_kwargs,
+            **retention,
         )
     idata.to_netcdf(output / "trace.nc")
     summary = sampler_summary(idata, diagnostics_names)

@@ -64,3 +64,16 @@ Before public release:
 No remote archive, DOI, public-release safety approval or successful clean-room
 restoration is asserted by this document. Never use a broad `git add` on the
 observational tree before applying an explicit large-artifact storage policy.
+
+## Atualização da auditoria externa, 2026-09-30
+
+O inventário transitivo de fechamento agora está em
+`publication/validation/external_audit_closure_v1/transitive_inventory_final.json`.
+Ele alcança 8.201 registros, incluindo os intermediários Silver/Gold e logs
+de todas as tentativas; 1.562 arquivos excluídos do Git foram incluídos em
+um ZIP **local**, identificado em `local_bundle_manifest_final.json`.
+O manifesto final checou cada membro do ZIP e preserva o SHA-256 original
+do pacote. `docs/publication/EVIDENCE_ARCHIVE_RUNBOOK.md` contém os comandos.
+Esta atualização substitui a afirmação operacional acima de que nenhum bundle
+existia. A restauração integral em checkout independente e o depósito público
+continuam a exigir recibos próprios; a mera presença local do ZIP não os prova.

@@ -17,6 +17,35 @@ sys.path.insert(0, str(ROOT / "src"))
 from publication.contracts import sha256_file, utc_now  # noqa: E402
 
 
+def acceptable_release_response(return_code: int, report: dict) -> bool:
+    """Only an internally consistent named public prerequisite is expected.
+
+    Exit 1 alone is not evidence. Missing files, validator bugs, unrecognized
+    blockers, zero legacy-run counts and scientific rejections fail closed.
+    """
+    allowed = {"citation", "public_safety", "third_party_redistribution", "external_archive",
+               "exact_scientific_environment", "clean_room", "remote_ci"}
+    if (report.get("schema_version") != "publication-campaign-release-audit-v2"
+            or report.get("integrity_status") != "passed" or report.get("integrity_errors") != []
+            or report.get("declared_final_jobs") != 517 or report.get("declared_final_attempts") != 518
+            or report.get("exit_code") != return_code):
+        return False
+    checks = {row["check"]: row["status"] for row in report.get("checks", [])}
+    required = {"transitive_inventory", "transitive_byte_integrity", "declared_campaigns_and_attempts",
+                "scientific_claim_sources"}
+    if not required.issubset(checks) or any(status != "passed" for status in checks.values()):
+        return False
+    blockers = report.get("public_release_blockers")
+    if return_code == 0:
+        return report.get("status") == "passed" and report.get("release_passed") is True and blockers == []
+    return (return_code == 1 and report.get("status") == "blocked_public_release"
+            and report.get("release_passed") is False and bool(blockers)
+            and len({row.get("check") for row in blockers}) == len(blockers)
+            and all(row.get("check") in allowed and row.get("reason")
+                    and row.get("classification") == "public_release_prerequisite_pending"
+                    for row in blockers))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
@@ -30,28 +59,40 @@ def main():
         ("lint", [sys.executable, "-m", "ruff", "check", "."], 0),
         ("static", [sys.executable, "scripts/static_validate.py"], 0),
         ("historical_baseline_artifacts", [sys.executable, "scripts/validate_hardened_artifacts.py"], 0),
-        ("synthesis_integrity", [sys.executable, "scripts/build_publication_synthesis.py", "--check"], 0),
-        ("paper_release_not_approved", [sys.executable, "scripts/validate_publication_release.py"], 1),
+        ("protected_history", [sys.executable, "scripts/freeze_audit_protection.py", "--check"], 0),
+        ("trace_metrics_integrity", [sys.executable, "scripts/audit_publication_traces.py", "--check",
+                                     "--output", "publication/validation/trace_audit_v1"], 0),
+        ("synthesis_integrity", [sys.executable, "scripts/build_publication_synthesis_v2.py", "--check"], 0),
+        ("paper_release_classified", [sys.executable, "scripts/validate_publication_release.py"], "structured"),
     ]
     checks = []
     for name, command, expected in commands:
         started = time.monotonic()
         with (output / f"{name}.stdout.txt").open("w") as stdout, (output / f"{name}.stderr.txt").open("w") as stderr:
             result = subprocess.run(command, cwd=ROOT, stdout=stdout, stderr=stderr, check=False)
+        passed = result.returncode == expected
+        if expected == "structured":
+            try:
+                report = json.loads((output / f"{name}.stdout.txt").read_text())
+                passed = acceptable_release_response(result.returncode, report)
+            except (ValueError, TypeError, KeyError):
+                passed = False
         checks.append({"check": name, "command": command, "return_code": result.returncode,
-                       "expected_return_code": expected, "passed": result.returncode == expected,
+                       "expected_return_code": expected, "passed": passed,
                        "seconds": time.monotonic() - started})
         print(f"{name}: exit={result.returncode}, expected={expected}", flush=True)
-    source_paths = ["src/publication/synthesis.py", "scripts/build_publication_synthesis.py",
-                    "tests/test_publication_synthesis.py", "tests/test_confirmatory_campaign.py",
+    source_paths = ["src/publication/synthesis_v2.py", "scripts/build_publication_synthesis_v2.py",
+                    "src/publication/campaign_release.py", "src/publication/evidence_archive.py",
+                    "src/publication/claim_authorization.py", "src/publication/trace_audit.py",
+                    "tests/test_publication_synthesis_v2.py", "tests/test_confirmatory_campaign.py",
                     "tests/manual/validate_post_campaign_synthesis.py",
-                    "reports/publication_synthesis/tcc_evidence_v1/artifact_manifest.json",
+                    "reports/publication_synthesis/tcc_evidence_v2/artifact_manifest.json",
                     "requirements.txt", "environment.yml", "pyproject.toml"]
     missing_sources = [name for name in source_paths if not (ROOT / name).is_file()]
-    payload = {"schema_version": "post-campaign-validation-v1", "generated_at_utc": utc_now(),
+    payload = {"schema_version": "post-campaign-validation-v2", "generated_at_utc": utc_now(),
                "status": "passed" if all(row["passed"] for row in checks) and not missing_sources else "failed", "checks": checks,
                "missing_sources": missing_sources,
-               "scope": "Local tests and evidence integrity; expected release rejection is NOT release approval; no clean-room claim",
+               "scope": "Local tests and byte integrity; only named structured release prerequisites may block; no numeric clean-room re-execution claim",
                "code_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip(),
                "source_checksums": {name: sha256_file(ROOT / name) for name in source_paths if name not in missing_sources},
                "logs": {path.name: sha256_file(path) for path in output.iterdir() if path.is_file()}}

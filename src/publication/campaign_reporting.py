@@ -602,7 +602,13 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
         destination = output if family else output / name
         destination.mkdir(exist_ok=True)
         try:
-            if name in {"PUB-02", "PUB-04"}:
+            if plan.get("study_kind") == "numerical_complement_v1":
+                from publication.numerical_campaign import numerical_family_report
+                protocol = _read(root / plan["protocols"][name]["path"])
+                summaries[name], generated, extra_sources = numerical_family_report(root, selected, destination, protocol)
+                family_artifacts.extend(generated)
+                sources.update(extra_sources)
+            elif name in {"PUB-02", "PUB-04"}:
                 summaries[name] = calibration_report(selected, destination, mode=plan["mode"])
                 family_artifacts += [destination / filename for filename in ("calibration.json", "calibration.csv", "posterior_recovery.csv", "coverage.png", "bias.png", "bias_vs_snr.png", "width.png", "recovery.png", "gate_rates.png")]
                 if name == "PUB-04":

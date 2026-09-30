@@ -300,7 +300,10 @@ def build_model(
     prior_profile: PriorProfile | None = None,
     *,
     options: TransitModelOptions | None = None,
+    transit_center_parameterization: str = "direct",
 ) -> pm.Model:
+    if transit_center_parameterization not in {"direct", "standardized"}:
+        raise ValueError("Unknown transit-center parameterization")
     selected_profile = prior_profile or get_prior_profile("baseline")
     options = options or TransitModelOptions()
     phase = prepared["phase"].to_numpy(dtype=float)
@@ -324,9 +327,14 @@ def build_model(
             )
         impact_parameter = pm.Uniform("b", lower=0.0, upper=1.0)
         scaled_semimajor_axis = pm.Uniform("a", lower=2.0, upper=50.0)
-        transit_center = pm.Normal(
-            "t0", mu=0.0, sigma=options.transit_center_prior_sigma_days or target.transit_duration_days / 4.0
-        )
+        center_sigma = options.transit_center_prior_sigma_days or target.transit_duration_days / 4.0
+        if transit_center_parameterization == "standardized":
+            # Same physical prior, different coordinates for NUTS. Opt-in only;
+            # historical direct-coordinate M5 remains the default.
+            center_z = pm.Normal("t0_standardized", mu=0.0, sigma=1.0)
+            transit_center = pm.Deterministic("t0", center_sigma * center_z)
+        else:
+            transit_center = pm.Normal("t0", mu=0.0, sigma=center_sigma)
         # Kipping's triangular parameterization: uniform q1/q2 maps to the
         # physically allowed quadratic limb-darkening region.
         q1 = pm.Uniform("q1", lower=0.0, upper=1.0)

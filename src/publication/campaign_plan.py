@@ -275,6 +275,9 @@ def build_plan(root: Path, config_path: Path) -> dict:
         for fixture in config["smoke_jobs"]:
             add(fixture.get("experiment_id", "PUB-02"), fixture["scenario_id"], 0, fixture,
                 kind=fixture["kind"], estimate=fixture.get("estimated_seconds", 30))
+    elif config.get("study_kind") == "numerical_complement_v1":
+        from publication.numerical_campaign import add_numerical_jobs
+        add_numerical_jobs(config, protocols, add, errors)
     else:
         p2 = config["injection_recovery"]
         if p2["enabled"] and "PUB-02" in protocols:
@@ -354,6 +357,7 @@ def build_plan(root: Path, config_path: Path) -> dict:
         except (OSError, KeyError, TypeError, ValueError, subprocess.CalledProcessError) as exc:
             errors.append(f"Frozen campaign plan unavailable: {exc}")
     return {"campaign_id": campaign, "mode": mode, "config_path": relative,
+            **({"study_kind": config["study_kind"]} if "study_kind" in config else {}),
             "scientific_config_sha256": digest, "frozen_plan_path": frozen_path,
             "resources": resources, "runtime": config.get("runtime", {}), "jobs": jobs,
             "protocols": {key: {field: value[field] for field in ("path", "sha256")} for key, value in protocols.items()},

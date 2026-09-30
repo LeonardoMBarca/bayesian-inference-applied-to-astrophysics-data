@@ -37,6 +37,11 @@ jobs:
           git rev-parse HEAD
           python -m pip freeze
           echo "Scope: exact direct package pins; runner native/transitive environment is recorded, not identical to historical WSL"
+      - name: Enforce exact scientific Python and direct pins
+        if: matrix.environment == 'scientific-exact-python'
+        env:
+          PYTHONPATH: src
+        run: python -m publication.environment_guard
       - name: Run Ruff lint
         run: python -m ruff check .
       - name: Run static contract checks

@@ -258,5 +258,9 @@ Estas páginas documentam o software e não substituem os artigos acima. Recurso
 
 ## Uso recomendado
 
+### Investigação numérica desta auditoria
+
+- [PyMC — inicialização NUTS (`init_nuts`, documentação v5.17.0)](https://www.pymc.io/projects/docs/en/v5.17.0/api/generated/pymc.init_nuts.html): descreve o jitter uniforme na inicialização. É documentação de outra versão, não prova da implementação executada. A investigação utiliza o código efetivamente instalado do PyMC 6.3.1, preservado com SHA-256 em `publication/validation/t0_mechanism_v2/audit.json`, e avalia os pontos iniciais produzidos por essa implementação. Consulta: 2026-09-30. Esses pontos não reconstituem o warmup histórico ausente nem demonstram, sozinhos, a eficácia da parametrização padronizada.
+
 Leia primeiro juliet, allesfitter, exoplanet e Gibson (2014) para entender a forte sobreposição metodológica já existente. Talts et al., Bayesian Workflow, diagnósticos R-hat e PSIS delimitam quais conclusões estatísticas são permitidas. IVOA, Maneage e DataLad fundamentam a camada de rastreabilidade. Nenhuma fonte isolada comprova a novidade ou a validade dos novos resultados deste repositório.
 

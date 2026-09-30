@@ -2,12 +2,12 @@
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timezone
 import hashlib
 import json
-from pathlib import Path
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT = ROOT / "publication/validation/external_audit_closure_v1/protected_snapshot.json"
@@ -67,8 +67,24 @@ def collect(root: Path) -> dict:
 
 def verify(root: Path, snapshot: dict) -> dict:
     errors = []
+    root = root.resolve()
+    checked_parents = {}
     for row in snapshot["files"]:
-        path = root / row["path"]
+        name = row["path"]
+        logical = PurePosixPath(name)
+        if (not name or "\\" in name or ":" in name or logical.is_absolute()
+                or any(part in {"", ".", ".."} for part in name.split("/"))):
+            errors.append({"path": name, "error": "unsafe_path"})
+            continue
+        path = root / logical
+        if path.parent not in checked_parents:
+            checked_parents[path.parent] = (
+                path.parent.resolve().is_relative_to(root)
+                and not any(parent.is_symlink() for parent in path.parents if parent.is_relative_to(root))
+            )
+        if not checked_parents[path.parent]:
+            errors.append({"path": name, "error": "unsafe_parent"})
+            continue
         if not path.is_file() or path.is_symlink():
             errors.append({"path": row["path"], "error": "missing_or_symlink"})
         elif path.stat().st_size != row["size_bytes"] or digest(path) != row["sha256"]:
