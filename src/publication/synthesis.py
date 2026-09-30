@@ -14,7 +14,7 @@ import json
 import subprocess
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from publication.calibration import PARAMETERS, coverage_metrics
 from publication.campaign_reporting import state_fingerprint
@@ -56,12 +56,18 @@ def verify_campaign_snapshot(root: Path, directory: Path) -> None:
     expected, active, verified = {}, set(), set()
 
     def bind(base: Path, name: str, digest: str) -> Path:
+        parsed = PurePosixPath(name)
+        if parsed.is_absolute() or ".." in parsed.parts or "\\" in name or ":" in name:
+            raise ValueError("Report reference escaped its declared namespace")
         relative = (base / name).relative_to(root).as_posix()
-        # safe_path performs traversal and symlink checks once per reference.
+        # Hash once, but enforce the narrowest base if a file is referenced
+        # both as a repo source and as an artifact in a nested report directory.
         if relative not in expected:
             expected[relative] = (base, name, digest)
         elif expected[relative][2] != digest:
             raise ValueError(f"Conflicting report hashes for {relative}")
+        elif base.is_relative_to(expected[relative][0]):
+            expected[relative] = (base, name, digest)
         return base / name
 
     def visit(path: Path) -> None:
