@@ -8,7 +8,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from publication.audit_protection import verify  # noqa: E402
+from publication.audit_protection import verify, verify_portable  # noqa: E402
+from publication.evidence_archive import SCHEMA, digest_json  # noqa: E402
 
 
 class ProtectionTests(unittest.TestCase):
@@ -34,6 +35,39 @@ class ProtectionTests(unittest.TestCase):
             for name in ("../outside", "/outside", "C:/outside", "a/../b", "a\\b", "a//b"):
                 snapshot = {"files": [{"path": name, "size_bytes": 0, "sha256": "0" * 64}]}
                 self.assertEqual(verify(Path(directory), snapshot)["errors"][0]["error"], "unsafe_path")
+
+    def test_portable_mode_binds_external_without_claiming_zip_bytes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            content = b"protected\r\n"
+            (root / "tracked.bin").write_bytes(content)
+            file_hash = hashlib.sha256(content).hexdigest()
+            snapshot = {"files": [
+                {"path": "tracked.bin", "sha256": file_hash, "size_bytes": len(content)},
+                {"path": "external.bin", "sha256": file_hash, "size_bytes": len(content)},
+            ]}
+            payload = {"schema_version": SCHEMA, "files": [
+                {"path": "external.bin", "sha256": file_hash,
+                 "size_bytes": len(content), "storage": "local_external_bundle"}]}
+            inventory = {**payload, "inventory_content_sha256": digest_json(payload)}
+            result = verify_portable(root, snapshot, inventory, {"tracked.bin"})
+            self.assertEqual(result["status"], "passed")
+            self.assertEqual(result["git_bytes_checked"], 1)
+            self.assertEqual(result["external_inventory_bound"], 1)
+            self.assertEqual(result["external_bundle_bytes_checked"], 0)
+            (root / "tracked.bin").write_bytes(b"corrupted\r\n")
+            self.assertEqual(verify_portable(root, snapshot, inventory, {"tracked.bin"})["status"], "failed")
+            (root / "tracked.bin").write_bytes(content)
+            (root / "external.bin").write_bytes(b"corrupted\r\n")
+            self.assertEqual(verify_portable(root, snapshot, inventory, {"tracked.bin"})["errors"][0]["error"],
+                             "external_bytes_changed")
+            (root / "external.bin").unlink()
+            inventory["files"][0]["sha256"] = "0" * 64
+            self.assertEqual(verify_portable(root, snapshot, inventory, {"tracked.bin"})["errors"][0]["error"],
+                             "inventory_identity_mismatch")
+            inventory["inventory_content_sha256"] = digest_json(payload)
+            self.assertEqual(verify_portable(root, snapshot, inventory, {"tracked.bin"})["errors"][0]["error"],
+                             "external_inventory_mismatch")
 
 
 if __name__ == "__main__":

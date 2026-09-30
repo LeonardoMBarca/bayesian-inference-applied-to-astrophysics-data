@@ -9,8 +9,12 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 
+from publication.evidence_archive import SCHEMA as INVENTORY_SCHEMA
+from publication.evidence_archive import digest_json
+
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT = ROOT / "publication/validation/external_audit_closure_v1/protected_snapshot.json"
+DEFAULT_INVENTORY = ROOT / "publication/validation/external_audit_closure_v1/transitive_inventory_final.json"
 CAMPAIGNS = ("tcc_campaign_v1", "tcc_calibration_confirmatory_v1")
 
 
@@ -93,11 +97,67 @@ def verify(root: Path, snapshot: dict) -> dict:
             "files_checked": len(snapshot["files"]), "errors": errors}
 
 
+def verify_portable(root: Path, snapshot: dict, inventory: dict,
+                    tracked_paths: set[str]) -> dict:
+    """Verify Git bytes and bind intentionally external files to a sealed inventory.
+
+    This mode does not claim that the external ZIP is available in CI. A full
+    ``--check`` is still required after independently restoring that ZIP.
+    """
+    payload = dict(inventory)
+    checksum = payload.pop("inventory_content_sha256", None)
+    if payload.get("schema_version") != INVENTORY_SCHEMA or checksum != digest_json(payload):
+        return {"status": "failed", "errors": [{"error": "inventory_identity_mismatch"}]}
+    indexed = {(row["path"], row["sha256"]): row for row in payload["files"]}
+    if len(indexed) != len(payload["files"]):
+        return {"status": "failed", "errors": [{"error": "duplicate_inventory_identity"}]}
+    committed = [row for row in snapshot["files"] if row["path"] in tracked_paths]
+    external = [row for row in snapshot["files"] if row["path"] not in tracked_paths]
+    result = verify(root, {"files": committed})
+    errors = result["errors"]
+    for row in external:
+        name = row["path"]
+        logical = PurePosixPath(name)
+        if (not name or "\\" in name or ":" in name or logical.is_absolute()
+                or any(part in {"", ".", ".."} for part in name.split("/"))):
+            errors.append({"path": name, "error": "unsafe_path"})
+            continue
+        binding = indexed.get((name, row["sha256"]))
+        if (binding is None or binding.get("storage") != "local_external_bundle"
+                or binding.get("sha256") != row["sha256"]
+                or binding.get("size_bytes") != row["size_bytes"]):
+            errors.append({"path": name, "error": "external_inventory_mismatch"})
+            continue
+        path = root / logical
+        if path.exists() and (path.is_symlink() or not path.is_file()
+                              or not path.resolve().is_relative_to(root.resolve())
+                              or path.stat().st_size != row["size_bytes"]
+                              or digest(path) != row["sha256"]):
+            errors.append({"path": name, "error": "external_bytes_changed"})
+    return {"status": "passed" if not errors else "failed",
+            "protected_files": len(snapshot["files"]),
+            "git_bytes_checked": len(committed),
+            "external_inventory_bound": len(external),
+            "external_bundle_bytes_checked": 0,
+            "scope": "Git bytes plus sealed external references; run full --check after bundle restore",
+            "errors": errors}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--check", action="store_true")
+    mode.add_argument("--check-portable", action="store_true")
     parser.add_argument("--output", type=Path, default=DEFAULT)
+    parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
     args = parser.parse_args()
+    if args.check_portable:
+        tracked = set(subprocess.check_output(
+            ["git", "ls-files", "-z"], cwd=ROOT).decode("utf-8").split("\0"))
+        result = verify_portable(ROOT, json.loads(args.output.read_text()),
+                                 json.loads(args.inventory.read_text()), tracked)
+        print(json.dumps(result, indent=2))
+        return int(result["status"] != "passed")
     if args.check:
         result = verify(ROOT, json.loads(args.output.read_text()))
         print(json.dumps(result, indent=2))

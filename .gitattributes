@@ -3,6 +3,7 @@ publication/**/*.json text eol=lf
 publication/**/*.csv text eol=lf
 publication/**/*.md text eol=lf
 publication/baseline/environment/* -text
+publication/baseline/environment/.ruff_cache/** -text -filter -ident -working-tree-encoding
 src/**/*.py text eol=lf
 scripts/*.py text eol=lf
 scripts/**/*.py text eol=lf
