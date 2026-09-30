@@ -25,6 +25,7 @@ from publication.contracts import canonical_hash, safe_path, sha256_file, verify
 from publication.release import runtime_environment, verify_runtime
 
 CAMPAIGNS = ("tcc_campaign_v1", "tcc_calibration_confirmatory_v1")
+SCENARIO_ORDER = ("deep_short", "intermediate_long", "shallow_short", "near_limit_long")
 OUTPUT = "reports/publication_synthesis/tcc_evidence_v1"
 SCHEMA = "publication-post-campaign-synthesis-v1"
 LEVELS = ("0.5", "0.8", "0.94")
@@ -272,13 +273,20 @@ def _coverage(value: dict) -> str:
     return f"{value['covered_count']}/{value['numeric_count']} ({_percent(value['empirical_coverage_numeric'])}; IC95 {_percent(interval[0])}–{_percent(interval[1])})"
 
 
+def _ordered_keys(values: dict, preferred: tuple[str, ...]) -> list[str]:
+    """Use an explicit display order without dropping unrecognized keys."""
+    rank = {name: index for index, name in enumerate(preferred)}
+    return sorted(values, key=lambda name: (rank.get(name, len(rank)), name))
+
+
 def render_report(payload: dict) -> str:
     lines = ["# Relatório consolidado de evidência para TCC e paper", "",
              "Análise posterior às campanhas; números gerados a partir dos resultados selados. "
              "Integridade dos artefatos e conclusão computacional não equivalem a calibração ou validade física universal.", "",
              "## Execução e denominadores", "",
              "| Campanha | Jobs declarados | Tentativas preservadas | Gates aprovados | Rejeitados | Falhas técnicas finais |", "|---|---:|---:|---:|---:|---:|"]
-    for campaign, data in payload["campaigns"].items():
+    for campaign in _ordered_keys(payload["campaigns"], CAMPAIGNS):
+        data = payload["campaigns"][campaign]
         counts = data["status_counts"]
         lines.append(f"| {campaign} | {data['declared_jobs']} | {data['total_attempts']} | {counts.get('COMPLETED', 0)} | {counts.get('COMPLETED_REJECTED', 0)} | {counts.get('FAILED_TECHNICAL', 0)} |")
     lines += ["", f"Total: {payload['total_jobs']} jobs e {payload['total_attempts']} tentativas. "
@@ -295,12 +303,15 @@ def render_report(payload: dict) -> str:
               "A tabela inclui todos os posteriors numéricos, inclusive os rejeitados. "
               "As colunas condicionadas ao sampler/gate, seus denominadores, viés, RMSE, SD e larguras em todos os níveis "
               "estão em `calibration_metrics.csv`. A taxa coberto-e-aprovado sobre todos os declarados é operacional, não cobertura.", ""]
-    for campaign, scenarios in payload["calibration"].items():
+    for campaign in _ordered_keys(payload["calibration"], CAMPAIGNS):
+        scenarios = payload["calibration"][campaign]
         lines += [f"### Coorte {campaign}", "", "| Regime | N | Sampler aprovado | PPC aprovado | Gate final aprovado |", "|---|---:|---:|---:|---:|"]
-        for scenario, metrics in scenarios.items():
+        for scenario in _ordered_keys(scenarios, SCENARIO_ORDER):
+            metrics = scenarios[scenario]
             lines.append(f"| {scenario} | {metrics['declared_count']} | {metrics['gates']['sampler']['passed_count']} | {metrics['gates']['ppc']['passed_count']} | {metrics['gates']['scientific']['passed_count']} |")
         lines += ["", "| Regime | Parâmetro | Viés | Viés relativo | RMSE | Cobertura 50% | Cobertura 80% | Cobertura 94% | Largura média 94% |", "|---|---|---:|---:|---:|---|---|---|---:|"]
-        for scenario, metrics in scenarios.items():
+        for scenario in _ordered_keys(scenarios, SCENARIO_ORDER):
+            metrics = scenarios[scenario]
             for name in PARAMETERS:
                 p = metrics["parameters"][name]
                 lines.append(f"| {scenario} | {name} | {_number(p['bias'])} | {_percent(p['relative_bias'])} | {_number(p['rmse'])} | " + " | ".join(_coverage(p["coverage"][level]) for level in LEVELS) + f" | {_number(p['coverage']['0.94']['mean_interval_width'])} |")
@@ -329,7 +340,9 @@ def render_report(payload: dict) -> str:
               "A concordância marginal de alguns parâmetros é apenas descritiva: NUTS local falhou numericamente "
               "e o resultado externo falhou no PPC temporal. Não há validação externa positiva da inferência física.", "",
               "| Parâmetro | Diferença de médias / SD combinada | Sobreposição ETI94 (Jaccard) | Largura externa/local ETI94 | Discrepância marcada |", "|---|---:|---:|---:|---|"]
-    for name, values in payload["benchmark"].get("comparison", {}).get("parameters", {}).items():
+    comparison_parameters = payload["benchmark"].get("comparison", {}).get("parameters", {})
+    for name in sorted(comparison_parameters):
+        values = comparison_parameters[name]
         interval = values["intervals"]["0.94"]
         lines.append(f"| {name} | {_number(values['standardized_mean_difference'])} | {_number(interval['overlap_jaccard'])} | {_number(interval['width_ratio_external_local'])} | {values['material_discrepancy_flag']} |")
     lines += ["", "Um modo de t0 separado por aproximadamente um período reteve uma cadeia local. "
@@ -401,10 +414,12 @@ def figures(output: Path, calibration: dict) -> None:
     import matplotlib.pyplot as plt
 
     data = calibration[CAMPAIGNS[1]]
+    scenarios = _ordered_keys(data, SCENARIO_ORDER)
     fig, axes = plt.subplots(2, 4, figsize=(15, 8), sharex=True, sharey=True, layout="constrained")
     colors = ("#2166ac", "#d6604d", "#4d9221", "#762a83")
     for ax, parameter in zip(axes.flat, PARAMETERS, strict=False):
-        for index, (scenario, metrics) in enumerate(data.items()):
+        for index, scenario in enumerate(scenarios):
+            metrics = data[scenario]
             values = metrics["parameters"][parameter]["coverage"]
             y = [values[level]["empirical_coverage_numeric"] for level in LEVELS]
             bounds = [values[level]["wilson95_numeric"] for level in LEVELS]
@@ -423,7 +438,6 @@ def figures(output: Path, calibration: dict) -> None:
     plt.close(fig)
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.5), layout="constrained")
-    scenarios = list(data)
     for index, scenario in enumerate(scenarios):
         p = data[scenario]["parameters"]["r"]
         axes[0].bar(index, p["relative_bias"] * 100, color=colors[index])
@@ -739,14 +753,14 @@ def verify_bundle(root: Path, output: Path) -> dict:
     expected = [f"reports/publication_campaign/{campaign}" for campaign in CAMPAIGNS]
     if manifest["campaign_reports"] != expected:
         raise ValueError("A required campaign was omitted or replaced")
-    for relative in expected:
-        verify_campaign_snapshot(root, safe_path(root, relative))
-    verify_baseline(root)
     payload = read(output / "summary.json")
     if (output / "REPORT.md").read_text(encoding="utf-8") != render_report(payload):
         raise ValueError("Narrative differs from machine-readable results")
     if (output / "MANUSCRIPT_DRAFT.md").read_text(encoding="utf-8") != render_manuscript(payload):
         raise ValueError("Manuscript differs from machine-readable results")
+    for relative in expected:
+        verify_campaign_snapshot(root, safe_path(root, relative))
+    verify_baseline(root)
     return {"status": "passed", "scope": "post-campaign evidence integrity; not paper release approval",
             "declared_jobs": payload["total_jobs"], "preserved_attempts": payload["total_attempts"]}
 

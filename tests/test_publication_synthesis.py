@@ -9,13 +9,17 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from publication.calibration import coverage_metrics  # noqa: E402
+from publication.calibration import PARAMETERS, coverage_metrics  # noqa: E402
 from publication.synthesis import (  # noqa: E402
+    CAMPAIGNS,
     SCHEMA,
     coverage_error_lengths,
+    figures,
     flatten_calibration,
     publish_rendered_bundle,
     recompute_calibration,
+    render_manuscript,
+    render_report,
     summarize_gates,
     validate_declared_summary,
     verify_bundle,
@@ -24,6 +28,56 @@ from publication.synthesis import (  # noqa: E402
 
 
 class PublicationSynthesisTests(unittest.TestCase):
+    def rendering_fixture(self):
+        scenarios = {}
+        for index, scenario in enumerate(("shallow_short", "near_limit_long", "intermediate_long", "deep_short")):
+            mean = 1. + index * .025
+            parameter = {"truth": 1., "mean": mean, "sd": .05,
+                         "intervals": {level: [mean - float(level) * .02, mean + float(level) * .02]
+                                       for level in ("0.5", "0.8", "0.94")}}
+            record = {"replicate_id": "fixture", "status": "completed",
+                      "parameters": {name: copy.deepcopy(parameter) for name in PARAMETERS},
+                      "gates": {"sampler": True, "ppc": True, "scientific": True}}
+            scenarios[scenario] = coverage_metrics([record], ["fixture"])
+        comparison = {"standardized_mean_difference": .1, "material_discrepancy_flag": False,
+                      "intervals": {"0.94": {"overlap_jaccard": .9, "width_ratio_external_local": 1.1}}}
+        return {"campaigns": {campaign: {"declared_jobs": 4, "total_attempts": 4,
+                                         "status_counts": {"COMPLETED": 4}} for campaign in CAMPAIGNS},
+                "calibration": {campaign: copy.deepcopy(scenarios) for campaign in reversed(CAMPAIGNS)},
+                "total_jobs": 8, "total_attempts": 8,
+                "benchmark": {"status": "fixture", "comparison": {"parameters": {
+                    "r": copy.deepcopy(comparison), "a": copy.deepcopy(comparison)}}},
+                "ablation": {"declared_jobs": 0, "sampler_pass_but_ppc_or_science_fail_count": 0},
+                "targets": []}
+
+    def test_report_is_invariant_to_json_key_order_and_retains_unknown_keys(self):
+        payload = self.rendering_fixture()
+        payload["campaigns"]["additional_campaign"] = copy.deepcopy(payload["campaigns"][CAMPAIGNS[0]])
+        payload["calibration"][CAMPAIGNS[0]]["additional_scenario"] = copy.deepcopy(
+            payload["calibration"][CAMPAIGNS[0]]["deep_short"])
+        report = render_report(payload)
+        self.assertEqual(report, render_report(json.loads(json.dumps(payload, sort_keys=True))))
+        self.assertIn("| additional_campaign |", report)
+        self.assertIn("| additional_scenario |", report)
+        self.assertLess(report.index("### Coorte " + CAMPAIGNS[0]), report.index("### Coorte " + CAMPAIGNS[1]))
+        self.assertLess(report.index("| shallow_short |"), report.index("| near_limit_long |"))
+
+    def test_manuscript_is_invariant_to_json_key_order(self):
+        payload = self.rendering_fixture()
+        self.assertEqual(render_manuscript(payload), render_manuscript(json.loads(json.dumps(payload, sort_keys=True))))
+
+    def test_figures_are_invariant_to_json_key_order(self):
+        calibration = self.rendering_fixture()["calibration"]
+        with tempfile.TemporaryDirectory() as temp:
+            original, reordered = Path(temp) / "original", Path(temp) / "reordered"
+            original.mkdir()
+            reordered.mkdir()
+            figures(original, calibration)
+            figures(reordered, json.loads(json.dumps(calibration, sort_keys=True)))
+            for name in ("coverage_all_parameters.png", "radius_bias_and_uncertainty.png"):
+                with self.subTest(figure=name):
+                    self.assertEqual((original / name).read_bytes(), (reordered / name).read_bytes())
+
     def test_rendered_bundle_publishes_manifest_last(self):
         import os
         from unittest.mock import patch
