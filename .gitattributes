@@ -29,6 +29,19 @@ publication/environments/* -text
 *.fits binary
 *.png binary
 *.npz binary
+
+# These provenance tables are byte-bound by the transitive evidence inventory.
+data/silver/manifests/** -text -filter -ident -working-tree-encoding
+data/gold/manifests/** -text -filter -ident -working-tree-encoding
+# Baseline/pipeline/environment evidence also has exact-byte identities.
+data/silver/** -text -filter -ident -working-tree-encoding
+data/gold/** -text -filter -ident -working-tree-encoding
+models/bayesian_physical_transit/kepler_10_b/runs/scientific_003/** -text -filter -ident -working-tree-encoding
+tables/bayesian_physical_transit/kepler_10_b/runs/scientific_003/** -text -filter -ident -working-tree-encoding
+reports/bayesian_physical_transit_kepler_10_b_scientific_003_report.md -text -filter -ident -working-tree-encoding
+requirements.txt -text -filter -ident -working-tree-encoding
+environment.yml -text -filter -ident -working-tree-encoding
+pyproject.toml -text -filter -ident -working-tree-encoding
 # RAW payload identity is historical bytes, including intentional mixed EOLs.
 # Keep this after general text rules; never normalize RAW to satisfy checksums.
 data/raw/** -text -filter -ident -working-tree-encoding
