@@ -29,3 +29,6 @@ publication/environments/* -text
 *.fits binary
 *.png binary
 *.npz binary
+# RAW payload identity is historical bytes, including intentional mixed EOLs.
+# Keep this after general text rules; never normalize RAW to satisfy checksums.
+data/raw/** -text -filter -ident -working-tree-encoding

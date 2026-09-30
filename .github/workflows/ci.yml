@@ -10,18 +10,33 @@ permissions:
 
 jobs:
   validation:
+    name: validation (${{ matrix.environment }})
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.14.6"
+            environment: scientific-exact-python
+          - python: "3.14"
+            environment: compatible-latest-patch
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.14"
+          python-version: ${{ matrix.python }}
           cache: pip
       - name: Install locked scientific environment
         run: python -m pip install --requirement requirements.txt
       - name: Verify locked scientific imports
         run: python scripts/verify_scientific_environment.py
+      - name: Record actual CI environment and commit
+        run: |
+          python --version
+          git rev-parse HEAD
+          python -m pip freeze
+          echo "Scope: exact direct package pins; runner native/transitive environment is recorded, not identical to historical WSL"
       - name: Run Ruff lint
         run: python -m ruff check .
       - name: Run static contract checks
