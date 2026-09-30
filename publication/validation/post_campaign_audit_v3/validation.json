@@ -1,0 +1,105 @@
+{
+  "schema_version": "post-campaign-validation-v1",
+  "generated_at_utc": "2026-09-30T13:41:14.106000+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "unit_integration_smoke",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/run_ci_tests.py"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 193.3509693699998
+    },
+    {
+      "check": "lint",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 9.526257220999923
+    },
+    {
+      "check": "static",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/static_validate.py"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 3.8873780649998935
+    },
+    {
+      "check": "historical_baseline_artifacts",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/validate_hardened_artifacts.py"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 30.59003619500004
+    },
+    {
+      "check": "synthesis_integrity",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/build_publication_synthesis.py",
+        "--check"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 139.45191285400006
+    },
+    {
+      "check": "paper_release_not_approved",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/validate_publication_release.py"
+      ],
+      "return_code": 1,
+      "expected_return_code": 1,
+      "passed": true,
+      "seconds": 9.657962129999987
+    }
+  ],
+  "missing_sources": [],
+  "scope": "Local tests and evidence integrity; expected release rejection is NOT release approval; no clean-room claim",
+  "code_commit": "c97120655848ffb1fb063aca78b22e6a82c4aa85",
+  "source_checksums": {
+    "src/publication/synthesis.py": "93f887189edd8df407cb753d24253660ed1e07e3e3836752f6071bba33c29aa9",
+    "scripts/build_publication_synthesis.py": "b331837939aba10df9b6bfb36c1405dcef2e85195902a63dfb2bc0ef06dcd76d",
+    "tests/test_publication_synthesis.py": "bb7c4a1bfb5d66209e9b8d21518ba61530aaf454a16847cca247c08e21e61709",
+    "tests/test_confirmatory_campaign.py": "6e4ed43a34687d88fd7e8ff23027f293f6161d98741d47e884d6c3faad1670a3",
+    "tests/manual/validate_post_campaign_synthesis.py": "3b929c08eeb6cccae2dbbb46acae3f054606d9185dda26a4a1b8d736a7c98b9d",
+    "reports/publication_synthesis/tcc_evidence_v1/artifact_manifest.json": "d8d6297edf164587eb663eb458c7be8acd45d3bc7e566003f0d7ba153470d8a2",
+    "requirements.txt": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+    "environment.yml": "8f88a3da35212a4b44639af2f3ab86ee59548dbab32d60e5ba3c4e373f9e922e",
+    "pyproject.toml": "0734e91f988702e5e7f0d61a88bd26392829384ac49a7574741736e43d4bb098"
+  },
+  "logs": {
+    "historical_baseline_artifacts.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "historical_baseline_artifacts.stdout.txt": "f5e9ae0731880b86946b0f3badd1d551136a1d8fdd3c879eead1977154267992",
+    "lint.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lint.stdout.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "paper_release_not_approved.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "paper_release_not_approved.stdout.txt": "525b3cab5beef64fba57a775f7cb74bcf4c2432509a62c0dcada89e8a0e630ab",
+    "static.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "static.stdout.txt": "9827342f9ecfb1a1c504c5291424d2999f03f6ba58832fd6873ba7b331fcd6a1",
+    "synthesis_integrity.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "synthesis_integrity.stdout.txt": "4a576403f641dd59c6e698f4d6bac4eea575d6d585579b9d525e601072273660",
+    "unit_integration_smoke.stderr.txt": "a9dd3b43217bc5fc35b39b5b7c72e82f7c6fc6d82448bbeb6b93e448a549df20",
+    "unit_integration_smoke.stdout.txt": "3f38bdbb2895cda89d5356f19e0f378ca1587bcf6a9e3e2438f164254bc28f90"
+  }
+}

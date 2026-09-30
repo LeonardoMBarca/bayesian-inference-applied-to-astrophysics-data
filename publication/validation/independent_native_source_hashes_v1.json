@@ -1,0 +1,37 @@
+{
+  "schema_version": "independent-source-hash-audit-v1",
+  "status": "passed",
+  "completed_at_utc": "2026-09-30T13:33:41.0395301Z",
+  "summary_hashes_observed_at_utc": "2026-09-30T13:34:54.8257611Z",
+  "method": "Windows native PowerShell: Get-Content -Raw | ConvertFrom-Json; deduplicate source_checksums by normalized path; Get-FileHash -Algorithm SHA256. No repository code imported.",
+  "scope": "Explicit source_checksums entries of the two summaries only; not a transitive RAW/preparation audit or verification of report artifacts/child manifests. Path checks enforce lexical repository containment, not junction/symlink attestation.",
+  "environment": {
+    "powershell": "5.1.26100.9444",
+    "edition": "Desktop",
+    "clr": "4.0.30319.42000",
+    "windows": "10.0.26200.0"
+  },
+  "summaries": [
+    {
+      "path": "reports/publication_campaign/tcc_campaign_v1/summary.json",
+      "sha256": "c785fa40415d82bc99989f5c49c196e1d1fd92f3d2c1174b22fb7b4de9e51b3b",
+      "source_references": 1728
+    },
+    {
+      "path": "reports/publication_campaign/tcc_calibration_confirmatory_v1/summary.json",
+      "sha256": "3d05967c2cc462cfa350a591f89203790a6f4845e00fa6df37ccd355b18e79f3",
+      "source_references": 5330
+    }
+  ],
+  "unique_files": 6932,
+  "checked_files": 6932,
+  "matching_files": 6932,
+  "bytes_hashed": 537906706,
+  "seconds": 87.260117,
+  "conflicts": [],
+  "unsafe_paths": [],
+  "missing": [],
+  "mismatches": [],
+  "read_errors": [],
+  "release_approved": false
+}

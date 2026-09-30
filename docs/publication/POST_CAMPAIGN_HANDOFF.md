@@ -44,6 +44,13 @@ A evidência local de testes, lint, baseline e integridade está em
 [`publication/validation/post_campaign_audit_v3/validation.json`](../../publication/validation/post_campaign_audit_v3/validation.json).
 Os stdout/stderr de cada comando ficam no mesmo diretório. Falhas de validação
 não devem ser escondidas; uma nova execução do harness exige novo diretório.
+A execução v3 concluiu como `passed`: 266 testes, nenhum ignorado, lint,
+validação estática, baseline histórico e integridade da síntese aprovados.
+O verificador da síntese confirmou 517 jobs e 518 tentativas preservadas.
+O retorno não zero do gate de release é esperado e não constitui aprovação
+da release. Algumas linhas de falha no stdout da suíte pertencem ao teste
+deliberado do recibo ausente; o resultado agregado da suíte está ao final
+desse log. Consulte `validation.json` para os resultados dos comandos reais.
 A primeira tentativa (`post_campaign_audit_v1`) iniciou a checagem da síntese
 antes de sua geração concluir; seus logs e a explicação da falha de ordenação
 permanecem preservados. Ela não é a aprovação final.
@@ -78,3 +85,23 @@ campanhas. [`FINAL_EVIDENCE_STORAGE.md`](FINAL_EVIDENCE_STORAGE.md) e
 [`STORAGE_MANIFEST.json`](../../reports/publication_synthesis/tcc_evidence_v1/STORAGE_MANIFEST.json)
 registram a situação local e o que falta arquivar. Nenhuma tag de paper, DOI,
 publicação remota ou aprovação de release foi efetuada nesta revisão.
+
+## Escopo exato das verificações de armazenamento
+
+Uma conferência independente em PowerShell nativo verificou os 6.932 arquivos
+explicitamente enumerados em `source_checksums` dos dois resumos, sem importar
+código do projeto: todos coincidiram. O recibo é
+[`independent_native_source_hashes_v1.json`](../../publication/validation/independent_native_source_hashes_v1.json).
+Essa conferência não substitui a checagem dos artefatos/manifests filhos feita
+pelo validador da síntese, nem é uma auditoria transitiva de todo RAW/preparo.
+
+Correção de escopo ao snapshot `FINAL_EVIDENCE_STORAGE.md`: os hashes das
+tabelas Silver/Gold completas de PUB-05 constam nos `preparation_manifest.json`,
+mas essas tabelas **não estão enumeradas** nos `source_checksums` globais nem
+no `STORAGE_MANIFEST.json` desta síntese. O validador confere o manifest de
+preparação como arquivo; não percorre automaticamente todo JSON de proveniência
+para verificar seus descendentes. Portanto, não se deve interpretar a frase
+do snapshot sobre os validadores vincularem esses intermediários como prova
+de verificação transitiva de seus bytes. Os traces explicitamente enumerados
+são verificados; restauração/auditoria integral do pipeline e inventário de
+arquivo externo completo continuam requisitos separados de release.
