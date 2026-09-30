@@ -1,0 +1,23 @@
+{
+  "status": "incomplete",
+  "release_passed": false,
+  "failed_checks": 19,
+  "audit_only": false
+}
+{
+  "status": "incomplete",
+  "release_passed": false,
+  "failed_checks": 19,
+  "audit_only": true
+}
+unit_integration_smoke: exit=0, expected=0
+lint: exit=0, expected=0
+static: exit=0, expected=0
+historical_baseline_artifacts: exit=0, expected=0
+synthesis_integrity: exit=1, expected=0
+paper_release_not_approved: exit=1, expected=1
+{
+  "status": "passed",
+  "tests_run": 263,
+  "skipped": 0
+}

@@ -41,12 +41,17 @@ traces; uma cópia incompleta deve falhar. Em WSL sobre `/mnt/c`, essa auditoria
 pode ser demorada por latência de metadados. Não é MCMC.
 
 A evidência local de testes, lint, baseline e integridade está em
-[`publication/validation/post_campaign_audit_v2/validation.json`](../../publication/validation/post_campaign_audit_v2/validation.json).
+[`publication/validation/post_campaign_audit_v3/validation.json`](../../publication/validation/post_campaign_audit_v3/validation.json).
 Os stdout/stderr de cada comando ficam no mesmo diretório. Falhas de validação
 não devem ser escondidas; uma nova execução do harness exige novo diretório.
 A primeira tentativa (`post_campaign_audit_v1`) iniciou a checagem da síntese
 antes de sua geração concluir; seus logs e a explicação da falha de ordenação
 permanecem preservados. Ela não é a aprovação final.
+A segunda tentativa (`post_campaign_audit_v2`) passou 263 testes, lint e
+baseline, mas foi encerrada como falha após detectar dependência da ordem das
+chaves JSON na apresentação do relatório. O snapshot anterior e o recibo
+`ORDERING_FAILURE.md` preservam essa ocorrência. As métricas científicas não
+mudaram; a correção é protegida por testes de round-trip de textos e figuras.
 
 ```sh
 python tests/manual/validate_post_campaign_synthesis.py --output publication/validation/novo_id
