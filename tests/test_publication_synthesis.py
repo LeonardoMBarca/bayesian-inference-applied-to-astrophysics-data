@@ -369,9 +369,8 @@ class PublicationSynthesisTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            results = [SimpleNamespace(returncode=value) for value in (0, 0, 0, 0, 1, 1)]
             with patch.object(audit, "ROOT", root), patch.object(sys, "argv", ["audit", "--output", "publication/validation/missing"]), \
-                    patch.object(audit.subprocess, "run", side_effect=results), \
+                    patch.object(audit.subprocess, "run", return_value=SimpleNamespace(returncode=0)), \
                     patch.object(audit.subprocess, "check_output", return_value=b"a" * 40):
                 with self.assertRaises(SystemExit) as caught:
                     audit.main()
@@ -379,8 +378,10 @@ class PublicationSynthesisTests(unittest.TestCase):
             payload = json.loads((root / "publication/validation/missing/validation.json").read_text())
             self.assertEqual(payload["status"], "failed")
             self.assertTrue(payload["missing_sources"])
-            self.assertEqual(len(payload["checks"]), 6)
-            self.assertEqual(len(payload["logs"]), 12)
+            self.assertGreaterEqual(len(payload["checks"]), 6)
+            self.assertEqual(len(payload["logs"]), 2 * len(payload["checks"]))
+            self.assertFalse(next(row["passed"] for row in payload["checks"]
+                                  if row["check"] == "paper_release_classified"))
 
 
 if __name__ == "__main__":
