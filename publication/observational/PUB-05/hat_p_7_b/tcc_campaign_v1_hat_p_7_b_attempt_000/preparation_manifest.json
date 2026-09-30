@@ -1,0 +1,143 @@
+{
+  "schema_version": "publication-observational-v1",
+  "experiment_id": "PUB-05",
+  "target_id": "hat_p_7_b",
+  "preparation_id": "tcc_campaign_v1_hat_p_7_b_attempt_000",
+  "purpose": "FINAL",
+  "status": "completed",
+  "protocol_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+  "target_config": {
+    "planet_name": "HAT-P-7 b",
+    "host_star": "HAT-P-7",
+    "planet_slug": "hat_p_7_b",
+    "mission": "Kepler",
+    "priority": 1,
+    "orbital_period_days": 2.20474,
+    "transit_midpoint_bjd": 2454954.358572,
+    "transit_duration_hours": 3.88216,
+    "transit_depth_percent": 0.6,
+    "planet_radius_earth": 16.92559,
+    "stellar_radius_solar": 2,
+    "cadence_preference": "long",
+    "phase_window_days": 0.3,
+    "baseline_min_abs_phase_days": 0.2,
+    "baseline_max_abs_phase_days": 0.3,
+    "exposure_oversample": 15
+  },
+  "target_config_sha256": "0fb0a0929f2344d5dbecd1d59572f1ad8d67d24c1bc69217d05ce1c8c855d4d6",
+  "source_artifacts": [
+    {
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009131105131_llc.fits",
+      "sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "timesys": "TDB",
+      "time_unit": "d",
+      "bjd_reference": 2454833.0,
+      "rows": 476
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009166043257_llc.fits",
+      "sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "timesys": "TDB",
+      "time_unit": "d",
+      "bjd_reference": 2454833.0,
+      "rows": 1639
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009259160929_llc.fits",
+      "sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "timesys": "TDB",
+      "time_unit": "d",
+      "bjd_reference": 2454833.0,
+      "rows": 4354
+    }
+  ],
+  "declared_source_artifacts": [
+    {
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009131105131_llc.fits",
+      "sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009166043257_llc.fits",
+      "sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hat_p_7_b/kepler/mastDownload/Kepler/kplr010666592_lc_Q111111111111111111/kplr010666592-2009259160929_llc.fits",
+      "sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    }
+  ],
+  "output_directory": "publication/observational/PUB-05/hat_p_7_b/tcc_campaign_v1_hat_p_7_b_attempt_000",
+  "created_at_utc": "2026-09-27T07:48:40.101840+00:00",
+  "dataset_id": "hat_p_7_b-865e7bec17cc4098",
+  "dataset_signature": {
+    "schema_version": "publication-gold-v1",
+    "planet_slug": "hat_p_7_b",
+    "orbital_period_days": 2.20474,
+    "method": "out_of_transit_median",
+    "transit_exclusion_half_width_days": 0.1213175,
+    "normalized_content_sha256": "7ef4f1ea1b45e4c2b36993c31eaefc7b9b08dd260e6f005692a243467b3a9a74",
+    "segments": [
+      {
+        "segment_id": "hat_p_7_b:kplr010666592-2009131105131_llc.fits",
+        "source_fits_file": "kplr010666592-2009131105131_llc.fits",
+        "source_fits_sha256": "76fd5040e34fdb191927d8cd0a5c03ca1f621a12cc43111047df66acba6472f9",
+        "rows": 438,
+        "exposure_time_seconds": 1765.462885941888
+      },
+      {
+        "segment_id": "hat_p_7_b:kplr010666592-2009166043257_llc.fits",
+        "source_fits_file": "kplr010666592-2009166043257_llc.fits",
+        "source_fits_sha256": "37faa7dc82fa5d9ec6d794369d93def0d78a49c91e61cf19bb4cafe571bb8f6c",
+        "rows": 1434,
+        "exposure_time_seconds": 1765.462885941888
+      },
+      {
+        "segment_id": "hat_p_7_b:kplr010666592-2009259160929_llc.fits",
+        "source_fits_file": "kplr010666592-2009259160929_llc.fits",
+        "source_fits_sha256": "2a10ce0fa87e8a757e6d66a740669bcf94a704eecf0646bbf898ad91b402fc08",
+        "rows": 2037,
+        "exposure_time_seconds": 1765.462885941888
+      }
+    ],
+    "target_config_sha256": "0fb0a0929f2344d5dbecd1d59572f1ad8d67d24c1bc69217d05ce1c8c855d4d6"
+  },
+  "preprocessing_status": "segment_normalized",
+  "preprocessing": {
+    "flux_source": "PDCSAP_FLUX",
+    "quality_required": 0,
+    "normalization": "source-FITS segment out-of-transit median",
+    "transit_exclusion_duration_multiplier": 1.5,
+    "minimum_baseline_points_per_segment": 20,
+    "max_points_per_segment": 1000,
+    "thinning": "shared M5 stratified_phase_thin; phase-uniform each segment, not outcome-selected",
+    "detrending": "none beyond public PDCSAP plus segment median; temporal misspecification may fail gate"
+  },
+  "silver_row_count": 6469,
+  "quality_row_count": 3909,
+  "quality_removed_count": 2560,
+  "transit_window_row_count": 1027,
+  "modeling_row_count": 1027,
+  "segment_count": 3,
+  "median_exposure_seconds": 1765.462885941888,
+  "cadence_classification_roundoff_tolerance_seconds": 1e-06,
+  "input_sha256": "c6df6b37e3188cfc380bc1b74e4050e844f37e47b2c50912c3b1a5080fc68756",
+  "artifacts": {
+    "gold_lightcurve.csv": "6b24a329517157d6bdd965e1081629e71eb4493121c4affd214c13c3779217b6",
+    "model_input.csv": "c6df6b37e3188cfc380bc1b74e4050e844f37e47b2c50912c3b1a5080fc68756",
+    "segment_diagnostics.csv": "755d184efab46e8b35a04f9c5f70179b920961a85d1424e53f4782eee3a8217d",
+    "silver_fits_metadata.csv": "e9bfc27443403d786407dde9f3dc66db71d949a4e6914658c9bdfadc6ba133ed",
+    "silver_lightcurve.csv": "8a70ca44e68c99ceea7615974214f6bccd430ea1253cbcb947467401f3b2886e"
+  },
+  "scientific_caveats": [
+    "Catalog ephemeris and duration condition phase folding and normalization; catalog comparison is contextual, not independent validation.",
+    "PDCSAP includes mission pipeline processing and may not remove astrophysical variability.",
+    "Median segment calibration is estimated, but its uncertainty is not propagated in M5.",
+    "Phase-uniform thinning removes original-cadence adjacency. Residual diagnostics use gap-filtered selected-observation lags, not necessarily instrumental-cadence lags; at least one finite lag is required to assess temporal PPC.",
+    "No final interpretability claim follows from successful data preparation."
+  ]
+}

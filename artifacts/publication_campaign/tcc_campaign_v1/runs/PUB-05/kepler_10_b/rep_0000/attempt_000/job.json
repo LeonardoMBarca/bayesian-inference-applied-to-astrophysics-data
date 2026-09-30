@@ -1,0 +1,30 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/tcc_final_campaign.json",
+    "--job-id",
+    "PUB-05__kepler_10_b__rep_0000"
+  ],
+  "cores": 4,
+  "estimated_seconds": 3000,
+  "experiment_id": "PUB-05",
+  "job_id": "PUB-05__kepler_10_b__rep_0000",
+  "max_technical_retries": 0,
+  "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_10_b/rep_0000",
+  "payload": {
+    "kind": "observational",
+    "protocol": "publication/protocols/PUB-05.json",
+    "target_slug": "kepler_10_b"
+  },
+  "replicate_id": "rep_0000",
+  "run_id": "tcc_campaign_v1__PUB-05__kepler_10_b__rep_0000",
+  "scenario_id": "kepler_10_b",
+  "seeds": {
+    "generation": 1515571932,
+    "inference": 2694749352,
+    "predictive": 1503170804,
+    "resampling": 3650524579
+  }
+}

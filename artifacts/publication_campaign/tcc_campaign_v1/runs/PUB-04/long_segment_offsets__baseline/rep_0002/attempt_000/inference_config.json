@@ -1,0 +1,49 @@
+{
+  "baseline_prior_sigma": 0.02,
+  "campaign_mode": "final",
+  "dataset_id": "synthetic-6161012a60dc367ce05e",
+  "derived": {
+    "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+    "duration": "Circular first-to-fourth contact duration before exposure smearing"
+  },
+  "expected_dataset_id": "synthetic-6161012a60dc367ce05e",
+  "fixed_orbit": {
+    "eccentricity": 0.0,
+    "period_days": 1.0
+  },
+  "infer_jitter": true,
+  "inference_seed": 4255615761,
+  "input_kind": "synthetic",
+  "input_sha256": "6161012a60dc367ce05eb38d014493cfe9c2d02b6e5688f20edf516c4e0a6ec4",
+  "integrate_exposure": true,
+  "jitter_error_multiplier": 5.0,
+  "jitter_floor_fraction": 0.0005,
+  "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+  "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+  "model_family": "M5-publication-v1",
+  "other_priors": {
+    "a": "Uniform(2,50)",
+    "b": "Uniform(0,1)",
+    "baseline": "Normal(1,0.02)",
+    "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+    "q1": "Uniform(0,1)",
+    "q2": "Uniform(0,1)",
+    "t0": "Normal(0,0.025 day)"
+  },
+  "oversample": 15,
+  "period_days": 1.0,
+  "predictive_seed": 1533881783,
+  "preprocessing_status": "segment_normalized",
+  "radius_prior_log_sigma": 0.9,
+  "radius_prior_median": 0.04,
+  "resampling_seed": 2289965849,
+  "sampling": {
+    "chains": 4,
+    "cores": 4,
+    "draws": 1000,
+    "linker": "auto",
+    "target_accept": 0.95,
+    "tune": 1000
+  },
+  "t0_prior_sigma_days": 0.025
+}

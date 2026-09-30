@@ -1,0 +1,186 @@
+{
+  "artifacts": {
+    "gold_lightcurve.csv": "1178f0da8f6883c557a68a711970045b0ca78f5e05e48cdc7b6f36b36411ff5c",
+    "model_input.csv": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+    "segment_diagnostics.csv": "4b5bde7aa17fda877b850b1adf9f1299cbb133dc57d5032e536fd4d8de5342d9",
+    "silver_fits_metadata.csv": "053f43351c9ed9d6e42cd47a235f0ccd7d2cb781f7e9778d99d5402609c74809",
+    "silver_lightcurve.csv": "67ad69daec92f5c5f86433fa24a0ec9a4f3dd488366ebdc1139ae183f19177c6"
+  },
+  "cadence_classification_roundoff_tolerance_seconds": 1e-06,
+  "created_at_utc": "2026-09-27T08:37:38.728262+00:00",
+  "dataset_id": "hd_189733_b-f0e47ecd3dc1b28c",
+  "dataset_signature": {
+    "method": "out_of_transit_median",
+    "normalized_content_sha256": "f3040b787b10bd45afaafd3bdc2dd8e3fe565df974f4305614c3293072b79be6",
+    "orbital_period_days": 2.2185752,
+    "planet_slug": "hd_189733_b",
+    "schema_version": "publication-gold-v1",
+    "segments": [
+      {
+        "exposure_time_seconds": 120.0,
+        "rows": 18315,
+        "segment_id": "hd_189733_b:tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+        "source_fits_file": "tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+        "source_fits_sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b"
+      },
+      {
+        "exposure_time_seconds": 120.0,
+        "rows": 15580,
+        "segment_id": "hd_189733_b:tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+        "source_fits_file": "tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+        "source_fits_sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963"
+      },
+      {
+        "exposure_time_seconds": 120.00000000000097,
+        "rows": 16634,
+        "segment_id": "hd_189733_b:tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+        "source_fits_file": "tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+        "source_fits_sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77"
+      }
+    ],
+    "target_config_sha256": "a497b211eb602aa752de5309524e6535a2804d2cab41313c2f64ad54efb690f8",
+    "transit_exclusion_half_width_days": 0.056364
+  },
+  "declared_source_artifacts": [
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2021204101404-s0041-0000000256364928-0212-s/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+      "sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2022190063128-s0054-0000000256364928-0227-s/tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+      "sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2024196212429-s0081-0000000256364928-0276-s/tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+      "sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    }
+  ],
+  "experiment_id": "PUB-05",
+  "input_path": "publication/observational/PUB-05/hd_189733_b/tcc_campaign_v1_hd_189733_b_attempt_000/model_input.csv",
+  "input_sha256": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+  "input_validation": {
+    "all_row_dataset_and_target_ids_match": true,
+    "artifacts_verified": {
+      "gold_lightcurve.csv": "1178f0da8f6883c557a68a711970045b0ca78f5e05e48cdc7b6f36b36411ff5c",
+      "model_input.csv": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+      "segment_diagnostics.csv": "4b5bde7aa17fda877b850b1adf9f1299cbb133dc57d5032e536fd4d8de5342d9",
+      "silver_fits_metadata.csv": "053f43351c9ed9d6e42cd47a235f0ccd7d2cb781f7e9778d99d5402609c74809",
+      "silver_lightcurve.csv": "67ad69daec92f5c5f86433fa24a0ec9a4f3dd488366ebdc1139ae183f19177c6"
+    },
+    "dataset_id": "hd_189733_b-f0e47ecd3dc1b28c",
+    "input_path": "publication/observational/PUB-05/hd_189733_b/tcc_campaign_v1_hd_189733_b_attempt_000/model_input.csv",
+    "input_sha256": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+    "interpretation": "Engineering data-preparation/readback evidence only; no posterior, gate pass or astrophysical claim.",
+    "median_exposure_seconds": 120.0,
+    "modeling_row_count": 3000,
+    "normalization_status": "segment_normalized",
+    "normalized_error_median": 0.00021180260955580002,
+    "preparation_manifest_path": "publication/observational/PUB-05/hd_189733_b/tcc_campaign_v1_hd_189733_b_attempt_000/preparation_manifest.json",
+    "preparation_manifest_sha256": "4546c01b59756eadfa7f38ea5ffb77c9905990b12886b08b16078da27afb9bd3",
+    "purpose": "FINAL",
+    "quality_removed_count": 6684,
+    "quality_row_count": 50529,
+    "sampler_executed": false,
+    "schema_version": "publication-observational-readback-v1",
+    "scientific_result_available": false,
+    "segment_count": 3,
+    "silver_row_count": 57213,
+    "source_count": 3,
+    "source_rows_unique": true,
+    "status": "passed",
+    "target_id": "hd_189733_b"
+  },
+  "median_exposure_seconds": 120.0,
+  "modeling_row_count": 3000,
+  "output_directory": "publication/observational/PUB-05/hd_189733_b/tcc_campaign_v1_hd_189733_b_attempt_000",
+  "preparation_id": "tcc_campaign_v1_hd_189733_b_attempt_000",
+  "preparation_manifest_path": "publication/observational/PUB-05/hd_189733_b/tcc_campaign_v1_hd_189733_b_attempt_000/preparation_manifest.json",
+  "preprocessing": {
+    "detrending": "none beyond public PDCSAP plus segment median; temporal misspecification may fail gate",
+    "flux_source": "PDCSAP_FLUX",
+    "max_points_per_segment": 1000,
+    "minimum_baseline_points_per_segment": 20,
+    "normalization": "source-FITS segment out-of-transit median",
+    "quality_required": 0,
+    "thinning": "shared M5 stratified_phase_thin; phase-uniform each segment, not outcome-selected",
+    "transit_exclusion_duration_multiplier": 1.5
+  },
+  "preprocessing_status": "segment_normalized",
+  "protocol_canonical_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+  "protocol_file_sha256": "375f26bed0f1dae7d90ba2c2787af924f29454743b5ecb58bac0bed03c243efc",
+  "protocol_identity": {
+    "canonical_json_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+    "commit": "73bbccbe8d69fb716509a4e52da15db51597ac1a",
+    "last_changed_commit": "c258d46ddda7fcbbe43e265b3d408dcf0daa6193",
+    "path": "publication/protocols/PUB-05.json",
+    "sha256": "375f26bed0f1dae7d90ba2c2787af924f29454743b5ecb58bac0bed03c243efc"
+  },
+  "protocol_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+  "purpose": "FINAL",
+  "quality_removed_count": 6684,
+  "quality_row_count": 50529,
+  "schema_version": "publication-observational-v1",
+  "scientific_caveats": [
+    "Catalog ephemeris and duration condition phase folding and normalization; catalog comparison is contextual, not independent validation.",
+    "PDCSAP includes mission pipeline processing and may not remove astrophysical variability.",
+    "Median segment calibration is estimated, but its uncertainty is not propagated in M5.",
+    "Phase-uniform thinning removes original-cadence adjacency. Residual diagnostics use gap-filtered selected-observation lags, not necessarily instrumental-cadence lags; at least one finite lag is required to assess temporal PPC.",
+    "No final interpretability claim follows from successful data preparation."
+  ],
+  "segment_count": 3,
+  "silver_row_count": 57213,
+  "source_artifacts": [
+    {
+      "bjd_reference": 2457000.0,
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2021204101404-s0041-0000000256364928-0212-s/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+      "rows": 19149,
+      "sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "time_unit": "d",
+      "timesys": "TDB"
+    },
+    {
+      "bjd_reference": 2457000.0,
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2022190063128-s0054-0000000256364928-0227-s/tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+      "rows": 18890,
+      "sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "time_unit": "d",
+      "timesys": "TDB"
+    },
+    {
+      "bjd_reference": 2457000.0,
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2024196212429-s0081-0000000256364928-0276-s/tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+      "rows": 19174,
+      "sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "time_unit": "d",
+      "timesys": "TDB"
+    }
+  ],
+  "status": "completed",
+  "target_config": {
+    "baseline_max_abs_phase_days": 0.15,
+    "baseline_min_abs_phase_days": 0.08,
+    "cadence_preference": "short",
+    "exposure_oversample": 15,
+    "host_star": "HD 189733",
+    "mission": "TESS",
+    "orbital_period_days": 2.2185752,
+    "phase_window_days": 0.15,
+    "planet_name": "HD 189733 b",
+    "planet_radius_earth": 12.66617,
+    "planet_slug": "hd_189733_b",
+    "priority": 4,
+    "stellar_radius_solar": 0.75,
+    "transit_depth_percent": 2.4,
+    "transit_duration_hours": 1.803648,
+    "transit_midpoint_bjd": 2453955.5255511
+  },
+  "target_config_sha256": "a497b211eb602aa752de5309524e6535a2804d2cab41313c2f64ad54efb690f8",
+  "target_id": "hd_189733_b",
+  "transit_window_row_count": 7125
+}

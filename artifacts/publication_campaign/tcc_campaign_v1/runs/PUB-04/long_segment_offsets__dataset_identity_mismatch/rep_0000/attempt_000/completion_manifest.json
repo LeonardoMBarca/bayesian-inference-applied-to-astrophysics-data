@@ -1,0 +1,36 @@
+{
+  "artifacts": {
+    "ablation.json": "b1c5c1bc74d89f2008b61e26fbd0f35baea67b4cdc0345e59d16999192764903",
+    "environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "generated.csv": "53c7d40337554efc10e14effea0bab7418bca352c28219a760a2f79765822dd6",
+    "inference_command.json": "25a9c9c0828d9bb0cac5481c9e5295cc7341c0b7e76d20b77e715e0ec6e2ee74",
+    "inference_config.json": "5100aa7cafd734637904042ccf008a9146466c5643224f7b5fd5273ae1d19899",
+    "inference_started.json": "4603637fa65413f9d5bb8855c286a2d7b8896c77bf4fc57764ba8ab2caa3d52a",
+    "input.csv": "bbfbaa3f6fec13e63dd2c9d3632f291cca245e479b136c53ecd2eb6677370ee1",
+    "job.json": "05101113573b1765d564c7b11a0d6fe00d62da72ab52f337202e25425753accb",
+    "preprocessing.json": "1ee4868bdc364f2dc7ba7136a45a932c75b09aebb8600a288e5340aab50656bf",
+    "result.json": "4153240fa44f39f4b5c0c188611e3419f387cfedeb7ebba31f557dba79ea2105",
+    "truth.json": "296915d23a808be19d09a0d34f8b695ec1bbf97496a36184e42418b2ece4db4a",
+    "worker_metadata.json": "d39ce5100fc7bcba1624e6e6463ad40fd611929ad1784b48b73b98763389fe1b"
+  },
+  "dataset_id": "synthetic-bbfbaa3f6fec13e63dd2",
+  "error": "InputIdentityError('inference dataset identity mismatch')",
+  "expected_identity_rejection": true,
+  "gate_evaluation": {
+    "ppc": "unavailable",
+    "provenance": "rejected",
+    "sampler": "unavailable",
+    "scientific": "not_promotable"
+  },
+  "gates": {
+    "ppc": false,
+    "provenance": false,
+    "sampler": false,
+    "scientific": false
+  },
+  "inference_return_code": 1,
+  "input_sha256": "bbfbaa3f6fec13e63dd2c9d3632f291cca245e479b136c53ecd2eb6677370ee1",
+  "status": "COMPLETED_REJECTED",
+  "technical_retryable": false,
+  "wall_seconds": 5.20995123999819
+}

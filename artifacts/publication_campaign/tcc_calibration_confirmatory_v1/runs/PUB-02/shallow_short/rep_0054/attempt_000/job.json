@@ -1,0 +1,75 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/tcc_calibration_confirmatory_v1.json",
+    "--job-id",
+    "PUB-02__shallow_short__rep_0054"
+  ],
+  "cores": 4,
+  "estimated_seconds": 265,
+  "experiment_id": "PUB-02",
+  "job_id": "PUB-02__shallow_short__rep_0054",
+  "max_technical_retries": 0,
+  "output_dir": "artifacts/publication_campaign/tcc_calibration_confirmatory_v1/runs/PUB-02/shallow_short/rep_0054",
+  "payload": {
+    "inference": {
+      "baseline_prior_sigma": 0.02,
+      "infer_jitter": true,
+      "integrate_exposure": true,
+      "jitter_error_multiplier": 5,
+      "jitter_floor_fraction": 0.0005,
+      "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+      "oversample": 15,
+      "period_days": 1,
+      "preprocessing_status": "segment_normalized",
+      "radius_prior_log_sigma": 0.9,
+      "radius_prior_median": 0.04,
+      "sampling": {
+        "chains": 4,
+        "cores": 4,
+        "draws": 1000,
+        "linker": "auto",
+        "target_accept": 0.95,
+        "tune": 1000
+      },
+      "t0_prior_sigma_days": 0.025
+    },
+    "kind": "synthetic",
+    "protocol": "publication/protocols/PUB-02-confirmatory-v1.json",
+    "scenario": {
+      "design": {
+        "cadence_seconds": 120,
+        "exposure_time_seconds": 60,
+        "measurement_sigma": 0.00015,
+        "oversample": 31,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "window_days": 0.15
+      },
+      "regime": "Kepler-10-like shallow radius scale; not identical observational cadence/selection",
+      "scenario_id": "shallow_short",
+      "truth": {
+        "a": 3.3,
+        "b": 0.45,
+        "baseline": 1,
+        "extra_sigma": 0.0001,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "r": 0.014,
+        "t0": 0.001
+      }
+    }
+  },
+  "replicate_id": "rep_0054",
+  "run_id": "tcc_calibration_confirmatory_v1__PUB-02__shallow_short__rep_0054",
+  "scenario_id": "shallow_short",
+  "seeds": {
+    "generation": 3658953974,
+    "inference": 3151690425,
+    "predictive": 3364033110,
+    "resampling": 3282898568
+  }
+}

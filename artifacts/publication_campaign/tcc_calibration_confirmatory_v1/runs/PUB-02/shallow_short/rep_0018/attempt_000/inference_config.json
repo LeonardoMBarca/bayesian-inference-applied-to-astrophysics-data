@@ -1,0 +1,30 @@
+{
+  "baseline_prior_sigma": 0.02,
+  "campaign_mode": "final",
+  "dataset_id": "synthetic-52df269929f9ce5801c4",
+  "expected_dataset_id": "synthetic-52df269929f9ce5801c4",
+  "infer_jitter": true,
+  "inference_seed": 3585084791,
+  "input_kind": "synthetic",
+  "input_sha256": "52df269929f9ce5801c4070968edebe645606bb5df997d9f9f5128e8892ee30f",
+  "integrate_exposure": true,
+  "jitter_error_multiplier": 5,
+  "jitter_floor_fraction": 0.0005,
+  "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+  "oversample": 15,
+  "period_days": 1,
+  "predictive_seed": 3246501771,
+  "preprocessing_status": "segment_normalized",
+  "radius_prior_log_sigma": 0.9,
+  "radius_prior_median": 0.04,
+  "resampling_seed": 3187195581,
+  "sampling": {
+    "chains": 4,
+    "cores": 4,
+    "draws": 1000,
+    "linker": "auto",
+    "target_accept": 0.95,
+    "tune": 1000
+  },
+  "t0_prior_sigma_days": 0.025
+}

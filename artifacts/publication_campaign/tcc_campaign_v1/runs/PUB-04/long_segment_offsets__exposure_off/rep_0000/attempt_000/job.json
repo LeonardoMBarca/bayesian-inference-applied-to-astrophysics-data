@@ -1,0 +1,108 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/tcc_final_campaign.json",
+    "--job-id",
+    "PUB-04__long_segment_offsets__exposure_off__rep_0000"
+  ],
+  "cores": 4,
+  "estimated_seconds": 300,
+  "experiment_id": "PUB-04",
+  "job_id": "PUB-04__long_segment_offsets__exposure_off__rep_0000",
+  "max_technical_retries": 0,
+  "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-04/long_segment_offsets__exposure_off/rep_0000",
+  "payload": {
+    "inference": {
+      "baseline_prior_sigma": 0.02,
+      "derived": {
+        "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+        "duration": "Circular first-to-fourth contact duration before exposure smearing"
+      },
+      "fixed_orbit": {
+        "eccentricity": 0.0,
+        "period_days": 1.0
+      },
+      "infer_jitter": true,
+      "input_kind": "synthetic",
+      "integrate_exposure": true,
+      "jitter_error_multiplier": 5.0,
+      "jitter_floor_fraction": 0.0005,
+      "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+      "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+      "model_family": "M5-publication-v1",
+      "other_priors": {
+        "a": "Uniform(2,50)",
+        "b": "Uniform(0,1)",
+        "baseline": "Normal(1,0.02)",
+        "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+        "q1": "Uniform(0,1)",
+        "q2": "Uniform(0,1)",
+        "t0": "Normal(0,0.025 day)"
+      },
+      "oversample": 15,
+      "period_days": 1.0,
+      "preprocessing_status": "segment_normalized",
+      "radius_prior_log_sigma": 0.9,
+      "radius_prior_median": 0.04,
+      "sampling": {
+        "chains": 4,
+        "cores": 4,
+        "draws": 1000,
+        "linker": "auto",
+        "target_accept": 0.95,
+        "tune": 1000
+      },
+      "t0_prior_sigma_days": 0.025
+    },
+    "intervention": "exposure_off",
+    "kind": "ablation",
+    "pair_id": "long_segment_offsets",
+    "protocol": "publication/protocols/PUB-04.json",
+    "scenario": {
+      "design": {
+        "cadence_seconds": 1800,
+        "exposure_time_seconds": 1765,
+        "heteroscedastic": true,
+        "include_raw_flux": true,
+        "measurement_sigma": 0.0002,
+        "noise": {
+          "kind": "none"
+        },
+        "oversample": 31,
+        "segment_gap_periods": 1,
+        "segment_offsets": [
+          0.98,
+          1.0,
+          1.02
+        ],
+        "segments": 3,
+        "systematic": null,
+        "transits_per_segment": 4,
+        "window_days": 0.15
+      },
+      "truth": {
+        "a": 7.0,
+        "b": 0.4,
+        "baseline": 1.0,
+        "extra_sigma": 0.0005,
+        "period_days": 1.0,
+        "q1": 0.25,
+        "q2": 0.3,
+        "r": 0.07,
+        "t0": 0.001
+      }
+    },
+    "variant_id": "exposure_off"
+  },
+  "replicate_id": "rep_0000",
+  "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__exposure_off__rep_0000",
+  "scenario_id": "long_segment_offsets__exposure_off",
+  "seeds": {
+    "generation": 321943356,
+    "inference": 2479570056,
+    "predictive": 369126613,
+    "resampling": 1662876796
+  }
+}

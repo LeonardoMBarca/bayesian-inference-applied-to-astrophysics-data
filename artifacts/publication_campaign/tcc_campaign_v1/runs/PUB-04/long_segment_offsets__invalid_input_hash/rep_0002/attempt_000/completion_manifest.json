@@ -1,0 +1,36 @@
+{
+  "artifacts": {
+    "ablation.json": "6296004a925f28e94e50263e00d7e8ef6311d8e90ab6ae2dc3c389c8622f7067",
+    "environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "generated.csv": "89aa984261256666854231d4b47e3916e87f15bdb5a6a6f247d6429e87137c53",
+    "inference_command.json": "ab9ba3b386063898478c712a4327d292fc266d769589b9f55d585be947795a23",
+    "inference_config.json": "81bdece1f5246538f7d41ce7e48b855238d2da8751653c93a3d62e31526e4d30",
+    "inference_started.json": "13a8db641497d02242bdcfbaf5711517518cb85090415a8f7598542ff9c569b4",
+    "input.csv": "6161012a60dc367ce05eb38d014493cfe9c2d02b6e5688f20edf516c4e0a6ec4",
+    "job.json": "0fc07c7ff3a840de5c57795fbecf25500a6a1854cd0f2a26fbbf022bdaa84040",
+    "preprocessing.json": "04d6be3e6720a352c5d4245e09c2abf3e11b35fa3e7799abde46039e2114ef24",
+    "result.json": "10f9006c216f2da2ff9bcc341071b80555a3d2f55190aba4b323a00ba3f9fb97",
+    "truth.json": "088b58ac16d8a1f89618006968cb6563d9ab2f9cde4651439132f6caed2d17ec",
+    "worker_metadata.json": "f59d996047967a4f46075902ffbbf3d9c993489a6ebcc0072683a3142c1b1a12"
+  },
+  "dataset_id": "synthetic-6161012a60dc367ce05e",
+  "error": "InputIdentityError('inference input SHA-256 mismatch')",
+  "expected_identity_rejection": true,
+  "gate_evaluation": {
+    "ppc": "unavailable",
+    "provenance": "rejected",
+    "sampler": "unavailable",
+    "scientific": "not_promotable"
+  },
+  "gates": {
+    "ppc": false,
+    "provenance": false,
+    "sampler": false,
+    "scientific": false
+  },
+  "inference_return_code": 1,
+  "input_sha256": "6161012a60dc367ce05eb38d014493cfe9c2d02b6e5688f20edf516c4e0a6ec4",
+  "status": "COMPLETED_REJECTED",
+  "technical_retryable": false,
+  "wall_seconds": 5.228585254000791
+}

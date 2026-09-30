@@ -1,0 +1,143 @@
+{
+  "schema_version": "publication-observational-v1",
+  "experiment_id": "PUB-05",
+  "target_id": "hd_189733_b",
+  "preparation_id": "tcc_campaign_v1_hd_189733_b_attempt_000",
+  "purpose": "FINAL",
+  "status": "completed",
+  "protocol_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+  "target_config": {
+    "planet_name": "HD 189733 b",
+    "host_star": "HD 189733",
+    "planet_slug": "hd_189733_b",
+    "mission": "TESS",
+    "priority": 4,
+    "orbital_period_days": 2.2185752,
+    "transit_midpoint_bjd": 2453955.5255511,
+    "transit_duration_hours": 1.803648,
+    "transit_depth_percent": 2.4,
+    "planet_radius_earth": 12.66617,
+    "stellar_radius_solar": 0.75,
+    "cadence_preference": "short",
+    "phase_window_days": 0.15,
+    "baseline_min_abs_phase_days": 0.08,
+    "baseline_max_abs_phase_days": 0.15,
+    "exposure_oversample": 15
+  },
+  "target_config_sha256": "a497b211eb602aa752de5309524e6535a2804d2cab41313c2f64ad54efb690f8",
+  "source_artifacts": [
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2021204101404-s0041-0000000256364928-0212-s/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+      "sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "timesys": "TDB",
+      "time_unit": "d",
+      "bjd_reference": 2457000.0,
+      "rows": 19149
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2022190063128-s0054-0000000256364928-0227-s/tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+      "sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "timesys": "TDB",
+      "time_unit": "d",
+      "bjd_reference": 2457000.0,
+      "rows": 18890
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2024196212429-s0081-0000000256364928-0276-s/tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+      "sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "timesys": "TDB",
+      "time_unit": "d",
+      "bjd_reference": 2457000.0,
+      "rows": 19174
+    }
+  ],
+  "declared_source_artifacts": [
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2021204101404-s0041-0000000256364928-0212-s/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+      "sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2022190063128-s0054-0000000256364928-0227-s/tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+      "sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/hd_189733_b/tess/mastDownload/TESS/tess2024196212429-s0081-0000000256364928-0276-s/tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+      "sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    }
+  ],
+  "output_directory": "publication/observational/PUB-05/hd_189733_b/tcc_campaign_v1_hd_189733_b_attempt_000",
+  "created_at_utc": "2026-09-27T08:37:38.728262+00:00",
+  "dataset_id": "hd_189733_b-f0e47ecd3dc1b28c",
+  "dataset_signature": {
+    "schema_version": "publication-gold-v1",
+    "planet_slug": "hd_189733_b",
+    "orbital_period_days": 2.2185752,
+    "method": "out_of_transit_median",
+    "transit_exclusion_half_width_days": 0.056364,
+    "normalized_content_sha256": "f3040b787b10bd45afaafd3bdc2dd8e3fe565df974f4305614c3293072b79be6",
+    "segments": [
+      {
+        "segment_id": "hd_189733_b:tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+        "source_fits_file": "tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+        "source_fits_sha256": "442c1d97c549019f46b98026a6b74cd380112722e3e230e79203559f67cc326b",
+        "rows": 18315,
+        "exposure_time_seconds": 120.0
+      },
+      {
+        "segment_id": "hd_189733_b:tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+        "source_fits_file": "tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+        "source_fits_sha256": "5d0423dae1340eea6a8ebaafa5dede4ce3d551d94b43a1a1b5f9ddc9f1e5c963",
+        "rows": 15580,
+        "exposure_time_seconds": 120.0
+      },
+      {
+        "segment_id": "hd_189733_b:tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+        "source_fits_file": "tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+        "source_fits_sha256": "52923df5f5ca44f4eabb69db62385d44da6bb1f63e73c136b847fe3fa5451c77",
+        "rows": 16634,
+        "exposure_time_seconds": 120.00000000000097
+      }
+    ],
+    "target_config_sha256": "a497b211eb602aa752de5309524e6535a2804d2cab41313c2f64ad54efb690f8"
+  },
+  "preprocessing_status": "segment_normalized",
+  "preprocessing": {
+    "flux_source": "PDCSAP_FLUX",
+    "quality_required": 0,
+    "normalization": "source-FITS segment out-of-transit median",
+    "transit_exclusion_duration_multiplier": 1.5,
+    "minimum_baseline_points_per_segment": 20,
+    "max_points_per_segment": 1000,
+    "thinning": "shared M5 stratified_phase_thin; phase-uniform each segment, not outcome-selected",
+    "detrending": "none beyond public PDCSAP plus segment median; temporal misspecification may fail gate"
+  },
+  "silver_row_count": 57213,
+  "quality_row_count": 50529,
+  "quality_removed_count": 6684,
+  "transit_window_row_count": 7125,
+  "modeling_row_count": 3000,
+  "segment_count": 3,
+  "median_exposure_seconds": 120.0,
+  "cadence_classification_roundoff_tolerance_seconds": 1e-06,
+  "input_sha256": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+  "artifacts": {
+    "gold_lightcurve.csv": "1178f0da8f6883c557a68a711970045b0ca78f5e05e48cdc7b6f36b36411ff5c",
+    "model_input.csv": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+    "segment_diagnostics.csv": "4b5bde7aa17fda877b850b1adf9f1299cbb133dc57d5032e536fd4d8de5342d9",
+    "silver_fits_metadata.csv": "053f43351c9ed9d6e42cd47a235f0ccd7d2cb781f7e9778d99d5402609c74809",
+    "silver_lightcurve.csv": "67ad69daec92f5c5f86433fa24a0ec9a4f3dd488366ebdc1139ae183f19177c6"
+  },
+  "scientific_caveats": [
+    "Catalog ephemeris and duration condition phase folding and normalization; catalog comparison is contextual, not independent validation.",
+    "PDCSAP includes mission pipeline processing and may not remove astrophysical variability.",
+    "Median segment calibration is estimated, but its uncertainty is not propagated in M5.",
+    "Phase-uniform thinning removes original-cadence adjacency. Residual diagnostics use gap-filtered selected-observation lags, not necessarily instrumental-cadence lags; at least one finite lag is required to assess temporal PPC.",
+    "No final interpretability claim follows from successful data preparation."
+  ]
+}

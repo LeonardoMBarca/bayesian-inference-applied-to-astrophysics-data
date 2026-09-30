@@ -1,0 +1,46 @@
+{
+  "baseline_prior_sigma": 0.02,
+  "benchmark_environment_sha256": "ee002b57de8e395b719cc239cb38ae3d10380c5d129bc112fecc90ca73832327",
+  "benchmark_sampling": {
+    "dlogz": 0.1,
+    "maxcall": 500000,
+    "maximum_logz_error": 0.5,
+    "maxiter": null,
+    "minimum_weighted_ess": 400,
+    "nlive": 500,
+    "predictive_draws": 400
+  },
+  "campaign_mode": "final",
+  "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+  "expected_dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+  "infer_jitter": true,
+  "inference_seed": 3036771196,
+  "input_kind": "observational",
+  "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+  "integrate_exposure": true,
+  "jitter_error_multiplier": 5.0,
+  "jitter_floor_fraction": 0.0005,
+  "mode": "final",
+  "oversample": 15,
+  "period_days": 0.8374907,
+  "predictive_seed": 1672723750,
+  "preprocessing_status": "segment_normalized",
+  "protocol_path": "publication/protocols/PUB-03.json",
+  "protocol_sha256": "5f6b3ab03e8756af9231c3871f987f07a91e587464012e27824f6007525de1bc",
+  "radius_prior_log_sigma": 0.9,
+  "radius_prior_median": null,
+  "radius_prior_uniform": [
+    0.001,
+    0.2
+  ],
+  "resampling_seed": 2178374462,
+  "sampling": {
+    "chains": 4,
+    "cores": 4,
+    "draws": 2000,
+    "linker": "auto",
+    "target_accept": 0.97,
+    "tune": 2000
+  },
+  "t0_prior_sigma_days": 0.025
+}

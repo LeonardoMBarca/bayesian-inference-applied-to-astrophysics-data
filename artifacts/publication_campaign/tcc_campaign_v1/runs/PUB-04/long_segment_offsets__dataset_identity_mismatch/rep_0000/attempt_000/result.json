@@ -1,0 +1,19 @@
+{
+  "status": "failed",
+  "error": "InputIdentityError('inference dataset identity mismatch')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/inference.py\", line 282, in main\n    read_input(args.input, config)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/inference.py\", line 53, in read_input\n    raise InputIdentityError(\"inference dataset identity mismatch\", \"dataset_identity_mismatch\")\nInputIdentityError: inference dataset identity mismatch\n",
+  "failure_stage": "input_validation",
+  "failure_code": "dataset_identity_mismatch",
+  "gates": {
+    "provenance": false,
+    "sampler": false,
+    "ppc": false,
+    "scientific": false
+  },
+  "gate_evaluation": {
+    "provenance": "rejected",
+    "sampler": "unavailable",
+    "ppc": "unavailable",
+    "scientific": "not_promotable"
+  }
+}

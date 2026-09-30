@@ -1,0 +1,186 @@
+{
+  "artifacts": {
+    "gold_lightcurve.csv": "9750428661ecb377f8824c319d836dca38fa2a0013ebaf90ecf3ef6bf32cf48f",
+    "model_input.csv": "d61520d34f0d1dcb45dc82404fed3016587d463d3ac5b03e5637941c6a153964",
+    "segment_diagnostics.csv": "bbda44da3c5424e0223bc9a42383e39c23121f067453aa4dd3a85d4ba9ad1960",
+    "silver_fits_metadata.csv": "dc8ca3dfd445ed4b9ca992e1b15cba268188866bb8546891430d9d0b6b127e38",
+    "silver_lightcurve.csv": "cd7b971bdc6ce5828137bce85e1992de7fc4cf02406b05280e7a8489a68f9a5b"
+  },
+  "cadence_classification_roundoff_tolerance_seconds": 1e-06,
+  "created_at_utc": "2026-09-27T08:07:23.414177+00:00",
+  "dataset_id": "kepler_10_b-13c768b3e66a432e",
+  "dataset_signature": {
+    "method": "out_of_transit_median",
+    "normalized_content_sha256": "1b1d44318fb80171d2f58d9d7cf2b7a5587708f4b41c4eb91e1cc5367ba9b650",
+    "orbital_period_days": 0.8374907,
+    "planet_slug": "kepler_10_b",
+    "schema_version": "publication-gold-v1",
+    "segments": [
+      {
+        "exposure_time_seconds": 58.84876286472961,
+        "rows": 40231,
+        "segment_id": "kepler_10_b:kplr011904151-2009231120729_slc.fits",
+        "source_fits_file": "kplr011904151-2009231120729_slc.fits",
+        "source_fits_sha256": "f001f56563054b4daf9da68112159528a5e84a44d92a2e601f7891dc0487fae9"
+      },
+      {
+        "exposure_time_seconds": 58.84876286472961,
+        "rows": 40595,
+        "segment_id": "kepler_10_b:kplr011904151-2009291181958_slc.fits",
+        "source_fits_file": "kplr011904151-2009291181958_slc.fits",
+        "source_fits_sha256": "3ae9807752ea630af439c34faeabfafdca462f165eb5110a66f2a257d8903b7a"
+      },
+      {
+        "exposure_time_seconds": 58.84876286472961,
+        "rows": 34537,
+        "segment_id": "kepler_10_b:kplr011904151-2009350160919_slc.fits",
+        "source_fits_file": "kplr011904151-2009350160919_slc.fits",
+        "source_fits_sha256": "da39b6917d57b1c3b85be1a8261c4ba7431feff48b8b643cc0c59dce7ac8dafb"
+      }
+    ],
+    "target_config_sha256": "efb2eb652d23ad7ddcaba2c14c9ee28810b24ad9c896fd81d4ff64031f52c0b6",
+    "transit_exclusion_half_width_days": 0.05659375
+  },
+  "declared_source_artifacts": [
+    {
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009231120729_slc.fits",
+      "sha256": "f001f56563054b4daf9da68112159528a5e84a44d92a2e601f7891dc0487fae9",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009291181958_slc.fits",
+      "sha256": "3ae9807752ea630af439c34faeabfafdca462f165eb5110a66f2a257d8903b7a",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    },
+    {
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009350160919_slc.fits",
+      "sha256": "da39b6917d57b1c3b85be1a8261c4ba7431feff48b8b643cc0c59dce7ac8dafb",
+      "source": "MAST frozen historical RAW; read-only reuse"
+    }
+  ],
+  "experiment_id": "PUB-05",
+  "input_path": "publication/observational/PUB-05/kepler_10_b/tcc_campaign_v1_kepler_10_b_attempt_000/model_input.csv",
+  "input_sha256": "d61520d34f0d1dcb45dc82404fed3016587d463d3ac5b03e5637941c6a153964",
+  "input_validation": {
+    "all_row_dataset_and_target_ids_match": true,
+    "artifacts_verified": {
+      "gold_lightcurve.csv": "9750428661ecb377f8824c319d836dca38fa2a0013ebaf90ecf3ef6bf32cf48f",
+      "model_input.csv": "d61520d34f0d1dcb45dc82404fed3016587d463d3ac5b03e5637941c6a153964",
+      "segment_diagnostics.csv": "bbda44da3c5424e0223bc9a42383e39c23121f067453aa4dd3a85d4ba9ad1960",
+      "silver_fits_metadata.csv": "dc8ca3dfd445ed4b9ca992e1b15cba268188866bb8546891430d9d0b6b127e38",
+      "silver_lightcurve.csv": "cd7b971bdc6ce5828137bce85e1992de7fc4cf02406b05280e7a8489a68f9a5b"
+    },
+    "dataset_id": "kepler_10_b-13c768b3e66a432e",
+    "input_path": "publication/observational/PUB-05/kepler_10_b/tcc_campaign_v1_kepler_10_b_attempt_000/model_input.csv",
+    "input_sha256": "d61520d34f0d1dcb45dc82404fed3016587d463d3ac5b03e5637941c6a153964",
+    "interpretation": "Engineering data-preparation/readback evidence only; no posterior, gate pass or astrophysical claim.",
+    "median_exposure_seconds": 58.84876286472961,
+    "modeling_row_count": 3000,
+    "normalization_status": "segment_normalized",
+    "normalized_error_median": 0.00021125005878270002,
+    "preparation_manifest_path": "publication/observational/PUB-05/kepler_10_b/tcc_campaign_v1_kepler_10_b_attempt_000/preparation_manifest.json",
+    "preparation_manifest_sha256": "9c6f2b06aa5311e36db355b96844cadc8137608eda2b643ac03762a471c68bcb",
+    "purpose": "FINAL",
+    "quality_removed_count": 11357,
+    "quality_row_count": 115363,
+    "sampler_executed": false,
+    "schema_version": "publication-observational-readback-v1",
+    "scientific_result_available": false,
+    "segment_count": 3,
+    "silver_row_count": 126720,
+    "source_count": 3,
+    "source_rows_unique": true,
+    "status": "passed",
+    "target_id": "kepler_10_b"
+  },
+  "median_exposure_seconds": 58.84876286472961,
+  "modeling_row_count": 3000,
+  "output_directory": "publication/observational/PUB-05/kepler_10_b/tcc_campaign_v1_kepler_10_b_attempt_000",
+  "preparation_id": "tcc_campaign_v1_kepler_10_b_attempt_000",
+  "preparation_manifest_path": "publication/observational/PUB-05/kepler_10_b/tcc_campaign_v1_kepler_10_b_attempt_000/preparation_manifest.json",
+  "preprocessing": {
+    "detrending": "none beyond public PDCSAP plus segment median; temporal misspecification may fail gate",
+    "flux_source": "PDCSAP_FLUX",
+    "max_points_per_segment": 1000,
+    "minimum_baseline_points_per_segment": 20,
+    "normalization": "source-FITS segment out-of-transit median",
+    "quality_required": 0,
+    "thinning": "shared M5 stratified_phase_thin; phase-uniform each segment, not outcome-selected",
+    "transit_exclusion_duration_multiplier": 1.5
+  },
+  "preprocessing_status": "segment_normalized",
+  "protocol_canonical_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+  "protocol_file_sha256": "375f26bed0f1dae7d90ba2c2787af924f29454743b5ecb58bac0bed03c243efc",
+  "protocol_identity": {
+    "canonical_json_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+    "commit": "73bbccbe8d69fb716509a4e52da15db51597ac1a",
+    "last_changed_commit": "c258d46ddda7fcbbe43e265b3d408dcf0daa6193",
+    "path": "publication/protocols/PUB-05.json",
+    "sha256": "375f26bed0f1dae7d90ba2c2787af924f29454743b5ecb58bac0bed03c243efc"
+  },
+  "protocol_sha256": "e2673ee57c0c73f8245ea79fd7ee9fb3206faad2efd7ffcd9bb7cd0524c1ef95",
+  "purpose": "FINAL",
+  "quality_removed_count": 11357,
+  "quality_row_count": 115363,
+  "schema_version": "publication-observational-v1",
+  "scientific_caveats": [
+    "Catalog ephemeris and duration condition phase folding and normalization; catalog comparison is contextual, not independent validation.",
+    "PDCSAP includes mission pipeline processing and may not remove astrophysical variability.",
+    "Median segment calibration is estimated, but its uncertainty is not propagated in M5.",
+    "Phase-uniform thinning removes original-cadence adjacency. Residual diagnostics use gap-filtered selected-observation lags, not necessarily instrumental-cadence lags; at least one finite lag is required to assess temporal PPC.",
+    "No final interpretability claim follows from successful data preparation."
+  ],
+  "segment_count": 3,
+  "silver_row_count": 126720,
+  "source_artifacts": [
+    {
+      "bjd_reference": 2454833.0,
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009231120729_slc.fits",
+      "rows": 44010,
+      "sha256": "f001f56563054b4daf9da68112159528a5e84a44d92a2e601f7891dc0487fae9",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "time_unit": "d",
+      "timesys": "TDB"
+    },
+    {
+      "bjd_reference": 2454833.0,
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009291181958_slc.fits",
+      "rows": 44550,
+      "sha256": "3ae9807752ea630af439c34faeabfafdca462f165eb5110a66f2a257d8903b7a",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "time_unit": "d",
+      "timesys": "TDB"
+    },
+    {
+      "bjd_reference": 2454833.0,
+      "path": "data/raw/mast/lightkurve/kepler_10_b/kepler/mastDownload/Kepler/kplr011904151_sc_Q001313330333033302/kplr011904151-2009350160919_slc.fits",
+      "rows": 38160,
+      "sha256": "da39b6917d57b1c3b85be1a8261c4ba7431feff48b8b643cc0c59dce7ac8dafb",
+      "source": "MAST frozen historical RAW; read-only reuse",
+      "time_unit": "d",
+      "timesys": "TDB"
+    }
+  ],
+  "status": "completed",
+  "target_config": {
+    "baseline_max_abs_phase_days": 0.15,
+    "baseline_min_abs_phase_days": 0.08,
+    "cadence_preference": "short",
+    "exposure_oversample": 15,
+    "host_star": "Kepler-10",
+    "mission": "Kepler",
+    "orbital_period_days": 0.8374907,
+    "phase_window_days": 0.15,
+    "planet_name": "Kepler-10 b",
+    "planet_radius_earth": 1.47,
+    "planet_slug": "kepler_10_b",
+    "priority": 2,
+    "stellar_radius_solar": 1.065,
+    "transit_depth_percent": 0.01919,
+    "transit_duration_hours": 1.811,
+    "transit_midpoint_bjd": 2455034.08687
+  },
+  "target_config_sha256": "efb2eb652d23ad7ddcaba2c14c9ee28810b24ad9c896fd81d4ff64031f52c0b6",
+  "target_id": "kepler_10_b",
+  "transit_window_row_count": 40836
+}

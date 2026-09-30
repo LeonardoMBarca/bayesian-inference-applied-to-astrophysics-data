@@ -1,0 +1,30 @@
+{
+  "estimated_factors": [
+    {
+      "group": "synthetic_segment_000",
+      "oot_count": 98,
+      "raw_oot_median": 0.9798741734949613,
+      "row_count": 290
+    },
+    {
+      "group": "synthetic_segment_001",
+      "oot_count": 96,
+      "raw_oot_median": 1.000089466272968,
+      "row_count": 288
+    },
+    {
+      "group": "synthetic_segment_002",
+      "oot_count": 96,
+      "raw_oot_median": 1.0200866353832159,
+      "row_count": 288
+    }
+  ],
+  "method": "empirical_per_segment_oot_median",
+  "minimum_oot_count": 3,
+  "normalization_uncertainty_propagated": false,
+  "oot_cutoff_days": 0.1,
+  "oot_rule": "abs(phase_days) > cutoff_days",
+  "output_frame_sha256": "4a5ee14847bed94de37f9bf71e67e65168343d513924a8ce22eb9c696bd11022",
+  "source_frame_sha256": "6803e35a69fa2ac35f6db79fa83f32b8cfc02ff2b8dbf9db86fc8f2e958e03f3",
+  "truth_access": "none; raw observed flux and predeclared phase mask only"
+}

@@ -1,0 +1,75 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/tcc_calibration_confirmatory_v1.json",
+    "--job-id",
+    "PUB-02__deep_short__rep_0004"
+  ],
+  "cores": 4,
+  "estimated_seconds": 195,
+  "experiment_id": "PUB-02",
+  "job_id": "PUB-02__deep_short__rep_0004",
+  "max_technical_retries": 0,
+  "output_dir": "artifacts/publication_campaign/tcc_calibration_confirmatory_v1/runs/PUB-02/deep_short/rep_0004",
+  "payload": {
+    "inference": {
+      "baseline_prior_sigma": 0.02,
+      "infer_jitter": true,
+      "integrate_exposure": true,
+      "jitter_error_multiplier": 5,
+      "jitter_floor_fraction": 0.0005,
+      "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+      "oversample": 15,
+      "period_days": 1,
+      "preprocessing_status": "segment_normalized",
+      "radius_prior_log_sigma": 0.9,
+      "radius_prior_median": 0.04,
+      "sampling": {
+        "chains": 4,
+        "cores": 4,
+        "draws": 1000,
+        "linker": "auto",
+        "target_accept": 0.95,
+        "tune": 1000
+      },
+      "t0_prior_sigma_days": 0.025
+    },
+    "kind": "synthetic",
+    "protocol": "publication/protocols/PUB-02-confirmatory-v1.json",
+    "scenario": {
+      "design": {
+        "cadence_seconds": 180,
+        "exposure_time_seconds": 120,
+        "measurement_sigma": 0.001,
+        "oversample": 31,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "window_days": 0.12
+      },
+      "regime": "deep high-SNR, short exposure",
+      "scenario_id": "deep_short",
+      "truth": {
+        "a": 5,
+        "b": 0.3,
+        "baseline": 1,
+        "extra_sigma": 0.0002,
+        "period_days": 1,
+        "q1": 0.25,
+        "q2": 0.3,
+        "r": 0.1,
+        "t0": 0.001
+      }
+    }
+  },
+  "replicate_id": "rep_0004",
+  "run_id": "tcc_calibration_confirmatory_v1__PUB-02__deep_short__rep_0004",
+  "scenario_id": "deep_short",
+  "seeds": {
+    "generation": 3040832076,
+    "inference": 66544295,
+    "predictive": 1090759165,
+    "resampling": 1464334465
+  }
+}
