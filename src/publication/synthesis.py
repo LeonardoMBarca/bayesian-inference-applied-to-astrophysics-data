@@ -649,6 +649,9 @@ def build(root: Path, output_relative: str = OUTPUT) -> Path:
                "docs/publication/BIBLIOGRAPHY.md", "docs/publication/CALIBRATION_REVIEW.md",
                "docs/publication/COMPUTE_BUDGET_AMENDMENT.md", "docs/publication/FINAL_EVIDENCE_STORAGE.md",
                "docs/publication/POST_CAMPAIGN_SCIENTIFIC_REVIEW.md", "docs/publication/CONFIRMATORY_RUNTIME_AUDIT.md",
+               "docs/publication/BENCHMARK_SELECTION.md", "docs/publication/TARGET_SELECTION_PROTOCOL.md",
+               "publication/protocols/PUB-02.json", "publication/protocols/PUB-02-confirmatory-v1.json",
+               "publication/protocols/PUB-03.json", "publication/protocols/PUB-04.json", "publication/protocols/PUB-05.json",
                "requirements.txt", "environment.yml", "pyproject.toml",
                "src/publication/synthesis.py", "scripts/build_publication_synthesis.py"]
     for name in context:

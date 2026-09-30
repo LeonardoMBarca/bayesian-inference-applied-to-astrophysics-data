@@ -174,6 +174,30 @@ class PublicationSynthesisTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 verify_campaign_snapshot(root, report)
 
+    def test_repeated_source_does_not_bypass_narrow_artifact_boundary(self):
+        from unittest.mock import patch
+
+        from publication.contracts import safe_path, sha256_file
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            report = root / "reports"
+            report.mkdir()
+            artifact = report / "figure.svg"
+            artifact.write_text("<svg/>")
+            digest = sha256_file(artifact)
+            (report / "artifact_manifest.json").write_text(json.dumps({
+                "source_checksums": {"reports/figure.svg": digest}, "artifacts": {"figure.svg": digest}}))
+
+            def boundary(base, name):
+                if base == report and name == "figure.svg":
+                    raise ValueError("Narrow artifact boundary must be evaluated")
+                return safe_path(base, name)
+
+            with patch("publication.synthesis.safe_path", side_effect=boundary):
+                with self.assertRaisesRegex(ValueError, "Narrow artifact boundary"):
+                    verify_campaign_snapshot(root, report)
+
     def test_flatten_keeps_campaign_identity_and_all_nominal_levels(self):
         data = {"s": coverage_metrics([], ["missing"])}
         rows = flatten_calibration("parent", data) + flatten_calibration("new", data)
