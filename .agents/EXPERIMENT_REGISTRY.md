@@ -32,13 +32,13 @@ Never convert a failed/rejected run to `COMPLETED` by editing its historical art
 |---|---|---|---|---|---|
 | PUB-00 | baseline freeze | Can the validated TCC baseline be cryptographically and semantically frozen? | `publication/baseline/README.md` (identity-verification contract, not a scientific batch) | COMPLETED | 26 artifacts verified; 12 contract tests; `publication/baseline/VALIDATION.md`; commit `06003cf` |
 | PUB-01 | novelty/literature map | What is genuinely new relative to published tools/workflows? | `docs/publication/NOVELTY_MATRIX.json` search scope | COMPLETED | 24 primary-source records; scoped integration/evaluation positioning, not priority proof |
-| PUB-02 | injection–recovery calibration | Does the workflow recover known truths with calibrated uncertainty? | `publication/protocols/PUB-02.json` | PLANNED | 80 declared final replicates; pilots preserved separately; no final coverage evidence yet |
-| PUB-03 | independent benchmark | Does an independent published implementation obtain compatible inference? | `publication/protocols/PUB-03.json` | PLANNED | juliet adapter numerically and reproducibly tested; two final fits not executed |
-| PUB-04 | ablations/failure gates | Which design choices matter and do gates reject invalid cases? | `publication/protocols/PUB-04.json` | PLANNED | 30 declared attempts, including six identity-negative controls; no final paired effects yet |
-| PUB-05 | multi-target validation | Across which real observational regimes does the workflow succeed/fail? | `publication/protocols/PUB-05.json` | PLANNED | Five targets preselected; all 15 RAW inputs available and hashed; final inference pending |
+| PUB-02 | injection–recovery calibration | Does the workflow recover known truths with calibrated uncertainty? | `publication/protocols/PUB-02.json`; `PUB-02-confirmatory-v1.json` | COMPLETED (bounded/negative findings) | Parent 80 plus independent 400, reported separately; severe low-information geometric undercoverage; `reports/publication_synthesis/tcc_evidence_v1/` |
+| PUB-03 | independent benchmark | Does an independent published implementation obtain compatible inference? | `publication/protocols/PUB-03.json` | REJECTED (both fits executed) | Local alias/nonconvergence and external temporal PPC failure; descriptive comparison only |
+| PUB-04 | ablations/failure gates | Which design choices matter and do gates reject invalid cases? | `publication/protocols/PUB-04.json` | COMPLETED (interpretation limited) | All 30 attempted; nine sampler-pass/PPC-fail cases; six identity controls rejected; paired effects limited by baseline divergences |
+| PUB-05 | multi-target validation | Across which real observational regimes does the workflow succeed/fail? | `publication/protocols/PUB-05.json` | REJECTED (all targets attempted) | All five retained; all fail temporal PPC; four pass sampler; no positive generalization |
 | PUB-06 | correlated-noise M6 | When temporal correlation exists, does explicit covariance improve calibration? | `docs/publication/COMPUTE_BUDGET_AMENDMENT.md` | PLANNED (deferred) | Disabled in TCC campaign by user compute/deadline priority; no GP claim |
-| PUB-07 | paper reproducibility release | Can every publication-critical artifact be traced and regenerated? | to create | PLANNED | — |
-| PUB-08 | TCC/paper synthesis | Do final written claims match the validated experiment registry? | to create | PLANNED | — |
+| PUB-07 | paper reproducibility release | Can every publication-critical artifact be traced and regenerated? | to create | PLANNED (not release-approved) | Local synthesis checksums available; archival restoration, clean release and campaign-aware release gate remain |
+| PUB-08 | TCC/paper synthesis | Do final written claims match the validated experiment registry? | post-result analysis | COMPLETED (TCC evidence handoff, not final manuscript submission) | Generated metrics, report, figures, claims and source inventory in `reports/publication_synthesis/tcc_evidence_v1/`; scientific reviews in `docs/publication/` |
 
 ## Required fields for every final experiment protocol
 
@@ -47,9 +47,9 @@ novelty. Protocol candidates PUB-02–05 are frozen before the user-launched bat
 the runner requires their exact committed bytes and the tested-source ledger.
 No pilot or infrastructure fixture is final scientific evidence.
 
-## Autonomous TCC campaign handoff
+## Autonomous TCC campaign handoff (historical prelaunch snapshot)
 
-The latest user instruction explicitly defers execution of the large final
+At this historical handoff, the user instruction deferred execution of the large final
 batch to the user. The deliverable now is a validated autonomous runner, not
 fabricated completion of the research program. The final ledger
 `configs/publication/tcc_campaign_v1_plan.json` declares 117 jobs and seeds;
@@ -103,7 +103,7 @@ This registry must be updated as work progresses, but never by erasing unfavorab
 ## Independent P2 confirmatory extension, 2026-09-27
 
 `tcc_calibration_confirmatory_v1` was registered **PLANNED** before its first
-final attempt and is now **RUNNING**. Protocol:
+final attempt and is now **COMPLETED**. Protocol:
 `publication/protocols/PUB-02-confirmatory-v1.json`;
 config: `configs/publication/tcc_calibration_confirmatory_v1.json`.
 It declares 100 NEW replicates per each of the four original P2 scenarios
@@ -117,7 +117,7 @@ post-parent-result decision are documented in
 The parent `tcc_campaign_v1` machine state records COMPLETED with 117 terminal
 jobs (66 COMPLETED, 51 COMPLETED_REJECTED) and final aggregation. This is
 execution completion, not completion of scientific audit or evidence promotion;
-the family-level PLANNED descriptions above are prelaunch historical snapshots.
+the final family dispositions above include the post-campaign scientific audit.
 The extension does not rerun or replace the parent's rejected P3/P5 outcomes.
 After launch, status authority is
 `artifacts/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state.json`.
@@ -129,6 +129,31 @@ and baseline checks, parent-report integrity and the CLI dry-run; evidence is
 supervisor launched at `2026-09-27T17:30:18Z`; the first final job was recorded
 RUNNING under Linux controller PID 780. Live counts must always be read from the
 state rather than this launch snapshot.
+
+## Post-campaign evidence audit, 2026-09-30
+
+Both frozen cohorts completed: 517 declared jobs, 518 preserved attempts,
+including one parent cancellation before a posterior existed. The new cohort
+contains 337 gate passes and 63 rejections; no extra attempts or seeds were
+introduced. The parent contains 66 passes and 51 rejections across P2–P5.
+Counts and scientific quantities are generated in
+`reports/publication_synthesis/tcc_evidence_v1/summary.json`; do not treat the
+combined job count as a calibration denominator across heterogeneous families.
+
+The protected baseline's 26 checksum-bound artifacts remain unchanged. Protocol
+and ledger commits predate both batches. Metrics were independently checked
+against every registered P2 result/truth pair. Read
+`docs/publication/CALIBRATION_REVIEW.md` and
+`docs/publication/POST_CAMPAIGN_SCIENTIFIC_REVIEW.md` before promoting claims.
+Approval by the historical gate is not a guarantee of parameter identification:
+the near-limit regime has severe undercoverage despite many gate passes.
+
+Runtime resource changes were authorized operationally and preserved four
+chains and the scientific identity; the original protocol budget remains a
+historical snapshot. See `docs/publication/CONFIRMATORY_RUNTIME_AUDIT.md`.
+No historical run, gate threshold or final protocol was rewritten in this audit.
+M6 remains deferred; positive external agreement and multi-target physical
+validity are not established. P7 remains incomplete; no paper tag/DOI is issued.
 
 ## Runtime amendment details, 2026-09-27
 

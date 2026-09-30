@@ -59,6 +59,11 @@ data/gold/*/lightcurves/*.csv
 data/gold/*/modeling/phase_folded_lightcurve.csv
 data/gold/*/modeling/segment_normalized_lightcurve.csv
 data/experiments/**/injected_lightcurve.csv
+# Full publication intermediates are preserved locally and checksum-bound in
+# reports/publication_synthesis/tcc_evidence_v1/STORAGE_MANIFEST.json. Their
+# external archive/restoration remains a release prerequisite.
+publication/observational/PUB-05/**/silver_lightcurve.csv
+publication/observational/PUB-05/**/gold_lightcurve.csv
 
 # Optional notebook/application caches
 marimo/_static/

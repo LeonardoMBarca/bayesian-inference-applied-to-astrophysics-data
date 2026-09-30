@@ -3,12 +3,23 @@
   "campaign_registries": [
     {
       "campaign_id": "tcc_campaign_v1",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "config": "configs/publication/tcc_final_campaign.json",
       "frozen_declaration": "configs/publication/tcc_campaign_v1_plan.json",
       "execution_state": "artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json",
       "declared_job_counts": {"PUB-02": 80, "PUB-03": 2, "PUB-04": 30, "PUB-05": 5},
-      "semantics": "Autonomous campaign uses its own frozen job ledger and append-only attempt history; legacy expected_runs below must not be mistaken for the campaign denominator. No final campaign started at handoff."
+      "final_report": "reports/publication_campaign/tcc_campaign_v1/summary.json",
+      "semantics": "Execution completed: all declared jobs retained, including scientific rejections and one earlier cancelled attempt. Legacy expected_runs below are not the campaign denominator; completion is not positive scientific validation."
+    },
+    {
+      "campaign_id": "tcc_calibration_confirmatory_v1",
+      "status": "COMPLETED",
+      "config": "configs/publication/tcc_calibration_confirmatory_v1.json",
+      "frozen_declaration": "configs/publication/tcc_calibration_confirmatory_v1_plan.json",
+      "execution_state": "artifacts/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state.json",
+      "declared_job_counts": {"PUB-02": 400},
+      "final_report": "reports/publication_campaign/tcc_calibration_confirmatory_v1/summary.json",
+      "semantics": "Independent fixed-N extension chosen after parent outcomes; report cohorts separately. All 400 jobs finished, but gate approval does not establish conditional calibration."
     }
   ],
   "experiments": [
@@ -31,28 +42,36 @@
       "experiment_id": "PUB-02",
       "family": "injection_recovery",
       "protocol": null,
-      "status": "planned"
+      "status": "completed",
+      "execution_registry": "campaign_registries",
+      "scientific_disposition": "Regime- and parameter-specific recovery; universal nominal calibration not supported. See post_campaign_audit."
     },
     {
       "expected_runs": [],
       "experiment_id": "PUB-03",
       "family": "independent_benchmark",
       "protocol": null,
-      "status": "planned"
+      "status": "rejected",
+      "execution_registry": "campaign_registries",
+      "scientific_disposition": "Both independent fits executed; local sampler and external temporal PPC limitations prevent positive validation."
     },
     {
       "expected_runs": [],
       "experiment_id": "PUB-04",
       "family": "ablation_failure",
       "protocol": null,
-      "status": "planned"
+      "status": "completed",
+      "execution_registry": "campaign_registries",
+      "scientific_disposition": "Negative-control detection demonstrated; quantitative paired inference limited by baseline convergence."
     },
     {
       "expected_runs": [],
       "experiment_id": "PUB-05",
       "family": "multi_target",
       "protocol": null,
-      "status": "planned"
+      "status": "rejected",
+      "execution_registry": "campaign_registries",
+      "scientific_disposition": "All five preselected systems attempted and retained; no positive multi-target generalization."
     },
     {
       "expected_runs": [],
@@ -76,5 +95,15 @@
       "status": "planned"
     }
   ],
+  "post_campaign_audit": {
+    "date": "2026-09-30",
+    "report": "reports/publication_synthesis/tcc_evidence_v1/REPORT.md",
+    "metrics": "reports/publication_synthesis/tcc_evidence_v1/summary.json",
+    "claim_ledger": "reports/publication_synthesis/tcc_evidence_v1/claims.json",
+    "source_inventory": "reports/publication_synthesis/tcc_evidence_v1/SOURCE_INVENTORY.json",
+    "validator": "python scripts/build_publication_synthesis.py --check",
+    "paper_release_approved": false,
+    "release_limitation": "The legacy release validator expected_runs schema does not consume campaign registries; use campaign evidence validation for this audit, without implying paper release approval."
+  },
   "schema_version": "publication-registry-v1"
 }

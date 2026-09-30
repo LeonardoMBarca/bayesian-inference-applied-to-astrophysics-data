@@ -470,6 +470,14 @@ campaign state/journal. Handoff reports retain their pre-launch snapshot status.
 
 # Phase dependencies
 
+Post-campaign update (2026-09-30): both user-authorized campaigns finished.
+The evidence synthesis is `reports/publication_synthesis/tcc_evidence_v1/`.
+Execution completion yielded mixed/negative scientific results, including
+low-information undercoverage, local benchmark mode trapping and all-target
+temporal PPC rejection. See the updated experiment registry and scientific
+reviews. The frozen batches are preserved; P6 remains deferred and P7 is not
+release-approved. The prelaunch handoff above is historical, not current status.
+
 `P0 -> P1 -> P2 -> P3 -> P4 -> P5 -> P6 -> P7 -> P8`
 
 Parallel work is allowed only when it does not create protocol leakage:

@@ -6,20 +6,29 @@ trânsitos de exoplanetas.
 
 ## Campanha de validação para o TCC
 
-Nesta branch `publication-grade-validation`, a campanha científica autônoma está
-preparada para execução pelo usuário; os resultados finais ainda não existem.
+Nesta branch `publication-grade-validation`, as campanhas científicas terminaram.
+A [síntese auditável](reports/publication_synthesis/tcc_evidence_v1/REPORT.md)
+apresenta as coortes separadas, cobertura, viés, rejeições, benchmark e todos os
+alvos pré-selecionados. Há resultados negativos importantes: aprovação nos gates
+não garante recuperação física em regimes pouco informativos, e os novos fits
+observacionais não sustentam generalização positiva.
 O baseline `scientific_003` e o commit `7489a90689a753bea5243f86c1489329916c98e2`
 permanecem históricos e não são sobrescritos.
 
 ```sh
-python scripts/run_publication_campaign.py --dry-run
-python scripts/run_publication_campaign.py --resume
+python scripts/build_publication_synthesis.py
+python scripts/build_publication_synthesis.py --check
 ```
 
 O [guia operacional](docs/publication/CAMPAIGN_RUNBOOK.md) explica Play no VSCode,
 background com tmux, status, parada, retomada e diretórios dos resultados.
 O [relatório de entrega](reports/PUBLICATION_CAMPAIGN_HANDOFF.md) distingue
-validação de infraestrutura de evidência científica ainda pendente.
+validação de infraestrutura de evidência científica (snapshot anterior à execução).
+Os comandos acima regeneram/verificam apenas a síntese dos resultados preservados.
+Reprodução de inferência exige o checkout científico congelado e um novo namespace.
+A [revisão científica](docs/publication/POST_CAMPAIGN_SCIENTIFIC_REVIEW.md) e a
+[revisão de calibração](docs/publication/CALIBRATION_REVIEW.md) delimitam os claims.
+Release pública/DOI e restauração em ambiente limpo ainda não estão aprovadas.
 Os cinco alvos da nova campanha são definidos no protocolo congelado
 [`PUB-05.json`](publication/protocols/PUB-05.json), isolado da configuração histórica.
 

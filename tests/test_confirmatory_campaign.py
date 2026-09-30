@@ -23,6 +23,7 @@ class ConfirmatoryCampaignTests(unittest.TestCase):
         cls.protocol = json.loads((ROOT / cls.config["protocols"]["PUB-02"]).read_text())
         cls.parent = json.loads((ROOT / "publication/protocols/PUB-02.json").read_text())
         cls.plan = build_plan(ROOT, CONFIG)
+        cls.ledger = json.loads((ROOT / cls.plan["frozen_plan_path"]).read_text())
         cls.parent_plan = json.loads((ROOT / "configs/publication/tcc_campaign_v1_plan.json").read_text())
 
     def test_only_declared_replication_and_prospective_metadata_change(self):
@@ -40,7 +41,18 @@ class ConfirmatoryCampaignTests(unittest.TestCase):
             self.assertEqual(sha256_file(ROOT / record["path"]), record["sha256"])
 
     def test_fixed_400_jobs_all_original_scenarios(self):
-        self.assertEqual(self.plan["preflight_errors"], [])
+        # This is a historical design contract, not authorization to launch an
+        # old campaign from a later analysis-only source tree. Execution
+        # preflight deliberately rejects any source not in its frozen ledger.
+        fields = ("job_id", "experiment_id", "scenario_id", "replicate_id",
+                  "run_id", "seeds", "payload")
+        self.assertEqual(
+            [{key: job[key] for key in fields} for job in self.plan["jobs"]],
+            self.ledger["declared_jobs"],
+        )
+        self.assertEqual(self.plan["protocols"], self.ledger["protocols"])
+        self.assertEqual(self.plan["scientific_config_sha256"],
+                         self.ledger["scientific_config_sha256"])
         jobs = self.plan["jobs"]
         self.assertEqual(len(jobs), 400)
         self.assertEqual({j["experiment_id"] for j in jobs}, {"PUB-02"})
@@ -67,12 +79,24 @@ class ConfirmatoryCampaignTests(unittest.TestCase):
         ledger = json.loads((ROOT / self.plan["frozen_plan_path"]).read_text())
         self.assertEqual([j["seeds"] for j in jobs], [j["seeds"] for j in ledger["declared_jobs"]])
 
-    def test_budget_and_scope_match_authorized_extension(self):
-        self.assertEqual(self.plan["resources"]["max_workers"], 1)
-        self.assertEqual(self.plan["resources"]["cores_per_run"], 4)
-        self.assertEqual(self.plan["resources"]["max_campaign_hours"], 22)
+    def test_runtime_resources_preserve_frozen_scientific_scope(self):
+        # The original 22h/four-core planning statement remains immutable.
+        # Later user-authorized dispatch limits are operational, not changes
+        # to the chain count, draws, seeds or the fixed-N stopping rule.
+        extension = self.protocol["confirmatory_extension"]
+        self.assertEqual(extension["runtime_budget_hours"], 22)
+        self.assertEqual(self.protocol["inference"]["sampling"]["chains"], 4)
+        self.assertEqual(self.protocol["inference"]["sampling"]["cores"], 4)
+        self.assertLessEqual(22 + extension["parent_checkpointed_active_hours"], 36)
+        resources = self.plan["resources"]
+        self.assertGreaterEqual(resources["max_workers"], 1)
+        self.assertGreaterEqual(resources["cores_per_run"], 1)
+        self.assertGreater(resources["max_campaign_hours"], 0)
+        self.assertEqual(resources["cores_per_run"], self.config["resources"]["cores_per_run"])
+        self.assertTrue(all(job["cores"] == resources["cores_per_run"] for job in self.plan["jobs"]))
+        self.assertEqual(self.plan["scientific_config_sha256"],
+                         self.ledger["scientific_config_sha256"])
         self.assertEqual(self.plan["estimated_total_hours"], 20)
-        self.assertLessEqual(22 + self.protocol["confirmatory_extension"]["parent_checkpointed_active_hours"], 36)
         for family in ("benchmark", "ablations", "multi_target", "correlated_noise"):
             self.assertFalse(self.config[family]["enabled"])
         self.assertEqual(set(self.plan["family_summarizers"]), {"PUB-02"})

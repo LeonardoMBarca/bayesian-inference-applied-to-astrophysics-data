@@ -4,6 +4,14 @@ Snapshot de fontes primárias consultadas em 2026-09-26. Revisão direcionada, n
 
 Fonte machine-readable: [`NOVELTY_MATRIX.json`](NOVELTY_MATRIX.json). Posicionamento e limites: [`NOVELTY_MATRIX.md`](NOVELTY_MATRIX.md).
 
+Atualização de consulta em 2026-09-30 para a revisão pós-campanha: reconferidas
+as fontes primárias de [Talts et al.](https://arxiv.org/abs/1804.06788),
+[Vehtari et al.](https://arxiv.org/abs/1903.08008) e
+[Gelman et al.](https://arxiv.org/abs/2011.01808). Elas fundamentam a distinção
+entre SBC e a cobertura condicional com verdade fixa, o uso dos diagnósticos de
+MCMC e a necessidade de verificação do modelo além da convergência. Esta
+consulta direcionada não constitui uma nova revisão sistemática de prioridade.
+
 ## Trabalhos e normas
 
 ### 1. Mandel & Agol — Analytic Light Curves for Planetary Transit Searches (2002)

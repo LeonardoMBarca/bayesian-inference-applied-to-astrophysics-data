@@ -1,5 +1,7 @@
 {
   "schema_version": "tcc-paper-source-inventory-v1",
+  "snapshot_stage": "historical_prelaunch_inventory",
+  "superseded_by": "reports/publication_synthesis/tcc_evidence_v1/SOURCE_INVENTORY.json",
   "existing_sources": [
     "publication/baseline/manifest.json",
     "docs/publication/BIBLIOGRAPHY.md",
@@ -63,5 +65,5 @@
     "reports/publication_campaign/tcc_campaign_v1/PUB-05/regime_precision.png",
     "reports/publication_campaign/tcc_campaign_v1/PUB-05/REPORT.md"
   ],
-  "claim_rule": "Current engineering/pilots do not establish final coverage, recovery, external agreement or generalization. Future files are required outputs, not existing evidence."
+  "claim_rule": "This file preserves the prelaunch source list. Final campaigns now exist; use superseded_by and the generated claim ledger for current audited evidence. Engineering/pilots remain excluded from scientific claims."
 }
