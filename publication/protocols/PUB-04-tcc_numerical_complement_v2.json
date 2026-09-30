@@ -1,0 +1,191 @@
+{
+  "alias_review_rule": "Flag abs(unwrapped chain mean t0)>period/2 for mechanism review only; this is not a replacement gate, no draw is wrapped/removed, and false positives are possible for unusual ephemeris geometry.",
+  "amendments": [],
+  "campaign_id": "tcc_numerical_complement_v2",
+  "claim_limit": "Small prospective numerical study, not precise calibration or universal alias prevention. All new realizations and rejected attempts remain. Three local benchmark repetitions share one observational dataset and the SAME historical external posterior; they are not three independent external validations. Numerical agreement is not astrophysical adequacy.",
+  "contrasts": {
+    "baseline_high_accuracy": "baseline_standardized",
+    "exposure_off_high_accuracy": "baseline_high_accuracy"
+  },
+  "date_specified_utc": "2026-09-30T21:23:13.851857+00:00",
+  "design": {
+    "cadence_seconds": 1800,
+    "exposure_time_seconds": 1765,
+    "heteroscedastic": true,
+    "include_raw_flux": true,
+    "measurement_sigma": 0.0002,
+    "noise": {
+      "kind": "none"
+    },
+    "oversample": 31,
+    "segment_gap_periods": 1,
+    "segment_offsets": [
+      0.98,
+      1.0,
+      1.02
+    ],
+    "segments": 3,
+    "systematic": null,
+    "transits_per_segment": 4,
+    "window_days": 0.15
+  },
+  "exclusion": "Engineering pilots and historical campaigns are not new final replicates. No other exclusions.",
+  "execution_note": "Prepared but not automatically launched by the agent. Commit tested sources and freeze/commit ledger before user-authorized execution. Soft budget pauses between jobs; extending the operational budget does not change scientific configuration.",
+  "experiment_id": "PUB-04",
+  "failure_policy": "Zero automatic retries. Technical failure remains technical; completed numerical/scientific rejection remains rejected. Missing metrics are unavailable, never zero or measured noncoverage.",
+  "forbidden_changes": [
+    "no chain removal",
+    "no modulo t0 wrapping",
+    "no prior narrowing",
+    "no truth initialization",
+    "no threshold weakening",
+    "no seed/target substitution"
+  ],
+  "gates": {
+    "inherited_ppc": "Observed fraction in posterior predictive 94% intervals within [.80,.99], standardized residual SD within [.5,2]; broad screening not an exact calibration test",
+    "promotion": "Separate provenance, sampler, PPC and final scientific interpretability. Aggregate negative findings can use rejected runs with explicit classification; positive individual claims require all relevant gates.",
+    "provenance": "Exact input SHA256 and content-derived synthetic dataset ID, committed protocol and complete predeclared registry; no existing-run overwrite",
+    "sampler": "All scalar sampled/derived summary Rhat<=1.01; bulk/tail ESS>=400; zero divergences; BFMI>=.30. Record tree-depth saturation separately; no numerical repair by deleting draws.",
+    "scale": "Inherited M5 jitter/median_error<=20 and <=5% posterior r outside inherited review interval [.00349,.24751]. This interval is a heuristic scientific review range, not LogNormal support.",
+    "temporal_ppc": "No within-segment cadence-contiguous residual correlation at lags1-5 beyond normal Bonferroni reference z_(1-.01/10)/sqrt(Npairs). Approximate fitted-residual screen; false positives/negatives measured, not assumed controlled exactly."
+  },
+  "historical_protocol_checksums": {
+    "publication/protocols/PUB-02.json": "2fb9b2434062b755a6bb38285ab69c0f7adcbe47d5e20cccedfe2c1cd0547187",
+    "publication/protocols/PUB-03.json": "5f6b3ab03e8756af9231c3871f987f07a91e587464012e27824f6007525de1bc",
+    "publication/protocols/PUB-04.json": "c740625ae3b635f000a9a8524b39a530361ca6b464a893f5ae8135733fd397bd"
+  },
+  "hypothesis": "2000 tune/2000 draws at target_accept .99 may improve numerical geometry; it is not allowed to erase original divergent baselines or rescue PPC by threshold changes.",
+  "hypothesis_rejection_conditions": [
+    "standardization does not improve or worsens numerical diagnostics in tested controls",
+    "alias trapping persists under standardized coordinates",
+    "higher accuracy retains divergent/nonconverged ablation baselines",
+    "validly matched sampler-passing local fits materially disagree with the external posterior"
+  ],
+  "inclusion": "All 24 declared jobs, all attempts, all seeds, all failed or rejected outcomes. No posterior-based selection or exclusion.",
+  "inference": {
+    "baseline_prior_sigma": 0.02,
+    "derived": {
+      "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+      "duration": "Circular first-to-fourth contact duration before exposure smearing"
+    },
+    "fixed_orbit": {
+      "eccentricity": 0.0,
+      "period_days": 1.0
+    },
+    "infer_jitter": true,
+    "input_kind": "synthetic",
+    "integrate_exposure": true,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+    "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+    "model_family": "M5-publication-v2-standardized-t0",
+    "other_priors": {
+      "a": "Uniform(2,50)",
+      "b": "Uniform(0,1)",
+      "baseline": "Normal(1,0.02)",
+      "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+      "q1": "Uniform(0,1)",
+      "q2": "Uniform(0,1)",
+      "t0": "Normal(0,0.025 day)"
+    },
+    "oversample": 15,
+    "period_days": 1.0,
+    "preprocessing_status": "segment_normalized",
+    "radius_prior_log_sigma": 0.9,
+    "radius_prior_median": 0.04,
+    "sampling": {
+      "chains": 4,
+      "cores": 4,
+      "draws": 1000,
+      "linker": "auto",
+      "save_warmup": true,
+      "target_accept": 0.95,
+      "tune": 1000
+    },
+    "t0_prior_sigma_days": 0.025,
+    "transit_center_parameterization": "standardized"
+  },
+  "invalidation_conditions": [
+    "truth enters inference",
+    "input or frozen config identity changes",
+    "unrecorded source changes",
+    "historical result overwrite",
+    "missing attempts hidden"
+  ],
+  "model_versions": {
+    "direct": "M5-publication-v1",
+    "standardized": "M5-publication-v2-standardized-t0"
+  },
+  "normalization": {
+    "baseline_method": "empirical_per_segment_oot_median",
+    "implementation": "publication.ablations.estimate_normalization",
+    "metadata_policy": "Persist estimated median/count per group, mask, source/output hashes and method in preprocessing.json. Mark global-normalized input honestly; report numerical/PPC effects separately from policy rejection.",
+    "minimum_oot_points": 3,
+    "negative_control_method": "empirical_global_oot_median",
+    "oot_mask": "abs(phase_days) > 0.10",
+    "truth_usage": "None. The known segment offsets are never supplied to normalization or inference.",
+    "uncertainty_policy": "Flux and measured flux errors are divided by the same estimated median. Median estimation uncertainty is not separately propagated by M5; retain this as a limitation common to the controls."
+  },
+  "outputs": [
+    "config/protocol/seed ledger",
+    "all registered attempt configs, truth (synthetic only), traces including warmup, diagnostics, PPC and completion checksums",
+    "numeric job table",
+    "paired effect table",
+    "family figures",
+    "all-attempt inventory",
+    "hash-bound campaign summary"
+  ],
+  "pilot_policy": "All t0_coordinate_pilot_v1/debug outcomes excluded from final counts; no seed selected by pilot quality.",
+  "primary_metrics": [
+    "t0 chain means relative to physical period without wrapping",
+    "max R-hat",
+    "minimum ESS bulk/tail",
+    "divergences",
+    "minimum BFMI",
+    "sampler pass count",
+    "wall_seconds",
+    "paired parameter center/SD/ETI94-width shifts"
+  ],
+  "primary_parameters": [
+    "r",
+    "depth",
+    "b",
+    "a",
+    "t0",
+    "full_duration",
+    "extra_sigma"
+  ],
+  "protocol_status": "FROZEN",
+  "protocol_version": "numerical-complement-1.0.0",
+  "question": "Does increased numerical accuracy resolve baseline divergence, and is the exposure effect interpretable when both high-accuracy fits pass?",
+  "replicates": 3,
+  "secondary_metrics": [
+    "PPC point coverage",
+    "temporal residual screen",
+    "physical scale checks",
+    "fixed-truth bias and ETI50/80/94 coverage (descriptive, n=3)",
+    "historical external posterior distribution distances"
+  ],
+  "seed_policy": "Existing campaign_plan.seed with this NEW campaign namespace. Within synthetic pairs only generation seed is shared via pair_id; independent inference/predictive/resampling streams are fixed in the committed ledger. No reseeding after rejection.",
+  "selection_timing": "Post-historical-results hypothesis, prospectively fixed NEW datasets and inference seeds. Historical failures motivate the study but are not its independent final validation.",
+  "statistical_interpretation": "Paired descriptive numerical robustness, not a powered rate-comparison test. At n=3 rate precision is poor; report every pair and missing pair. ETI is not HDI, fixed-truth coverage is not SBC, and r/depth=r^2 are not independent confirmations.",
+  "study_kind": "numerical_complement_v1",
+  "total_declared_final_attempts": 9,
+  "truth": {
+    "a": 7.0,
+    "b": 0.4,
+    "baseline": 1.0,
+    "extra_sigma": 0.0005,
+    "period_days": 1.0,
+    "q1": 0.25,
+    "q2": 0.3,
+    "r": 0.07,
+    "t0": 0.001
+  },
+  "variants": [
+    "baseline_standardized",
+    "baseline_high_accuracy",
+    "exposure_off_high_accuracy"
+  ]
+}

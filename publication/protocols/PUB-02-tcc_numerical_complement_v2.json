@@ -1,0 +1,188 @@
+{
+  "alias_review_rule": "Flag abs(unwrapped chain mean t0)>period/2 for mechanism review only; this is not a replacement gate, no draw is wrapped/removed, and false positives are possible for unusual ephemeris geometry.",
+  "amendments": [],
+  "campaign_id": "tcc_numerical_complement_v2",
+  "claim_limit": "Small prospective numerical study, not precise calibration or universal alias prevention. All new realizations and rejected attempts remain. Three local benchmark repetitions share one observational dataset and the SAME historical external posterior; they are not three independent external validations. Numerical agreement is not astrophysical adequacy.",
+  "date_specified_utc": "2026-09-30T21:23:13.851857+00:00",
+  "exclusion": "Engineering pilots and historical campaigns are not new final replicates. No other exclusions.",
+  "execution_note": "Prepared but not automatically launched by the agent. Commit tested sources and freeze/commit ledger before user-authorized execution. Soft budget pauses between jobs; extending the operational budget does not change scientific configuration.",
+  "experiment_id": "PUB-02",
+  "failure_policy": "Zero automatic retries. Technical failure remains technical; completed numerical/scientific rejection remains rejected. Missing metrics are unavailable, never zero or measured noncoverage.",
+  "forbidden_changes": [
+    "no chain removal",
+    "no modulo t0 wrapping",
+    "no prior narrowing",
+    "no truth initialization",
+    "no threshold weakening",
+    "no seed/target substitution"
+  ],
+  "gates": {
+    "inherited_ppc": "Observed fraction in posterior predictive 94% intervals within [.80,.99], standardized residual SD within [.5,2]; broad screening not an exact calibration test",
+    "promotion": "Separate provenance, sampler, PPC and final scientific interpretability. Aggregate negative findings can use rejected runs with explicit classification; positive individual claims require all relevant gates.",
+    "provenance": "Exact input SHA256 and content-derived synthetic dataset ID, committed protocol and complete predeclared registry; no existing-run overwrite",
+    "sampler": "All scalar sampled/derived summary Rhat<=1.01; bulk/tail ESS>=400; zero divergences; BFMI>=.30. Record tree-depth saturation separately; no numerical repair by deleting draws.",
+    "scale": "Inherited M5 jitter/median_error<=20 and <=5% posterior r outside inherited review interval [.00349,.24751]. This interval is a heuristic scientific review range, not LogNormal support.",
+    "temporal_ppc": "No within-segment cadence-contiguous residual correlation at lags1-5 beyond normal Bonferroni reference z_(1-.01/10)/sqrt(Npairs). Approximate fitted-residual screen; false positives/negatives measured, not assumed controlled exactly."
+  },
+  "historical_protocol_checksums": {
+    "publication/protocols/PUB-02.json": "2fb9b2434062b755a6bb38285ab69c0f7adcbe47d5e20cccedfe2c1cd0547187",
+    "publication/protocols/PUB-03.json": "5f6b3ab03e8756af9231c3871f987f07a91e587464012e27824f6007525de1bc",
+    "publication/protocols/PUB-04.json": "c740625ae3b635f000a9a8524b39a530361ca6b464a893f5ae8135733fd397bd"
+  },
+  "hypothesis": "z~Normal(0,1), t0=.025*z preserves the physical prior while default coordinate-space jitter starts nearer its physical scale; benefit is empirical, not guaranteed.",
+  "hypothesis_rejection_conditions": [
+    "standardization does not improve or worsens numerical diagnostics in tested controls",
+    "alias trapping persists under standardized coordinates",
+    "higher accuracy retains divergent/nonconverged ablation baselines",
+    "validly matched sampler-passing local fits materially disagree with the external posterior"
+  ],
+  "inclusion": "All 24 declared jobs, all attempts, all seeds, all failed or rejected outcomes. No posterior-based selection or exclusion.",
+  "inference": {
+    "baseline_prior_sigma": 0.02,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+    "oversample": 15,
+    "period_days": 1.0,
+    "preprocessing_status": "segment_normalized",
+    "radius_prior_log_sigma": 0.9,
+    "radius_prior_median": 0.04,
+    "sampling": {
+      "chains": 4,
+      "cores": 4,
+      "draws": 1000,
+      "linker": "auto",
+      "save_warmup": true,
+      "target_accept": 0.95,
+      "tune": 1000
+    },
+    "t0_prior_sigma_days": 0.025
+  },
+  "inference_assumptions": {
+    "baseline": "Normal(1,.02) normalized flux",
+    "derived": "depth=r^2 geometric; T14=P/pi asin(sqrt(((1+r)^2-b^2)/(a^2-b^2))) in days",
+    "jitter": "HalfNormal(max(5 median(measured_sigma), .0005)) normalized flux; data-scale rule declared, not truth-informed",
+    "likelihood": "Independent Gaussian(mu_transit + baseline, sqrt(measured_sigma_i^2 + extra_sigma^2)); no temporal covariance",
+    "limb_darkening": "q1,q2 independently Uniform(0,1), Kipping transform",
+    "model_version": {
+      "direct": "M5-publication-v1",
+      "standardized": "M5-publication-v2-standardized-t0"
+    },
+    "orbit": "circular, period fixed; a/Rs Uniform(2,50), b Uniform(0,1), so grazing b>1 is outside supported prior domain",
+    "radius": "LogNormal(log(.04), .9), same population-scale reference for ALL scenarios, not truth-matched",
+    "sampler": "PyMC NUTS, jitter+adapt_diag, one attempt per identity, no automatic retries or alternative seeds",
+    "t0": "Normal(0,.025) days, same across all scenarios"
+  },
+  "invalidation_conditions": [
+    "truth enters inference",
+    "input or frozen config identity changes",
+    "unrecorded source changes",
+    "historical result overwrite",
+    "missing attempts hidden"
+  ],
+  "model_versions": {
+    "direct": "M5-publication-v1",
+    "standardized": "M5-publication-v2-standardized-t0"
+  },
+  "outputs": [
+    "config/protocol/seed ledger",
+    "all registered attempt configs, truth (synthetic only), traces including warmup, diagnostics, PPC and completion checksums",
+    "numeric job table",
+    "paired effect table",
+    "family figures",
+    "all-attempt inventory",
+    "hash-bound campaign summary"
+  ],
+  "pilot_policy": "All t0_coordinate_pilot_v1/debug outcomes excluded from final counts; no seed selected by pilot quality.",
+  "primary_metrics": [
+    "t0 chain means relative to physical period without wrapping",
+    "max R-hat",
+    "minimum ESS bulk/tail",
+    "divergences",
+    "minimum BFMI",
+    "sampler pass count",
+    "wall_seconds",
+    "paired parameter center/SD/ETI94-width shifts"
+  ],
+  "primary_parameters": [
+    "r",
+    "depth",
+    "b",
+    "a",
+    "t0",
+    "full_duration",
+    "extra_sigma"
+  ],
+  "protocol_status": "FROZEN",
+  "protocol_version": "numerical-complement-1.0.0",
+  "question": "Does an equivalent standardized t0 coordinate reduce alias initialization/trapping without changing physical posterior targets?",
+  "replicates": 3,
+  "scenarios": [
+    {
+      "design": {
+        "cadence_seconds": 180,
+        "exposure_time_seconds": 120,
+        "measurement_sigma": 0.001,
+        "oversample": 31,
+        "segments": 2,
+        "transits_per_segment": 1,
+        "window_days": 0.12
+      },
+      "regime": "deep high-SNR, short exposure",
+      "scenario_id": "deep_short",
+      "truth": {
+        "a": 5.0,
+        "b": 0.3,
+        "baseline": 1.0,
+        "extra_sigma": 0.0002,
+        "period_days": 1.0,
+        "q1": 0.25,
+        "q2": 0.3,
+        "r": 0.1,
+        "t0": 0.001
+      }
+    },
+    {
+      "design": {
+        "cadence_seconds": 1800,
+        "exposure_time_seconds": 1765.46,
+        "measurement_sigma": 0.0003,
+        "oversample": 31,
+        "segments": 2,
+        "transits_per_segment": 4,
+        "window_days": 0.15
+      },
+      "regime": "intermediate depth, integration-sensitive, higher impact",
+      "scenario_id": "intermediate_long",
+      "truth": {
+        "a": 7.0,
+        "b": 0.75,
+        "baseline": 1.0,
+        "extra_sigma": 0.0003,
+        "period_days": 1.0,
+        "q1": 0.25,
+        "q2": 0.3,
+        "r": 0.04,
+        "t0": 0.001
+      }
+    }
+  ],
+  "secondary_metrics": [
+    "PPC point coverage",
+    "temporal residual screen",
+    "physical scale checks",
+    "fixed-truth bias and ETI50/80/94 coverage (descriptive, n=3)",
+    "historical external posterior distribution distances"
+  ],
+  "seed_policy": "Existing campaign_plan.seed with this NEW campaign namespace. Within synthetic pairs only generation seed is shared via pair_id; independent inference/predictive/resampling streams are fixed in the committed ledger. No reseeding after rejection.",
+  "selection_timing": "Post-historical-results hypothesis, prospectively fixed NEW datasets and inference seeds. Historical failures motivate the study but are not its independent final validation.",
+  "statistical_interpretation": "Paired descriptive numerical robustness, not a powered rate-comparison test. At n=3 rate precision is poor; report every pair and missing pair. ETI is not HDI, fixed-truth coverage is not SBC, and r/depth=r^2 are not independent confirmations.",
+  "study_kind": "numerical_complement_v1",
+  "total_declared_final_attempts": 12,
+  "variants": [
+    "direct",
+    "standardized"
+  ]
+}
