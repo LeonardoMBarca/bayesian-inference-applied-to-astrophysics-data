@@ -1,0 +1,31 @@
+{
+  "baseline_prior_sigma": 0.02,
+  "campaign_mode": "smoke",
+  "dataset_id": "synthetic-c571aaa1eeae61dfb967",
+  "expected_dataset_id": "synthetic-c571aaa1eeae61dfb967",
+  "infer_jitter": true,
+  "inference_seed": 3408328186,
+  "input_kind": "synthetic",
+  "input_sha256": "c571aaa1eeae61dfb9678e719d43814c4374b174c55a6fade39ad56b7fde41a6",
+  "integrate_exposure": true,
+  "jitter_error_multiplier": 5.0,
+  "jitter_floor_fraction": 0.0005,
+  "oversample": 15,
+  "period_days": 1.0,
+  "predictive_seed": 427669243,
+  "preprocessing_status": "segment_normalized",
+  "radius_prior_log_sigma": 0.9,
+  "radius_prior_median": 0.04,
+  "resampling_seed": 2304480535,
+  "sampling": {
+    "chains": 2,
+    "cores": 1,
+    "draws": 40,
+    "linker": "auto",
+    "save_warmup": true,
+    "target_accept": 0.9,
+    "tune": 40
+  },
+  "t0_prior_sigma_days": 0.025,
+  "transit_center_parameterization": "standardized"
+}

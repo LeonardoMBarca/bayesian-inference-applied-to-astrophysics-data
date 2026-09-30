@@ -169,3 +169,34 @@ engineering-only `checkpoint_repair_v1`/`checkpoint_repair_v2` validation bundle
 Operational acceptance does not establish calibration or promote scientific
 claims. Current progress remains the live campaign state plus sealed manifests,
 not a hand-maintained count in this document.
+
+## External-audit closure and prospective numerical complement, 2026-09-30
+
+The 517 historical jobs and 518 attempts remain frozen. The independent
+`publication/validation/trace_audit_v1/` audit recomputed individual and
+aggregate P2 summaries directly from all 480 posterior traces, keeping the
+80-job parent and 400-job confirmatory cohorts separate. Its PASS status is
+an arithmetic verification, not scientific approval of every posterior.
+`publication/validation/residual_review_v2/` audits existing observed residuals
+without attributing their cause to a GP. The versioned claim review and TCC
+source set live in `reports/publication_synthesis/tcc_evidence_v2/`; this does
+not replace the protected v1 synthesis.
+
+The two `t0_coordinate_pilot_v1` fits were explicitly **PILOT** runs with only
+40 tuning and 40 posterior draws per chain. Both were scientifically rejected
+under the existing diagnostics. They are debugging/sizing evidence only, not
+an efficacy result or part of the final P2 denominator.
+
+`tcc_numerical_complement_v1` is **PLANNED, NOT EXECUTED**. Its committed
+24-job ledger is
+`configs/publication/tcc_numerical_complement_v1_plan.json` (commit
+`180db76c6ef13ae2e7471220e7b102655efe5079`); the config is
+`configs/publication/tcc_numerical_complement_v1.json`. Twelve new synthetic
+jobs pair direct/standardized coordinates across two regimes and three newly
+seeded datasets each; three P3 jobs use one existing observational input and
+one historical external posterior reference; nine P4 jobs evaluate declared
+numerical ablations. All outputs, including rejections and failures, must be
+retained. The soft budget is 20 hours. The 5.4-hour sizing estimate is not a
+completion-time guarantee. No claim of numerical improvement is authorized
+until this prospective study is run, audited and aggregated. Use the campaign
+runner dry-run/status before `--resume`; do not restart historical campaigns.

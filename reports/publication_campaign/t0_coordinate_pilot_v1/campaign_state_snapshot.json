@@ -1,0 +1,386 @@
+{
+  "aggregate": {
+    "attempts": [
+      {
+        "command": [
+          "/home/leonardo_barca/mc3/bin/python3.14",
+          "scripts/aggregate_publication_campaign.py",
+          "--config",
+          "configs/publication/t0_coordinate_pilot_v1.json"
+        ],
+        "process": {
+          "pid": 3497,
+          "platform": "linux",
+          "process_group": 3497,
+          "session_id": 3497,
+          "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:109172"
+        },
+        "return_code": null,
+        "started_at_utc": "2026-09-30T18:14:58.496884+00:00",
+        "status": "RUNNING",
+        "stderr_log": "logs/publication_campaign/t0_coordinate_pilot_v1/aggregation/campaign.attempt000.stderr.log",
+        "stdout_log": "logs/publication_campaign/t0_coordinate_pilot_v1/aggregation/campaign.attempt000.stdout.log"
+      }
+    ],
+    "source_state_sha256": "bfb072952a5af66d3074b68552616fc9d4c4144b58e7165ed49e0810153b7ebd",
+    "status": "RUNNING"
+  },
+  "available_cpus": 8,
+  "budget": {
+    "active_seconds": 266.12870271299994,
+    "last_checkpoint_utc": "2026-09-30T18:15:03.585448+00:00",
+    "orphan_downtime_seconds": 0.0
+  },
+  "campaign_id": "t0_coordinate_pilot_v1",
+  "code_commit": "8bb69f5e02494930be19d17ef2f44ca61fddc3fc",
+  "config_path": "configs/publication/t0_coordinate_pilot_v1.json",
+  "controller_pid": 2899,
+  "controller_process": {
+    "pid": 2899,
+    "platform": "linux",
+    "process_group": 2899,
+    "session_id": 2899,
+    "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:82766"
+  },
+  "created_at_utc": "2026-09-30T18:10:54.404928+00:00",
+  "events": [
+    {
+      "kind": "campaign_declared",
+      "payload": {
+        "jobs": 2,
+        "scientific_config_sha256": "c3370c3672fb73b9c748bca07695d3c9729d3423d316e363d99de9e6010adc1d"
+      },
+      "previous_sha256": null,
+      "sequence": 0,
+      "sha256": "f77239d00c6b8415d0f938e6fa151567821ffe822d43c2d3f6f7c4f20286968b",
+      "timestamp_utc": "2026-09-30T18:10:55.363357+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__pilot_t0_direct__rep_0000",
+        "output_dir": "artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_direct/rep_0000/attempt_000"
+      },
+      "previous_sha256": "f77239d00c6b8415d0f938e6fa151567821ffe822d43c2d3f6f7c4f20286968b",
+      "sequence": 1,
+      "sha256": "dbd50bbed2de8affd0eebc17650547bc6cc6dbcdc016ebe65ef4959ba8d64c2b",
+      "timestamp_utc": "2026-09-30T18:10:57.097084+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__pilot_t0_direct__rep_0000",
+        "process": {
+          "pid": 2902,
+          "platform": "linux",
+          "process_group": 2902,
+          "session_id": 2902,
+          "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:83257"
+        }
+      },
+      "previous_sha256": "dbd50bbed2de8affd0eebc17650547bc6cc6dbcdc016ebe65ef4959ba8d64c2b",
+      "sequence": 2,
+      "sha256": "2767ca5973c9a373c7fedb930688139c54d9d418e7a01daa573d74ddc210b6f0",
+      "timestamp_utc": "2026-09-30T18:10:57.497953+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__pilot_t0_direct__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "2767ca5973c9a373c7fedb930688139c54d9d418e7a01daa573d74ddc210b6f0",
+      "sequence": 3,
+      "sha256": "5d4775ca8b2d999c75c4d11c9716cff12fee7539e3d076ed3a676be62f532fee",
+      "timestamp_utc": "2026-09-30T18:12:25.769551+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__pilot_t0_standardized__rep_0000",
+        "output_dir": "artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_standardized/rep_0000/attempt_000"
+      },
+      "previous_sha256": "5d4775ca8b2d999c75c4d11c9716cff12fee7539e3d076ed3a676be62f532fee",
+      "sequence": 4,
+      "sha256": "f209f834d3867c7eea000dcdc61657ee25d9204d8cc2bd2aec362634fc4273cf",
+      "timestamp_utc": "2026-09-30T18:12:26.578912+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__pilot_t0_standardized__rep_0000",
+        "process": {
+          "pid": 3141,
+          "platform": "linux",
+          "process_group": 3141,
+          "session_id": 3141,
+          "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:92842"
+        }
+      },
+      "previous_sha256": "f209f834d3867c7eea000dcdc61657ee25d9204d8cc2bd2aec362634fc4273cf",
+      "sequence": 5,
+      "sha256": "7757168d95d5324ede5df767dafa15586595942c12c589209662c394b927ca05",
+      "timestamp_utc": "2026-09-30T18:12:26.788796+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__pilot_t0_standardized__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "7757168d95d5324ede5df767dafa15586595942c12c589209662c394b927ca05",
+      "sequence": 6,
+      "sha256": "cd62b38e2b50935d36b6b1c857ba785fefa206c5606a9f0aecf83ceb91abeda5",
+      "timestamp_utc": "2026-09-30T18:14:04.366300+00:00"
+    },
+    {
+      "kind": "aggregation_finished",
+      "payload": {
+        "label": "PUB-02",
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "cd62b38e2b50935d36b6b1c857ba785fefa206c5606a9f0aecf83ceb91abeda5",
+      "sequence": 7,
+      "sha256": "98746c22bea97af4359fde1f79f2a13238cfb89e21b06e9df2cda9bf632bac1f",
+      "timestamp_utc": "2026-09-30T18:14:57.491201+00:00"
+    }
+  ],
+  "family_summaries": {
+    "PUB-02": {
+      "attempts": [
+        {
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/aggregate_publication_campaign.py",
+            "--config",
+            "configs/publication/t0_coordinate_pilot_v1.json",
+            "--family",
+            "PUB-02"
+          ],
+          "finished_at_utc": "2026-09-30T18:14:57.491131+00:00",
+          "process": {
+            "pid": 3388,
+            "platform": "linux",
+            "process_group": 3388,
+            "session_id": 3388,
+            "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:103385"
+          },
+          "return_code": 0,
+          "started_at_utc": "2026-09-30T18:14:05.119269+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/t0_coordinate_pilot_v1/aggregation/PUB-02.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/t0_coordinate_pilot_v1/aggregation/PUB-02.attempt000.stdout.log"
+        }
+      ],
+      "source_state_sha256": "bfb072952a5af66d3074b68552616fc9d4c4144b58e7165ed49e0810153b7ebd",
+      "status": "COMPLETED"
+    }
+  },
+  "jobs": {
+    "PUB-02__pilot_t0_direct__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "8bb69f5e02494930be19d17ef2f44ca61fddc3fc",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/t0_coordinate_pilot_v1.json",
+            "--job-id",
+            "PUB-02__pilot_t0_direct__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_direct/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "a73e563d34147794b83e286c7165771a8869a7a4a474ebacfe08a9bde4b80fba",
+          "dataset_id": "synthetic-fa9f0e59ee1c95d066c0",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-30T18:12:21.104849+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": "fa9f0e59ee1c95d066c03c16a8e974df44dd18a979e387fbe12a9df79da935c6",
+          "output_dir": "artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_direct/rep_0000/attempt_000",
+          "process": {
+            "pid": 2902,
+            "platform": "linux",
+            "process_group": 2902,
+            "session_id": 2902,
+            "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:83257"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 1107737878,
+            "inference": 2572810699,
+            "predictive": 302704302,
+            "resampling": 3116638761
+          },
+          "started_at_utc": "2026-09-30T18:10:56.455767+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/t0_coordinate_pilot_v1/PUB-02/PUB-02__pilot_t0_direct__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/t0_coordinate_pilot_v1/PUB-02/PUB-02__pilot_t0_direct__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 2902,
+            "platform": "linux",
+            "process_group": 2902,
+            "session_id": 2902,
+            "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:83257"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/t0_coordinate_pilot_v1.json",
+        "--job-id",
+        "PUB-02__pilot_t0_direct__rep_0000"
+      ],
+      "created_at_utc": "2026-09-30T18:10:54.404395+00:00",
+      "dataset_id": "synthetic-fa9f0e59ee1c95d066c0",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "fa9f0e59ee1c95d066c03c16a8e974df44dd18a979e387fbe12a9df79da935c6",
+      "job_id": "PUB-02__pilot_t0_direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_direct/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "t0_coordinate_pilot_v1__PUB-02__pilot_t0_direct__rep_0000",
+      "scenario_id": "pilot_t0_direct",
+      "seeds": {
+        "generation": 1107737878,
+        "inference": 2572810699,
+        "predictive": 302704302,
+        "resampling": 3116638761
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-09-30T18:12:25.769457+00:00"
+    },
+    "PUB-02__pilot_t0_standardized__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "8bb69f5e02494930be19d17ef2f44ca61fddc3fc",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/t0_coordinate_pilot_v1.json",
+            "--job-id",
+            "PUB-02__pilot_t0_standardized__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_standardized/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "34288b82f97f60c53004ff12b0f85aea82166c47d71cd5ceaf5f957525e27ed1",
+          "dataset_id": "synthetic-c571aaa1eeae61dfb967",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-09-30T18:13:58.330773+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": "c571aaa1eeae61dfb9678e719d43814c4374b174c55a6fade39ad56b7fde41a6",
+          "output_dir": "artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_standardized/rep_0000/attempt_000",
+          "process": {
+            "pid": 3141,
+            "platform": "linux",
+            "process_group": 3141,
+            "session_id": 3141,
+            "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:92842"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 1799123186,
+            "inference": 3408328186,
+            "predictive": 427669243,
+            "resampling": 2304480535
+          },
+          "started_at_utc": "2026-09-30T18:12:26.271815+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/t0_coordinate_pilot_v1/PUB-02/PUB-02__pilot_t0_standardized__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/t0_coordinate_pilot_v1/PUB-02/PUB-02__pilot_t0_standardized__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 3141,
+            "platform": "linux",
+            "process_group": 3141,
+            "session_id": 3141,
+            "start_token": "linux:82a64f8f-f08b-408a-90d5-c5fe3524b4b6:92842"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/t0_coordinate_pilot_v1.json",
+        "--job-id",
+        "PUB-02__pilot_t0_standardized__rep_0000"
+      ],
+      "created_at_utc": "2026-09-30T18:10:54.404592+00:00",
+      "dataset_id": "synthetic-c571aaa1eeae61dfb967",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "c571aaa1eeae61dfb9678e719d43814c4374b174c55a6fade39ad56b7fde41a6",
+      "job_id": "PUB-02__pilot_t0_standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/t0_coordinate_pilot_v1/runs/PUB-02/pilot_t0_standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "t0_coordinate_pilot_v1__PUB-02__pilot_t0_standardized__rep_0000",
+      "scenario_id": "pilot_t0_standardized",
+      "seeds": {
+        "generation": 1799123186,
+        "inference": 3408328186,
+        "predictive": 427669243,
+        "resampling": 2304480535
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-09-30T18:14:04.366166+00:00"
+    }
+  },
+  "mode": "smoke",
+  "plan_identity_sha256": "0b5aa1909cfcf7e1af363ab8d2b5fc6eb2ff5faad87edd7c2cd63dfe8ea7e666",
+  "resource_notes": [],
+  "resources": {
+    "cores_per_run": 1,
+    "estimated_run_minutes": 20,
+    "max_campaign_hours": 1,
+    "max_workers": 1,
+    "stop_margin_minutes": 0
+  },
+  "schema_version": "publication-campaign-state-v1",
+  "scientific_config_sha256": "c3370c3672fb73b9c748bca07695d3c9729d3423d316e363d99de9e6010adc1d",
+  "status": "AGGREGATING",
+  "stop_reason": null,
+  "updated_at_utc": "2026-09-30T18:15:03.585448+00:00"
+}

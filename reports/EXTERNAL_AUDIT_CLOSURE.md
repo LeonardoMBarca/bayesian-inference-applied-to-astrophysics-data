@@ -10,7 +10,7 @@ continuam no conjunto de evidências.
 
 | Achado | Disposição | Evidência/limite |
 |---|---|---|
-| A0: possível perda do histórico | protegido; rechecagem final pendente | `protected_snapshot.json` sela 7.041 arquivos do snapshot original, inclusive `scientific_003`, protocolos, seeds, todas as tentativas e síntese v1. |
+| A0: possível perda do histórico | protegido e rechecado | `protected_snapshot.json` sela 7.041 arquivos do snapshot original, inclusive `scientific_003`, protocolos, seeds, todas as tentativas e síntese v1. O check final retornou 7.041/7.041, zero erros. |
 | A1: RAW convertido pelo Git | corrigido localmente; prova de CI final pendente | Auditoria de 445 arquivos: 198 blobs divergiam dos bytes originais (197 por LF/CRLF, um com EOL misto). `.gitattributes` impede a conversão. Dois checkouts Git reais, com `autocrlf=false` e `true`, passaram 445/445 após a correção. |
 | A2: CI local tomado como remoto | aberto até workflow do SHA final | O workflow original `36750457921` passou 266 testes e falhou em checksum RAW. O commit intermediário `8bb69f5` revelou erro de ordenação de imports em Ruff, já corrigido no código novo. |
 | A3: agregação conferida pelo próprio agregador | corrigido | Auditor independente leu os 480 traces P2, recalculou médias, SD amostral, quantis ETI50/80/94 e agregações separadas de 80 e 400. `trace_audit_v1` registra status `PASS`; falhas numéricas não foram removidas. |
@@ -18,7 +18,7 @@ continuam no conjunto de evidências.
 | A5: alias de `t0` | mecanismo e equivalência testados; eficácia final pendente | Há uma cadeia histórica deslocada cerca de um período. O jitter do inicializador atua em dias no parâmetro direto. A coordenada padronizada conserva prior/likelihood, com Jacobiano e gradientes testados. O diagnóstico não reconstrói o warmup histórico. |
 | A6: ablações com ajuste de referência divergente | limitação preservada; estudo prospectivo preparado | Efeitos numéricos históricos continuam descritivos; zero divergências não foi relaxado. O protocolo complementar declara nove ajustes novos e custo antes dos resultados finais. |
 | A7: estrutura residual observacional | análise adicional concluída; causa permanece desconhecida | Cinco alvos, quinze segmentos, tempo real, gaps, pontos dentro/fora do trânsito, tendências e checks de input observados; não há atribuição automática a GP. |
-| A8: arquivo sem dependências transitivas | inventário e bundle locais criados; restauração independente pendente | Grafo tipado de 8.201 registros, 1.562 membros externos; o ZIP local tem 496.436.552 bytes e SHA-256 `7396ed1269eb5e996ee4a79488629209e5c3cdda81f345ccd2577629eaade8b3`. O manifesto final foi verificado membro a membro. |
+| A8: arquivo sem dependências transitivas | restauração independente passou; depósito público pendente | Grafo tipado de 8.201 registros, 1.562 membros externos; o ZIP local tem 496.436.552 bytes e SHA-256 `7396ed1269eb5e996ee4a79488629209e5c3cdda81f345ccd2577629eaade8b3`. Um clone separado restaurou os 1.562 membros e verificou todos os 8.201 checksums. |
 | A9: release validadora lê zero runs/aceita qualquer exit 1 | implementação corrigida; recibo final pendente | Validador atual reconcilia 517 jobs e 518 tentativas. Exit 1 só significa pré-requisito público nomeado com integridade aprovada; exit 2 indica evidência inválida/erro. |
 | A10: fontes incompletas para novo TCC | síntese v2 em geração | Métodos, priors por família, dados por parâmetro/regime, ledger de claims, figuras/captions, limitações e manuscrito serão gerados em novo diretório. A versão v1 permanece preservada. |
 
@@ -50,8 +50,8 @@ Inclui `scientific_003`, duas campanhas (117 e 400 jobs), 518 tentativas
 preservadas, seus protocolos/ledgers/truth/traces/completion manifests,
 resumos e `tcc_evidence_v1`. A única tentativa cancelada do primeiro lote
 permanece como tentativa; não é uma realização com posterior. Nenhum resultado
-histórico recebeu novo valor, gate ou seed. O teste final do snapshot deve
-constar do recibo de validação desta rodada.
+histórico recebeu novo valor, gate ou seed. O check final confirmou todos os
+7.041 arquivos, sem erro.
 
 ## D. Integridade de bytes e armazenamento
 
@@ -67,9 +67,15 @@ permaneceram idênticos.
 
 Um primeiro clone independente com `autocrlf=true` expôs mais 18 conversões
 de tabelas/metadados de Gold e `scientific_003` (todos LF→CRLF). A política
-de bytes desses domínios foi ajustada. A restauração final precisa usar um
-checkout novo deste commit final, verificar as 8.201 dependências e produzir
-um recibo. A prova anterior de 445/445 refere-se especificamente ao RAW.
+de bytes desses domínios foi ajustada. Um novo clone no commit `180db76c6`
+verificou 6.631 arquivos Git do inventário: 6.630 eram byte a byte idênticos
+no checkout; a única diferença foi um adendo posterior ao snapshot em
+`docs/publication/FINAL_EVIDENCE_STORAGE.md`, classificado explicitamente como
+revisão de fonte e resolvido pelo blob Git do commit original, não por um
+arquivo científico alterado. O recibo `clean_checkout_restore.json` registra
+`status=passed`, 8.201/8.201 dependências verificadas, 1.562 arquivos externos
+restaurados, zero previamente existentes e nenhum MCMC executado. A prova
+anterior de 445/445 refere-se especificamente ao RAW.
 
 O ZIP de evidência externa permanece **apenas local**, em
 `../publication-audit-local-20260930/evidence_v1.zip`. O manifesto
@@ -118,10 +124,11 @@ padronizado), três ajustes locais P3 no mesmo input observacional e nove P4
 de ablação numérica. O posterior externo histórico é reutilizado como uma
 única referência, nunca contado como três réplicas externas. Os protocolos
 fixam seeds/política, cenário, configuração, gates, inclusão de rejeitados e
-orçamento de 20 h. A estimativa de planejamento derivada de 44 tempos de
+orçamento de 20 h. O ledger de 24 jobs foi congelado no commit
+`180db76c6ef13ae2e7471220e7b102655efe5079`, antes de qualquer batch final.
+A estimativa de planejamento derivada de 44 tempos de
 tentativas históricas é cerca de 5,4 h para os jobs, com grande incerteza de
-geometria e compilação; não é ETA. O ledger deve ser congelado e commitado
-antes de qualquer batch final. Nenhum dos 517 jobs antigos foi repetido.
+geometria e compilação; não é ETA. Nenhum dos 517 jobs antigos foi repetido.
 
 ## G. CI remoto
 

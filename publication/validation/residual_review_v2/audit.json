@@ -1,0 +1,1390 @@
+{
+  "schema_version": "observational-residual-review-v2",
+  "targets": [
+    {
+      "target": "HAT-P-7 b",
+      "job_id": "PUB-05__hat_p_7_b__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hat_p_7_b/rep_0000/attempt_000",
+      "historical_gates": {
+        "provenance": true,
+        "sampler": true,
+        "ppc": false,
+        "scientific": false
+      },
+      "mask_half_duration_days": 0.08087833333333333,
+      "mask_origin": "predeclared catalog duration; descriptive conditioning, not independent validation",
+      "segments": [
+        {
+          "segment_id": "hat_p_7_b:kplr010666592-2009131105131_llc.fits",
+          "rows": 122,
+          "time_span_days": 9.15458256008425,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.020434234458662104,
+            0.020434240403119475,
+            0.020434340280189645,
+            0.020434439182281494,
+            1.6347470959080823
+          ],
+          "gaps_larger_than_1_5_selected_median": 13,
+          "offset_mean": -2.9063657660977295e-05,
+          "linear_trend_per_day": -6.520556714949724e-05,
+          "partitions": {
+            "all": {
+              "rows": 122,
+              "median_residual": -6.606610854492656e-05,
+              "rms": 0.00021063726880883558,
+              "selected_lag_pairs": 108,
+              "selected_lag1": 0.9202703927958806,
+              "native_exposure_neighbor_pairs": 108,
+              "native_exposure_neighbor_correlation": 0.9202703927958806,
+              "selected_lag1_after_linear_trend_removal": 0.38989968900783806
+            },
+            "in_transit": {
+              "rows": 36,
+              "median_residual": -0.0001069610561113,
+              "rms": 0.00020661328920418707,
+              "selected_lag_pairs": 30,
+              "selected_lag1": 0.9064020190910047,
+              "native_exposure_neighbor_pairs": 30,
+              "native_exposure_neighbor_correlation": 0.9064020190910047,
+              "selected_lag1_after_linear_trend_removal": 0.6610663169362292
+            },
+            "out_of_transit": {
+              "rows": 86,
+              "median_residual": -2.8148012423123703e-05,
+              "rms": 0.00021229908021150911,
+              "selected_lag_pairs": 70,
+              "selected_lag1": 0.9201207612460363,
+              "native_exposure_neighbor_pairs": 70,
+              "native_exposure_neighbor_correlation": 0.9201207612460363,
+              "selected_lag1_after_linear_trend_removal": 0.024624683963363522
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 122.00360894148261,
+              "rows": 41,
+              "in_transit_rows": 11,
+              "linearized_template_shift_days": -0.00027989477908993193
+            },
+            {
+              "mean_time_days": 125.02091334144093,
+              "rows": 41,
+              "in_transit_rows": 12,
+              "linearized_template_shift_days": -2.8159558427904408e-05
+            },
+            {
+              "mean_time_days": 128.86989487036607,
+              "rows": 40,
+              "in_transit_rows": 13,
+              "linearized_template_shift_days": -0.0005760603366126584
+            }
+          ]
+        },
+        {
+          "segment_id": "hat_p_7_b:kplr010666592-2009166043257_llc.fits",
+          "rows": 367,
+          "time_span_days": 29.241446287589497,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.02043409860925749,
+            0.020434225327313982,
+            0.02043429866535007,
+            0.020434374740943895,
+            1.6551782649257802
+          ],
+          "gaps_larger_than_1_5_selected_median": 50,
+          "offset_mean": 1.1845875164732866e-05,
+          "linear_trend_per_day": -1.1054796880447278e-05,
+          "partitions": {
+            "all": {
+              "rows": 367,
+              "median_residual": 4.451709483710431e-06,
+              "rms": 0.00016507537548386423,
+              "selected_lag_pairs": 316,
+              "selected_lag1": 0.851967858534915,
+              "native_exposure_neighbor_pairs": 316,
+              "native_exposure_neighbor_correlation": 0.851967858534915,
+              "selected_lag1_after_linear_trend_removal": 0.7644537981057662
+            },
+            "in_transit": {
+              "rows": 100,
+              "median_residual": 8.787086891781648e-06,
+              "rms": 0.0001593360983708579,
+              "selected_lag_pairs": 79,
+              "selected_lag1": 0.9095591753317201,
+              "native_exposure_neighbor_pairs": 79,
+              "native_exposure_neighbor_correlation": 0.9095591753317201,
+              "selected_lag1_after_linear_trend_removal": 0.8667579201857565
+            },
+            "out_of_transit": {
+              "rows": 267,
+              "median_residual": 4.451709483710431e-06,
+              "rms": 0.0001671742075686067,
+              "selected_lag_pairs": 224,
+              "selected_lag1": 0.8398589022448079,
+              "native_exposure_neighbor_pairs": 224,
+              "native_exposure_neighbor_correlation": 0.8398589022448079,
+              "selected_lag1_after_linear_trend_removal": 0.7394964046576615
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 136.29235597363294,
+              "rows": 123,
+              "in_transit_rows": 35,
+              "linearized_template_shift_days": 0.00035707570301995767
+            },
+            {
+              "mean_time_days": 146.50798783117662,
+              "rows": 122,
+              "in_transit_rows": 31,
+              "linearized_template_shift_days": -0.00021734519721104684
+            },
+            {
+              "mean_time_days": 157.0485452782664,
+              "rows": 122,
+              "in_transit_rows": 34,
+              "linearized_template_shift_days": 8.071887083050328e-05
+            }
+          ]
+        },
+        {
+          "segment_id": "hat_p_7_b:kplr010666592-2009259160929_llc.fits",
+          "rows": 538,
+          "time_span_days": 84.08437594334828,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.020433090452513625,
+            0.020433476369390746,
+            0.02043385052812141,
+            0.04086774948513039,
+            4.638519466367143
+          ],
+          "gaps_larger_than_1_5_selected_median": 218,
+          "offset_mean": -1.3644264543855174e-06,
+          "linear_trend_per_day": -1.1457642306727677e-06,
+          "partitions": {
+            "all": {
+              "rows": 538,
+              "median_residual": 6.410310035009913e-07,
+              "rms": 8.658174680725509e-05,
+              "selected_lag_pairs": 319,
+              "selected_lag1": 0.624054841777805,
+              "native_exposure_neighbor_pairs": 319,
+              "native_exposure_neighbor_correlation": 0.624054841777805,
+              "selected_lag1_after_linear_trend_removal": 0.6005428307558699
+            },
+            "in_transit": {
+              "rows": 151,
+              "median_residual": 1.1521283334148258e-05,
+              "rms": 8.014933291677174e-05,
+              "selected_lag_pairs": 81,
+              "selected_lag1": 0.5842852995192306,
+              "native_exposure_neighbor_pairs": 81,
+              "native_exposure_neighbor_correlation": 0.5842852995192306,
+              "selected_lag1_after_linear_trend_removal": 0.5631833461463529
+            },
+            "out_of_transit": {
+              "rows": 387,
+              "median_residual": -7.256584429571333e-06,
+              "rms": 8.896550658300288e-05,
+              "selected_lag_pairs": 220,
+              "selected_lag1": 0.6268273456187584,
+              "native_exposure_neighbor_pairs": 220,
+              "native_exposure_neighbor_correlation": 0.6268273456187584,
+              "selected_lag1_after_linear_trend_removal": 0.6000926847359592
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 194.37089709682073,
+              "rows": 180,
+              "in_transit_rows": 49,
+              "linearized_template_shift_days": 2.830086842999387e-05
+            },
+            {
+              "mean_time_days": 220.24231310073287,
+              "rows": 179,
+              "in_transit_rows": 52,
+              "linearized_template_shift_days": -0.00020730768195090102
+            },
+            {
+              "mean_time_days": 245.3237313639878,
+              "rows": 179,
+              "in_transit_rows": 50,
+              "linearized_template_shift_days": -9.833111872564755e-05
+            }
+          ]
+        }
+      ],
+      "historical_temporal_screen": {
+        "method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+        "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+        "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
+        "familywise_alpha_per_run": 0.01,
+        "lags": [
+          {
+            "lag": 1,
+            "pairs": 743,
+            "correlation": 0.8418377359250937,
+            "normal_reference_bound": 0.11336962799590104,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 2,
+            "pairs": 565,
+            "correlation": 0.8561421034053515,
+            "normal_reference_bound": 0.13000705022463946,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 3,
+            "pairs": 453,
+            "correlation": 0.845095692180006,
+            "normal_reference_bound": 0.1451917792879841,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 4,
+            "pairs": 371,
+            "correlation": 0.8513122784696587,
+            "normal_reference_bound": 0.16043686741550514,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 5,
+            "pairs": 310,
+            "correlation": 0.8368052418119175,
+            "normal_reference_bound": 0.17551340088606082,
+            "available": true,
+            "flagged": true
+          }
+        ],
+        "assessable": true,
+        "flagged": true
+      }
+    },
+    {
+      "target": "Kepler-10 b",
+      "job_id": "PUB-05__kepler_10_b__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_10_b/rep_0000/attempt_000",
+      "historical_gates": {
+        "provenance": true,
+        "sampler": true,
+        "ppc": false,
+        "scientific": false
+      },
+      "mask_half_duration_days": 0.03772916666666667,
+      "mask_origin": "predeclared catalog duration; descriptive conditioning, not independent validation",
+      "segments": [
+        {
+          "segment_id": "kepler_10_b:kplr011904151-2009231120729_slc.fits",
+          "rows": 1000,
+          "time_span_days": 29.972592859172494,
+          "median_exposure_days": 0.000681119940564,
+          "selected_spacing_quantiles_days": [
+            0.0006809946425505586,
+            0.003405608033077101,
+            0.007492231779906433,
+            0.014303569732888377,
+            1.4262548683763328
+          ],
+          "gaps_larger_than_1_5_selected_median": 352,
+          "offset_mean": 3.180952625692158e-05,
+          "linear_trend_per_day": 3.4663423511559876e-06,
+          "partitions": {
+            "all": {
+              "rows": 1000,
+              "median_residual": 3.452507414836159e-05,
+              "rms": 0.00022582823142847466,
+              "selected_lag_pairs": 647,
+              "selected_lag1": 0.18983268838961218,
+              "native_exposure_neighbor_pairs": 18,
+              "native_exposure_neighbor_correlation": 0.523225316663771,
+              "selected_lag1_after_linear_trend_removal": 0.16668572245778096
+            },
+            "in_transit": {
+              "rows": 250,
+              "median_residual": 4.946283221118897e-05,
+              "rms": 0.00022764873325600924,
+              "selected_lag_pairs": 160,
+              "selected_lag1": 0.13692819073678672,
+              "native_exposure_neighbor_pairs": 4,
+              "native_exposure_neighbor_correlation": 0.46190585809094603,
+              "selected_lag1_after_linear_trend_removal": 0.09942243817919881
+            },
+            "out_of_transit": {
+              "rows": 750,
+              "median_residual": 3.237930693644753e-05,
+              "rms": 0.00022521812736943505,
+              "selected_lag_pairs": 466,
+              "selected_lag1": 0.20729420437309126,
+              "native_exposure_neighbor_pairs": 14,
+              "native_exposure_neighbor_correlation": 0.536209445341993,
+              "selected_lag1_after_linear_trend_removal": 0.18563756670744866
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 205.26089914177763,
+              "rows": 334,
+              "in_transit_rows": 84,
+              "linearized_template_shift_days": 0.004087525076398639
+            },
+            {
+              "mean_time_days": 215.33464769816393,
+              "rows": 333,
+              "in_transit_rows": 88,
+              "linearized_template_shift_days": 0.002238116431054407
+            },
+            {
+              "mean_time_days": 225.61352255832833,
+              "rows": 333,
+              "in_transit_rows": 78,
+              "linearized_template_shift_days": -0.004539241169407297
+            }
+          ]
+        },
+        {
+          "segment_id": "kepler_10_b:kplr011904151-2009291181958_slc.fits",
+          "rows": 1000,
+          "time_span_days": 30.1482536512558,
+          "median_exposure_days": 0.000681119940564,
+          "selected_spacing_quantiles_days": [
+            0.0006810793929616921,
+            0.0040865756091079675,
+            0.007492215598176699,
+            0.01362207968122675,
+            0.7941625078602215
+          ],
+          "gaps_larger_than_1_5_selected_median": 331,
+          "offset_mean": 7.463760380922241e-06,
+          "linear_trend_per_day": -1.995611019415883e-06,
+          "partitions": {
+            "all": {
+              "rows": 1000,
+              "median_residual": 7.979032417393395e-06,
+              "rms": 0.00023157026225012706,
+              "selected_lag_pairs": 668,
+              "selected_lag1": 0.012634965877669872,
+              "native_exposure_neighbor_pairs": 15,
+              "native_exposure_neighbor_correlation": 0.14548682213485273,
+              "selected_lag1_after_linear_trend_removal": 0.006531524224988658
+            },
+            "in_transit": {
+              "rows": 254,
+              "median_residual": 1.667129358112751e-05,
+              "rms": 0.00021932110226009945,
+              "selected_lag_pairs": 163,
+              "selected_lag1": 0.006529710800631817,
+              "native_exposure_neighbor_pairs": 0,
+              "native_exposure_neighbor_correlation": null,
+              "selected_lag1_after_linear_trend_removal": 0.014267326745843802
+            },
+            "out_of_transit": {
+              "rows": 746,
+              "median_residual": 3.947891378419666e-06,
+              "rms": 0.00023559559713605177,
+              "selected_lag_pairs": 488,
+              "selected_lag1": -0.00033721902057956695,
+              "native_exposure_neighbor_pairs": 15,
+              "native_exposure_neighbor_correlation": 0.14548682213485273,
+              "selected_lag1_after_linear_trend_removal": -0.010495976774807705
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 264.7774247302866,
+              "rows": 334,
+              "in_transit_rows": 88,
+              "linearized_template_shift_days": -0.0037873487847564402
+            },
+            {
+              "mean_time_days": 275.5427082200418,
+              "rows": 333,
+              "in_transit_rows": 83,
+              "linearized_template_shift_days": 0.0001807665571423975
+            },
+            {
+              "mean_time_days": 285.7651687285521,
+              "rows": 333,
+              "in_transit_rows": 83,
+              "linearized_template_shift_days": -0.0021076872962788066
+            }
+          ]
+        },
+        {
+          "segment_id": "kepler_10_b:kplr011904151-2009350160919_slc.fits",
+          "rows": 1000,
+          "time_span_days": 25.406464296611375,
+          "median_exposure_days": 0.000681119940564,
+          "selected_spacing_quantiles_days": [
+            0.0006809811965808876,
+            0.0034056144795613363,
+            0.0074919879480148666,
+            0.01225975712443983,
+            0.800296256020431
+          ],
+          "gaps_larger_than_1_5_selected_median": 272,
+          "offset_mean": -4.278608202305435e-05,
+          "linear_trend_per_day": -2.738941974467033e-05,
+          "partitions": {
+            "all": {
+              "rows": 1000,
+              "median_residual": 1.0862030172531512e-05,
+              "rms": 0.00041249868678689273,
+              "selected_lag_pairs": 727,
+              "selected_lag1": 0.7007413267898662,
+              "native_exposure_neighbor_pairs": 29,
+              "native_exposure_neighbor_correlation": 0.801384478955126,
+              "selected_lag1_after_linear_trend_removal": 0.6002205851752874
+            },
+            "in_transit": {
+              "rows": 245,
+              "median_residual": -4.65137503175006e-05,
+              "rms": 0.0004203909979332599,
+              "selected_lag_pairs": 172,
+              "selected_lag1": 0.7270638706585465,
+              "native_exposure_neighbor_pairs": 16,
+              "native_exposure_neighbor_correlation": 0.7973568184268619,
+              "selected_lag1_after_linear_trend_removal": 0.6384030366263045
+            },
+            "out_of_transit": {
+              "rows": 755,
+              "median_residual": 3.053156294841042e-05,
+              "rms": 0.0004099049506539195,
+              "selected_lag_pairs": 530,
+              "selected_lag1": 0.6915369269564385,
+              "native_exposure_neighbor_pairs": 13,
+              "native_exposure_neighbor_correlation": 0.8061553530338302,
+              "selected_lag1_after_linear_trend_removal": 0.5854534517086476
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 328.2632141825674,
+              "rows": 334,
+              "in_transit_rows": 84,
+              "linearized_template_shift_days": -0.005271699177892976
+            },
+            {
+              "mean_time_days": 336.6266291206083,
+              "rows": 333,
+              "in_transit_rows": 78,
+              "linearized_template_shift_days": 0.004274561526970807
+            },
+            {
+              "mean_time_days": 345.6027804732329,
+              "rows": 333,
+              "in_transit_rows": 83,
+              "linearized_template_shift_days": 0.0022836193536256775
+            }
+          ]
+        }
+      ],
+      "historical_temporal_screen": {
+        "method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+        "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+        "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
+        "familywise_alpha_per_run": 0.01,
+        "lags": [
+          {
+            "lag": 1,
+            "pairs": 2042,
+            "correlation": 0.488021388031915,
+            "normal_reference_bound": 0.06838537922047325,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 2,
+            "pairs": 1620,
+            "correlation": 0.4845940501817828,
+            "normal_reference_bound": 0.07677743892063525,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 3,
+            "pairs": 1321,
+            "correlation": 0.50937407646622,
+            "normal_reference_bound": 0.08502364504398564,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 4,
+            "pairs": 1152,
+            "correlation": 0.47007436359188226,
+            "normal_reference_bound": 0.09104684246387518,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 5,
+            "pairs": 991,
+            "correlation": 0.47962436372394723,
+            "normal_reference_bound": 0.09816446436804527,
+            "available": true,
+            "flagged": true
+          }
+        ],
+        "assessable": true,
+        "flagged": true
+      }
+    },
+    {
+      "target": "TrES-2 b",
+      "job_id": "PUB-05__tres_2_b__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/tres_2_b/rep_0000/attempt_000",
+      "historical_gates": {
+        "provenance": true,
+        "sampler": true,
+        "ppc": false,
+        "scientific": false
+      },
+      "mask_half_duration_days": 0.036316458333333336,
+      "mask_origin": "predeclared catalog duration; descriptive conditioning, not independent validation",
+      "segments": [
+        {
+          "segment_id": "tres_2_b:kplr011446443-2009131105131_llc.fits",
+          "rows": 45,
+          "time_span_days": 7.560670170154495,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.02043413725186838,
+            0.02043423745635664,
+            0.020434249599915688,
+            0.020434349187791412,
+            2.2068977876042624
+          ],
+          "gaps_larger_than_1_5_selected_median": 8,
+          "offset_mean": 0.00013306211500345574,
+          "linear_trend_per_day": 5.803376350582892e-05,
+          "partitions": {
+            "all": {
+              "rows": 45,
+              "median_residual": 4.787023844810001e-05,
+              "rms": 0.0002902187395435123,
+              "selected_lag_pairs": 36,
+              "selected_lag1": 0.872763686037063,
+              "native_exposure_neighbor_pairs": 36,
+              "native_exposure_neighbor_correlation": 0.872763686037063,
+              "selected_lag1_after_linear_trend_removal": 0.8132871699682855
+            },
+            "in_transit": {
+              "rows": 13,
+              "median_residual": 5.50362530655768e-05,
+              "rms": 0.0003417687790334237,
+              "selected_lag_pairs": 7,
+              "selected_lag1": 0.9461564494337483,
+              "native_exposure_neighbor_pairs": 7,
+              "native_exposure_neighbor_correlation": 0.9461564494337483,
+              "selected_lag1_after_linear_trend_removal": 0.9008855531801311
+            },
+            "out_of_transit": {
+              "rows": 32,
+              "median_residual": 4.387672724814884e-05,
+              "rms": 0.0002664426871424558,
+              "selected_lag_pairs": 25,
+              "selected_lag1": 0.8519066378537217,
+              "native_exposure_neighbor_pairs": 25,
+              "native_exposure_neighbor_correlation": 0.8519066378537217,
+              "selected_lag1_after_linear_trend_removal": 0.7866597933065099
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 123.2487012539767,
+              "rows": 15,
+              "in_transit_rows": 2,
+              "linearized_template_shift_days": 5.5287944854182715e-05
+            },
+            {
+              "mean_time_days": 125.90515347093461,
+              "rows": 15,
+              "in_transit_rows": 6,
+              "linearized_template_shift_days": 0.00010494185791906932
+            },
+            {
+              "mean_time_days": 129.02341872448062,
+              "rows": 15,
+              "in_transit_rows": 5,
+              "linearized_template_shift_days": -0.0004234142672159434
+            }
+          ]
+        },
+        {
+          "segment_id": "tres_2_b:kplr011446443-2009166043257_llc.fits",
+          "rows": 179,
+          "time_span_days": 32.38812299069832,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.02043394633801654,
+            0.020434102043509483,
+            0.02043417765162303,
+            0.020434289466720656,
+            2.2477478779328237
+          ],
+          "gaps_larger_than_1_5_selected_median": 32,
+          "offset_mean": -2.559930973629814e-05,
+          "linear_trend_per_day": 3.5661721840827227e-06,
+          "partitions": {
+            "all": {
+              "rows": 179,
+              "median_residual": -2.2403637741974517e-05,
+              "rms": 8.369858697769744e-05,
+              "selected_lag_pairs": 146,
+              "selected_lag1": 0.5540460899854793,
+              "native_exposure_neighbor_pairs": 146,
+              "native_exposure_neighbor_correlation": 0.5540460899854793,
+              "selected_lag1_after_linear_trend_removal": 0.4267086050072065
+            },
+            "in_transit": {
+              "rows": 49,
+              "median_residual": -3.911916001941851e-05,
+              "rms": 9.455221226291995e-05,
+              "selected_lag_pairs": 35,
+              "selected_lag1": 0.6252372592916857,
+              "native_exposure_neighbor_pairs": 35,
+              "native_exposure_neighbor_correlation": 0.6252372592916857,
+              "selected_lag1_after_linear_trend_removal": 0.338652411499425
+            },
+            "out_of_transit": {
+              "rows": 130,
+              "median_residual": -1.951281247036807e-05,
+              "rms": 7.922267781204825e-05,
+              "selected_lag_pairs": 92,
+              "selected_lag1": 0.5005245671730428,
+              "native_exposure_neighbor_pairs": 92,
+              "native_exposure_neighbor_correlation": 0.5005245671730428,
+              "selected_lag1_after_linear_trend_removal": 0.3847874025702418
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 137.12831219947378,
+              "rows": 60,
+              "in_transit_rows": 16,
+              "linearized_template_shift_days": -4.969167654544534e-05
+            },
+            {
+              "mean_time_days": 147.84842617107375,
+              "rows": 60,
+              "in_transit_rows": 15,
+              "linearized_template_shift_days": 4.2039237538743776e-05
+            },
+            {
+              "mean_time_days": 159.74747434734715,
+              "rows": 59,
+              "in_transit_rows": 18,
+              "linearized_template_shift_days": -1.4809297787074462e-05
+            }
+          ]
+        },
+        {
+          "segment_id": "tres_2_b:kplr011446443-2009259160929_llc.fits",
+          "rows": 388,
+          "time_span_days": 84.06375951819794,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.020433060184586793,
+            0.020433417113991936,
+            0.020433696161461512,
+            0.020433986846910557,
+            4.761096667469246
+          ],
+          "gaps_larger_than_1_5_selected_median": 85,
+          "offset_mean": -3.4462037786938975e-06,
+          "linear_trend_per_day": 4.1922360676024386e-07,
+          "partitions": {
+            "all": {
+              "rows": 388,
+              "median_residual": -3.4493607036223395e-06,
+              "rms": 9.418253603101882e-05,
+              "selected_lag_pairs": 302,
+              "selected_lag1": 0.7160583698886318,
+              "native_exposure_neighbor_pairs": 302,
+              "native_exposure_neighbor_correlation": 0.7160583698886318,
+              "selected_lag1_after_linear_trend_removal": 0.7101749800758891
+            },
+            "in_transit": {
+              "rows": 104,
+              "median_residual": 3.993678136526846e-07,
+              "rms": 0.00010040180296591119,
+              "selected_lag_pairs": 68,
+              "selected_lag1": 0.7547124217051987,
+              "native_exposure_neighbor_pairs": 68,
+              "native_exposure_neighbor_correlation": 0.7547124217051987,
+              "selected_lag1_after_linear_trend_removal": 0.7508475758813925
+            },
+            "out_of_transit": {
+              "rows": 284,
+              "median_residual": -5.356709336323817e-06,
+              "rms": 9.179971969293229e-05,
+              "selected_lag_pairs": 196,
+              "selected_lag1": 0.7012298394204474,
+              "native_exposure_neighbor_pairs": 196,
+              "native_exposure_neighbor_correlation": 0.7012298394204474,
+              "selected_lag1_after_linear_trend_removal": 0.6954586073173902
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 184.66242650853474,
+              "rows": 130,
+              "in_transit_rows": 32,
+              "linearized_template_shift_days": 1.6485581232455363e-05
+            },
+            {
+              "mean_time_days": 212.47543183782105,
+              "rows": 129,
+              "in_transit_rows": 35,
+              "linearized_template_shift_days": -2.9003574267634674e-07
+            },
+            {
+              "mean_time_days": 239.98991522533538,
+              "rows": 129,
+              "in_transit_rows": 37,
+              "linearized_template_shift_days": 3.834368424276074e-05
+            }
+          ]
+        }
+      ],
+      "historical_temporal_screen": {
+        "method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+        "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+        "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
+        "familywise_alpha_per_run": 0.01,
+        "lags": [
+          {
+            "lag": 1,
+            "pairs": 484,
+            "correlation": 0.7749806650298172,
+            "normal_reference_bound": 0.14046510482580968,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 2,
+            "pairs": 380,
+            "correlation": 0.7380490644774698,
+            "normal_reference_bound": 0.15852557245211793,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 3,
+            "pairs": 295,
+            "correlation": 0.7091542054300286,
+            "normal_reference_bound": 0.17992028089753606,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 4,
+            "pairs": 229,
+            "correlation": 0.7290908042545083,
+            "normal_reference_bound": 0.20420829876429186,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 5,
+            "pairs": 177,
+            "correlation": 0.6705759426799568,
+            "normal_reference_bound": 0.23227608385370585,
+            "available": true,
+            "flagged": true
+          }
+        ],
+        "assessable": true,
+        "flagged": true
+      }
+    },
+    {
+      "target": "HD 189733 b",
+      "job_id": "PUB-05__hd_189733_b__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hd_189733_b/rep_0000/attempt_000",
+      "historical_gates": {
+        "provenance": true,
+        "sampler": true,
+        "ppc": false,
+        "scientific": false
+      },
+      "mask_half_duration_days": 0.037576,
+      "mask_origin": "predeclared catalog duration; descriptive conditioning, not independent validation",
+      "segments": [
+        {
+          "segment_id": "hd_189733_b:tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+          "rows": 1000,
+          "time_span_days": 26.585897400866088,
+          "median_exposure_days": 0.001388888888888889,
+          "selected_spacing_quantiles_days": [
+            0.001388862597195839,
+            0.001388892865179514,
+            0.004166589191299863,
+            0.004166659971133413,
+            4.138859676190805
+          ],
+          "gaps_larger_than_1_5_selected_median": 22,
+          "offset_mean": -3.323315609543087e-05,
+          "linear_trend_per_day": -4.7799554087593015e-05,
+          "partitions": {
+            "all": {
+              "rows": 1000,
+              "median_residual": -5.64182914236655e-06,
+              "rms": 0.0035288189137909426,
+              "selected_lag_pairs": 977,
+              "selected_lag1": 0.992999544106053,
+              "native_exposure_neighbor_pairs": 265,
+              "native_exposure_neighbor_correlation": 0.9927952189042932,
+              "selected_lag1_after_linear_trend_removal": 0.9929206292380135
+            },
+            "in_transit": {
+              "rows": 252,
+              "median_residual": 0.00014107489991995,
+              "rms": 0.003547581323490496,
+              "selected_lag_pairs": 241,
+              "selected_lag1": 0.9910567318933188,
+              "native_exposure_neighbor_pairs": 62,
+              "native_exposure_neighbor_correlation": 0.9927038611021615,
+              "selected_lag1_after_linear_trend_removal": 0.9909987405725025
+            },
+            "out_of_transit": {
+              "rows": 748,
+              "median_residual": -8.426035560094025e-05,
+              "rms": 0.003522475382223364,
+              "selected_lag_pairs": 720,
+              "selected_lag1": 0.9936219556127959,
+              "native_exposure_neighbor_pairs": 200,
+              "native_exposure_neighbor_correlation": 0.9928419065547542,
+              "selected_lag1_after_linear_trend_removal": 0.9935415415172099
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 2424.8720933096088,
+              "rows": 334,
+              "in_transit_rows": 91,
+              "linearized_template_shift_days": 0.0007144229577310298
+            },
+            {
+              "mean_time_days": 2434.2507606596623,
+              "rows": 333,
+              "in_transit_rows": 72,
+              "linearized_template_shift_days": 2.7410043006017787e-05
+            },
+            {
+              "mean_time_days": 2443.13369079938,
+              "rows": 333,
+              "in_transit_rows": 89,
+              "linearized_template_shift_days": 2.833057378018037e-05
+            }
+          ]
+        },
+        {
+          "segment_id": "hd_189733_b:tess2022190063128-s0054-0000000256364928-0227-s_lc.fits",
+          "rows": 1000,
+          "time_span_days": 24.700275275129115,
+          "median_exposure_days": 0.001388888888888889,
+          "selected_spacing_quantiles_days": [
+            0.0013888891785427404,
+            0.0013889124620618531,
+            0.004166668004017993,
+            0.005555573015271875,
+            1.9903125353366704
+          ],
+          "gaps_larger_than_1_5_selected_median": 40,
+          "offset_mean": -0.0004831463355581143,
+          "linear_trend_per_day": -3.88140122199855e-06,
+          "partitions": {
+            "all": {
+              "rows": 1000,
+              "median_residual": -0.00024644459403469997,
+              "rms": 0.002019605222671059,
+              "selected_lag_pairs": 959,
+              "selected_lag1": 0.9529355196968252,
+              "native_exposure_neighbor_pairs": 427,
+              "native_exposure_neighbor_correlation": 0.9549790315101302,
+              "selected_lag1_after_linear_trend_removal": 0.9529264484062991
+            },
+            "in_transit": {
+              "rows": 259,
+              "median_residual": -0.0002901803814111,
+              "rms": 0.00203098957430364,
+              "selected_lag_pairs": 247,
+              "selected_lag1": 0.954695439749707,
+              "native_exposure_neighbor_pairs": 115,
+              "native_exposure_neighbor_correlation": 0.962077473388061,
+              "selected_lag1_after_linear_trend_removal": 0.9546064849297361
+            },
+            "out_of_transit": {
+              "rows": 741,
+              "median_residual": -0.00021255935348,
+              "rms": 0.002015610911851491,
+              "selected_lag_pairs": 689,
+              "selected_lag1": 0.9522836114896853,
+              "native_exposure_neighbor_pairs": 308,
+              "native_exposure_neighbor_correlation": 0.9526187593489881,
+              "selected_lag1_after_linear_trend_removal": 0.9523045706942819
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 2773.913733112003,
+              "rows": 334,
+              "in_transit_rows": 87,
+              "linearized_template_shift_days": 3.3034944583128114e-05
+            },
+            {
+              "mean_time_days": 2782.8731407326254,
+              "rows": 333,
+              "in_transit_rows": 85,
+              "linearized_template_shift_days": 9.871053057821187e-06
+            },
+            {
+              "mean_time_days": 2791.5479620647216,
+              "rows": 333,
+              "in_transit_rows": 87,
+              "linearized_template_shift_days": -1.0146558777580634e-05
+            }
+          ]
+        },
+        {
+          "segment_id": "hd_189733_b:tess2024196212429-s0081-0000000256364928-0276-s_lc.fits",
+          "rows": 1000,
+          "time_span_days": 24.695929315855665,
+          "median_exposure_days": 0.0013888888888889,
+          "selected_spacing_quantiles_days": [
+            0.0013888756507185462,
+            0.0013888985004086862,
+            0.002777766701001383,
+            0.004166691262526001,
+            4.1403099850867875
+          ],
+          "gaps_larger_than_1_5_selected_median": 275,
+          "offset_mean": 0.0005148792251630178,
+          "linear_trend_per_day": -4.364663860259368e-05,
+          "partitions": {
+            "all": {
+              "rows": 1000,
+              "median_residual": 2.575098360951822e-05,
+              "rms": 0.002139585015209403,
+              "selected_lag_pairs": 724,
+              "selected_lag1": 0.9802379316723392,
+              "native_exposure_neighbor_pairs": 414,
+              "native_exposure_neighbor_correlation": 0.9842234619563375,
+              "selected_lag1_after_linear_trend_removal": 0.9794561419209524
+            },
+            "in_transit": {
+              "rows": 258,
+              "median_residual": -5.134265999440224e-05,
+              "rms": 0.0021207612235465624,
+              "selected_lag_pairs": 178,
+              "selected_lag1": 0.9802511448030458,
+              "native_exposure_neighbor_pairs": 140,
+              "native_exposure_neighbor_correlation": 0.9825180039009637,
+              "selected_lag1_after_linear_trend_removal": 0.9792554167453722
+            },
+            "out_of_transit": {
+              "rows": 742,
+              "median_residual": 5.59297689107785e-05,
+              "rms": 0.002146091529884875,
+              "selected_lag_pairs": 532,
+              "selected_lag1": 0.9807590467271519,
+              "native_exposure_neighbor_pairs": 269,
+              "native_exposure_neighbor_correlation": 0.9855299179581123,
+              "selected_lag1_after_linear_trend_removal": 0.9800468087485185
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 3509.904173733975,
+              "rows": 334,
+              "in_transit_rows": 88,
+              "linearized_template_shift_days": -0.0005727189601717151
+            },
+            {
+              "mean_time_days": 3520.8663231273817,
+              "rows": 333,
+              "in_transit_rows": 84,
+              "linearized_template_shift_days": 0.00020828927926980922
+            },
+            {
+              "mean_time_days": 3528.5670165144784,
+              "rows": 333,
+              "in_transit_rows": 86,
+              "linearized_template_shift_days": -0.00043259023346558004
+            }
+          ]
+        }
+      ],
+      "historical_temporal_screen": {
+        "method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+        "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+        "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
+        "familywise_alpha_per_run": 0.01,
+        "lags": [
+          {
+            "lag": 1,
+            "pairs": 2660,
+            "correlation": 0.9834066321484565,
+            "normal_reference_bound": 0.05991703445035081,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 2,
+            "pairs": 2388,
+            "correlation": 0.983801582754907,
+            "normal_reference_bound": 0.0632373944049218,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 3,
+            "pairs": 2368,
+            "correlation": 0.9835073081504585,
+            "normal_reference_bound": 0.06350388270903591,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 4,
+            "pairs": 2280,
+            "correlation": 0.9829427779770282,
+            "normal_reference_bound": 0.0647177939483824,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 5,
+            "pairs": 2203,
+            "correlation": 0.9822667985491126,
+            "normal_reference_bound": 0.06583909913624145,
+            "available": true,
+            "flagged": true
+          }
+        ],
+        "assessable": true,
+        "flagged": true
+      }
+    },
+    {
+      "target": "Kepler-4 b",
+      "job_id": "PUB-05__kepler_4_b__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_4_b/rep_0000/attempt_000",
+      "historical_gates": {
+        "provenance": true,
+        "sampler": false,
+        "ppc": false,
+        "scientific": false
+      },
+      "mask_half_duration_days": 0.082965625,
+      "mask_origin": "predeclared catalog duration; descriptive conditioning, not independent validation",
+      "segments": [
+        {
+          "segment_id": "kepler_4_b:kplr011853905-2009131105131_llc.fits",
+          "rows": 89,
+          "time_span_days": 9.70624986205803,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.02043410093028797,
+            0.020434200938325375,
+            0.020434210600797087,
+            0.02043430405137059,
+            2.636014066731164
+          ],
+          "gaps_larger_than_1_5_selected_median": 7,
+          "offset_mean": 7.434285255647185e-06,
+          "linear_trend_per_day": 1.1933939407157844e-05,
+          "partitions": {
+            "all": {
+              "rows": 89,
+              "median_residual": 8.353201603972238e-06,
+              "rms": 0.00014187155998640418,
+              "selected_lag_pairs": 81,
+              "selected_lag1": 0.4398966550825873,
+              "native_exposure_neighbor_pairs": 81,
+              "native_exposure_neighbor_correlation": 0.4398966550825873,
+              "selected_lag1_after_linear_trend_removal": 0.40798364298172674
+            },
+            "in_transit": {
+              "rows": 21,
+              "median_residual": 4.414086852977395e-05,
+              "rms": 0.00011239931507330925,
+              "selected_lag_pairs": 17,
+              "selected_lag1": 0.6364294770700715,
+              "native_exposure_neighbor_pairs": 17,
+              "native_exposure_neighbor_correlation": 0.6364294770700715,
+              "selected_lag1_after_linear_trend_removal": 0.37469922341787465
+            },
+            "out_of_transit": {
+              "rows": 68,
+              "median_residual": 4.239655652660268e-07,
+              "rms": 0.0001498060163239999,
+              "selected_lag_pairs": 61,
+              "selected_lag1": 0.39691239146250584,
+              "native_exposure_neighbor_pairs": 61,
+              "native_exposure_neighbor_correlation": 0.39691239146250584,
+              "selected_lag1_after_linear_trend_removal": 0.3963923540391646
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 122.76103566286766,
+              "rows": 30,
+              "in_transit_rows": 7,
+              "linearized_template_shift_days": 0.0034511263798117663
+            },
+            {
+              "mean_time_days": 126.08023292634438,
+              "rows": 30,
+              "in_transit_rows": 7,
+              "linearized_template_shift_days": 0.004650054621165821
+            },
+            {
+              "mean_time_days": 129.39069160313275,
+              "rows": 29,
+              "in_transit_rows": 7,
+              "linearized_template_shift_days": 0.0013756712408786182
+            }
+          ]
+        },
+        {
+          "segment_id": "kepler_4_b:kplr011853905-2009166043257_llc.fits",
+          "rows": 270,
+          "time_span_days": 29.506866217721836,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.020433930738363415,
+            0.020434056576050352,
+            0.02043414959919687,
+            0.0204341910429946,
+            2.758601572328189
+          ],
+          "gaps_larger_than_1_5_selected_median": 22,
+          "offset_mean": 1.3323636473849468e-05,
+          "linear_trend_per_day": 1.1560962452209033e-06,
+          "partitions": {
+            "all": {
+              "rows": 270,
+              "median_residual": 2.0954639831483046e-05,
+              "rms": 9.852880403879281e-05,
+              "selected_lag_pairs": 247,
+              "selected_lag1": 0.007449753163205607,
+              "native_exposure_neighbor_pairs": 247,
+              "native_exposure_neighbor_correlation": 0.007449753163205607,
+              "selected_lag1_after_linear_trend_removal": -0.0014303859433617767
+            },
+            "in_transit": {
+              "rows": 78,
+              "median_residual": 2.2835405523891072e-05,
+              "rms": 9.265588923883418e-05,
+              "selected_lag_pairs": 66,
+              "selected_lag1": -0.003396722335518844,
+              "native_exposure_neighbor_pairs": 66,
+              "native_exposure_neighbor_correlation": -0.003396722335518844,
+              "selected_lag1_after_linear_trend_removal": -0.014723163210758002
+            },
+            "out_of_transit": {
+              "rows": 192,
+              "median_residual": 1.3209161869642827e-05,
+              "rms": 0.00010081699937275883,
+              "selected_lag_pairs": 163,
+              "selected_lag1": -0.004997670756238542,
+              "native_exposure_neighbor_pairs": 163,
+              "native_exposure_neighbor_correlation": -0.004997670756238542,
+              "selected_lag1_after_linear_trend_removal": -0.015755059207649608
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 136.9139870451237,
+              "rows": 90,
+              "in_transit_rows": 23,
+              "linearized_template_shift_days": 0.0030933159729835623
+            },
+            {
+              "mean_time_days": 147.0604510735287,
+              "rows": 90,
+              "in_transit_rows": 26,
+              "linearized_template_shift_days": -0.0009767344671641532
+            },
+            {
+              "mean_time_days": 158.44178619867583,
+              "rows": 90,
+              "in_transit_rows": 29,
+              "linearized_template_shift_days": -0.00021460162059733044
+            }
+          ]
+        },
+        {
+          "segment_id": "kepler_4_b:kplr011853905-2009259160929_llc.fits",
+          "rows": 693,
+          "time_span_days": 86.94470829848433,
+          "median_exposure_days": 0.02043359821692,
+          "selected_spacing_quantiles_days": [
+            0.020433033867448103,
+            0.020433362746217654,
+            0.02043362008407712,
+            0.02043384534047732,
+            2.9219392719169264
+          ],
+          "gaps_larger_than_1_5_selected_median": 89,
+          "offset_mean": -5.939156961392865e-06,
+          "linear_trend_per_day": 6.181346691202187e-07,
+          "partitions": {
+            "all": {
+              "rows": 693,
+              "median_residual": -3.837766536118892e-06,
+              "rms": 9.47761911977407e-05,
+              "selected_lag_pairs": 603,
+              "selected_lag1": 0.23443517666455435,
+              "native_exposure_neighbor_pairs": 603,
+              "native_exposure_neighbor_correlation": 0.23443517666455435,
+              "selected_lag1_after_linear_trend_removal": 0.21178399479300447
+            },
+            "in_transit": {
+              "rows": 187,
+              "median_residual": -3.1188976469254115e-06,
+              "rms": 9.751738022497151e-05,
+              "selected_lag_pairs": 142,
+              "selected_lag1": 0.19186228205178768,
+              "native_exposure_neighbor_pairs": 142,
+              "native_exposure_neighbor_correlation": 0.19186228205178768,
+              "selected_lag1_after_linear_trend_removal": 0.17236540528665503
+            },
+            "out_of_transit": {
+              "rows": 506,
+              "median_residual": -4.910650142020412e-06,
+              "rms": 9.374285987301345e-05,
+              "selected_lag_pairs": 419,
+              "selected_lag1": 0.24808325666477804,
+              "native_exposure_neighbor_pairs": 419,
+              "native_exposure_neighbor_correlation": 0.24808325666477804,
+              "selected_lag1_after_linear_trend_removal": 0.2256061738123493
+            }
+          },
+          "time_blocks": [
+            {
+              "mean_time_days": 185.05117910109368,
+              "rows": 231,
+              "in_transit_rows": 62,
+              "linearized_template_shift_days": -0.0013983633167600038
+            },
+            {
+              "mean_time_days": 213.62686510251854,
+              "rows": 231,
+              "in_transit_rows": 64,
+              "linearized_template_shift_days": 0.00013531328688790454
+            },
+            {
+              "mean_time_days": 242.4593725855418,
+              "rows": 231,
+              "in_transit_rows": 61,
+              "linearized_template_shift_days": -0.00010751434454398524
+            }
+          ]
+        }
+      ],
+      "historical_temporal_screen": {
+        "method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+        "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+        "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
+        "familywise_alpha_per_run": 0.01,
+        "lags": [
+          {
+            "lag": 1,
+            "pairs": 931,
+            "correlation": 0.2205279175823668,
+            "normal_reference_bound": 0.10127827319285819,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 2,
+            "pairs": 821,
+            "correlation": 0.22079785616127193,
+            "normal_reference_bound": 0.10784985111254376,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 3,
+            "pairs": 719,
+            "correlation": 0.23564701583750006,
+            "normal_reference_bound": 0.11524621828522115,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 4,
+            "pairs": 629,
+            "correlation": 0.1763640973454859,
+            "normal_reference_bound": 0.12321563108056002,
+            "available": true,
+            "flagged": true
+          },
+          {
+            "lag": 5,
+            "pairs": 551,
+            "correlation": 0.1826525276541858,
+            "normal_reference_bound": 0.13164832233374954,
+            "available": true,
+            "flagged": true
+          }
+        ],
+        "assessable": true,
+        "flagged": true
+      }
+    }
+  ],
+  "source_checksums": {
+    "reports/publication_campaign/tcc_campaign_v1/campaign_summary.json": "c785fa40415d82bc99989f5c49c196e1d1fd92f3d2c1174b22fb7b4de9e51b3b",
+    "publication/protocols/PUB-05.json": "375f26bed0f1dae7d90ba2c2787af924f29454743b5ecb58bac0bed03c243efc",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hat_p_7_b/rep_0000/attempt_000/input.csv": "c6df6b37e3188cfc380bc1b74e4050e844f37e47b2c50912c3b1a5080fc68756",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hat_p_7_b/rep_0000/attempt_000/predictive_summary.csv": "78977179f93d4f707bd12b699dadf094961f562192c7165a061abd65f6a66bdb",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hat_p_7_b/rep_0000/attempt_000/result.json": "82e02e8801f060b69f1498c83688cda630b561d28897ce3d32b3de468d47eb59",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hat_p_7_b/rep_0000/attempt_000/inference_config.json": "9b6949c51c4f0eb532bf2ea7af556e5863c03f17d42fe14fdd7ef5de02b9328c",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_10_b/rep_0000/attempt_000/input.csv": "d61520d34f0d1dcb45dc82404fed3016587d463d3ac5b03e5637941c6a153964",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_10_b/rep_0000/attempt_000/predictive_summary.csv": "21b0720a4f70bcc3cfd0248194632573c1715519138233cfb2b6b470c2cab24c",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_10_b/rep_0000/attempt_000/result.json": "c0f3571ba65f53b76e7de972608377bb90ad65369d90ca2c03a798bdb0d7c4a5",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_10_b/rep_0000/attempt_000/inference_config.json": "2ce9105e7e499638a227216bb99fe8d3bfb8f5f0501fb5a0ba1ceedc7a664310",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/tres_2_b/rep_0000/attempt_000/input.csv": "07de69e48b08a8b905fe19d711c713b4e9409de44806b3c6c89e64c7481fd99b",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/tres_2_b/rep_0000/attempt_000/predictive_summary.csv": "56128410a75b2249c7eef5e028b413dae83d4f546f8e4240d2538cd7af136ee6",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/tres_2_b/rep_0000/attempt_000/result.json": "de534ddf21d2b98c9f06cfa25eb5dcd6eea40a2b3799bff5d0543eb0a450f443",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/tres_2_b/rep_0000/attempt_000/inference_config.json": "4d032c16e7dc4b001d95c5d90f1483bfa51a2df8596524b12badbcd275cac907",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hd_189733_b/rep_0000/attempt_000/input.csv": "11c9773997a22f12415567b8bc6efe92865d7116db6a6f9e62289f61f3594a26",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hd_189733_b/rep_0000/attempt_000/predictive_summary.csv": "71d4c10d1dd44ea5035b6fc8d187fc42c2c180694653d8d4638cbe7da219f849",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hd_189733_b/rep_0000/attempt_000/result.json": "80722a9a703ec5063c392ea554fb36d7f5f09b8040d6590a254569527166b222",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/hd_189733_b/rep_0000/attempt_000/inference_config.json": "3acbc951783fbb5493b0fc6e6496563c7874029919772ef1a91d7ae42b19b47c",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_4_b/rep_0000/attempt_000/input.csv": "dbed4135314849f0d12826c86d67b7d1ab18c3563f245424563fb2a8bbcc1caa",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_4_b/rep_0000/attempt_000/predictive_summary.csv": "f9693aa5df1e6cb54373fb8b5411b5a44c1b8f8f00eabeed32a80c08c3378331",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_4_b/rep_0000/attempt_000/result.json": "14af43fa8227013dc1b6523a7db3c67cfbfb66b60610b6f49678af248fbfda8d",
+    "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-05/kepler_4_b/rep_0000/attempt_000/inference_config.json": "5b406c9c13cc0e0c412c9179670f9c0910daa7f26945cd367a2b31f922d21a3e"
+  },
+  "generator_source_checksums": {
+    "src/publication/residual_review.py": "7dfdaeaee5ba88334fe7061ee7299032fc08b1a7c58969ff4d1ce91ec34784d2",
+    "scripts/audit_observational_residuals.py": "6642841244c8679b9fcf765f1975cbee99dbf33a5913741150bd3ea7cd3c07f9"
+  },
+  "numeric_environment": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3"
+  },
+  "interpretation": "Post-result diagnostics of unchanged selected observations; no gate thresholds revised and no physical posterior promoted.",
+  "limitations": [
+    "Selected gaps are not native cadence. Exposure proximity is descriptive, not universal cadence.",
+    "Linear trend removal is diagnostic only; historical inputs/fits are unchanged.",
+    "Time-block template shifts may reflect variability, offsets and shape mismatch, not measured ephemeris drift.",
+    "Catalog duration defines masks; in/out results are not independent validation.",
+    "Residuals alone cannot distinguish stochastic covariance from deterministic structure or establish GP benefit."
+  ]
+}
