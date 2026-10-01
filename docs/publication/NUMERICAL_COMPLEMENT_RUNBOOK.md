@@ -1,4 +1,42 @@
-# Optional numerical complement: prepared, not executed
+# Numerical complement — current completed v4 (read-only handoff)
+
+The current completed campaign is **tcc_numerical_complement_v4**, not v1.
+Its controller finished on 2026-10-01; all results, including rejections, remain.
+The canonical TCC source is `reports/publication_synthesis/tcc_evidence_v3/`.
+Corrected component counts and independent reconciliation are generated there;
+see `gate_counts.csv`, `independent_gate_check.json` and `claims.json`.
+
+Current commands from the repository root (no inference):
+
+```text
+python scripts/run_publication_campaign.py --config configs/publication/tcc_numerical_complement_v4.json --status
+python scripts/close_tcc_evidence.py --verify-original
+python scripts/close_tcc_evidence.py --check
+python scripts/close_tcc_evidence.py --build --output reports/publication_synthesis/<NEW_VERSION>
+powershell.exe -NoProfile -File scripts/watch_publication_campaign.ps1 -CampaignId tcc_numerical_complement_v4
+```
+
+Windows wrappers use the v4-configured Ubuntu-24.04 scientific interpreter.
+VS Code tasks `Numerical v4 (current)` consult status, verify original bytes
+and monitor logs. `TCC current` validates or creates a NEW derived synthesis.
+The default workflow cannot launch inference or overwrite a sealed report.
+The monitor is read-only; Ctrl+C closes only the monitor. COMPLETED does not
+mean every scientific gate passed. The historical report's AGGREGATING state
+is an earlier controller snapshot, not the present execution state.
+
+Historical identities: v1 was frozen/unexecuted following source drift; v2
+failed launch preflight before creating a scientific execution state; v3 was
+stopped with the free-coordinate/PPC incident and **must not be resumed**.
+Its recorded decisions are preserved, while affected predictive evidence is
+invalidated separately. v4 corrected this defect and finished with mixed
+scientific results; no threshold or prior was weakened to rescue a result.
+See `NUMERICAL_COMPLEMENT_V4_REVIEW.md` and the versioned trace review.
+
+## Historical v1 preparation record (not operational instructions)
+
+The remainder documents the superseded v1 preparation. Commands below are
+historical only, NOT recommendations to launch/resume or regenerate its sealed
+outputs. Use the current read-only commands above.
 
 Campaign: `tcc_numerical_complement_v1`.
 Configuration: `configs/publication/tcc_numerical_complement_v1.json`.

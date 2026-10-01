@@ -8,7 +8,7 @@
       "frozen_declaration": "configs/publication/tcc_campaign_v1_plan.json",
       "execution_state": "artifacts/publication_campaign/tcc_campaign_v1/campaign_state.json",
       "declared_job_counts": {"PUB-02": 80, "PUB-03": 2, "PUB-04": 30, "PUB-05": 5},
-      "final_report": "reports/publication_campaign/tcc_campaign_v1/summary.json",
+      "final_report": "reports/publication_synthesis/tcc_evidence_v3/campaigns/tcc_campaign_v1/campaign_summary.json",
       "semantics": "Execution completed: all declared jobs retained, including scientific rejections and one earlier cancelled attempt. Legacy expected_runs below are not the campaign denominator; completion is not positive scientific validation."
     },
     {
@@ -18,8 +18,18 @@
       "frozen_declaration": "configs/publication/tcc_calibration_confirmatory_v1_plan.json",
       "execution_state": "artifacts/publication_campaign/tcc_calibration_confirmatory_v1/campaign_state.json",
       "declared_job_counts": {"PUB-02": 400},
-      "final_report": "reports/publication_campaign/tcc_calibration_confirmatory_v1/summary.json",
+      "final_report": "reports/publication_synthesis/tcc_evidence_v3/campaigns/tcc_calibration_confirmatory_v1/campaign_summary.json",
       "semantics": "Independent fixed-N extension chosen after parent outcomes; report cohorts separately. All 400 jobs finished, but gate approval does not establish conditional calibration."
+    },
+    {
+      "campaign_id": "tcc_numerical_complement_v4",
+      "status": "COMPLETED",
+      "config": "configs/publication/tcc_numerical_complement_v4.json",
+      "frozen_declaration": "configs/publication/tcc_numerical_complement_v4_plan.json",
+      "execution_state": "artifacts/publication_campaign/tcc_numerical_complement_v4/campaign_state.json",
+      "declared_job_counts": {"PUB-02": 12, "PUB-03": 3, "PUB-04": 9},
+      "final_report": "reports/publication_synthesis/tcc_evidence_v3/campaigns/tcc_numerical_complement_v4/campaign_summary.json",
+      "semantics": "Completed execution with mixed scientific findings. 12 P2 fits on six paired synthetic datasets; nine P4 fits on three datasets; three local P3 refits on one input and one reused historical external posterior. Not independent extra calibration or external benchmark populations."
     }
   ],
   "experiments": [
@@ -92,18 +102,19 @@
       "experiment_id": "PUB-08",
       "family": "synthesis",
       "protocol": null,
-      "status": "planned"
+      "status": "completed",
+      "scientific_disposition": "Bounded TCC sources generated; not final Word, public release or manuscript submission approval. Canonical evidence index identifies the current version."
     }
   ],
   "post_campaign_audit": {
-    "date": "2026-09-30",
-    "report": "reports/publication_synthesis/tcc_evidence_v1/REPORT.md",
-    "metrics": "reports/publication_synthesis/tcc_evidence_v1/summary.json",
-    "claim_ledger": "reports/publication_synthesis/tcc_evidence_v1/claims.json",
-    "source_inventory": "reports/publication_synthesis/tcc_evidence_v1/SOURCE_INVENTORY.json",
-    "validator": "python scripts/build_publication_synthesis.py --check",
+    "date": "2026-10-01",
+    "report": "reports/publication_synthesis/tcc_evidence_v3/REPORT.md",
+    "metrics": "reports/publication_synthesis/tcc_evidence_v3/summary.json",
+    "claim_ledger": "reports/publication_synthesis/tcc_evidence_v3/claims.json",
+    "source_inventory": "reports/publication_synthesis/tcc_evidence_v3/SOURCE_INVENTORY.json",
+    "validator": "python scripts/close_tcc_evidence.py --check",
     "paper_release_approved": false,
-    "release_limitation": "The legacy release validator expected_runs schema does not consume campaign registries; use campaign evidence validation for this audit, without implying paper release approval."
+    "release_limitation": "Current campaign-aware release audit includes 541 finished jobs/542 attempts without pooling scientific populations; v3 stopped/invalidated evidence remains historical, not a completed final study or added calibration. Public release reviews and durable archive remain separate prerequisites."
   },
   "schema_version": "publication-registry-v1"
 }

@@ -1,5 +1,17 @@
 # Publication Experiment Registry
 
+Current TCC handoff: `publication/TCC_EVIDENCE_INDEX.json` points to
+`reports/publication_synthesis/tcc_evidence_v3/`. Controller states are distinct
+from sampler approval, PPC adequacy and current permission to use evidence.
+The 117-job parent, 400-job confirmatory and 24-fit v4 complement are completed
+and remain separate populations. v3 is stopped, never resumed; seven affected
+PPC/joint evaluations are invalidated without changing historical flags. v1/v2
+numerical plans are historical and did not execute final science. Launch
+snapshots below describe their past instant, not a currently running process.
+Current accounting is generated in `gate_counts.csv`, reconciliation in
+`independent_gate_check.json`, and source-bound claims in `claims.json`.
+No final inference, M6 or new target was authorized/executed for this closure.
+
 This file is the human-readable index for publication-grade experiments. Machine-readable configs/artifacts are authoritative for numerical values; this registry records intent, protocol status and evidence location.
 
 ## Status vocabulary

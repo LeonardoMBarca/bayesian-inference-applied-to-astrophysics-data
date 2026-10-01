@@ -60,6 +60,11 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: "1"
         run: python scripts/freeze_audit_protection.py --check-portable
+      - name: Verify extended TCC history and sealed supplement references
+        if: hashFiles('publication/validation/tcc_closure_v1/transitive_inventory.json') != ''
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python scripts/freeze_audit_protection.py --check-portable --output publication/validation/tcc_closure_v1/protected_snapshot.json --inventory publication/validation/tcc_closure_v1/transitive_inventory.json
       - name: Rebuild Silver and Gold in an isolated temporary workspace
         if: github.event_name == 'workflow_dispatch'
         env:

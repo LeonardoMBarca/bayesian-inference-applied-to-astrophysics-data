@@ -1,0 +1,2348 @@
+{
+  "aggregate": {
+    "attempts": [
+      {
+        "command": [
+          "/home/leonardo_barca/mc3/bin/python3.14",
+          "scripts/aggregate_publication_campaign.py",
+          "--config",
+          "configs/publication/tcc_numerical_complement_v3.json"
+        ],
+        "process": {
+          "pid": 10069,
+          "platform": "linux",
+          "process_group": 10069,
+          "session_id": 10069,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:569877"
+        },
+        "return_code": null,
+        "started_at_utc": "2026-10-01T01:56:41.544792+00:00",
+        "status": "RUNNING",
+        "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/aggregation/campaign.attempt000.stderr.log",
+        "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/aggregation/campaign.attempt000.stdout.log"
+      }
+    ],
+    "source_state_sha256": "1a4875c2f01c29bc46681198ad2dadbd4ad8bc358dbc1301e3d282b51cdd045c",
+    "status": "RUNNING"
+  },
+  "available_cpus": 8,
+  "budget": {
+    "active_seconds": 4379.445129183,
+    "last_checkpoint_utc": "2026-10-01T01:56:54.562270+00:00",
+    "orphan_downtime_seconds": 0.0
+  },
+  "campaign_id": "tcc_numerical_complement_v3",
+  "code_commit": "8febce31eeb5825517e85487a55838414bc3c5e2",
+  "config_path": "configs/publication/tcc_numerical_complement_v3.json",
+  "controller_pid": 832,
+  "controller_process": {
+    "pid": 832,
+    "platform": "linux",
+    "process_group": 832,
+    "session_id": 832,
+    "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:130662"
+  },
+  "created_at_utc": "2026-10-01T00:49:33.322669+00:00",
+  "events": [
+    {
+      "kind": "campaign_declared",
+      "payload": {
+        "jobs": 24,
+        "scientific_config_sha256": "17047686606a724085d6941eb585ad7e061e912d1cd4c7d1944607bfcbe30152"
+      },
+      "previous_sha256": null,
+      "sequence": 0,
+      "sha256": "35bdafaa24d838cfa4de380731022782e7892f6f5fca1a74875eaf1e7fa09302",
+      "timestamp_utc": "2026-10-01T00:49:33.503092+00:00"
+    },
+    {
+      "kind": "execution_environment_verified",
+      "payload": {
+        "report_sha256": "44d2299a5b793c361d3822885466eca5a8a714438411cda1f897147fea605f3a"
+      },
+      "previous_sha256": "35bdafaa24d838cfa4de380731022782e7892f6f5fca1a74875eaf1e7fa09302",
+      "sequence": 1,
+      "sha256": "b3d886aea4f9cfdf10750f4c7e4206d6d599fd9d711fcef7ba1e257f3633b584",
+      "timestamp_utc": "2026-10-01T00:49:33.592155+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000"
+      },
+      "previous_sha256": "b3d886aea4f9cfdf10750f4c7e4206d6d599fd9d711fcef7ba1e257f3633b584",
+      "sequence": 2,
+      "sha256": "67bdefb7c27eb4540b7f1c2ef052c9d03b366dc229a4b5f158199ca468a45398",
+      "timestamp_utc": "2026-10-01T00:49:34.122001+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+        "process": {
+          "pid": 1267,
+          "platform": "linux",
+          "process_group": 1267,
+          "session_id": 1267,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:133297"
+        }
+      },
+      "previous_sha256": "67bdefb7c27eb4540b7f1c2ef052c9d03b366dc229a4b5f158199ca468a45398",
+      "sequence": 3,
+      "sha256": "c5955ffd2e6587cf406ebb9279df540b04b1db6470275519772d329540ba3bb4",
+      "timestamp_utc": "2026-10-01T00:49:34.238006+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "c5955ffd2e6587cf406ebb9279df540b04b1db6470275519772d329540ba3bb4",
+      "sequence": 4,
+      "sha256": "d1e42f365e9bac269e23477dd97d9047afb47b93da941fc065b1d9408ba23aad",
+      "timestamp_utc": "2026-10-01T00:54:52.658255+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000"
+      },
+      "previous_sha256": "d1e42f365e9bac269e23477dd97d9047afb47b93da941fc065b1d9408ba23aad",
+      "sequence": 5,
+      "sha256": "e86879447a15040b942c2baafce9e971f6b068908e5176d125e7e0486c5189aa",
+      "timestamp_utc": "2026-10-01T00:54:53.193155+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+        "process": {
+          "pid": 1966,
+          "platform": "linux",
+          "process_group": 1966,
+          "session_id": 1966,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:167467"
+        }
+      },
+      "previous_sha256": "e86879447a15040b942c2baafce9e971f6b068908e5176d125e7e0486c5189aa",
+      "sequence": 6,
+      "sha256": "6319b62dc2c9bfad9d3f56425546ca972c88a4895fcac9ea4248652c8aa836b1",
+      "timestamp_utc": "2026-10-01T00:54:53.324301+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "6319b62dc2c9bfad9d3f56425546ca972c88a4895fcac9ea4248652c8aa836b1",
+      "sequence": 7,
+      "sha256": "8be96200a684029e4bf5293b54ee604146dfdb2b7434ed717145943b617f949b",
+      "timestamp_utc": "2026-10-01T00:58:02.040319+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000"
+      },
+      "previous_sha256": "8be96200a684029e4bf5293b54ee604146dfdb2b7434ed717145943b617f949b",
+      "sequence": 8,
+      "sha256": "37a12764cd1c0864f8f3dae6573eeee90f905ca16076853a3602201eedcf5131",
+      "timestamp_utc": "2026-10-01T00:58:02.553950+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+        "process": {
+          "pid": 2358,
+          "platform": "linux",
+          "process_group": 2358,
+          "session_id": 2358,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:187669"
+        }
+      },
+      "previous_sha256": "37a12764cd1c0864f8f3dae6573eeee90f905ca16076853a3602201eedcf5131",
+      "sequence": 9,
+      "sha256": "7fabe6a9600d7464eff8731f1d9cdee2cf9f726a8a72e103e363c92c3a7bec5d",
+      "timestamp_utc": "2026-10-01T00:58:02.703869+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "7fabe6a9600d7464eff8731f1d9cdee2cf9f726a8a72e103e363c92c3a7bec5d",
+      "sequence": 10,
+      "sha256": "bc16ef076cbe3245abb51cb5138f61f38e77e62c9eabcd2925668b8ca0fe9d42",
+      "timestamp_utc": "2026-10-01T01:00:53.867721+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000"
+      },
+      "previous_sha256": "bc16ef076cbe3245abb51cb5138f61f38e77e62c9eabcd2925668b8ca0fe9d42",
+      "sequence": 11,
+      "sha256": "22a061822850b4b9d924b066a34e6a0b11fac332cbf4bfc057f263807507bd7d",
+      "timestamp_utc": "2026-10-01T01:00:54.283622+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+        "process": {
+          "pid": 2755,
+          "platform": "linux",
+          "process_group": 2755,
+          "session_id": 2755,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:206114"
+        }
+      },
+      "previous_sha256": "22a061822850b4b9d924b066a34e6a0b11fac332cbf4bfc057f263807507bd7d",
+      "sequence": 12,
+      "sha256": "23952f001835955c966417a27d58b92562269e2174327f123e8567330fd90bb5",
+      "timestamp_utc": "2026-10-01T01:00:54.407680+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "23952f001835955c966417a27d58b92562269e2174327f123e8567330fd90bb5",
+      "sequence": 13,
+      "sha256": "4b323ef8deab36b71a853d198a2a2bc7eade2b7529a973aec30e7f255f376d2e",
+      "timestamp_utc": "2026-10-01T01:05:00.569233+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000"
+      },
+      "previous_sha256": "4b323ef8deab36b71a853d198a2a2bc7eade2b7529a973aec30e7f255f376d2e",
+      "sequence": 14,
+      "sha256": "56900fc498313c38d1d9d096b2338e25a68ed48d1f127e4c2a2a699b5a6ad2a8",
+      "timestamp_utc": "2026-10-01T01:05:01.045653+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+        "process": {
+          "pid": 3376,
+          "platform": "linux",
+          "process_group": 3376,
+          "session_id": 3376,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:232637"
+        }
+      },
+      "previous_sha256": "56900fc498313c38d1d9d096b2338e25a68ed48d1f127e4c2a2a699b5a6ad2a8",
+      "sequence": 15,
+      "sha256": "c3520b1988fb32c12c91d592ed836b75ca75fe0826a312fddcb21465f884d070",
+      "timestamp_utc": "2026-10-01T01:05:01.232359+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "c3520b1988fb32c12c91d592ed836b75ca75fe0826a312fddcb21465f884d070",
+      "sequence": 16,
+      "sha256": "766cc2c402559d9297c2b867ed7970aad1b0376eba651b6d26ffb77c5bfe5b89",
+      "timestamp_utc": "2026-10-01T01:07:23.634661+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000"
+      },
+      "previous_sha256": "766cc2c402559d9297c2b867ed7970aad1b0376eba651b6d26ffb77c5bfe5b89",
+      "sequence": 17,
+      "sha256": "4aa4efde60dde2784394b6e77a35e511920df23d5bc09ed0ba7b2bc9c526a7fa",
+      "timestamp_utc": "2026-10-01T01:07:24.022957+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+        "process": {
+          "pid": 3703,
+          "platform": "linux",
+          "process_group": 3703,
+          "session_id": 3703,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:248114"
+        }
+      },
+      "previous_sha256": "4aa4efde60dde2784394b6e77a35e511920df23d5bc09ed0ba7b2bc9c526a7fa",
+      "sequence": 18,
+      "sha256": "0784181eb02a44fd05409241982df2bad43a0f4c705c41786379062523d00f04",
+      "timestamp_utc": "2026-10-01T01:07:24.129157+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "0784181eb02a44fd05409241982df2bad43a0f4c705c41786379062523d00f04",
+      "sequence": 19,
+      "sha256": "7ec3d93d07f031471992b8c3130bfa3f8af64cd413698132ae351951d84eb1d3",
+      "timestamp_utc": "2026-10-01T01:09:43.658429+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000"
+      },
+      "previous_sha256": "7ec3d93d07f031471992b8c3130bfa3f8af64cd413698132ae351951d84eb1d3",
+      "sequence": 20,
+      "sha256": "f1e9771c356009e21be9453e93191ec6bc30e4db5ed6e4a68d5573f0c113c540",
+      "timestamp_utc": "2026-10-01T01:09:44.053454+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+        "process": {
+          "pid": 4049,
+          "platform": "linux",
+          "process_group": 4049,
+          "session_id": 4049,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:263326"
+        }
+      },
+      "previous_sha256": "f1e9771c356009e21be9453e93191ec6bc30e4db5ed6e4a68d5573f0c113c540",
+      "sequence": 21,
+      "sha256": "733e900314e5954824c52b9399c8ee1506d6030e53270955c5d7b4b5e236e5a3",
+      "timestamp_utc": "2026-10-01T01:09:44.139221+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "733e900314e5954824c52b9399c8ee1506d6030e53270955c5d7b4b5e236e5a3",
+      "sequence": 22,
+      "sha256": "590ebf4819568410e0bc02472e358bef402b84fa045aa018f40347b2ea21bdce",
+      "timestamp_utc": "2026-10-01T01:11:23.645436+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000"
+      },
+      "previous_sha256": "590ebf4819568410e0bc02472e358bef402b84fa045aa018f40347b2ea21bdce",
+      "sequence": 23,
+      "sha256": "8668ff4933ff582cca3edb775ed67902e567f5638058d35e534e59a13d030112",
+      "timestamp_utc": "2026-10-01T01:11:24.046650+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+        "process": {
+          "pid": 4277,
+          "platform": "linux",
+          "process_group": 4277,
+          "session_id": 4277,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:274080"
+        }
+      },
+      "previous_sha256": "8668ff4933ff582cca3edb775ed67902e567f5638058d35e534e59a13d030112",
+      "sequence": 24,
+      "sha256": "d06cb3efb1d1b0e095bbd45b631f5d9315de3d6bd2bc30eecb145fd27cf204e6",
+      "timestamp_utc": "2026-10-01T01:11:24.152122+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "d06cb3efb1d1b0e095bbd45b631f5d9315de3d6bd2bc30eecb145fd27cf204e6",
+      "sequence": 25,
+      "sha256": "140d7551ebf05ff748757f601a4bab075af6f55ead494081d66087314a9014a0",
+      "timestamp_utc": "2026-10-01T01:13:09.774155+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000"
+      },
+      "previous_sha256": "140d7551ebf05ff748757f601a4bab075af6f55ead494081d66087314a9014a0",
+      "sequence": 26,
+      "sha256": "0828b74dc2ab2d346ac980b1ac4e449fcf983c4f293cc6d95a75b65382ac21c2",
+      "timestamp_utc": "2026-10-01T01:13:10.217585+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+        "process": {
+          "pid": 4539,
+          "platform": "linux",
+          "process_group": 4539,
+          "session_id": 4539,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:285683"
+        }
+      },
+      "previous_sha256": "0828b74dc2ab2d346ac980b1ac4e449fcf983c4f293cc6d95a75b65382ac21c2",
+      "sequence": 27,
+      "sha256": "55ef9aeabd4dd99c1fe0d827fc0548c9b7de813eaa041374c7a056a685863448",
+      "timestamp_utc": "2026-10-01T01:13:10.311785+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "55ef9aeabd4dd99c1fe0d827fc0548c9b7de813eaa041374c7a056a685863448",
+      "sequence": 28,
+      "sha256": "c513cacc430f9e56844e26b0500d4f07b2210c1c51de2977bf16c986bc78a45e",
+      "timestamp_utc": "2026-10-01T01:15:12.003978+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000"
+      },
+      "previous_sha256": "c513cacc430f9e56844e26b0500d4f07b2210c1c51de2977bf16c986bc78a45e",
+      "sequence": 29,
+      "sha256": "2bf8d4c24b2c80716e1e1fbc4cef6168d7928b87c69484b46d3479d31195710f",
+      "timestamp_utc": "2026-10-01T01:15:12.412655+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+        "process": {
+          "pid": 4818,
+          "platform": "linux",
+          "process_group": 4818,
+          "session_id": 4818,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:298912"
+        }
+      },
+      "previous_sha256": "2bf8d4c24b2c80716e1e1fbc4cef6168d7928b87c69484b46d3479d31195710f",
+      "sequence": 30,
+      "sha256": "9fa18d77596930c06646658359bfa8110929f8034da2c43cece0ff090222f939",
+      "timestamp_utc": "2026-10-01T01:15:12.559239+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "9fa18d77596930c06646658359bfa8110929f8034da2c43cece0ff090222f939",
+      "sequence": 31,
+      "sha256": "7d1e94278f04d8be8625f128ca7c0a41dc82ea1c2d81c47ceb34b7f7781a576e",
+      "timestamp_utc": "2026-10-01T01:17:09.635423+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000"
+      },
+      "previous_sha256": "7d1e94278f04d8be8625f128ca7c0a41dc82ea1c2d81c47ceb34b7f7781a576e",
+      "sequence": 32,
+      "sha256": "a38ea0ec8a81215a87369fad0d4af2689276e78cc505ee1c1bc9804b9950e6f4",
+      "timestamp_utc": "2026-10-01T01:17:10.115834+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+        "process": {
+          "pid": 5084,
+          "platform": "linux",
+          "process_group": 5084,
+          "session_id": 5084,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:311436"
+        }
+      },
+      "previous_sha256": "a38ea0ec8a81215a87369fad0d4af2689276e78cc505ee1c1bc9804b9950e6f4",
+      "sequence": 33,
+      "sha256": "127d3f409b72ee915312239b9e66da1b12f828da5b0b35d2a3546f93020b6ecd",
+      "timestamp_utc": "2026-10-01T01:17:10.231581+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "127d3f409b72ee915312239b9e66da1b12f828da5b0b35d2a3546f93020b6ecd",
+      "sequence": 34,
+      "sha256": "b620b09207ea496de0fa07ad5b3c53a1a4b6e4586829d9f2279f35fda75c3cae",
+      "timestamp_utc": "2026-10-01T01:18:41.715751+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000"
+      },
+      "previous_sha256": "b620b09207ea496de0fa07ad5b3c53a1a4b6e4586829d9f2279f35fda75c3cae",
+      "sequence": 35,
+      "sha256": "60f6a7b67a646d0baf47c04afd2ae30ebd462da3f5dc3266af71ab2ad53fe709",
+      "timestamp_utc": "2026-10-01T01:18:42.265606+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+        "process": {
+          "pid": 5328,
+          "platform": "linux",
+          "process_group": 5328,
+          "session_id": 5328,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:321656"
+        }
+      },
+      "previous_sha256": "60f6a7b67a646d0baf47c04afd2ae30ebd462da3f5dc3266af71ab2ad53fe709",
+      "sequence": 36,
+      "sha256": "5ea99021620f23532fda051dcec9d9779206d8b259098e5e3a494106d22bb665",
+      "timestamp_utc": "2026-10-01T01:18:42.405830+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "5ea99021620f23532fda051dcec9d9779206d8b259098e5e3a494106d22bb665",
+      "sequence": 37,
+      "sha256": "9c88bfbc901d31426f44cd64938ccc257998ccaf9616f33790f54a7134a7b83f",
+      "timestamp_utc": "2026-10-01T01:20:26.169673+00:00"
+    },
+    {
+      "kind": "aggregation_finished",
+      "payload": {
+        "label": "PUB-02",
+        "status": "COMPLETED"
+      },
+      "previous_sha256": "9c88bfbc901d31426f44cd64938ccc257998ccaf9616f33790f54a7134a7b83f",
+      "sequence": 38,
+      "sha256": "17eb67205ee5aa7f26b1aa151c8ec5fa90d65d1211bc9eb440f3d8709041431d",
+      "timestamp_utc": "2026-10-01T01:21:08.063369+00:00"
+    },
+    {
+      "kind": "attempt_reserved",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+        "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000"
+      },
+      "previous_sha256": "17eb67205ee5aa7f26b1aa151c8ec5fa90d65d1211bc9eb440f3d8709041431d",
+      "sequence": 39,
+      "sha256": "12e969c3ec865b916815a4f95604bdc736429ae74eb3c3508b3bb2fa0a1ea08c",
+      "timestamp_utc": "2026-10-01T01:21:08.334487+00:00"
+    },
+    {
+      "kind": "worker_started",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+        "process": {
+          "pid": 5674,
+          "platform": "linux",
+          "process_group": 5674,
+          "session_id": 5674,
+          "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:337542"
+        }
+      },
+      "previous_sha256": "12e969c3ec865b916815a4f95604bdc736429ae74eb3c3508b3bb2fa0a1ea08c",
+      "sequence": 40,
+      "sha256": "ca965f357689b5e05060678283170a19e9c79763128d0ebaa997404ddd1d0431",
+      "timestamp_utc": "2026-10-01T01:21:08.422508+00:00"
+    },
+    {
+      "kind": "attempt_finished",
+      "payload": {
+        "attempt_index": 0,
+        "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+        "return_code": 0,
+        "return_code_known": true,
+        "status": "COMPLETED_REJECTED"
+      },
+      "previous_sha256": "ca965f357689b5e05060678283170a19e9c79763128d0ebaa997404ddd1d0431",
+      "sequence": 41,
+      "sha256": "0c32a592ec7e5f909c44f9de682d738cf38925a95ac90207e4a16908810a0899",
+      "timestamp_utc": "2026-10-01T01:56:41.232978+00:00"
+    }
+  ],
+  "execution_environment": {
+    "actual_scientific_interpreter": "/home/leonardo_barca/mc3/bin/python3.14",
+    "benchmark_environment": {
+      "external_interpreter_probed": false,
+      "new_external_inference": false,
+      "status": "historical_external_reference_only"
+    },
+    "branch": "publication-grade-validation",
+    "campaign_id": "tcc_numerical_complement_v3",
+    "errors": [],
+    "passed": true,
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "protected_baseline": {
+      "manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+      "missing_external": [],
+      "status": "verified",
+      "verified_artifacts": 26
+    },
+    "schema_version": "campaign-execution-preflight-v1",
+    "scientific_environment": {
+      "baseline_manifest_content_sha256": "2c251e37c175dd9d75be97c593b0241f8871f15059196872de2352e9d5d76f2d",
+      "errors": [],
+      "limitations": "Exact direct pinned distributions and Python version; not a proof of bit-identical native libraries, compiler or complete transitive environment. Package code integrity requires separately frozen source/environment artifacts.",
+      "packages": {
+        "arviz": {
+          "actual": "1.3.0",
+          "expected": "1.3.0",
+          "matched": true
+        },
+        "astropy": {
+          "actual": "8.0.1",
+          "expected": "8.0.1",
+          "matched": true
+        },
+        "astroquery": {
+          "actual": "0.4.11",
+          "expected": "0.4.11",
+          "matched": true
+        },
+        "beautifulsoup4": {
+          "actual": "4.15.0",
+          "expected": "4.15.0",
+          "matched": true
+        },
+        "exoplanet": {
+          "actual": "0.6.0",
+          "expected": "0.6.0",
+          "matched": true
+        },
+        "exoplanet-core": {
+          "actual": "0.4.0",
+          "expected": "0.4.0",
+          "matched": true
+        },
+        "h5netcdf": {
+          "actual": "1.8.1",
+          "expected": "1.8.1",
+          "matched": true
+        },
+        "h5py": {
+          "actual": "3.16.0",
+          "expected": "3.16.0",
+          "matched": true
+        },
+        "lightkurve": {
+          "actual": "2.6.0",
+          "expected": "2.6.0",
+          "matched": true
+        },
+        "lxml": {
+          "actual": "6.1.2",
+          "expected": "6.1.2",
+          "matched": true
+        },
+        "matplotlib": {
+          "actual": "3.11.1",
+          "expected": "3.11.1",
+          "matched": true
+        },
+        "numpy": {
+          "actual": "2.4.6",
+          "expected": "2.4.6",
+          "matched": true
+        },
+        "pandas": {
+          "actual": "2.3.3",
+          "expected": "2.3.3",
+          "matched": true
+        },
+        "pymc": {
+          "actual": "6.3.1",
+          "expected": "6.3.1",
+          "matched": true
+        },
+        "pytensor": {
+          "actual": "3.3.0",
+          "expected": "3.3.0",
+          "matched": true
+        },
+        "requests": {
+          "actual": "2.34.2",
+          "expected": "2.34.2",
+          "matched": true
+        },
+        "ruff": {
+          "actual": "0.16.1",
+          "expected": "0.16.1",
+          "matched": true
+        },
+        "scipy": {
+          "actual": "1.18.1",
+          "expected": "1.18.1",
+          "matched": true
+        },
+        "tqdm": {
+          "actual": "4.68.2",
+          "expected": "4.68.2",
+          "matched": true
+        }
+      },
+      "passed": true,
+      "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python_actual": "3.14.6",
+      "python_expected": "3.14.6",
+      "requirements_sha256": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+      "schema_version": "scientific-environment-preflight-v1"
+    },
+    "sources": [
+      {
+        "actual_sha256": "2a30bddb11c5787d2c91fa36470e172636338210c4392494472b58c951d102fa",
+        "expected_sha256": "2a30bddb11c5787d2c91fa36470e172636338210c4392494472b58c951d102fa",
+        "matched": true,
+        "path": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-03/kepler_10_b_external/rep_0000/attempt_000/completion_manifest.json",
+        "role": "PUB-03 historical external completion manifest",
+        "size_bytes": 1941
+      },
+      {
+        "actual_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+        "expected_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+        "matched": true,
+        "path": "tables/bayesian_physical_transit/kepler_10_b/runs/scientific_003/modeling_input_physical.csv",
+        "role": "PUB-03 exact historical input",
+        "size_bytes": 1363536
+      }
+    ]
+  },
+  "family_summaries": {
+    "PUB-02": {
+      "attempts": [
+        {
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/aggregate_publication_campaign.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--family",
+            "PUB-02"
+          ],
+          "finished_at_utc": "2026-10-01T01:21:08.063341+00:00",
+          "process": {
+            "pid": 5566,
+            "platform": "linux",
+            "process_group": 5566,
+            "session_id": 5566,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:332838"
+          },
+          "return_code": 0,
+          "started_at_utc": "2026-10-01T01:20:26.400317+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/aggregation/PUB-02.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/aggregation/PUB-02.attempt000.stdout.log"
+        }
+      ],
+      "source_state_sha256": "34f1d9272c2045541373d871afad7150f8d5c193ac8640b4e26f762b74f492b3",
+      "status": "COMPLETED"
+    }
+  },
+  "jobs": {
+    "PUB-02__t0_deep_short__direct__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "8febce31eeb5825517e85487a55838414bc3c5e2",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_deep_short__direct__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "7d6a1e09e3adf17e54da1b23d63861e3c089dddb6b51c0fae91b8267f1b50fb4",
+          "dataset_id": "synthetic-2e66694360f9995f9cf5",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T00:54:49.600272+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000",
+          "process": {
+            "pid": 1267,
+            "platform": "linux",
+            "process_group": 1267,
+            "session_id": 1267,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:133297"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 556592582,
+            "inference": 424847329,
+            "predictive": 1078819424,
+            "resampling": 1874786440
+          },
+          "started_at_utc": "2026-10-01T00:49:33.956240+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 1267,
+            "platform": "linux",
+            "process_group": 1267,
+            "session_id": 1267,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:133297"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__direct__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321016+00:00",
+      "dataset_id": "synthetic-2e66694360f9995f9cf5",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__direct__rep_0000",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 556592582,
+        "inference": 424847329,
+        "predictive": 1078819424,
+        "resampling": 1874786440
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T00:54:52.658200+00:00"
+    },
+    "PUB-02__t0_deep_short__direct__rep_0001": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "8febce31eeb5825517e85487a55838414bc3c5e2",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_deep_short__direct__rep_0001",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000"
+          ],
+          "completion_manifest_sha256": "a8bf06d4b32ec28e07b00ec38aedc86a134421f195a2fa92957d2be6a13c7c29",
+          "dataset_id": "synthetic-25d42f0597a01e6a5e54",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T00:57:59.104179+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000",
+          "process": {
+            "pid": 1966,
+            "platform": "linux",
+            "process_group": 1966,
+            "session_id": 1966,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:167467"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 4013848526,
+            "inference": 1327204176,
+            "predictive": 2603711877,
+            "resampling": 2284567638
+          },
+          "started_at_utc": "2026-10-01T00:54:53.010713+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0001.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0001.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 1966,
+            "platform": "linux",
+            "process_group": 1966,
+            "session_id": 1966,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:167467"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__direct__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321174+00:00",
+      "dataset_id": "synthetic-25d42f0597a01e6a5e54",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__direct__rep_0001",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 4013848526,
+        "inference": 1327204176,
+        "predictive": 2603711877,
+        "resampling": 2284567638
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-10-01T00:58:02.040246+00:00"
+    },
+    "PUB-02__t0_deep_short__direct__rep_0002": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "e9c24634e8817996689c46cdbf62f6d8f0f70c9b",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_deep_short__direct__rep_0002",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000"
+          ],
+          "completion_manifest_sha256": "13d332059f8ffef87197babf86e999376cf3c74e6d8e2189bc4aa54ad5b4eaf6",
+          "dataset_id": "synthetic-842264f9541e26ac77b7",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:00:51.689765+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000",
+          "process": {
+            "pid": 2358,
+            "platform": "linux",
+            "process_group": 2358,
+            "session_id": 2358,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:187669"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 3137708363,
+            "inference": 71943497,
+            "predictive": 2834735974,
+            "resampling": 152799364
+          },
+          "started_at_utc": "2026-10-01T00:58:02.396198+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0002.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0002.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 2358,
+            "platform": "linux",
+            "process_group": 2358,
+            "session_id": 2358,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:187669"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__direct__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321185+00:00",
+      "dataset_id": "synthetic-842264f9541e26ac77b7",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__direct__rep_0002",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 3137708363,
+        "inference": 71943497,
+        "predictive": 2834735974,
+        "resampling": 152799364
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:00:53.867665+00:00"
+    },
+    "PUB-02__t0_deep_short__standardized__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "62a99f142d76e9fc2ee87fdec2ffcfc2d3d8925b",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_deep_short__standardized__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "0a757bc3e9cfa36c5187a574d30e184fc725451721c643cdc3393cbdc6f58ca1",
+          "dataset_id": "synthetic-2e66694360f9995f9cf5",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:04:58.362498+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": true,
+            "scientific": false
+          },
+          "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000",
+          "process": {
+            "pid": 2755,
+            "platform": "linux",
+            "process_group": 2755,
+            "session_id": 2755,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:206114"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 556592582,
+            "inference": 1576153475,
+            "predictive": 2275375906,
+            "resampling": 483513677
+          },
+          "started_at_utc": "2026-10-01T01:00:54.148536+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 2755,
+            "platform": "linux",
+            "process_group": 2755,
+            "session_id": 2755,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:206114"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__standardized__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321194+00:00",
+      "dataset_id": "synthetic-2e66694360f9995f9cf5",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": true,
+        "scientific": false
+      },
+      "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__standardized__rep_0000",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 556592582,
+        "inference": 1576153475,
+        "predictive": 2275375906,
+        "resampling": 483513677
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-10-01T01:05:00.569206+00:00"
+    },
+    "PUB-02__t0_deep_short__standardized__rep_0001": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_deep_short__standardized__rep_0001",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000"
+          ],
+          "completion_manifest_sha256": "d274309d4e616041cdb8f70329106c96af6ee50289f8f44307ef3b879458184a",
+          "dataset_id": "synthetic-25d42f0597a01e6a5e54",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:07:21.933104+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": true,
+            "scientific": false
+          },
+          "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000",
+          "process": {
+            "pid": 3376,
+            "platform": "linux",
+            "process_group": 3376,
+            "session_id": 3376,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:232637"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 4013848526,
+            "inference": 1648197124,
+            "predictive": 970753869,
+            "resampling": 1987219003
+          },
+          "started_at_utc": "2026-10-01T01:05:00.838239+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0001.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0001.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 3376,
+            "platform": "linux",
+            "process_group": 3376,
+            "session_id": 3376,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:232637"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__standardized__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321203+00:00",
+      "dataset_id": "synthetic-25d42f0597a01e6a5e54",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": true,
+        "scientific": false
+      },
+      "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__standardized__rep_0001",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 4013848526,
+        "inference": 1648197124,
+        "predictive": 970753869,
+        "resampling": 1987219003
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-10-01T01:07:23.634629+00:00"
+    },
+    "PUB-02__t0_deep_short__standardized__rep_0002": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_deep_short__standardized__rep_0002",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000"
+          ],
+          "completion_manifest_sha256": "f57b244993d09213be6e7aa0b9abf364a36137f41526670c91ba182c5d43d480",
+          "dataset_id": "synthetic-842264f9541e26ac77b7",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:09:41.567764+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": false,
+            "scientific": false
+          },
+          "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000",
+          "process": {
+            "pid": 3703,
+            "platform": "linux",
+            "process_group": 3703,
+            "session_id": 3703,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:248114"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 3137708363,
+            "inference": 2717874609,
+            "predictive": 2719780068,
+            "resampling": 732639409
+          },
+          "started_at_utc": "2026-10-01T01:07:23.849872+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0002.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0002.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 3703,
+            "platform": "linux",
+            "process_group": 3703,
+            "session_id": 3703,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:248114"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__standardized__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321212+00:00",
+      "dataset_id": "synthetic-842264f9541e26ac77b7",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__standardized__rep_0002",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 3137708363,
+        "inference": 2717874609,
+        "predictive": 2719780068,
+        "resampling": 732639409
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-10-01T01:09:43.658381+00:00"
+    },
+    "PUB-02__t0_intermediate_long__direct__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_intermediate_long__direct__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "66ad0cdaffe8c93c893c775b3a9164c8836202e4f90684f36a80a694be15cbda",
+          "dataset_id": "synthetic-624a385cf57f055c3335",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:11:21.561265+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000",
+          "process": {
+            "pid": 4049,
+            "platform": "linux",
+            "process_group": 4049,
+            "session_id": 4049,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:263326"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 398179972,
+            "inference": 1106229207,
+            "predictive": 462375179,
+            "resampling": 4097768102
+          },
+          "started_at_utc": "2026-10-01T01:09:43.905041+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 4049,
+            "platform": "linux",
+            "process_group": 4049,
+            "session_id": 4049,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:263326"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__direct__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321220+00:00",
+      "dataset_id": "synthetic-624a385cf57f055c3335",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__direct__rep_0000",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 398179972,
+        "inference": 1106229207,
+        "predictive": 462375179,
+        "resampling": 4097768102
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:11:23.645143+00:00"
+    },
+    "PUB-02__t0_intermediate_long__direct__rep_0001": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_intermediate_long__direct__rep_0001",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000"
+          ],
+          "completion_manifest_sha256": "712fa66e370abb5578df3378d89f837fe3337eedab4142daf01711b474f90575",
+          "dataset_id": "synthetic-fd6f51392f33f35d5319",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:13:10.438537+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000",
+          "process": {
+            "pid": 4277,
+            "platform": "linux",
+            "process_group": 4277,
+            "session_id": 4277,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:274080"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 3117766751,
+            "inference": 2604734143,
+            "predictive": 3324605532,
+            "resampling": 657102202
+          },
+          "started_at_utc": "2026-10-01T01:11:23.907384+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0001.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0001.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 4277,
+            "platform": "linux",
+            "process_group": 4277,
+            "session_id": 4277,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:274080"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__direct__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321227+00:00",
+      "dataset_id": "synthetic-fd6f51392f33f35d5319",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__direct__rep_0001",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 3117766751,
+        "inference": 2604734143,
+        "predictive": 3324605532,
+        "resampling": 657102202
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:13:09.774100+00:00"
+    },
+    "PUB-02__t0_intermediate_long__direct__rep_0002": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_intermediate_long__direct__rep_0002",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000"
+          ],
+          "completion_manifest_sha256": "be5c5c29ca22b9851119f51b5b34c4eb705669bf09ba435069e3801a04f7bdc4",
+          "dataset_id": "synthetic-f3caf860b2da58e1d1dc",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:15:10.036810+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000",
+          "process": {
+            "pid": 4539,
+            "platform": "linux",
+            "process_group": 4539,
+            "session_id": 4539,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:285683"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 1491539992,
+            "inference": 2136137455,
+            "predictive": 2412188001,
+            "resampling": 3242587001
+          },
+          "started_at_utc": "2026-10-01T01:13:10.074575+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0002.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0002.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 4539,
+            "platform": "linux",
+            "process_group": 4539,
+            "session_id": 4539,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:285683"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__direct__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321235+00:00",
+      "dataset_id": "synthetic-f3caf860b2da58e1d1dc",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__direct__rep_0002",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 1491539992,
+        "inference": 2136137455,
+        "predictive": 2412188001,
+        "resampling": 3242587001
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:15:12.003936+00:00"
+    },
+    "PUB-02__t0_intermediate_long__standardized__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_intermediate_long__standardized__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "5027818838845ba947a5410c7ee494f887d0de43924ddc67de1e524558e2b6d1",
+          "dataset_id": "synthetic-624a385cf57f055c3335",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:17:06.798687+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000",
+          "process": {
+            "pid": 4818,
+            "platform": "linux",
+            "process_group": 4818,
+            "session_id": 4818,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:298912"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 398179972,
+            "inference": 40834373,
+            "predictive": 3662706937,
+            "resampling": 1074128683
+          },
+          "started_at_utc": "2026-10-01T01:15:12.255949+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 4818,
+            "platform": "linux",
+            "process_group": 4818,
+            "session_id": 4818,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:298912"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__standardized__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321242+00:00",
+      "dataset_id": "synthetic-624a385cf57f055c3335",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 398179972,
+        "inference": 40834373,
+        "predictive": 3662706937,
+        "resampling": 1074128683
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:17:09.635106+00:00"
+    },
+    "PUB-02__t0_intermediate_long__standardized__rep_0001": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_intermediate_long__standardized__rep_0001",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000"
+          ],
+          "completion_manifest_sha256": "fff1776e0aa93f04c1de231dd0d7bdea244eea4425e36ca185f911316437454d",
+          "dataset_id": "synthetic-fd6f51392f33f35d5319",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:18:39.520502+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000",
+          "process": {
+            "pid": 5084,
+            "platform": "linux",
+            "process_group": 5084,
+            "session_id": 5084,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:311436"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 3117766751,
+            "inference": 2425950649,
+            "predictive": 3873252341,
+            "resampling": 3073771390
+          },
+          "started_at_utc": "2026-10-01T01:17:09.932739+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0001.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0001.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 5084,
+            "platform": "linux",
+            "process_group": 5084,
+            "session_id": 5084,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:311436"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__standardized__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321250+00:00",
+      "dataset_id": "synthetic-fd6f51392f33f35d5319",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 3117766751,
+        "inference": 2425950649,
+        "predictive": 3873252341,
+        "resampling": 3073771390
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:18:41.715699+00:00"
+    },
+    "PUB-02__t0_intermediate_long__standardized__rep_0002": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-02__t0_intermediate_long__standardized__rep_0002",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000"
+          ],
+          "completion_manifest_sha256": "a724ff6bdf7458efe8527fd2421895b91dac3930f75282bfc0e7bd52f0075b99",
+          "dataset_id": "synthetic-f3caf860b2da58e1d1dc",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:20:24.095976+00:00",
+          "gates": {
+            "ppc": true,
+            "provenance": true,
+            "sampler": true,
+            "scientific": true
+          },
+          "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000",
+          "process": {
+            "pid": 5328,
+            "platform": "linux",
+            "process_group": 5328,
+            "session_id": 5328,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:321656"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 1491539992,
+            "inference": 4213959370,
+            "predictive": 822016483,
+            "resampling": 1951465390
+          },
+          "started_at_utc": "2026-10-01T01:18:42.104912+00:00",
+          "status": "COMPLETED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0002.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0002.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 5328,
+            "platform": "linux",
+            "process_group": 5328,
+            "session_id": 5328,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:321656"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__standardized__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321258+00:00",
+      "dataset_id": "synthetic-f3caf860b2da58e1d1dc",
+      "error": null,
+      "experiment_id": "PUB-02",
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 1491539992,
+        "inference": 4213959370,
+        "predictive": 822016483,
+        "resampling": 1951465390
+      },
+      "status": "COMPLETED",
+      "updated_at_utc": "2026-10-01T01:20:26.169626+00:00"
+    },
+    "PUB-03__kepler_10_b_standardized__rep_0000": {
+      "attempts": [
+        {
+          "attempt_index": 0,
+          "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+          "command": [
+            "/home/leonardo_barca/mc3/bin/python3.14",
+            "scripts/publication_campaign_job.py",
+            "--config",
+            "configs/publication/tcc_numerical_complement_v3.json",
+            "--job-id",
+            "PUB-03__kepler_10_b_standardized__rep_0000",
+            "--attempt-dir",
+            "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000"
+          ],
+          "completion_manifest_sha256": "15bf16a1bd90a52b851137f191acb2c3fd6acf3aeca9063fa9a12d00fa56ea3a",
+          "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+          "error": null,
+          "exit_observation": "child process return code",
+          "finished_at_utc": "2026-10-01T01:56:39.488906+00:00",
+          "gates": {
+            "ppc": false,
+            "provenance": true,
+            "sampler": true,
+            "scientific": false
+          },
+          "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+          "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000",
+          "process": {
+            "pid": 5674,
+            "platform": "linux",
+            "process_group": 5674,
+            "session_id": 5674,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:337542"
+          },
+          "return_code": 0,
+          "return_code_known": true,
+          "seeds": {
+            "generation": 4003177497,
+            "inference": 3976843229,
+            "predictive": 2675262183,
+            "resampling": 503570230
+          },
+          "started_at_utc": "2026-10-01T01:21:08.216573+00:00",
+          "status": "COMPLETED_REJECTED",
+          "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-03/PUB-03__kepler_10_b_standardized__rep_0000.attempt000.stderr.log",
+          "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-03/PUB-03__kepler_10_b_standardized__rep_0000.attempt000.stdout.log",
+          "technical_retryable": false,
+          "worker_session": {
+            "pid": 5674,
+            "platform": "linux",
+            "process_group": 5674,
+            "session_id": 5674,
+            "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:337542"
+          }
+        }
+      ],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-03__kepler_10_b_standardized__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321266+00:00",
+      "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+      "error": null,
+      "experiment_id": "PUB-03",
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": true,
+        "scientific": false
+      },
+      "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-03__kepler_10_b_standardized__rep_0000",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 4003177497,
+        "inference": 3976843229,
+        "predictive": 2675262183,
+        "resampling": 503570230
+      },
+      "status": "COMPLETED_REJECTED",
+      "updated_at_utc": "2026-10-01T01:56:41.232873+00:00"
+    },
+    "PUB-03__kepler_10_b_standardized__rep_0001": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-03__kepler_10_b_standardized__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321274+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-03",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-03__kepler_10_b_standardized__rep_0001",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 3666618106,
+        "inference": 894386053,
+        "predictive": 3720927280,
+        "resampling": 3231060987
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321278+00:00"
+    },
+    "PUB-03__kepler_10_b_standardized__rep_0002": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-03__kepler_10_b_standardized__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321316+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-03",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-03__kepler_10_b_standardized__rep_0002",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 3794467705,
+        "inference": 3287679733,
+        "predictive": 2098926588,
+        "resampling": 1195948655
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321322+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321352+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_high_accuracy/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 3569506640,
+        "inference": 3753558145,
+        "predictive": 928041874,
+        "resampling": 2269915214
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321355+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321359+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_high_accuracy/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 632986863,
+        "inference": 2313281261,
+        "predictive": 1181553259,
+        "resampling": 4231398250
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321362+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321367+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_high_accuracy/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 4535401,
+        "inference": 3639452480,
+        "predictive": 3382058768,
+        "resampling": 1573574778
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321370+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321327+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 3569506640,
+        "inference": 1003982566,
+        "predictive": 684044749,
+        "resampling": 2660585465
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321331+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321336+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 632986863,
+        "inference": 665812390,
+        "predictive": 750922663,
+        "resampling": 3101722005
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321340+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321345+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 4535401,
+        "inference": 4126059346,
+        "predictive": 116585605,
+        "resampling": 503072726
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321348+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321375+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__exposure_off_high_accuracy/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 3569506640,
+        "inference": 919303968,
+        "predictive": 2006255771,
+        "resampling": 1034095684
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321378+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321385+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__exposure_off_high_accuracy/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 632986863,
+        "inference": 3169712502,
+        "predictive": 839757523,
+        "resampling": 196595873
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321388+00:00"
+    },
+    "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002": {
+      "attempts": [],
+      "command": [
+        "{python}",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002"
+      ],
+      "created_at_utc": "2026-10-01T00:49:33.321393+00:00",
+      "dataset_id": null,
+      "error": null,
+      "experiment_id": "PUB-04",
+      "gates": {},
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__exposure_off_high_accuracy/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 4535401,
+        "inference": 1597052039,
+        "predictive": 2737586387,
+        "resampling": 2995367128
+      },
+      "status": "PLANNED",
+      "updated_at_utc": "2026-10-01T00:49:33.321396+00:00"
+    }
+  },
+  "mode": "final",
+  "plan_identity_sha256": "f72161cb24964d70edee5a0a9f20cc61e74d333db7ad9561bbb3e913e2e177dd",
+  "resource_notes": [],
+  "resources": {
+    "cores_per_run": 2,
+    "estimated_run_minutes": 20,
+    "max_campaign_hours": 20,
+    "max_runtime_hours": null,
+    "max_workers": 1,
+    "memory_limit_gb": null,
+    "stop_margin_minutes": 5
+  },
+  "schema_version": "publication-campaign-state-v1",
+  "scientific_config_sha256": "17047686606a724085d6941eb585ad7e061e912d1cd4c7d1944607bfcbe30152",
+  "status": "AGGREGATING",
+  "stop_reason": "requested_stop_file",
+  "updated_at_utc": "2026-10-01T01:56:54.562270+00:00"
+}

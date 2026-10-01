@@ -99,8 +99,8 @@ def audit_campaign_rows(root: Path, registry: dict) -> list[dict]:
 def validate_synthesis(root: Path, relative: str) -> dict:
     directory = safe_file(root, relative)
     manifest = read_json(directory / "artifact_manifest.json")
-    if manifest.get("schema_version") != "tcc-evidence-v2":
-        raise ValueError("Current review requires the explicitly versioned v2 synthesis")
+    if manifest.get("schema_version") not in {"tcc-evidence-v2", "tcc-evidence-v3"}:
+        raise ValueError("Current review requires an explicitly versioned synthesis")
     for group, base in (("artifacts", directory), ("source_checksums", root), ("generator_source_checksums", root)):
         if not manifest.get(group):
             raise ValueError(f"Synthesis lacks {group}")
@@ -110,7 +110,7 @@ def validate_synthesis(root: Path, relative: str) -> dict:
     if "claims.json" not in manifest["artifacts"]:
         raise ValueError("Synthesis lacks a checksum-bound claim ledger")
     claims = read_json(directory / "claims.json")
-    if claims.get("schema_version") != "tcc-claims-v2" or not claims.get("evaluator_version") or not claims.get("claims"):
+    if claims.get("schema_version") not in {"tcc-claims-v2", "tcc-claims-v3"} or not claims.get("evaluator_version") or not claims.get("claims"):
         raise ValueError("Missing versioned scientific claim scope")
     if len({claim["claim_id"] for claim in claims["claims"]}) != len(claims["claims"]):
         raise ValueError("Duplicate scientific claim ID")
@@ -205,8 +205,8 @@ def validate_campaign_release(root: Path, *, inventory_path: str, synthesis: str
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
-    parser.add_argument("--inventory", default="publication/validation/external_audit_closure_v1/transitive_inventory_final.json")
-    parser.add_argument("--synthesis", default="reports/publication_synthesis/tcc_evidence_v2")
+    parser.add_argument("--inventory", default="publication/validation/tcc_closure_v1/transitive_inventory.json")
+    parser.add_argument("--synthesis", default="reports/publication_synthesis/tcc_evidence_v3")
     parser.add_argument("--reviews", default="publication/public_release_reviews.json")
     parser.add_argument("--audit-output", type=Path)
     parser.add_argument("--audit", action="store_true", help="Retained spelling; does not change truthful exit classifications")

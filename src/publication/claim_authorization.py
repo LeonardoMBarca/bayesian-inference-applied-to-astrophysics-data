@@ -8,7 +8,9 @@ from __future__ import annotations
 import math
 from copy import deepcopy
 
-EVALUATOR_VERSION = "claim-scope-review-v2"
+from publication.gate_accounting import assess_gates
+
+EVALUATOR_VERSION = "claim-scope-review-v3"
 PARAMETERS = ("r", "depth", "b", "a", "t0", "full_duration", "extra_sigma")
 
 
@@ -35,7 +37,9 @@ def prior_sd(parameter: str, config: dict) -> float | None:
 
 def evaluate_run(result: dict, config: dict, *, run_identity: dict,
                  verified_sources: dict[str, str], provenance_verified: bool | None,
-                 family: str, scenario: str, declared_intervention: str | None = None) -> dict:
+                 family: str, scenario: str, declared_intervention: str | None = None,
+                 status: str | None = None, mode: str = "final",
+                 invalidated: dict | None = None, fixture: bool = False) -> dict:
     """Return six distinct evidence dimensions and purpose-specific permissions.
 
     ``provenance_verified`` is a NEW explicit byte-verification result supplied
@@ -46,8 +50,14 @@ def evaluate_run(result: dict, config: dict, *, run_identity: dict,
         raise ValueError("A review requires identified source artifacts")
     historical = deepcopy(result.get("gates", {}))
     numeric = bool(result.get("parameters"))
-    sampler = historical.get("sampler") if numeric else None
-    ppc = historical.get("ppc") if numeric else None
+    inferred_status = "COMPLETED_REJECTED" if numeric and result.get("status") != "failed" else "FAILED_TECHNICAL"
+    assessment = assess_gates(result, status=status or inferred_status,
+                              verified=provenance_verified is True, mode=mode,
+                              fixture=fixture, invalidated=invalidated)
+    sampler_status = assessment["components"]["sampler"]["current_status"]
+    ppc_status = assessment["components"]["ppc"]["current_status"]
+    sampler = True if sampler_status == "passed" else False if sampler_status == "rejected" else None
+    ppc = True if ppc_status == "passed" else False if ppc_status == "rejected" else None
     reasons = result.get("inherited_m5_gate", {}).get("component_reasons", {})
     scale = not reasons["scientific"] if numeric and "scientific" in reasons else None
     expected_code = {"invalid_input_hash": "input_sha256_mismatch",
@@ -68,13 +78,14 @@ def evaluate_run(result: dict, config: dict, *, run_identity: dict,
             "scope": f"{family}/{scenario}/{name}",
         }
     descriptive = provenance_verified is True
+    final_evidence = descriptive and not assessment["engineering_only"]
     permissions = {
         "report_attempt_and_historical_rejection": descriptive,
         "describe_numerical_output_with_sampler_caveat": descriptive and numeric,
-        "claim_computational_screen_passed": descriptive and sampler is True,
-        "claim_tested_predictive_screens_passed": descriptive and ppc is True,
+        "claim_computational_screen_passed": final_evidence and sampler is True,
+        "claim_tested_predictive_screens_passed": final_evidence and ppc is True,
         "demonstrate_identity_control_blocked_before_sampling": descriptive and identity_control and not numeric,
-        "demonstrate_convergence_insufficient_for_ppc": descriptive and sampler is True and ppc is False,
+        "demonstrate_convergence_insufficient_for_ppc": final_evidence and sampler is True and ppc is False,
         # No run-level gate, even a positive one, licenses these broader claims.
         "claim_all_parameters_accurately_recovered": False,
         "claim_universal_calibration": False,
@@ -85,14 +96,15 @@ def evaluate_run(result: dict, config: dict, *, run_identity: dict,
         "schema_version": EVALUATOR_VERSION, "run_identity": deepcopy(run_identity),
         "source_checksums": dict(sorted(verified_sources.items())),
         "historical_gate": historical,
+        "gate_assessment": assessment,
         "declared_intervention": declared_intervention,
         "evaluation_timing": "post_result_exploratory; not a prospective new gate",
         "dimensions": {
             "provenance_integrity": _status(provenance_verified),
             "provenance_scope": "Integrity of preserved evidence bytes, including deliberately invalid inputs in negative controls.",
             "historical_input_provenance_contract": _status(historical.get("provenance")),
-            "computational_screen": _status(sampler),
-            "predictive_screen": _status(ppc),
+            "computational_screen": sampler_status,
+            "predictive_screen": ppc_status,
             "physical_scale_screen": _status(scale),
             "parameter_information": information,
             "manuscript_claim_permissions": permissions,
@@ -109,7 +121,7 @@ def evaluate_run(result: dict, config: dict, *, run_identity: dict,
 
 def authorize_claim(evaluation: dict, claim: str) -> None:
     """Fail closed for unknown, unsupported or unverified manuscript claims."""
-    if evaluation.get("schema_version") != EVALUATOR_VERSION:
+    if evaluation.get("schema_version") not in {EVALUATOR_VERSION, "claim-scope-review-v2"}:
         raise ValueError("Unknown claim evaluator")
     permissions = evaluation["dimensions"]["manuscript_claim_permissions"]
     if permissions.get(claim) is not True:

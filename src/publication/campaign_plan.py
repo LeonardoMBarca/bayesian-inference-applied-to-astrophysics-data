@@ -227,7 +227,7 @@ def validate_runtime_amendments(root: Path, campaign_id: str, frozen_plan_path: 
             "amendments": record["amendments"], "effective_source_checksums_sha256": canonical_hash(expected_sources)}
 
 
-def build_plan(root: Path, config_path: Path) -> dict:
+def build_plan(root: Path, config_path: Path, *, verify_execution_sources: bool = True) -> dict:
     root = root.resolve()
     config_path = (root / config_path).resolve() if not config_path.is_absolute() else config_path.resolve()
     relative = config_path.relative_to(root).as_posix()
@@ -342,7 +342,7 @@ def build_plan(root: Path, config_path: Path) -> dict:
     if mode == "final":
         try:
             current_sources = source_identity(root)
-            if changed := uncommitted_sources(root, current_sources):
+            if verify_execution_sources and (changed := uncommitted_sources(root, current_sources)):
                 errors.append("Scientific sources differ from committed HEAD: " + ", ".join(changed))
             stored = read_json(frozen)
             if stored["scientific_config_sha256"] != digest:
@@ -351,7 +351,8 @@ def build_plan(root: Path, config_path: Path) -> dict:
             expected_jobs = [{key: job[key] for key in ("job_id", "experiment_id", "scenario_id", "replicate_id", "run_id", "seeds", "payload")} for job in jobs]
             if stored["declared_jobs"] != expected_jobs:
                 errors.append("Declared jobs/seeds differ from the frozen plan")
-            runtime_amendments = validate_runtime_amendments(root, campaign, frozen_path, stored, current_sources)
+            if verify_execution_sources:
+                runtime_amendments = validate_runtime_amendments(root, campaign, frozen_path, stored, current_sources)
             if subprocess.check_output(["git", "-C", str(root), "show", f"HEAD:{frozen_path}"]) != frozen.read_bytes():
                 errors.append("Frozen campaign plan is not committed")
         except (OSError, KeyError, TypeError, ValueError, subprocess.CalledProcessError) as exc:

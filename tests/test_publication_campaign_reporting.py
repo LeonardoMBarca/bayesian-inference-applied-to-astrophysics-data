@@ -111,6 +111,7 @@ class PublicationCampaignReportingTests(unittest.TestCase):
             self.assertEqual(evidence["integrity_errors"], [])
             self.assertEqual(sum(row["scientifically_interpretable"] for row in evidence["jobs"]), 0)
             self.assertEqual(sum(row["computational_gates_passed"] for row in evidence["jobs"]), 1)
+            self.assertEqual(sum(row["sampler_gates_passed"] for row in evidence["jobs"]), 2)
             self.assertEqual(evidence["jobs"][3]["status"], "PLANNED")
 
     def test_changed_artifact_never_promotes_but_is_retained(self) -> None:
@@ -150,6 +151,10 @@ class PublicationCampaignReportingTests(unittest.TestCase):
             self.assertEqual(summary["total_attempts"], 3)
             self.assertEqual(summary["scientifically_interpretable_count"], 0)
             self.assertEqual(summary["computational_gates_passed_count"], 1)
+            self.assertEqual(summary["gate_counts"]["sampler"]["passed"], 2)
+            self.assertEqual(summary["gate_counts"]["sampler"]["unassessed"], 2)
+            self.assertEqual(summary["gate_counts"]["sampler"]["final_evidence_passed"], 0)
+            self.assertIn("Smoke campaign", summary["claim_limit"])
             self.assertTrue((output / "campaign_summary.md").exists())
             metrics = summary["families"]["PUB-02"]["scenarios"]["fixture"]
             self.assertEqual(metrics["declared_count"], 4)
@@ -174,6 +179,25 @@ class PublicationCampaignReportingTests(unittest.TestCase):
         second = copy.deepcopy(second)
         second["jobs"]["b"]["seeds"]["generation"] = 2
         self.assertNotEqual(state_fingerprint(first), state_fingerprint(second))
+
+    def test_sealed_final_report_needs_new_postprocessing_destination(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            plan, _ = self.fixture(root)
+            plan["mode"] = "final"
+            with patch("publication.campaign_reporting.build_plan", return_value=plan):
+                original = aggregate_campaign(root, Path("config.json"))
+                before = sha256_file(original / "artifact_manifest.json")
+                with self.assertRaises(FileExistsError):
+                    aggregate_campaign(root, Path("config.json"))
+                corrected = aggregate_campaign(root, Path("config.json"), output_relative="reports/corrected")
+                self.assertEqual(sha256_file(original / "artifact_manifest.json"), before)
+                self.assertIn("Final campaign", (corrected / "REPORT.md").read_text())
+                self.assertNotIn("Smoke campaign", (corrected / "REPORT.md").read_text())
+                self.assertIn("deprecated_fields", json.loads((corrected / "summary.json").read_text()))
+                validate_campaign_report(root, corrected)
+                with self.assertRaises(FileExistsError):
+                    aggregate_campaign(root, Path("config.json"), output_relative="reports/corrected")
 
     def test_presampling_negative_control_is_rejected_not_technical_or_sampler_failure(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

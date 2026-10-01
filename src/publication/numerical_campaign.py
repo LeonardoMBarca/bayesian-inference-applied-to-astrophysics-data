@@ -227,7 +227,10 @@ def paired_numeric_metrics(rows: list[dict]) -> list[dict]:
             right = (row.get("result") or {}).get("parameters", {}).get(parameter)
             record = {"pair_id": row["payload"]["pair_id"], "replicate_id": row["replicate_id"], "variant": variant,
                       "reference_variant": reference, "parameter": parameter, "both_numeric": bool(left and right),
-                      "both_sampler_pass": bool(baseline and all((r.get("result") or {}).get("gates", {}).get("sampler") is True for r in (baseline, row))),
+                      "both_sampler_pass": bool(baseline and all(
+                          r.get("gate_assessment", {}).get("components", {}).get("sampler", {}).get("current_status") == "passed"
+                          if r.get("gate_assessment") else (r.get("result") or {}).get("gates", {}).get("sampler") is True
+                          for r in (baseline, row))),
                       "same_input": None, "mean_shift": None, "shift_over_reference_sd": None, "eti94_width_ratio": None}
             if left and right:
                 first, second = baseline["result"], row["result"]
@@ -285,6 +288,7 @@ def numerical_family_report(root: Path, rows: list[dict], output: Path, protocol
         diagnostic = result.get("diagnostics", {})
         metrics.append({"job_id": row["job_id"], "replicate_id": row["replicate_id"], "status": row["status"],
                         "historical_gate_status": result.get("gates", {}), "diagnostics": diagnostic,
+                        "gate_assessment": row.get("gate_assessment"),
                         "worker_wall_seconds": (row.get("completion") or {}).get("wall_seconds"),
                         "numeric_available": bool(result.get("parameters")),
                         "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation."})

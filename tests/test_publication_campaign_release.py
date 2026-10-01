@@ -98,7 +98,7 @@ class CampaignReleaseTests(unittest.TestCase):
 
     def test_old_synthesis_cannot_masquerade_as_current_review(self):
         self.put("synthesis/artifact_manifest.json", {"schema_version": "publication-post-campaign-synthesis-v1"})
-        with self.assertRaisesRegex(ValueError, "versioned v2"):
+        with self.assertRaisesRegex(ValueError, "versioned synthesis"):
             validate_synthesis(self.root, "synthesis")
 
 

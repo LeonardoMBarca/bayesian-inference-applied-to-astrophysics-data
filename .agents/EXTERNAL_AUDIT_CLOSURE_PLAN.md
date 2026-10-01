@@ -5,6 +5,34 @@ Scope: publication-grade-validation only; preserve scientific_003, 117/400 jobs,
 118/400 attempts, all historical scientific outputs, and tcc_evidence_v1.
 No historical MCMC rerun, no public archive upload, no main merge.
 
+## Current bounded TCC closure (2026-10-01)
+
+This is a living status update, not a rewrite of earlier audit receipts.
+Current canonical index: `publication/TCC_EVIDENCE_INDEX.json`; TCC sources:
+`reports/publication_synthesis/tcc_evidence_v3/`; handoff:
+`reports/TCC_EVIDENCE_HANDOFF.md`. The source bug counted joint approvals as
+computational passes. Versioned accounting now separates provenance, sampler,
+PPC, joint, unassessed, invalidated and technical outcomes with denominators.
+The old misleading field is retained as a documented deprecated joint alias.
+
+A5/A6 are no longer pending execution: v3 was stopped after a delimited free-RV
+PPC incident; v4 completed all declared jobs with mixed findings. Standardized
+t0 has no general superiority demonstrated; higher-accuracy integrated
+ablation references pass while exposure-off variants fail sampler diagnostics.
+The complete original posterior evidence remains, including failures.
+
+A1/A2 remote CI is verified for f105317 in workflow **36856904566**, both matrix
+jobs green (`publication/validation/tcc_closure_v1/previous_remote_ci.json`).
+Push-CI clean rebuild is explicitly skipped; compatible-patch job also skips
+the exact-Python enforcement. No assertion that these optional steps ran.
+Recheck the last SHA sent in this closure; its live CI link belongs in the
+final handoff, without an endless commit-to-record-previous-commit cycle.
+
+All closure-specific byte protection, trace review, code checks and archive
+receipts use `publication/validation/tcc_closure_v1/`. Earlier table entries
+below are historical milestones; this section and the canonical machine
+evidence supersede their launch/pending wording, not their preserved receipts.
+
 | ID | Evidence/finding | Class | Remediation/files | Test / done criterion | New inference / cost | Status / final evidence |
 |---|---|---|---|---|---|---|
 | A0 | Historical byte identity must survive remediation | integrity | freeze_audit_protection.py + protected_snapshot.json | Full check after restore; portable Git-byte/external-inventory check in CI | No; minutes I/O | PASS in restored independent clone: 7,041/7,041 original files, zero errors. Portable check hashes 6,520 Git files and binds 521 sealed external references; it does not claim external bytes are present in CI. Eight small protected-only files omitted by the earlier Git transport were added with unchanged hashes. |

@@ -28,7 +28,7 @@ PIPELINE_MANIFESTS = {
 
 
 def digest_file(path: Path) -> str:
-    with path.open("rb") as stream:
+    with filesystem_path(path).open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
@@ -210,12 +210,13 @@ class EvidenceWalker:
         commit = data.get("code_commit") or data.get("campaign_initial_code_commit")
         # Recognized report manifests, not arbitrary dictionaries with paths.
         if PurePosixPath(name).name.endswith("artifact_manifest.json"):
-            if (schema not in {"publication-derived-v1", "publication-post-campaign-synthesis-v1", "tcc-evidence-v2",
+            if (schema not in {"publication-derived-v1", "publication-post-campaign-synthesis-v1", "tcc-evidence-v2", "tcc-evidence-v3",
                                "independent-posterior-trace-audit-v1"}
                     or not isinstance(data.get("artifacts"), dict) or not isinstance(data.get("source_checksums"), dict)):
                 raise ValueError(f"Unsupported artifact manifest schema: {name}")
             self._mapping(name, data["artifacts"], base)
             self._mapping(name, data["source_checksums"], commit=commit)
+            self._mapping(name, data.get("generator_source_checksums", {}), commit=commit)
         elif name.endswith("/completion_manifest.json"):
             if data.get("status") not in {"COMPLETED", "COMPLETED_REJECTED", "FAILED_TECHNICAL"}:
                 raise ValueError(f"Unsupported completion status: {name}")
@@ -239,6 +240,12 @@ class EvidenceWalker:
         elif schema == "publication-baseline-v1":
             for ref in data["artifacts"] + data["environment_lock_artifacts"]:
                 self.add(ref["path"], ref["sha256"], size=ref.get("size_bytes"), parent=name)
+        elif schema == "complement-trace-review-v1":
+            self._mapping(name, data["source_checksums"])
+            self._mapping(name, data["generator_source_checksums"])
+        elif schema == "external-audit-protection-v1":
+            for ref in data["files"]:
+                self.add(ref["path"], ref["sha256"], size=ref["size_bytes"], parent=name)
         elif name.endswith("/campaign_summary.json"):
             self._mapping(name, data["source_checksums"], commit=commit)
             for attempt in data["attempts"]:
@@ -450,12 +457,13 @@ def main() -> None:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--inventory", type=Path, required=True)
     parser.add_argument("--snapshot-commit", default="HEAD")
+    parser.add_argument("--roots", nargs="+", help="Explicit versioned evidence roots; defaults to the historical inventory scope")
     parser.add_argument("--bundle", type=Path)
     parser.add_argument("--bundle-manifest", type=Path)
     parser.add_argument("--receipt", type=Path)
     args = parser.parse_args()
     if args.action == "inventory":
-        roots = ["publication/registry.json", "publication/baseline/manifest.json",
+        roots = args.roots or ["publication/registry.json", "publication/baseline/manifest.json",
                  "reports/publication_synthesis/tcc_evidence_v1/artifact_manifest.json"]
         report = EvidenceWalker(args.root, snapshot_commit=args.snapshot_commit).build(roots)
         write_new(args.inventory, report)

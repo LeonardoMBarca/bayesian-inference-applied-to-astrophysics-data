@@ -113,6 +113,28 @@ a rerun of any historical posterior.
 
 ## Current release validator
 
+Current TCC closure uses a **new** inventory/bundle, never the previously sealed
+ZIP. Canonical pointers are in `publication/TCC_EVIDENCE_INDEX.json`.
+The new inventory includes interrupted v3, completed v4, logs/traces, corrected
+reports, synthesis v3 and all declared dependencies. Manifest and restoration
+receipt: `publication/validation/tcc_closure_v1/`. External local archive:
+`../publication-evidence-tcc-closure-v1/evidence.zip` (no public upload/DOI).
+
+Current validation/restoration (the destination must be a separate checkout):
+
+```text
+python scripts/close_tcc_evidence.py --check
+python scripts/close_tcc_evidence.py --check-protected
+python scripts/audit_evidence_archive.py restore --root <SEPARATE_CHECKOUT> --inventory publication/validation/tcc_closure_v1/transitive_inventory.json --bundle ../publication-evidence-tcc-closure-v1/evidence.zip --bundle-manifest publication/validation/tcc_closure_v1/bundle_manifest.json
+python scripts/validate_publication_release.py --audit-output <NEW_RECEIPT_PATH>
+```
+
+The release scope now includes the three FINISHED campaigns, not v3's pending
+jobs or engineering pilots. It reports execution jobs/attempts, not pooled
+independent scientific replicates. Local restoration, TCC readiness, public
+archive availability and submission readiness are distinct. The remaining
+section describes the earlier v2 release audit, retained as history.
+
 ```text
 python scripts/validate_publication_release.py --audit-output publication/validation/external_audit_closure_v1/release_audit_v2.json
 ```

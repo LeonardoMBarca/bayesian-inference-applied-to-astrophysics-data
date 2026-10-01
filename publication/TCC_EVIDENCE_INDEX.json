@@ -1,0 +1,21 @@
+{
+  "schema_version": "tcc-canonical-evidence-index-v1",
+  "current_synthesis": "reports/publication_synthesis/tcc_evidence_v3",
+  "current_report": "reports/publication_synthesis/tcc_evidence_v3/REPORT.md",
+  "claim_ledger": "reports/publication_synthesis/tcc_evidence_v3/claims.json",
+  "source_inventory": "reports/publication_synthesis/tcc_evidence_v3/SOURCE_INVENTORY.json",
+  "finished_campaigns": ["tcc_campaign_v1", "tcc_calibration_confirmatory_v1", "tcc_numerical_complement_v4"],
+  "historical_syntheses": ["reports/publication_synthesis/tcc_evidence_v1", "reports/publication_synthesis/tcc_evidence_v2"],
+  "historical_interrupted_campaign": "tcc_numerical_complement_v3",
+  "invalidated_evidence": "publication/validation/tcc_closure_v1/complement_trace_review_final.json",
+  "archive_inventory": "publication/validation/tcc_closure_v1/transitive_inventory.json",
+  "bundle_manifest": "publication/validation/tcc_closure_v1/bundle_manifest.json",
+  "restore_receipt": "publication/validation/tcc_closure_v1/restore_receipt.json",
+  "archive_location": "../publication-evidence-tcc-closure-v1/evidence.zip",
+  "handoff": "reports/TCC_EVIDENCE_HANDOFF.md",
+  "validation": "python scripts/close_tcc_evidence.py --check",
+  "no_population_pooling": true,
+  "public_archive_available": false,
+  "doi": null,
+  "submission_approved": false
+}

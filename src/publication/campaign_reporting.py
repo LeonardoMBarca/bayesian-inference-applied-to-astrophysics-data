@@ -19,6 +19,7 @@ from publication.campaign import CampaignIntegrityError, validate_completion
 from publication.campaign import _read as read_campaign_json
 from publication.campaign_plan import DEFAULT_CONFIG, build_plan, source_identity
 from publication.contracts import canonical_hash, safe_path, sha256_file
+from publication.gate_accounting import assess_gates, gate_counts
 
 SCIENTIFIC_TERMINAL = {"COMPLETED", "COMPLETED_REJECTED"}
 TERMINAL = SCIENTIFIC_TERMINAL | {"FAILED_TECHNICAL", "BLOCKED", "CANCELLED"}
@@ -50,7 +51,7 @@ def state_fingerprint(state: dict, family: str | None = None) -> str:
     ])
 
 
-def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
+def collect_campaign(root: Path, plan: dict, state: dict | None, *, invalidations: dict | None = None) -> dict:
     """Read only registered attempts; last attempt authoritative, all retained.
 
     A result is numerically usable only after its completion manifest and every
@@ -58,6 +59,7 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
     Integrity failures are reported and excluded, not repaired or ignored.
     """
     root = root.resolve()
+    invalidations = invalidations or {}
     state = state or {"jobs": {}, "campaign_id": plan["campaign_id"], "status": "NOT_INITIALIZED"}
     errors: list[str] = []
     if state.get("campaign_id") != plan["campaign_id"]:
@@ -97,6 +99,7 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
                     if attempt.get("status") in SCIENTIFIC_TERMINAL:
                         raise ValueError("Scientific terminal attempt lacks registered completion hash")
                     audit["integrity_note"] = "Unsealed/partial attempt is retained but unavailable as scientific evidence"
+                    audit["gate_assessment"] = assess_gates(None, status=attempt["status"], verified=False, mode=plan["mode"])
                     attempts.append(audit)
                     continue
                 completion = validate_completion(path, expected_manifest_sha256=digest,
@@ -127,6 +130,9 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
                 audit.update(integrity_valid=True, result_status=result.get("status"),
                              dataset_id=completion.get("dataset_id"), input_sha256=input_sha,
                              gates=result.get("gates", {}))
+                audit["gate_assessment"] = assess_gates(result, status=attempt["status"], verified=True,
+                    mode=plan["mode"], fixture=definition.get("payload", {}).get("kind") == "fixture",
+                    invalidated=invalidations.get(job_id))
                 if index == len(previous)-1 and not local_errors and row["status"] == attempt["status"]:
                     row.update(result=result, completion=completion, authoritative_attempt_dir=path.relative_to(root).as_posix(), source_paths=paths)
                     for key, filename in (("truth", "truth.json"), ("preparation", "preparation.json")):
@@ -138,6 +144,7 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
                 message = f"{job_id} attempt {index}: {exc}"
                 local_errors.append(message)
                 audit["integrity_error"] = message
+            audit.setdefault("gate_assessment", assess_gates(None, status=attempt["status"], verified=False, mode=plan["mode"]))
             attempts.append(audit)
         if local_errors:
             row.update(integrity_errors=local_errors, result=None, truth=None, preparation=None)
@@ -147,9 +154,15 @@ def collect_campaign(root: Path, plan: dict, state: dict | None) -> dict:
             row["integrity_errors"] = [message]
             errors.append(message)
         row["computational_gates_passed"] = row["status"] == "COMPLETED" and row["result"] is not None
+        # Kept ONLY as a deprecated historical joint-pass alias. v1 artifacts
+        # used this name incorrectly; changing its meaning would hide that bug.
+        row["gate_assessment"] = assess_gates(row["result"], status=row["status"], verified=row["result"] is not None,
+            mode=plan["mode"], fixture=row["payload"].get("kind") == "fixture", invalidated=invalidations.get(job_id))
+        row["sampler_gates_passed"] = row["gate_assessment"]["components"]["sampler"]["current_status"] == "passed"
         row["scientifically_interpretable"] = (
             row["computational_gates_passed"] and plan.get("mode") == "final"
             and row["payload"].get("kind") != "fixture" and not row["result"].get("fixture", False)
+            and row["gate_assessment"]["components"]["joint"]["current_status"] == "passed"
         )
         jobs.append(row)
     return {"jobs": jobs, "attempts": attempts, "source_checksums": sources, "integrity_errors": errors}
@@ -554,9 +567,10 @@ def _benchmark_figures(output: Path, local: dict | None, external: dict | None, 
     plt.close(fig)
 
 
-def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = None) -> Path:
+def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = None,
+                       output_relative: str | None = None) -> Path:
     root = root.resolve()
-    plan = build_plan(root, config_path)
+    plan = build_plan(root, config_path, verify_execution_sources=output_relative is None)
     if family is not None and family not in plan["phase_order"]:
         raise ValueError("Unknown requested experiment family")
     state_path = safe_path(root, f"artifacts/publication_campaign/{plan['campaign_id']}/campaign_state.json")
@@ -565,13 +579,23 @@ def aggregate_campaign(root: Path, config_path: Path, *, family: str | None = No
     except FileNotFoundError:
         state = None
     evidence = collect_campaign(root, plan, state)
-    output = safe_path(root, f"reports/publication_campaign/{plan['campaign_id']}" + (f"/{family}" if family else ""))
+    default_output = f"reports/publication_campaign/{plan['campaign_id']}" + (f"/{family}" if family else "")
+    output = safe_path(root, output_relative or default_output)
+    if output_relative:
+        if output.exists():
+            raise FileExistsError("Post-processing requires a NEW output directory; preserve sealed reports")
+        plan["postprocessing_output"] = output_relative
+    elif plan["mode"] == "final" and (output / "artifact_manifest.json").exists():
+        raise FileExistsError("Preserve sealed final reports: select a new --output for post-processing")
     output.mkdir(parents=True, exist_ok=True)
     # The controller updates its aggregation bookkeeping immediately after us.
     # Freeze the state actually read; use a jobs-only fingerprint for freshness.
     snapshot = state or {"campaign_id": plan["campaign_id"], "status": "NOT_INITIALIZED", "jobs": {}}
     _write(output / "campaign_state_snapshot.json", snapshot)
     sources = dict(evidence["source_checksums"])
+    original_manifest = root / default_output / "artifact_manifest.json"
+    if output_relative and original_manifest.is_file():
+        sources[original_manifest.relative_to(root).as_posix()] = sha256_file(original_manifest)
     generator_sources = source_identity(root)
     sources.update(generator_sources)
     identity_paths = ["publication/baseline/manifest.json", "publication/baseline/environment/requirements.txt",
@@ -679,11 +703,20 @@ def _write_campaign_metadata(
     failures = [row for row in compact if row["status"] in {"FAILED_TECHNICAL", "BLOCKED", "CANCELLED"} or row.get("integrity_errors")]
     rejections = [row for row in compact if row["status"] == "COMPLETED_REJECTED"]
     errors = evidence["integrity_errors"] + generation_errors
-    summary = {"schema_version": "publication-campaign-aggregate-v1", "campaign_id": plan["campaign_id"],
+    summary = {"schema_version": "publication-campaign-aggregate-v2", "campaign_id": plan["campaign_id"],
                "mode": plan["mode"], "family_filter": family, "campaign_state_status": snapshot["status"],
                "declared_jobs": len(rows), "total_attempts": len(attempts), "status_counts": status_counts,
                "scientifically_interpretable_count": sum(row["scientifically_interpretable"] for row in rows),
                "computational_gates_passed_count": sum(row["computational_gates_passed"] for row in rows),
+               "deprecated_fields": {"computational_gates_passed_count": "Legacy v1 joint-pass alias, NOT sampler approval; use gate_counts.sampler.passed.",
+                                     "computational_gates_passed": "Legacy per-job joint-pass alias; use gate_assessment."},
+               "gate_counts": gate_counts([row["gate_assessment"] for row in rows]),
+               "attempt_gate_counts": gate_counts([row["gate_assessment"] for row in attempts]),
+               "sampler_gates_passed_count": sum(row["sampler_gates_passed"] for row in rows),
+               "gate_counts_by_family": {name: gate_counts([row["gate_assessment"] for row in rows if row["experiment_id"] == name]) for name in summaries},
+               "state_semantics": {"snapshot_controller_status": snapshot["status"],
+                                   "assessment_controller_status": snapshot["status"],
+                                   "scope": "Controller snapshot at this assessment; job completeness and scientific acceptance are separate."},
                "complete_declared_batch": bool(rows) and all(row["status"] in TERMINAL for row in rows),
                "all_declared_scientific_jobs_finished": bool(rows) and all(row["status"] in SCIENTIFIC_TERMINAL for row in rows),
                "integrity_errors": errors, "preflight_errors": plan["preflight_errors"],
@@ -692,7 +725,10 @@ def _write_campaign_metadata(
                "generator_source_checksums": generator_sources, "aggregation_environment": aggregate_environment,
                "campaign_initial_code_commit": snapshot.get("code_commit"),
                "jobs": compact, "attempts": attempts, "families": summaries,
-               "claim_limit": "Smoke campaign is infrastructure evidence only. Missing, blocked, failed and rejected jobs remain visible. Numeric metrics are descriptive until complete frozen-protocol scientific evidence, sampler/PPC checks and independent review support stronger claims. No M6 or paper-ready claim is inferred from implementation."}
+               "claim_limit": {"smoke": "Smoke campaign: engineering evidence only; fixtures and small draws are not final scientific evidence.",
+                               "pilot": "Pilot campaign: debugging/sizing evidence, excluded from final claims.",
+                               "final": "Final campaign: predeclared scientific evidence with component-specific evaluation and claim limits."}.get(plan["mode"], "Unknown mode: no scientific promotion.")
+                               + " Missing, blocked, failed and rejected jobs remain visible. Numerical metrics require sampler and predictive qualifications. No universal calibration, M6 or public-release approval is implied."}
     _write(output / "summary.json", summary)
     if family is None:
         _write(output / "campaign_summary.json", summary)
@@ -701,12 +737,15 @@ def _write_campaign_metadata(
     _table(output / "failures.csv", failures, list(compact[0]) if compact else ["job_id", "status"])
     _table(output / "rejections.csv", rejections, list(compact[0]) if compact else ["job_id", "status"])
     lines = [f"# Publication campaign: {plan['campaign_id']}", "", summary["claim_limit"], "",
-             f"Mode: {plan['mode']}; family: {family or 'all'}; controller state: {snapshot['status']}.",
+             f"Mode: {plan['mode']}; family: {family or 'all'}; controller snapshot at this assessment: {snapshot['status']}.",
              f"Declared jobs: {len(rows)}. Preserved attempts: {len(attempts)}. Scientifically interpretable: {summary['scientifically_interpretable_count']}.",
-             f"Computational gate passes (includes explicitly labeled smoke fixtures, not science): {summary['computational_gates_passed_count']}.",
+             f"Sampler passes: {summary['gate_counts']['sampler']['passed']}/{summary['gate_counts']['sampler']['evaluated']} evaluated; {len(rows)} declared jobs.",
              f"Statuses: `{json.dumps(status_counts, sort_keys=True)}`.",
              f"Complete declared batch (including terminal failures): {summary['complete_declared_batch']}. All scientific jobs finished: {summary['all_declared_scientific_jobs_finished']}.", "",
-             "## Evidence and negative outcomes", "", "`jobs.csv` includes every planned job, including not started. `attempts.csv` retains every earlier interrupted/failed attempt. Only the last registered, sealed and hash-verified attempt supplies numerical evidence; no best-run selection. `failures.csv` and `rejections.csv` separate technical/integrity failures from scientific rejection.",
+             "## Component gates and denominators", "", "| Component | Declared | Evaluated | Passed | Rejected | Unassessed | Invalidated |", "|---|---:|---:|---:|---:|---:|---:|",
+             *[f"| {name} | {c['declared']} | {c['evaluated']} | {c['passed']} | {c['rejected']} | {c['unassessed']} | {c['invalidated']} |" for name, c in summary["gate_counts"].items()],
+             "", "Rates in JSON name their denominators. Legacy computational_gates_passed_count is deprecated and preserves its historical joint-pass meaning. Technical fallback Booleans do not prove evaluation. Smoke/pilot/fixture counts are excluded from final scientific evidence.",
+             "", "## Evidence and negative outcomes", "", "`jobs.csv` includes every planned job, including not started. `attempts.csv` retains every earlier interrupted/failed attempt. Only the last registered, sealed and hash-verified attempt supplies numerical evidence; no best-run selection. `failures.csv` and `rejections.csv` separate technical/integrity failures from scientific rejection.",
              "", "Synthetic metrics include 50/80/94% equal-tailed coverage and Wilson intervals, bias, absolute/relative bias, RMSE, SD and interval widths. Rejected numeric posteriors remain, with conditional sampler metrics separated. Operational covered-and-passed fraction is not an interval-calibration estimand. Missing intervals are not measured noncoverage. Fixed-truth repeated coverage is not SBC.",
              "", "## Family artifacts", ""]
     for name in summaries:
@@ -722,7 +761,8 @@ def _write_campaign_metadata(
     lines.extend(f"- {error}" for error in errors + plan["preflight_errors"])
     if not errors and not plan["preflight_errors"]:
         lines.append("No detected artifact-integrity or preflight errors. This is not proof of scientific validity.")
-    lines += ["", "## Regeneration", "", "```sh", f"python scripts/aggregate_publication_campaign.py --config {plan['config_path']}" + (f" --family {family}" if family else ""), "```", "", "This command only reads sealed scientific artifacts and regenerates derived reports; it never samples. Live controller bookkeeping is not a scientific input: the read snapshot is preserved, and freshness checks use the jobs-only fingerprint plus artifact hashes."]
+    command = f"python scripts/aggregate_publication_campaign.py --config {plan['config_path']}" + (f" --family {family}" if family else "") + " --output <NEW_REPOSITORY_RELATIVE_DIRECTORY>"
+    lines += ["", "## Regeneration", "", "```sh", command, "```", "", "This command only reads sealed scientific artifacts and creates new derived reports; it never samples. Live controller bookkeeping is not a scientific input: the read snapshot is preserved, and freshness checks use the jobs-only fingerprint plus artifact hashes."]
     report_name = "CAMPAIGN_REPORT.md" if family == "PUB-05" else "REPORT.md"
     (output / report_name).write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
     if family is None:
@@ -738,7 +778,7 @@ def _write_campaign_metadata(
         "artifacts": artifacts, "source_state_jobs_fingerprint": summary["source_state_jobs_fingerprint"],
         "source_state_path": summary["source_state_path"], "family_filter": family,
         "child_manifests": child_manifests,
-        "regenerate_command": f"python scripts/aggregate_publication_campaign.py --config {plan['config_path']}" + (f" --family {family}" if family else "")})
+        "regenerate_command": command})
     return list(dict.fromkeys(active_files + [output / "artifact_manifest.json"]))
 
 
@@ -789,9 +829,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path(DEFAULT_CONFIG))
     parser.add_argument("--family", choices=("PUB-02", "PUB-03", "PUB-04", "PUB-05", "PUB-06"))
+    parser.add_argument("--output", help="New repository-relative post-processing destination; no inference or overwrite")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[2]
-    output = aggregate_campaign(root, args.config, family=args.family)
+    output = aggregate_campaign(root, args.config, family=args.family, output_relative=args.output)
     summary = _read(output / "summary.json")
     print(json.dumps({"output": output.relative_to(root).as_posix(), "declared_jobs": summary["declared_jobs"], "status_counts": summary["status_counts"], "integrity_errors": summary["integrity_errors"]}))
     if summary["integrity_errors"]:
