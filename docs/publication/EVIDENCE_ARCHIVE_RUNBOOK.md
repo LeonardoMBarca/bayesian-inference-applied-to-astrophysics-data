@@ -125,7 +125,7 @@ Current validation/restoration (the destination must be a separate checkout):
 ```text
 python scripts/close_tcc_evidence.py --check
 python scripts/close_tcc_evidence.py --check-protected
-python scripts/audit_evidence_archive.py restore --root <SEPARATE_CHECKOUT> --inventory publication/validation/tcc_closure_v1/transitive_inventory.json --bundle ../publication-evidence-tcc-closure-v1/evidence.zip --bundle-manifest publication/validation/tcc_closure_v1/bundle_manifest.json
+python scripts/publication_evidence_archive.py restore --root <SEPARATE_CHECKOUT> --inventory publication/validation/tcc_closure_v1/transitive_inventory.json --bundle ../publication-evidence-tcc-closure-v1/evidence.zip --bundle-manifest publication/validation/tcc_closure_v1/bundle_manifest.json
 python scripts/validate_publication_release.py --audit-output <NEW_RECEIPT_PATH>
 ```
 
