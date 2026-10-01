@@ -1,0 +1,3350 @@
+{
+  "claim_limit": "Smoke is engineering only. Final fixed-truth coverage is not SBC. Numeric posteriors include rejected/nonconverged outputs; sampler-conditioned coverage is separately reported. Missing intervals are not measured noncoverage. Expected presampling identity rejections are rejected, not technical failures, with downstream diagnostics unavailable. Zero-jitter boundary truth under a continuous prior need not be inside positive equal-tailed intervals.",
+  "declared_jobs": 12,
+  "known_white_noise_transit_snr_by_scenario": {
+    "t0_deep_short__direct": {
+      "available_count": 3,
+      "declared_count": 3,
+      "maximum": 77.8117353932514,
+      "mean": 77.8117353932514,
+      "minimum": 77.8117353932514
+    },
+    "t0_deep_short__standardized": {
+      "available_count": 3,
+      "declared_count": 3,
+      "maximum": 77.8117353932514,
+      "mean": 77.8117353932514,
+      "minimum": 77.8117353932514
+    },
+    "t0_intermediate_long__direct": {
+      "available_count": 3,
+      "declared_count": 3,
+      "maximum": 10.910726077516573,
+      "mean": 10.910726077516573,
+      "minimum": 10.910726077516573
+    },
+    "t0_intermediate_long__standardized": {
+      "available_count": 3,
+      "declared_count": 3,
+      "maximum": 10.910726077516573,
+      "mean": 10.910726077516573,
+      "minimum": 10.910726077516573
+    }
+  },
+  "known_white_noise_transit_snr_definition": "sqrt(sum((truth physical_signal_i - truth baseline)^2 / (supplied normalized_flux_err_i^2 + truth extra_sigma^2))). Post-inference known-design descriptive metric, not a detection significance; ignores stochastic temporal covariance and deterministic systematics. Available only for unablated synthetic inputs with complete signal/error arrays.",
+  "mode": "final",
+  "scenarios": {
+    "t0_deep_short__direct": {
+      "declared_count": 3,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "passed_count": 3,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.6666666666666666,
+          "pass_rate_all_declared_wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "passed_count": 2,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 0.3333333333333333,
+          "rejection_rate_evaluated": 0.3333333333333333,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.6666666666666666,
+          "pass_rate_all_declared_wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "passed_count": 2,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 0.3333333333333333,
+          "rejection_rate_evaluated": 0.3333333333333333,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": 0.20947256713984874,
+          "bias": -0.20947256713984874,
+          "bias_conditional_on_sampler": -0.2996525663811034,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666663,
+              "calibration_error_numeric": 0.16666666666666663,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.34356088239097576,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.652679506049068,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.8991923527491604,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.20947256713984874,
+          "mean_absolute_calibration_error": 0.12000000000000004,
+          "mean_posterior_sd": 0.24906214700504734,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.041894513427969744,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.3292815660143816,
+          "rmse_conditional_on_sampler": 0.4027601690192454,
+          "sampler_passed_numeric_count": 2
+        },
+        "b": {
+          "absolute_bias": 0.009357116858919573,
+          "bias": 0.009357116858919573,
+          "bias_conditional_on_sampler": 0.05354723750143568,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666663,
+              "calibration_error_numeric": 0.16666666666666663,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.2161269060617194,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.4039846943227839,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.5325286447229948,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.1210062235800393,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 0.15084757696252757,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.03119038952973191,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.1320429256532768,
+          "rmse_conditional_on_sampler": 0.15175860511214098,
+          "sampler_passed_numeric_count": 2
+        },
+        "depth": {
+          "absolute_bias": 0.000145176714375023,
+          "bias": -0.000145176714375023,
+          "bias_conditional_on_sampler": 1.728019547769799e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0005613040200030875,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.46666666666666673,
+              "calibration_error_numeric": -0.46666666666666673,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.0010693681032731249,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0015187272285589967,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.00048477665534718144,
+          "mean_absolute_calibration_error": 0.34222222222222226,
+          "mean_posterior_sd": 0.00041127384025475746,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.0145176714375023,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.00048509310111808637,
+          "rmse_conditional_on_sampler": 0.0004924230092232841,
+          "sampler_passed_numeric_count": 2
+        },
+        "extra_sigma": {
+          "absolute_bias": 3.8992141171709226e-05,
+          "bias": 3.8992141171709226e-05,
+          "bias_conditional_on_sampler": 9.21221726358363e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.0001858695476276808,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0003368280866742029,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0004543673716269182,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 8.383742234273918e-05,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 0.00012690368381505256,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.1949607058585461,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 9.616580485860472e-05,
+          "rmse_conditional_on_sampler": 0.00010774649129986804,
+          "sampler_passed_numeric_count": 2
+        },
+        "full_duration": {
+          "absolute_bias": 0.0015206101099170949,
+          "bias": 0.0015206101099170949,
+          "bias_conditional_on_sampler": 0.0018515583763329888,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.001651964837178795,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.003076633620678282,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.2733333333333333,
+              "calibration_error_numeric": -0.2733333333333333,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.004540083532551975,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            }
+          },
+          "mae": 0.0015206101099170949,
+          "mean_absolute_calibration_error": 0.3022222222222222,
+          "mean_posterior_sd": 0.0012080961661761391,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.022358163492388766,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.001723226318857636,
+          "rmse_conditional_on_sampler": 0.002021279029542962,
+          "sampler_passed_numeric_count": 2
+        },
+        "r": {
+          "absolute_bias": 0.0007777788101188307,
+          "bias": -0.0007777788101188307,
+          "bias_conditional_on_sampler": 3.140845302068013e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0028110347011724665,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.46666666666666673,
+              "calibration_error_numeric": -0.46666666666666673,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.005371667398574781,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.007637746291462767,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.002431162561322494,
+          "mean_absolute_calibration_error": 0.34222222222222226,
+          "mean_posterior_sd": 0.002065989129264958,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.007777788101188306,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.002431423838639648,
+          "rmse_conditional_on_sampler": 0.0024488685997604,
+          "sampler_passed_numeric_count": 2
+        },
+        "t0": {
+          "absolute_bias": 0.00016763358618054696,
+          "bias": -0.00016763358618054696,
+          "bias_conditional_on_sampler": -0.0002508133501330516,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.00031548369138743523,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0006055192146662044,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0008918562424866655,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.00016763358618054696,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 0.00023648211869427827,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.16763358618054694,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.0002053634356624273,
+          "rmse_conditional_on_sampler": 0.00025151620116479405,
+          "sampler_passed_numeric_count": 2
+        }
+      },
+      "present_count": 3,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 2,
+        "missing": 0,
+        "rejected": 1
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "t0_deep_short__standardized": {
+      "declared_count": 3,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "passed_count": 3,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.6666666666666666,
+          "pass_rate_all_declared_wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "passed_count": 2,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 0.3333333333333333,
+          "rejection_rate_evaluated": 0.3333333333333333,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.6666666666666666,
+          "pass_rate_all_declared_wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "passed_count": 2,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 0.3333333333333333,
+          "rejection_rate_evaluated": 0.3333333333333333,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": 0.22805720404139773,
+          "bias": -0.22805720404139773,
+          "bias_conditional_on_sampler": -0.32681265265085635,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666663,
+              "calibration_error_numeric": 0.16666666666666663,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.3398804704856199,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.6574417125996869,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.917097646147949,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.22805720404139773,
+          "mean_absolute_calibration_error": 0.12000000000000004,
+          "mean_posterior_sd": 0.2531463908218273,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.04561144080827955,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.34568466582603047,
+          "rmse_conditional_on_sampler": 0.4228241878732046,
+          "sampler_passed_numeric_count": 2
+        },
+        "b": {
+          "absolute_bias": 0.020303994164438566,
+          "bias": 0.020303994164438566,
+          "bias_conditional_on_sampler": 0.07546946159810848,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666663,
+              "calibration_error_numeric": 0.16666666666666663,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.21029201803318598,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.39800838204877104,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.5325611296765923,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.11897793912224648,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 0.15018009894407025,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.06767998054812856,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.13554306784851708,
+          "rmse_conditional_on_sampler": 0.15331490415650956,
+          "sampler_passed_numeric_count": 2
+        },
+        "depth": {
+          "absolute_bias": 0.0001207705370550449,
+          "bias": -0.0001207705370550449,
+          "bias_conditional_on_sampler": 6.10679856167199e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0005569978005101414,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.0010891469310733207,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.001554974532627533,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.00048786643655777777,
+          "mean_absolute_calibration_error": 0.23111111111111116,
+          "mean_posterior_sd": 0.0004176956016935869,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.01207705370550449,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.0004904138083764783,
+          "rmse_conditional_on_sampler": 0.0004933698664527149,
+          "sampler_passed_numeric_count": 2
+        },
+        "extra_sigma": {
+          "absolute_bias": 3.4174371773672837e-05,
+          "bias": 3.4174371773672837e-05,
+          "bias_conditional_on_sampler": -1.9026671944423026e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.0001885232798644345,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0003403048181943103,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.00045626081589394724,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 8.0880238950491e-05,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 0.0001279478827524817,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.1708718588683642,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 9.254607090256978e-05,
+          "rmse_conditional_on_sampler": 5.446367979914552e-05,
+          "sampler_passed_numeric_count": 2
+        },
+        "full_duration": {
+          "absolute_bias": 0.001576097922436089,
+          "bias": 0.001576097922436089,
+          "bias_conditional_on_sampler": 0.001837241334183816,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0016667135138694656,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.003150166895442008,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.2733333333333333,
+              "calibration_error_numeric": -0.2733333333333333,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.004495608338892065,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            }
+          },
+          "mae": 0.001576097922436089,
+          "mean_absolute_calibration_error": 0.3022222222222222,
+          "mean_posterior_sd": 0.001215594496798984,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.02317402390002628,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.001775263807660199,
+          "rmse_conditional_on_sampler": 0.0020425678603309726,
+          "sampler_passed_numeric_count": 2
+        },
+        "r": {
+          "absolute_bias": 0.0006566479030328207,
+          "bias": -0.0006566479030328207,
+          "bias_conditional_on_sampler": 0.00024906084956657915,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.0027886386387752787,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.005466356313778814,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.007815276582844588,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.0024452703071395306,
+          "mean_absolute_calibration_error": 0.23111111111111116,
+          "mean_posterior_sd": 0.0020972334484379925,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.006566479030328208,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.002453764635783087,
+          "rmse_conditional_on_sampler": 0.002446582903168172,
+          "sampler_passed_numeric_count": 2
+        },
+        "t0": {
+          "absolute_bias": 0.00016772837558991306,
+          "bias": -0.00016772837558991306,
+          "bias_conditional_on_sampler": -0.0001325606514688,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.00031721398175527544,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0006001380234194825,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0008830336302726526,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.00016772837558991306,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 0.00023584460826939237,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.16772837558991308,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.00020550862482681022,
+          "rmse_conditional_on_sampler": 0.00018711894668504324,
+          "sampler_passed_numeric_count": 2
+        }
+      },
+      "present_count": 3,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 2,
+        "missing": 0,
+        "rejected": 1
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "t0_intermediate_long__direct": {
+      "declared_count": 3,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "passed_count": 3,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.6666666666666666,
+          "pass_rate_all_declared_wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "passed_count": 2,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 0.3333333333333333,
+          "rejection_rate_evaluated": 0.3333333333333333,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.6666666666666666,
+          "pass_rate_all_declared_wilson95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ],
+          "passed_count": 2,
+          "rejected_count": 1,
+          "rejection_rate_all_declared": 0.3333333333333333,
+          "rejection_rate_evaluated": 0.3333333333333333,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": 2.869009043950578,
+          "bias": 2.869009043950578,
+          "bias_conditional_on_sampler": 1.555728461042687,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 3.3008757096207724,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 7.037373316805881,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 14.876252088631253,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 2.869009043950578,
+          "mean_absolute_calibration_error": 0.12000000000000005,
+          "mean_posterior_sd": 3.8456026521252475,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.4098584348500825,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 3.523636130098868,
+          "rmse_conditional_on_sampler": 1.8770645702190036,
+          "sampler_passed_numeric_count": 2
+        },
+        "b": {
+          "absolute_bias": 0.3277686613876634,
+          "bias": -0.3277686613876634,
+          "bias_conditional_on_sampler": -0.3322567486732773,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.4302113519477036,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.6576197724933469
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.7245236696752683,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.8908729420402999,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.3277686613876634,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.2631283152063648,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.4370248818502179,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.32784458333052263,
+          "rmse_conditional_on_sampler": 0.3322781687132671,
+          "sampler_passed_numeric_count": 2
+        },
+        "depth": {
+          "absolute_bias": 0.00013029430363085886,
+          "bias": 0.00013029430363085886,
+          "bias_conditional_on_sampler": 7.696374783537727e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": 0.5,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.00045554905520981613,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0009848231045481717,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.002024564738423738,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.00013029430363085886,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.0008904437248130685,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.08143393976928677,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.00015846577496381778,
+          "rmse_conditional_on_sampler": 9.794472089322602e-05,
+          "sampler_passed_numeric_count": 2
+        },
+        "extra_sigma": {
+          "absolute_bias": 1.3508354973637888e-05,
+          "bias": -1.3508354973637888e-05,
+          "bias_conditional_on_sampler": 5.223348476865447e-06,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 5.444534605635624e-05,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.00010423438278191964,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.00015552118666915435,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 3.251246025238189e-05,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 4.130818884514079e-05,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.04502784991212629,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 3.5293368962560024e-05,
+          "rmse_conditional_on_sampler": 2.3861529389130918e-05,
+          "sampler_passed_numeric_count": 2
+        },
+        "full_duration": {
+          "absolute_bias": 0.0005500281093818044,
+          "bias": -0.0005500281093818044,
+          "bias_conditional_on_sampler": 0.0027739849487668465,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.008022780921842916,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.015201033765155017,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.02420864679572547,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.004918508679892252,
+          "mean_absolute_calibration_error": 0.12000000000000005,
+          "mean_posterior_sd": 0.006269240117718392,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.01666177714400674,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.0056497687190855085,
+          "rmse_conditional_on_sampler": 0.004687626003728032,
+          "sampler_passed_numeric_count": 2
+        },
+        "r": {
+          "absolute_bias": 0.0009196557247084305,
+          "bias": 0.0009196557247084305,
+          "bias_conditional_on_sampler": 0.0005432688315348856,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": 0.5,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.005686323049019557,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.011948715518191324,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.02259798412950431,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.0010132010419503488,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.007142983731884451,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.022991393117710767,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.001200261688491375,
+          "rmse_conditional_on_sampler": 0.0008731734916759364,
+          "sampler_passed_numeric_count": 2
+        },
+        "t0": {
+          "absolute_bias": 0.0005744324155151654,
+          "bias": -0.0005744324155151654,
+          "bias_conditional_on_sampler": -0.0014212445276113636,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.0017716488610085394,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 0.5,
+              "coverage_conditional_on_scientific_gate": 0.5,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.0034670222516361197,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.09453120573423074,
+                0.9054687942657693
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 2,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.005324074757299679,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+              "operational_wilson95_all_declared": [
+                0.2076596008020477,
+                0.9385080552796037
+              ],
+              "sampler_passed_numeric_count": 2,
+              "scientific_gate_passed_numeric_count": 2,
+              "wilson95_conditional_on_sampler": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.34238022750665303,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.0013205602879666526,
+          "mean_absolute_calibration_error": 0.12000000000000005,
+          "mean_posterior_sd": 0.0013805067003203012,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.5744324155151653,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.0014508110598858458,
+          "rmse_conditional_on_sampler": 0.0015909066424292567,
+          "sampler_passed_numeric_count": 2
+        }
+      },
+      "present_count": 3,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 2,
+        "missing": 0,
+        "rejected": 1
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    },
+    "t0_intermediate_long__standardized": {
+      "declared_count": 3,
+      "execution_failure_rate_all_declared": 0.0,
+      "gates": {
+        "ppc": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_all_declared_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "passed_count": 3,
+          "rejected_count": 0,
+          "rejection_rate_all_declared": 0.0,
+          "rejection_rate_evaluated": 0.0,
+          "unevaluated_count": 0
+        },
+        "sampler": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.3333333333333333,
+          "pass_rate_all_declared_wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ],
+          "passed_count": 1,
+          "rejected_count": 2,
+          "rejection_rate_all_declared": 0.6666666666666666,
+          "rejection_rate_evaluated": 0.6666666666666666,
+          "unevaluated_count": 0
+        },
+        "scientific": {
+          "evaluated_count": 3,
+          "pass_rate_all_declared": 0.3333333333333333,
+          "pass_rate_all_declared_wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ],
+          "passed_count": 1,
+          "rejected_count": 2,
+          "rejection_rate_all_declared": 0.6666666666666666,
+          "rejection_rate_evaluated": 0.6666666666666666,
+          "unevaluated_count": 0
+        }
+      },
+      "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+      "interval_kind": "equal_tailed",
+      "missing_ids": [],
+      "parameters": {
+        "a": {
+          "absolute_bias": 2.789943977876355,
+          "bias": 2.789943977876355,
+          "bias_conditional_on_sampler": 2.3961027390141982,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 3.2204541443276278,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 7.159183239360274,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 14.637369235645272,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 2.789943977876355,
+          "mean_absolute_calibration_error": 0.12000000000000005,
+          "mean_posterior_sd": 3.5930804200888162,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.39856342541090783,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 3.456015919357101,
+          "rmse_conditional_on_sampler": 2.3961027390141982,
+          "sampler_passed_numeric_count": 1
+        },
+        "b": {
+          "absolute_bias": 0.32356732040132613,
+          "bias": -0.32356732040132613,
+          "bias_conditional_on_sampler": -0.31438345362907355,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": -0.5,
+              "coverage_conditional_on_sampler": 0.0,
+              "coverage_conditional_on_scientific_gate": 0.0,
+              "covered_and_scientific_gate_passed_count": 0,
+              "covered_count": 0,
+              "empirical_coverage_numeric": 0.0,
+              "mean_interval_width": 0.4333730527281781,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.0,
+              "operational_wilson95_all_declared": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.0,
+                0.7934506856227626
+              ],
+              "wilson95_numeric": [
+                5.551115123125783e-17,
+                0.5614970317550454
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.726479077389112,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.8942367675602413,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.32356732040132613,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.2643034362020256,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.43142309386843486,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.32363265527088475,
+          "rmse_conditional_on_sampler": 0.31438345362907355,
+          "sampler_passed_numeric_count": 1
+        },
+        "depth": {
+          "absolute_bias": 0.00013578690653420585,
+          "bias": 0.00013578690653420585,
+          "bias_conditional_on_sampler": 0.00016773723979863543,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": 0.5,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.00046920120242409396,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0010248948846625836,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0021639057171620787,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.00013578690653420585,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.0008419010989180175,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.08486681658387867,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.00016376659553411538,
+          "rmse_conditional_on_sampler": 0.00016773723979863543,
+          "sampler_passed_numeric_count": 1
+        },
+        "extra_sigma": {
+          "absolute_bias": 1.2947173286927818e-05,
+          "bias": -1.2947173286927818e-05,
+          "bias_conditional_on_sampler": -1.761872000578319e-05,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 5.422735418608599e-05,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.00010375564981787121,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.0001539377581993072,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 3.147570735261316e-05,
+          "mean_absolute_calibration_error": 0.14222222222222222,
+          "mean_posterior_sd": 4.081574110275204e-05,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.043157244289759394,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 3.408512981922394e-05,
+          "rmse_conditional_on_sampler": 1.761872000578319e-05,
+          "sampler_passed_numeric_count": 1
+        },
+        "full_duration": {
+          "absolute_bias": 0.0005363551466015375,
+          "bias": -0.0005363551466015375,
+          "bias_conditional_on_sampler": -0.0009260708297183368,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.007979114166517977,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.015168224479265057,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.024102636908023455,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.004820685077082423,
+          "mean_absolute_calibration_error": 0.12000000000000005,
+          "mean_posterior_sd": 0.006211471869057748,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.016247587660128987,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.005558845349518068,
+          "rmse_conditional_on_sampler": 0.0009260708297183368,
+          "sampler_passed_numeric_count": 1
+        },
+        "r": {
+          "absolute_bias": 0.00100888037222948,
+          "bias": 0.00100888037222948,
+          "bias_conditional_on_sampler": 0.00150885015405635,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.5,
+              "calibration_error_numeric": 0.5,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.005848846290347778,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.19999999999999996,
+              "calibration_error_numeric": 0.19999999999999996,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.012367976071372862,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.02365723995578256,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.0011086227511925447,
+          "mean_absolute_calibration_error": 0.25333333333333335,
+          "mean_posterior_sd": 0.0070352741520492154,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": 0.025222009305737,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.0013011854694231287,
+          "rmse_conditional_on_sampler": 0.00150885015405635,
+          "sampler_passed_numeric_count": 1
+        },
+        "t0": {
+          "absolute_bias": 0.0005423113975761813,
+          "bias": -0.0005423113975761813,
+          "bias_conditional_on_sampler": -0.0006695709674720892,
+          "coverage": {
+            "0.5": {
+              "absolute_calibration_error_numeric": 0.16666666666666669,
+              "calibration_error_numeric": -0.16666666666666669,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 1,
+              "empirical_coverage_numeric": 0.3333333333333333,
+              "mean_interval_width": 0.0017584158135140948,
+              "nominal": 0.5,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.06149194472039621,
+                0.7923403991979522
+              ]
+            },
+            "0.8": {
+              "absolute_calibration_error_numeric": 0.13333333333333341,
+              "calibration_error_numeric": -0.13333333333333341,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 2,
+              "empirical_coverage_numeric": 0.6666666666666666,
+              "mean_interval_width": 0.003490629684544319,
+              "nominal": 0.8,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.2076596008020477,
+                0.9385080552796037
+              ]
+            },
+            "0.94": {
+              "absolute_calibration_error_numeric": 0.06000000000000005,
+              "calibration_error_numeric": 0.06000000000000005,
+              "coverage_conditional_on_sampler": 1.0,
+              "coverage_conditional_on_scientific_gate": 1.0,
+              "covered_and_scientific_gate_passed_count": 1,
+              "covered_count": 3,
+              "empirical_coverage_numeric": 1.0,
+              "mean_interval_width": 0.005322097922228629,
+              "nominal": 0.94,
+              "numeric_count": 3,
+              "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+              "operational_wilson95_all_declared": [
+                0.06149194472039621,
+                0.7923403991979522
+              ],
+              "sampler_passed_numeric_count": 1,
+              "scientific_gate_passed_numeric_count": 1,
+              "wilson95_conditional_on_sampler": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_conditional_on_scientific_gate": [
+                0.20654931437723745,
+                1.0
+              ],
+              "wilson95_numeric": [
+                0.4385029682449546,
+                1.0
+              ]
+            }
+          },
+          "mae": 0.0013043125187864296,
+          "mean_absolute_calibration_error": 0.12000000000000005,
+          "mean_posterior_sd": 0.0013899502638196222,
+          "missing_or_invalid_count": 0,
+          "numeric_count": 3,
+          "relative_bias": -0.5423113975761814,
+          "relative_bias_nonzero_truth_count": 3,
+          "rmse": 0.0014336795164858291,
+          "rmse_conditional_on_sampler": 0.0006695709674720892,
+          "sampler_passed_numeric_count": 1
+        }
+      },
+      "present_count": 3,
+      "schema_version": "fixed-truth-calibration-v1",
+      "status_counts": {
+        "completed": 1,
+        "missing": 0,
+        "rejected": 2
+      },
+      "unavailable_final_rate_all_declared": 0.0
+    }
+  }
+}

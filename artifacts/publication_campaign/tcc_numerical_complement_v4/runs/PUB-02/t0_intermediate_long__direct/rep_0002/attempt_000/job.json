@@ -1,0 +1,80 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/tcc_numerical_complement_v4.json",
+    "--job-id",
+    "PUB-02__t0_intermediate_long__direct__rep_0002"
+  ],
+  "cores": 2,
+  "estimated_seconds": 104.80394856800103,
+  "experiment_id": "PUB-02",
+  "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+  "max_technical_retries": 0,
+  "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v4/runs/PUB-02/t0_intermediate_long__direct/rep_0002",
+  "payload": {
+    "inference": {
+      "baseline_prior_sigma": 0.02,
+      "infer_jitter": true,
+      "integrate_exposure": true,
+      "jitter_error_multiplier": 5.0,
+      "jitter_floor_fraction": 0.0005,
+      "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+      "oversample": 15,
+      "period_days": 1.0,
+      "preprocessing_status": "segment_normalized",
+      "radius_prior_log_sigma": 0.9,
+      "radius_prior_median": 0.04,
+      "sampling": {
+        "chains": 4,
+        "cores": 4,
+        "draws": 1000,
+        "linker": "auto",
+        "save_warmup": true,
+        "target_accept": 0.95,
+        "tune": 1000
+      },
+      "t0_prior_sigma_days": 0.025,
+      "transit_center_parameterization": "direct"
+    },
+    "kind": "synthetic",
+    "pair_id": "t0_intermediate_long",
+    "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+    "reference_variant": "direct",
+    "scenario": {
+      "design": {
+        "cadence_seconds": 1800,
+        "exposure_time_seconds": 1765.46,
+        "measurement_sigma": 0.0003,
+        "oversample": 31,
+        "segments": 2,
+        "transits_per_segment": 4,
+        "window_days": 0.15
+      },
+      "regime": "intermediate depth, integration-sensitive, higher impact",
+      "scenario_id": "intermediate_long",
+      "truth": {
+        "a": 7.0,
+        "b": 0.75,
+        "baseline": 1.0,
+        "extra_sigma": 0.0003,
+        "period_days": 1.0,
+        "q1": 0.25,
+        "q2": 0.3,
+        "r": 0.04,
+        "t0": 0.001
+      }
+    },
+    "variant_id": "direct"
+  },
+  "replicate_id": "rep_0002",
+  "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__direct__rep_0002",
+  "scenario_id": "t0_intermediate_long__direct",
+  "seeds": {
+    "generation": 1007277760,
+    "inference": 4067307673,
+    "predictive": 3025351974,
+    "resampling": 1359260080
+  }
+}

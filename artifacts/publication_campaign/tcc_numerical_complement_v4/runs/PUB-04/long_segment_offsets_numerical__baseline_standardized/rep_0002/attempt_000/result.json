@@ -1,0 +1,389 @@
+{
+  "status": "rejected",
+  "dataset_id": "synthetic-a7dbd0fe561f91ba0c05",
+  "input_sha256": "a7dbd0fe561f91ba0c05bca7310fa4e6a4457bbc57eea13c4c45843ddfd3aa76",
+  "parameters": {
+    "baseline": {
+      "mean": 1.000048478928391,
+      "median": 1.0000486840507974,
+      "sd": 4.480940109548603e-05,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          1.0000182394950534,
+          1.0000791519997911
+        ],
+        "0.8": [
+          0.9999924413486996,
+          1.0001054644619431
+        ],
+        "0.94": [
+          0.9999626427586691,
+          1.0001302748401049
+        ]
+      }
+    },
+    "r": {
+      "mean": 0.06868360124192155,
+      "median": 0.06870130562490026,
+      "sd": 0.0037739689984782987,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.06636558317976882,
+          0.07093906949743106
+        ],
+        "0.8": [
+          0.06401071303077223,
+          0.07295175286956908
+        ],
+        "0.94": [
+          0.0615194141815382,
+          0.07605038236547004
+        ]
+      }
+    },
+    "b": {
+      "mean": 0.3747932811965188,
+      "median": 0.3521014968207541,
+      "sd": 0.23857063744979776,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.17287302098719115,
+          0.5711514484488232
+        ],
+        "0.8": [
+          0.06200092640159667,
+          0.7182682294544678
+        ],
+        "0.94": [
+          0.014618613712572934,
+          0.8029327816497147
+        ]
+      }
+    },
+    "a": {
+      "mean": 6.681090251280596,
+      "median": 6.88687620031147,
+      "sd": 0.940061061060856,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          6.139526558264338,
+          7.385232441121082
+        ],
+        "0.8": [
+          5.271553187701409,
+          7.710093476224127
+        ],
+        "0.94": [
+          4.575653691041941,
+          7.9837287018824625
+        ]
+      }
+    },
+    "t0": {
+      "mean": 0.0012458021308227266,
+      "median": 0.0012391368960348145,
+      "sd": 0.0004502027211669743,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.0009454262616144239,
+          0.0015468340408040222
+        ],
+        "0.8": [
+          0.0006667200988081372,
+          0.0018301619836473399
+        ],
+        "0.94": [
+          0.00041183945164115373,
+          0.0020917524844178822
+        ]
+      }
+    },
+    "q1": {
+      "mean": 0.43020625413822133,
+      "median": 0.39121284457219563,
+      "sd": 0.2847446373831868,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.18049961728066136,
+          0.6660790067865094
+        ],
+        "0.8": [
+          0.06940879897710506,
+          0.8482294168178343
+        ],
+        "0.94": [
+          0.019428879037096992,
+          0.9531052383797942
+        ]
+      }
+    },
+    "q2": {
+      "mean": 0.44490666338736945,
+      "median": 0.4183649029688281,
+      "sd": 0.2777381644575827,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.21422462637235898,
+          0.6627282033466153
+        ],
+        "0.8": [
+          0.086433531692522,
+          0.8625388249756001
+        ],
+        "0.94": [
+          0.023747060013245214,
+          0.9496434580446799
+        ]
+      }
+    },
+    "extra_sigma": {
+      "mean": 0.0004908287065805523,
+      "median": 0.000489100807003889,
+      "sd": 3.1945044518282825e-05,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.0004686759704174107,
+          0.0005118508565456365
+        ],
+        "0.8": [
+          0.00045111165278605175,
+          0.0005328691703677663
+        ],
+        "0.94": [
+          0.00043486180867339293,
+          0.0005535402497128929
+        ]
+      }
+    },
+    "depth": {
+      "mean": 0.004731676360850262,
+      "median": 0.004719869395289537,
+      "sd": 0.0005217356401030592,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.004404390641842211,
+          0.005032351581246998
+        ],
+        "0.8": [
+          0.004097371385183126,
+          0.005321958246881378
+        ],
+        "0.94": [
+          0.003784638321348445,
+          0.005783660675495973
+        ]
+      }
+    },
+    "full_duration": {
+      "mean": 0.04663361918810661,
+      "median": 0.04621289378287545,
+      "sd": 0.0029383798352677405,
+      "interval_method": "equal_tailed",
+      "intervals": {
+        "0.5": [
+          0.04456473130356245,
+          0.048372276513286266
+        ],
+        "0.8": [
+          0.04325782452943267,
+          0.05053639615316507
+        ],
+        "0.94": [
+          0.04210620241495467,
+          0.05314172468940055
+        ]
+      }
+    }
+  },
+  "diagnostics": {
+    "max_r_hat": 1.0042747,
+    "min_ess": 591.64989701,
+    "divergences": 2,
+    "acceptance_mean": 0.9365115202879558,
+    "bfmi_min": 0.8996073157137142,
+    "max_tree_depth": 8,
+    "fraction_tree_depth_ge_10": 0.0
+  },
+  "residual_metrics": {
+    "posterior_predictive_interval_94_coverage_observed_points": 0.9602272727272727,
+    "standardized_residual_std": 0.9872245176936922,
+    "rmse": 0.0005229866088432818
+  },
+  "residual_correlation": {
+    "method": "within-segment gap-filtered selected-observation Pearson lags; Bonferroni normal reference",
+    "spacing_proxy": "median selected time spacing within segment; not original cadence after thinning",
+    "limitation": "A pass cannot exclude correlation on native-cadence scales removed by thinning.",
+    "familywise_alpha_per_run": 0.01,
+    "lags": [
+      {
+        "lag": 1,
+        "pairs": 164,
+        "correlation": 0.18740282537939326,
+        "normal_reference_bound": 0.24130660218196504,
+        "available": true,
+        "flagged": false
+      },
+      {
+        "lag": 2,
+        "pairs": 152,
+        "correlation": 0.02329790121875078,
+        "normal_reference_bound": 0.2506509381653682,
+        "available": true,
+        "flagged": false
+      },
+      {
+        "lag": 3,
+        "pairs": 140,
+        "correlation": 0.03608869185204126,
+        "normal_reference_bound": 0.2611722981657243,
+        "available": true,
+        "flagged": false
+      },
+      {
+        "lag": 4,
+        "pairs": 128,
+        "correlation": -0.0021327651058638273,
+        "normal_reference_bound": 0.2731405273916255,
+        "available": true,
+        "flagged": false
+      },
+      {
+        "lag": 5,
+        "pairs": 116,
+        "correlation": 0.1646840987882093,
+        "normal_reference_bound": 0.2869208665697415,
+        "available": true,
+        "flagged": false
+      }
+    ],
+    "assessable": true,
+    "flagged": false
+  },
+  "scale_checks": {
+    "extra_sigma_to_measurement_sigma": 2.453974337479521,
+    "radius_ratio_boundary_fraction": 0.0,
+    "radius_review_bounds": [
+      0.00349,
+      0.24751
+    ],
+    "review_bound_semantics": "Inherited M5 astrophysical review range; NOT LogNormal prior support boundaries."
+  },
+  "inherited_m5_gate": {
+    "sampler_converged": false,
+    "posterior_predictive_adequate": true,
+    "scientifically_interpretable": false,
+    "rejection_reasons": [
+      "divergences=2 is not zero"
+    ],
+    "component_reasons": {
+      "sampler": [
+        "divergences=2 is not zero"
+      ],
+      "posterior_predictive": [],
+      "scientific": []
+    },
+    "thresholds": {
+      "max_r_hat": 1.01,
+      "min_ess": 400,
+      "divergences": 0,
+      "min_bfmi": 0.3,
+      "max_jitter_ratio": 20.0,
+      "max_radius_ratio_boundary_fraction": 0.05
+    }
+  },
+  "gates": {
+    "provenance": true,
+    "sampler": false,
+    "ppc": true,
+    "scientific": false
+  },
+  "model": {
+    "options": {
+      "radius_prior_median": 0.04,
+      "radius_prior_uniform": null,
+      "baseline_prior_sigma": 0.02,
+      "transit_center_prior_sigma_days": 0.025,
+      "infer_jitter": true,
+      "integrate_exposure": true,
+      "mutable_observations": true
+    },
+    "prior_profile": {
+      "name": "publication_explicit",
+      "radius_ratio_log_sigma": 0.9,
+      "jitter_error_multiplier": 5.0,
+      "jitter_floor_fraction": 0.0005,
+      "purpose": "Frozen publication protocol"
+    },
+    "fixed_period_days": 1.0,
+    "eccentricity": 0.0,
+    "a_prior": [
+      2.0,
+      50.0
+    ],
+    "b_prior": [
+      0.0,
+      1.0
+    ],
+    "q1_q2_prior": [
+      0.0,
+      1.0
+    ],
+    "baseline_prior_mean": 1.0,
+    "t0_prior_mean_days": 0.0,
+    "implementation": "shared bayesian_modeling.physical_transit.build_model",
+    "family": "M5-publication-v2-standardized-t0",
+    "transit_center_parameterization": "standardized",
+    "likelihood": "independent Normal: measurement variance + white jitter variance"
+  },
+  "sampling": {
+    "chains": 4,
+    "cores": 2,
+    "draws": 1000,
+    "linker": "auto",
+    "save_warmup": true,
+    "target_accept": 0.95,
+    "tune": 1000
+  },
+  "posterior_trace_variables": [
+    "baseline",
+    "r",
+    "b",
+    "a",
+    "t0",
+    "q1",
+    "q2",
+    "extra_sigma",
+    "depth",
+    "full_duration",
+    "t0_standardized"
+  ],
+  "environment": {
+    "python_executable": "/home/leonardo_barca/mc3/bin/python3.14",
+    "python_version": "3.14.6",
+    "gcc": "/usr/bin/gcc",
+    "gxx": "/usr/bin/g++",
+    "pymc": "6.3.1",
+    "arviz": "1.3.0",
+    "exoplanet": "0.6.0",
+    "pytensor": "3.3.0",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.11.1"
+  },
+  "numerical_precision": {
+    "floatX": "float64",
+    "linker": "auto"
+  },
+  "wall_seconds": 82.03110040700085,
+  "trace_sha256": "fa4c8554416290248f4f7985ab4ec5b28e18ccfc20a0502687c3a74807cf28b2",
+  "interpretation": "Conditional on frozen protocol and aggregate calibration; no automatic physical claim."
+}

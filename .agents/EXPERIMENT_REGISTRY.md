@@ -247,3 +247,45 @@ unchanged. See
 Do not resume v3 or reinterpret its rejected standardized runs as physical
 model failures. A repaired and separately frozen campaign identity is
 required before promoting this numerical comparison.
+
+## Corrected numerical complement v4 — completed 2026-10-01
+
+`tcc_numerical_complement_v4` is the separate, prospectively frozen corrective
+campaign. Its three protocols and scientific config were committed in
+`5aab88d`, and its 24-job ledger in
+`96787f27b45aa019ceb9fe52c2b90971a2ebae1a`, before the first final run.
+The v3 attempts remain sealed historical evidence and are not part of v4's
+denominator. No scientific settings were changed to rescue a result.
+
+The controller reached `COMPLETED` at `2026-10-01T05:20:49Z`, with 24/24
+declared jobs and 24/24 preserved attempts: 10 `COMPLETED`, 14
+`COMPLETED_REJECTED`, zero technical failures, and no pending jobs. By family:
+PUB-02 was 7 accepted / 5 rejected (12 total), PUB-03 was 0 / 3 (3 total),
+and PUB-04 was 3 / 6 (9 total). All 24 passed provenance; 11 failed sampler
+diagnostics and 3 passed sampler diagnostics but failed PPC. The independent
+`--verify` report-integrity check passed. The corrected trace audit found 18/18
+standardized runs retaining `t0_standardized` and 6/6 direct runs without it;
+for all standardized traces, stored `t0` exactly equaled the declared
+scale times `t0_standardized` at array precision. This checks the previous
+predictive-conditioning defect but does not alone validate the physical model.
+
+The three PUB-03 local refits reuse **one** observational input and **one**
+historical external juliet posterior; they are not three independent external
+benchmarks. Their samplers passed, but their temporal PPC failed. They remain
+scientifically rejected and cannot establish external validation. PUB-02 has
+only three newly seeded datasets per regime, so its coordinate comparison is
+descriptive, not a precise calibration-rate estimate or proof of numerical
+improvement. PUB-04's high-accuracy baseline passed all three replicates;
+the standardized baseline and exposure-off variants were rejected on sampler
+diagnostics. Their numeric paired shifts remain descriptive and are not
+promoted as accepted-posterior contrasts. Negative outcomes are retained.
+
+Authoritative status and checksums:
+`artifacts/publication_campaign/tcc_numerical_complement_v4/campaign_state.json`
+and `reports/publication_campaign/tcc_numerical_complement_v4/summary.json`.
+Human interpretation and the exact limits of these claims are in
+`docs/publication/NUMERICAL_COMPLEMENT_V4_REVIEW.md`. The generated
+`REPORT.md` uses generic smoke-era caveat wording and an aggregation-time
+state snapshot; those labels do not supersede the final machine state or
+this mode-specific review. Future claim synthesis must cite v4 separately,
+never silently substitute its rejected posteriors into accepted evidence.

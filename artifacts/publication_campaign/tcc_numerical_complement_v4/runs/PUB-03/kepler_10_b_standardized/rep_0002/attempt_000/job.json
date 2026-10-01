@@ -1,0 +1,29 @@
+{
+  "command": [
+    "{python}",
+    "scripts/publication_campaign_job.py",
+    "--config",
+    "configs/publication/tcc_numerical_complement_v4.json",
+    "--job-id",
+    "PUB-03__kepler_10_b_standardized__rep_0002"
+  ],
+  "cores": 2,
+  "estimated_seconds": 3811.8627438439944,
+  "experiment_id": "PUB-03",
+  "job_id": "PUB-03__kepler_10_b_standardized__rep_0002",
+  "max_technical_retries": 0,
+  "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v4/runs/PUB-03/kepler_10_b_standardized/rep_0002",
+  "payload": {
+    "kind": "benchmark_local",
+    "protocol": "publication/protocols/PUB-03-tcc_numerical_complement_v4.json"
+  },
+  "replicate_id": "rep_0002",
+  "run_id": "tcc_numerical_complement_v4__PUB-03__kepler_10_b_standardized__rep_0002",
+  "scenario_id": "kepler_10_b_standardized",
+  "seeds": {
+    "generation": 302285107,
+    "inference": 923141485,
+    "predictive": 4007243096,
+    "resampling": 3968009400
+  }
+}
