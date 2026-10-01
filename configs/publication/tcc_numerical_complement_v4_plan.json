@@ -1,0 +1,1925 @@
+{
+  "campaign_id": "tcc_numerical_complement_v4",
+  "declared_jobs": [
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "direct"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_deep_short",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 180,
+            "exposure_time_seconds": 120,
+            "measurement_sigma": 0.001,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 1,
+            "window_days": 0.12
+          },
+          "regime": "deep high-SNR, short exposure",
+          "scenario_id": "deep_short",
+          "truth": {
+            "a": 5.0,
+            "b": 0.3,
+            "baseline": 1.0,
+            "extra_sigma": 0.0002,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.1,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "direct"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_deep_short__direct__rep_0000",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 2850450152,
+        "inference": 2209717210,
+        "predictive": 258565339,
+        "resampling": 2937952881
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "direct"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_deep_short",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 180,
+            "exposure_time_seconds": 120,
+            "measurement_sigma": 0.001,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 1,
+            "window_days": 0.12
+          },
+          "regime": "deep high-SNR, short exposure",
+          "scenario_id": "deep_short",
+          "truth": {
+            "a": 5.0,
+            "b": 0.3,
+            "baseline": 1.0,
+            "extra_sigma": 0.0002,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.1,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "direct"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_deep_short__direct__rep_0001",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 1879266602,
+        "inference": 1249782409,
+        "predictive": 756140354,
+        "resampling": 4187264705
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "direct"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_deep_short",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 180,
+            "exposure_time_seconds": 120,
+            "measurement_sigma": 0.001,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 1,
+            "window_days": 0.12
+          },
+          "regime": "deep high-SNR, short exposure",
+          "scenario_id": "deep_short",
+          "truth": {
+            "a": 5.0,
+            "b": 0.3,
+            "baseline": 1.0,
+            "extra_sigma": 0.0002,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.1,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "direct"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_deep_short__direct__rep_0002",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 3820527335,
+        "inference": 2065508581,
+        "predictive": 2543798644,
+        "resampling": 2082106191
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_deep_short",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 180,
+            "exposure_time_seconds": 120,
+            "measurement_sigma": 0.001,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 1,
+            "window_days": 0.12
+          },
+          "regime": "deep high-SNR, short exposure",
+          "scenario_id": "deep_short",
+          "truth": {
+            "a": 5.0,
+            "b": 0.3,
+            "baseline": 1.0,
+            "extra_sigma": 0.0002,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.1,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "standardized"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_deep_short__standardized__rep_0000",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 2850450152,
+        "inference": 4137222605,
+        "predictive": 2100643919,
+        "resampling": 4241497680
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_deep_short",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 180,
+            "exposure_time_seconds": 120,
+            "measurement_sigma": 0.001,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 1,
+            "window_days": 0.12
+          },
+          "regime": "deep high-SNR, short exposure",
+          "scenario_id": "deep_short",
+          "truth": {
+            "a": 5.0,
+            "b": 0.3,
+            "baseline": 1.0,
+            "extra_sigma": 0.0002,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.1,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "standardized"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_deep_short__standardized__rep_0001",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 1879266602,
+        "inference": 16436107,
+        "predictive": 2086243726,
+        "resampling": 4162852228
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_deep_short",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 180,
+            "exposure_time_seconds": 120,
+            "measurement_sigma": 0.001,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 1,
+            "window_days": 0.12
+          },
+          "regime": "deep high-SNR, short exposure",
+          "scenario_id": "deep_short",
+          "truth": {
+            "a": 5.0,
+            "b": 0.3,
+            "baseline": 1.0,
+            "extra_sigma": 0.0002,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.1,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "standardized"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_deep_short__standardized__rep_0002",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 3820527335,
+        "inference": 3312778828,
+        "predictive": 1411471719,
+        "resampling": 1942564035
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "direct"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_intermediate_long",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765.46,
+            "measurement_sigma": 0.0003,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "regime": "intermediate depth, integration-sensitive, higher impact",
+          "scenario_id": "intermediate_long",
+          "truth": {
+            "a": 7.0,
+            "b": 0.75,
+            "baseline": 1.0,
+            "extra_sigma": 0.0003,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.04,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "direct"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__direct__rep_0000",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 3823374878,
+        "inference": 4241069444,
+        "predictive": 2907887205,
+        "resampling": 2638942128
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "direct"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_intermediate_long",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765.46,
+            "measurement_sigma": 0.0003,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "regime": "intermediate depth, integration-sensitive, higher impact",
+          "scenario_id": "intermediate_long",
+          "truth": {
+            "a": 7.0,
+            "b": 0.75,
+            "baseline": 1.0,
+            "extra_sigma": 0.0003,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.04,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "direct"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__direct__rep_0001",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 97686158,
+        "inference": 4077480864,
+        "predictive": 3076991549,
+        "resampling": 2194498860
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "direct"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_intermediate_long",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765.46,
+            "measurement_sigma": 0.0003,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "regime": "intermediate depth, integration-sensitive, higher impact",
+          "scenario_id": "intermediate_long",
+          "truth": {
+            "a": 7.0,
+            "b": 0.75,
+            "baseline": 1.0,
+            "extra_sigma": 0.0003,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.04,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "direct"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__direct__rep_0002",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 1007277760,
+        "inference": 4067307673,
+        "predictive": 3025351974,
+        "resampling": 1359260080
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_intermediate_long",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765.46,
+            "measurement_sigma": 0.0003,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "regime": "intermediate depth, integration-sensitive, higher impact",
+          "scenario_id": "intermediate_long",
+          "truth": {
+            "a": 7.0,
+            "b": 0.75,
+            "baseline": 1.0,
+            "extra_sigma": 0.0003,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.04,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "standardized"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 3823374878,
+        "inference": 2906331208,
+        "predictive": 2318510565,
+        "resampling": 151292357
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_intermediate_long",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765.46,
+            "measurement_sigma": 0.0003,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "regime": "intermediate depth, integration-sensitive, higher impact",
+          "scenario_id": "intermediate_long",
+          "truth": {
+            "a": 7.0,
+            "b": 0.75,
+            "baseline": 1.0,
+            "extra_sigma": 0.0003,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.04,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "standardized"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 97686158,
+        "inference": 798363610,
+        "predictive": 937509886,
+        "resampling": 405168274
+      }
+    },
+    {
+      "experiment_id": "PUB-02",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "infer_jitter": true,
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Period, time convention, exposure, segment and measurement errors known. Fixed truth r,b,a,t0,jitter,q1,q2 are not used to set priors or initialize chains.",
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "kind": "synthetic",
+        "pair_id": "t0_intermediate_long",
+        "protocol": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+        "reference_variant": "direct",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765.46,
+            "measurement_sigma": 0.0003,
+            "oversample": 31,
+            "segments": 2,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "regime": "intermediate depth, integration-sensitive, higher impact",
+          "scenario_id": "intermediate_long",
+          "truth": {
+            "a": 7.0,
+            "b": 0.75,
+            "baseline": 1.0,
+            "extra_sigma": 0.0003,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.04,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "standardized"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 1007277760,
+        "inference": 1744237067,
+        "predictive": 1976449975,
+        "resampling": 2268080494
+      }
+    },
+    {
+      "experiment_id": "PUB-03",
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+      "payload": {
+        "kind": "benchmark_local",
+        "protocol": "publication/protocols/PUB-03-tcc_numerical_complement_v4.json"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-03__kepler_10_b_standardized__rep_0000",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 642805387,
+        "inference": 391629739,
+        "predictive": 258921175,
+        "resampling": 2124857804
+      }
+    },
+    {
+      "experiment_id": "PUB-03",
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0001",
+      "payload": {
+        "kind": "benchmark_local",
+        "protocol": "publication/protocols/PUB-03-tcc_numerical_complement_v4.json"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-03__kepler_10_b_standardized__rep_0001",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 2832269332,
+        "inference": 3478001831,
+        "predictive": 2603001016,
+        "resampling": 3588468572
+      }
+    },
+    {
+      "experiment_id": "PUB-03",
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0002",
+      "payload": {
+        "kind": "benchmark_local",
+        "protocol": "publication/protocols/PUB-03-tcc_numerical_complement_v4.json"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-03__kepler_10_b_standardized__rep_0002",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 302285107,
+        "inference": 923141485,
+        "predictive": 4007243096,
+        "resampling": 3968009400
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "baseline",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_standardized",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "baseline_standardized"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 1962945269,
+        "inference": 3393109204,
+        "predictive": 1770382674,
+        "resampling": 2666338031
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "baseline",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_standardized",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "baseline_standardized"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 1436881057,
+        "inference": 3730637181,
+        "predictive": 2035422671,
+        "resampling": 1758898268
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 1000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.95,
+            "tune": 1000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "baseline",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_standardized",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "baseline_standardized"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 3974421914,
+        "inference": 931051050,
+        "predictive": 1778270285,
+        "resampling": 124061164
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 2000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.99,
+            "tune": 2000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "baseline",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_standardized",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "baseline_high_accuracy"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 1962945269,
+        "inference": 1857536775,
+        "predictive": 1011018975,
+        "resampling": 1582409575
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 2000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.99,
+            "tune": 2000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "baseline",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_standardized",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "baseline_high_accuracy"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 1436881057,
+        "inference": 3549495199,
+        "predictive": 18256977,
+        "resampling": 534726847
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 2000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.99,
+            "tune": 2000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "baseline",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_standardized",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "baseline_high_accuracy"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 3974421914,
+        "inference": 3790536522,
+        "predictive": 3692367040,
+        "resampling": 3130141654
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 2000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.99,
+            "tune": 2000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "exposure_off",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_high_accuracy",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "exposure_off_high_accuracy"
+      },
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 1962945269,
+        "inference": 2973187042,
+        "predictive": 3790372789,
+        "resampling": 2084709302
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 2000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.99,
+            "tune": 2000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "exposure_off",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_high_accuracy",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "exposure_off_high_accuracy"
+      },
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 1436881057,
+        "inference": 1153833147,
+        "predictive": 2525158218,
+        "resampling": 3161788379
+      }
+    },
+    {
+      "experiment_id": "PUB-04",
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "payload": {
+        "inference": {
+          "baseline_prior_sigma": 0.02,
+          "derived": {
+            "depth": "r^2 geometric area ratio, not limb-darkened observed depth",
+            "duration": "Circular first-to-fourth contact duration before exposure smearing"
+          },
+          "fixed_orbit": {
+            "eccentricity": 0.0,
+            "period_days": 1.0
+          },
+          "infer_jitter": true,
+          "input_kind": "synthetic",
+          "integrate_exposure": true,
+          "jitter_error_multiplier": 5.0,
+          "jitter_floor_fraction": 0.0005,
+          "known_design_assumptions": "Known period/time convention/exposures and supplied measurement errors only; no fitted injected parameter supplies a prior, initialization or normalization factor.",
+          "likelihood": "Independent Normal observations, physical exposure-integrated quadratic limb-darkened transit plus Normal baseline; measured variance plus inferred white jitter variance.",
+          "model_family": "M5-publication-v2-standardized-t0",
+          "other_priors": {
+            "a": "Uniform(2,50)",
+            "b": "Uniform(0,1)",
+            "baseline": "Normal(1,0.02)",
+            "extra_sigma": "HalfNormal(max(5*median(supplied normalized error),0.0005))",
+            "q1": "Uniform(0,1)",
+            "q2": "Uniform(0,1)",
+            "t0": "Normal(0,0.025 day)"
+          },
+          "oversample": 15,
+          "period_days": 1.0,
+          "preprocessing_status": "segment_normalized",
+          "radius_prior_log_sigma": 0.9,
+          "radius_prior_median": 0.04,
+          "sampling": {
+            "chains": 4,
+            "cores": 4,
+            "draws": 2000,
+            "linker": "auto",
+            "save_warmup": true,
+            "target_accept": 0.99,
+            "tune": 2000
+          },
+          "t0_prior_sigma_days": 0.025,
+          "transit_center_parameterization": "standardized"
+        },
+        "intervention": "exposure_off",
+        "kind": "ablation",
+        "pair_id": "long_segment_offsets_numerical",
+        "protocol": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+        "reference_variant": "baseline_high_accuracy",
+        "scenario": {
+          "design": {
+            "cadence_seconds": 1800,
+            "exposure_time_seconds": 1765,
+            "heteroscedastic": true,
+            "include_raw_flux": true,
+            "measurement_sigma": 0.0002,
+            "noise": {
+              "kind": "none"
+            },
+            "oversample": 31,
+            "segment_gap_periods": 1,
+            "segment_offsets": [
+              0.98,
+              1.0,
+              1.02
+            ],
+            "segments": 3,
+            "systematic": null,
+            "transits_per_segment": 4,
+            "window_days": 0.15
+          },
+          "truth": {
+            "a": 7.0,
+            "b": 0.4,
+            "baseline": 1.0,
+            "extra_sigma": 0.0005,
+            "period_days": 1.0,
+            "q1": 0.25,
+            "q2": 0.3,
+            "r": 0.07,
+            "t0": 0.001
+          }
+        },
+        "variant_id": "exposure_off_high_accuracy"
+      },
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v4__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 3974421914,
+        "inference": 2124833499,
+        "predictive": 248259889,
+        "resampling": 3940129836
+      }
+    }
+  ],
+  "protocols": {
+    "PUB-02": {
+      "path": "publication/protocols/PUB-02-tcc_numerical_complement_v4.json",
+      "sha256": "3518fcdf618c43360fd846aadbb4a4dedcf80cbf1b893663bcf89e91f07db075"
+    },
+    "PUB-03": {
+      "path": "publication/protocols/PUB-03-tcc_numerical_complement_v4.json",
+      "sha256": "27036f00ed751ba28582ca15b1b7f0c5dc0d50d3feacf2d01bce4411a1f48656"
+    },
+    "PUB-04": {
+      "path": "publication/protocols/PUB-04-tcc_numerical_complement_v4.json",
+      "sha256": "e81472d33a0bd2921f780b6baad17cc522aaf0b8eb1b9c7ed814d65ed32418f8"
+    }
+  },
+  "reproducibility_note": "Commit this generated ledger and all referenced protocols/config/source before final execution. Changing budgets is permitted, changing science requires a new campaign ID.",
+  "schema_version": "frozen-campaign-plan-v1",
+  "scientific_config_sha256": "28189a3b011256191e03af3a8ca59de50ea6611b391877212147e2b5901f538d",
+  "seed_policy": "SHA256 canonical JSON ['campaign-seed-v1',campaign_id,experiment_id,scenario_or_generation_pair_id,replicate_id,stream], first32bits; fixed across retries; separate campaigns have disjoint namespaces.",
+  "source_checksums": {
+    "scripts/__init__.py": "9f06f0ee0e2eef776a9909a6c42d16cf5bb75178c651b76cf31d238d9e5594b0",
+    "scripts/_network_guard/sitecustomize.py": "47c63e849e5cc1542cf7b9898bdd5fd8ef905bd6f81374f97307c94cfbf4c767",
+    "scripts/aggregate_publication_campaign.py": "99d5822b180c2372d48244ef4ab8129c8c10e322e5acf5efb3f9c8ec774685f4",
+    "scripts/analyze_gold_lightcurve.py": "3d9a00ea2f27d8587801092abccb1ef64b5010cba7dc2fc9caff4f8ee5eec06d",
+    "scripts/audit_observational_residuals.py": "6642841244c8679b9fcf765f1975cbee99dbf33a5913741150bd3ea7cd3c07f9",
+    "scripts/audit_publication_traces.py": "e5249480170f14eb65a988443944c6297416b9d62ada22f50b7f46fd046f76b3",
+    "scripts/audit_raw_git_bytes.py": "2f74d35b42575f38010f716c7479b3e872f67e29aa1c358d59e8365f1d48a31b",
+    "scripts/audit_t0_initialization.py": "2e945a8771e3d8216a138236d7f78c3f73b23bb1e40767133de4ae1a1e52264c",
+    "scripts/build_gold_data.py": "eda5861e670aca1221780257bcbde6791f19a7fe993b72a01eeb717e210ce06b",
+    "scripts/build_gold_selection_report.py": "e964e168e3f1f5337c9a09c175def38dbe728d6923230159f03281af19129375",
+    "scripts/build_model_run_inventory.py": "279316aed0c5327adefb8750588dbe193b8184bfb4907106dbbbd67014788f48",
+    "scripts/build_publication_synthesis.py": "b331837939aba10df9b6bfb36c1405dcef2e85195902a63dfb2bc0ef06dcd76d",
+    "scripts/build_publication_synthesis_v2.py": "cd90fbaf34bbc15287541e393866d289f0e3f5b307cac60e16cf0df90b032dcb",
+    "scripts/build_silver_catalogs.py": "27bba420f2f178112f54b970077e47851ba33b482be54add5de30dced0371370",
+    "scripts/build_silver_data.py": "24c8b15bf942362b3de80cc8299168d0f815d8e00c8c95fad25d78240e379f09",
+    "scripts/build_silver_etd.py": "47bf0dfc038bb7d20e339a554994876f0e80b6c0342336df038028bd2b2cfbff",
+    "scripts/build_silver_lightcurves.py": "932fbe4989da85bf48415f36488ac97803faee821f94c11d0b9710b4fcafa032",
+    "scripts/download_etd_varastro.py": "ee809ada9386bc1f2879686184ed49323f2d291cabaf34fc50df32bbf1e45369",
+    "scripts/download_mast_lightcurves.py": "b575d63fc111b30c3ebcce8547f63fa7a361100b021cea556db15a556cf17c7f",
+    "scripts/download_nasa_exoplanet_archive.py": "1f9a9c74afc749bcbd93a7114d5fc1697502c00feee208026d722967ed7aa5e0",
+    "scripts/download_raw_data.py": "52ad23bf006674ab30bce7916c527f5ae8f91d5e77d80d0f6549a2390fefb8b9",
+    "scripts/freeze_audit_protection.py": "da27cf0d001c65bc292824523c9e5f061d06fa66ef7bb9a83251d5bd7b2c339b",
+    "scripts/gold_data_config.py": "b7238cfa5a7030ff31cee398c0a56bb63b41e3b07de435724d9056b89aa92aab",
+    "scripts/inspect_benchmark_environment.py": "1f1becfe9ddbdb27a85c5ee570fec7892ab6de63cd97fd8ee764188fdb831222",
+    "scripts/prepare_numerical_complement.py": "176c7c2a94914d95f7fe3e984381988537011cdbcacee02ec0ae89fa002ddbb0",
+    "scripts/prepare_t0_pilot.py": "f10e6ffdad8615ee25be94df1a76532077ea15e97950b0ee5cbcc19df3c5aff0",
+    "scripts/prepare_tcc_protocols.py": "d3329f7b4ea2fe7210843ff1c3cac8826a0c80cceb64a3e0bc92042f1f83ebb6",
+    "scripts/publication_campaign_job.py": "8dc55511558d0262171b058534d0fd15b9f60d3a890389272000e9e80ef67351",
+    "scripts/publication_evidence_archive.py": "fa8df40fa9a6fdd2feb16d52b0626ad2bafe3bb3f451b6af33fd1c739b9c1d3b",
+    "scripts/publication_inventory.py": "f7bede8eaf30265680b18a76429b7fa8e286d54951b6855ec7efb34665cc5f60",
+    "scripts/raw_data_config.py": "3aa2ad9dc4ea90f5b511a27cddd46d0f8c5089464c37007f915b9ded815f6d3b",
+    "scripts/rebuild_m5_artifacts.py": "158fc056bdfcad1c93422ab0579d8dc139b93185cc5084880c098f4a9aaba240",
+    "scripts/refresh_raw_manifest_state.py": "d70686e889fe965802869782e61856b018c7ac04bbfac15ca97364ed09a23d8c",
+    "scripts/run_bayesian_baseline.py": "933578abff57fcdf6d8d4080bc97a501237f2990f45cb8748d040ec39b6519da",
+    "scripts/run_bayesian_baseline_nuts_robust.py": "2b1db993d2d2a95a10ab91207760d5831bc95b0443749fa487f7f8b79b4c20fb",
+    "scripts/run_bayesian_noise_injection.py": "cea1da97955076375d88c3379b82605c499d07844ec2f0a931853f8cb207c9e7",
+    "scripts/run_bayesian_physical_transit.py": "0c602620ba1de46c3e0aa14068827a010df1e6a8799d4bc6d9f71af4703bdeba",
+    "scripts/run_bayesian_predictive_phase_regression.py": "1d6fc1422ea4d3923553ed6d927592860123c30e2b1c7317493c4b25ee29df0d",
+    "scripts/run_bayesian_sensitivity.py": "772d30a5abe7d6d19760daec656b8e0c38bf0fc772f750719963e384d74995af",
+    "scripts/run_bayesian_trapezoid_transit.py": "39c0154d39a8226cd17dc84b64b8f979eae0e4eadc81906b526149bb2c239654",
+    "scripts/run_ci_tests.py": "ec9a35c5b94a0602840c3b799b9cc9ec1efb11f09ee816c1ef9e706a716fe67d",
+    "scripts/run_kepler_10b.py": "a3eecf5d65faa565ec6120af66562772a6e6cfd0b531df5bfc643c1008c0b657",
+    "scripts/run_model_comparison.py": "418efb807816cd4215a9188def56f33c3ba0c4eb48e7509aa125c3e149d6fa43",
+    "scripts/run_publication_batch.py": "5b0a418019afc8880163929a2893848b36fbcb05feb464428940a174556423c6",
+    "scripts/run_publication_benchmark.py": "e3ecd32ce25b74958c0e87186b17d0098bd1ab92494350d14ebe2db7ffd6142c",
+    "scripts/run_publication_campaign.py": "0a38647c3bbf7b6f0688f00730e9c2aaac6b4bc355aba4f9f5e709545926c4aa",
+    "scripts/silver_data_config.py": "13cc6a0569e88323d4cca2fb441e5bca598c720be8df8b5c442861dbcbf6178a",
+    "scripts/smoke_benchmark_worker.py": "beddd1b31ad44cbcadda352f0309bed1d85f378308ba2fd8b41d5cb43b2a7f2d",
+    "scripts/static_validate.py": "94f8b3ec1b82219f0d748f5c9d30b7c46bf54885504344c8eedde094219e6473",
+    "scripts/summarize_bayesian_sensitivity.py": "98878016dc71339bf9c86d2202fd5fdc12ac9dc6776c14ac60b35355d262989e",
+    "scripts/summarize_publication.py": "c304fca90824c50c57c3cf800fc2d15c3b7788877e49afc462ad71d23ecbe291",
+    "scripts/validate_benchmark_adapter.py": "c65d74f5af5487d835924396d2c1c96056c73db7b92261c4bb1f13f648522850",
+    "scripts/validate_clean_rebuild.py": "e9c006213fc6d292ace116435b373cadc176f795589adadfea53635c31443e63",
+    "scripts/validate_hardened_artifacts.py": "16af14c0be0cbf9a00fa48128adbe75d99776cbde00393df38e3b835ce9895ad",
+    "scripts/validate_publication_campaign_smoke.py": "6a9f113c1c4b2aa4fd2f1415fe86f9236a9eb62f84d06aefdd41ab4fb1187df6",
+    "scripts/validate_publication_handoff.py": "a87bfb7adb65a2c077226c005a21d4116d71befd0f2a3884481ecc713dea344f",
+    "scripts/validate_publication_release.py": "cb776af822d6744c6b2dab26aa943eaeaa00501b7443e711072290086ab2a6e8",
+    "scripts/verify_publication_campaign.py": "ca09e62a995aac248a4217ff37016abe62b1bdf4b8ee43c3fd8bc53f8a209db6",
+    "scripts/verify_scientific_environment.py": "819c1d85751bed0dc0f58e341537ac000d274416714bc029e6c319193d2271d2",
+    "src/bayesian_modeling/__init__.py": "f126644ec66cd17114f1f2f04b3c60dfe95f4682a6aa654604064c9a7e43658f",
+    "src/bayesian_modeling/comparison.py": "ee1ca92c0748c42a784894cb7332242fe678d00c9a32dfa627c9899c57d937bd",
+    "src/bayesian_modeling/contracts.py": "55b796c5a8026129747b5dee8d80b4b0dab6bcdcfb8f82d72a0f513a35d8a27c",
+    "src/bayesian_modeling/legacy/__init__.py": "9884f027781d4280d9c4d246dbfde37c3391ece53bb75821ff306f72af12ed9c",
+    "src/bayesian_modeling/legacy/baseline.py": "ef6949592290efd8f2ae63216e5ecd479fa2f8b1b6bcd6b9352f9121510a7662",
+    "src/bayesian_modeling/legacy/baseline_nuts_robust.py": "d6d81561673f8a6c0d1b34d747bdf41050f26797941b0882907ebe48ee44c6c2",
+    "src/bayesian_modeling/legacy/predictive_phase_regression.py": "cafee8cf38cafbe65224df4ee2fa7f0cd6193f1e66ff26c5937b2a54ff96d9cb",
+    "src/bayesian_modeling/legacy/trapezoid_transit.py": "7d30cfee6c180c9e0bee89bbdf5044337f8b49ff9882ffdfaf1a26cff251080e",
+    "src/bayesian_modeling/noise_experiments.py": "877838ffb6ea902394506a04a8c5027aeed5d41baee28ebb7339efc5930a54f1",
+    "src/bayesian_modeling/physical_transit.py": "b072e435c9ce85f82da4ae24ef70540027ccdf06baa66a174b09dd8858fd7d4f",
+    "src/bayesian_modeling/sensitivity.py": "811a9c48eaa510d8f416edb92a2aefb06a410386271c9564b618151be2c7dc0d",
+    "src/gold_analysis/__init__.py": "62f5a094f458d29e59b2ae16388a9588116b023971dcd305b681e29702aca84d",
+    "src/gold_analysis/lightcurve.py": "47894aadf68af8310efd817faf350264400afb320dca5401579151743923f3f3",
+    "src/gold_processing/__init__.py": "80c3f091cc810deeea019f54b8f0ababcf43b33884f5f0bf4c3e41a654c2c8c9",
+    "src/gold_processing/config.py": "ebb09b9e007c0c0cfad9171706b1af021da4845848f399ca6c07146fd14bca5c",
+    "src/gold_processing/lightcurve_preparation.py": "c065c4f2e71e68887a3d1091dddcfe409716e8e2c82214e121808095500f35ef",
+    "src/gold_processing/manifests.py": "a3855ea7620a3857a623ceddda2e5c2b1ca68570c59385d62af23d1816720e87",
+    "src/gold_processing/pipeline.py": "3a8d93952741bc9a21d3deb1d79a1c606252852ce9f18954cd4caab5ddf13e1e",
+    "src/gold_processing/selection.py": "9d51516e977d6ecf6b28bfa39ef5967a6144f72b834dcd582e711a606f73cbc7",
+    "src/gold_processing/utils.py": "47873f9b47888e480eda83d12a1b4ed0c1e9456a75a026f833bc09de462f5dc6",
+    "src/gold_processing/validation.py": "903581823c5fa06f58f142b856bf9ea4406839c1aa559d72d4f3e648fba510f2",
+    "src/lightcurve_cadence.py": "ac2636c55a426e5d0be4aa547e6326e630cc72b77cbca308e91084355f4cace2",
+    "src/lightcurve_selection.py": "90511d9c9a702b8e04b78669e34214fbe89dde3befe2a55815e2829be001eabc",
+    "src/portable_paths.py": "8db75be2f6fd23156203146b5d5ac0cabf4c59f9dcadca2ddf8a9167abd4412c",
+    "src/project_config.py": "3c2e214b2e9f0f008bb92751719dd4ee5f736ab5e604f9a0e092d354461c6d50",
+    "src/publication/__init__.py": "c39280f4b4883684f582c6ac96a79e00e8966210a57a93002234f94691f28eda",
+    "src/publication/ablations.py": "b206901e67fd98045c63b347336321ed8af9525d3a28f71a0f00e98138fb8753",
+    "src/publication/acquisition.py": "8c04262a6e765f05fa9fccb381635012c33fe00eee06045e2004423a06701a82",
+    "src/publication/audit_protection.py": "9804098be96ccf427f5a9e77ce099259293f0f5a026e24834f5be869b8f30183",
+    "src/publication/batch.py": "4b57d63a594e4c29cd42b84bf20c7ed1d81bbbe2135c084e88ca0708422cca9c",
+    "src/publication/benchmark.py": "389f1224573722a8a1456953fb2ec3342f6e7aefeccb7376f5de3fa98f461202",
+    "src/publication/benchmark_runner.py": "6a3ad99a186e2e9cb5357b48734368444a8a30ba1571ae050d8978146cfdddcc",
+    "src/publication/calibration.py": "83d10a0e9ff9cbe919df78b60888907d1190bac22882c234161468daf3a463b8",
+    "src/publication/campaign.py": "552e95b0b0eb439e22fab3ba02afa542fcd176ccb773c009a71a4202682b5a2a",
+    "src/publication/campaign_plan.py": "25371e75d45eacbd7e1050dee051ae26d0abca0a654f98919404614971feebb4",
+    "src/publication/campaign_preflight.py": "b93adbbdcab5432e71d480216264771c219243456c80918b88196ad8f40adac2",
+    "src/publication/campaign_release.py": "f055e70fa6d70c55b5f76dab53403a312b5064f2f5765f926f80f051932ccda7",
+    "src/publication/campaign_reporting.py": "7980a1e513a2fd89d3fd511623e63b08ea3abfe6289686e3a708f8b8426b0226",
+    "src/publication/campaign_worker.py": "9811207b86e8e8efcbdf1f168bb5d9f8c3b2994e384053e9a4573210a4f10c4d",
+    "src/publication/claim_authorization.py": "c83ddb48e8ce39e2cd9f63f47f0c307b4c8fa82cb20e24134ef17d98811ac52a",
+    "src/publication/contracts.py": "f8ff9a9d55d3304c2857ed69d6d6e3e02d053a7d3ba2cc203a6372fde1106db8",
+    "src/publication/environment_guard.py": "2f9e74b8a9509b7517412e8475d696915c823a3f9e8c655d496d35e9e2b59147",
+    "src/publication/evidence_archive.py": "a0e7e281301878975d349c9a5a63c822098197960d9134143e26538a62519c6a",
+    "src/publication/handoff_validation.py": "f4bc81525ea6b07022c4d832eb7ccdfbc4a8936c71100ba69acdea5f434cee8a",
+    "src/publication/inference.py": "ac2542f9adc678d16caa3c7a45fb499f0472e6e32572dbf84444e97ea9a91859",
+    "src/publication/numerical_campaign.py": "3569285ce310535d76aec45c1a00a579f7ead29199750d4dc0cd1dbbb1876488",
+    "src/publication/numerical_checks.py": "1db4c9502b9781fc1aecc2dbce5a7ed974a98368bd89e9b094c7b4820278278a",
+    "src/publication/observational.py": "7e086aac3cf7f83e9af3b759281bed1e43f3ab4253850656cf2c1fcf361924f0",
+    "src/publication/release.py": "ab0b28e82ec19d7d5dcae4ddc8e6f59046da72f9189e97f2684c156d65d122db",
+    "src/publication/reporting.py": "f161defd53e571c436872ed5ab921a56bc07b0668e8d13b8eb23237948700d54",
+    "src/publication/residual_review.py": "7dfdaeaee5ba88334fe7061ee7299032fc08b1a7c58969ff4d1ce91ec34784d2",
+    "src/publication/simulation.py": "123b18417f50b5640d729ffd049fc3025aed2fb6b08945868e1279fd842edf56",
+    "src/publication/synthesis.py": "93f887189edd8df407cb753d24253660ed1e07e3e3836752f6071bba33c29aa9",
+    "src/publication/synthesis_v2.py": "d98eaf00dd3d33e720e9f27086aa42791fcc5bb4ccd0b63f532aca179d15c9a0",
+    "src/publication/t0_mechanism_audit.py": "d1df5b82df309f149f1df275105328b1d6599a9967293dd57ab8e0a8f79fc55b",
+    "src/publication/target_reporting.py": "cb726e6502f37dd6936a469d0f09d477676eb9f6c72226e78b32dddb3c8a2276",
+    "src/publication/trace_audit.py": "642920fe98210a84d9f17e99bafa452e7b83e0902a76e179274109ac5ddd0df3",
+    "src/raw_ingestion/__init__.py": "cc1c578df0bddcc4cc2b6d29eac21a75b181df3481233429a7a0858b8b61ed41",
+    "src/raw_ingestion/config.py": "0a3ae8d606513a1b820c3a2b8129f3d4b0a4f8bf7b341c02f641d503d5ab0142",
+    "src/raw_ingestion/etd.py": "3e654652200b68e17f240bdfc32a3c669a1796fd5bfe8031b7e57fcba097b001",
+    "src/raw_ingestion/exomast.py": "3548f9055c4b7ece123f6548faeca08030d0a2ea37cef5175c4fc2ecf932697d",
+    "src/raw_ingestion/mast.py": "2c21ab0742d90a6230310e973187e032334d157b86399bd3729966657f6effc0",
+    "src/raw_ingestion/nasa_exoplanet_archive.py": "7f706bf37b3d6f4917427ae8481bb2277b42d3780d658e58c9fd11a8d40cf829",
+    "src/raw_ingestion/pipeline.py": "3eed7b292727849e9941b8411342630563d8342e17d44860ebd78b9034549f84",
+    "src/raw_ingestion/utils.py": "b161637e477faaadb865e0819d21655f44b18ee85413d567b9bd8328b32bbc4a",
+    "src/repository_tools/__init__.py": "8e32848fdc1df3463889a384e22b9205155634127bf7d8cb77bf85e4fb114778",
+    "src/repository_tools/artifact_validation.py": "29f91e57aff929f2f8fda689951f166d25872326350ba1f3388bde839b422c93",
+    "src/repository_tools/ci_tests.py": "986341ca9ea8edf1ffeb02c5bd322de15e16c84a663e3a2d2b0bbda1b21f310e",
+    "src/repository_tools/clean_rebuild.py": "55afd2c1c9422a65b5b5019626eb54b6ba91b21dd040e681422009f68d88d3b6",
+    "src/repository_tools/environment_validation.py": "57ab023b4baf93dc5ee7e12e0206aa0f6abc3c6c1fada2fa58b6d4de3f3d3e41",
+    "src/repository_tools/model_run_inventory.py": "c1bd35432fd5a1c3194313fe6c72e87841a1b29d59c808851eae440a7cf24800",
+    "src/repository_tools/raw_byte_audit.py": "350c90adece58144f52f7d2ebfeae6abafc5a970801cc518494a796418fcfdd3",
+    "src/repository_tools/static_validation.py": "8f13a69c83b75fdc60887b98b71854e9ea8eece74db98033fe1fdb6a062857a5",
+    "src/silver_processing/__init__.py": "cf1c587b9cda45984e94780f4bbc753249083aba46b855636afe3b9cff28be25",
+    "src/silver_processing/catalogs_exomast.py": "62892362f17307818aa2a3887902eacfadac9ba12285f8abf414e9cb2120790b",
+    "src/silver_processing/catalogs_nasa.py": "ae0b998f98c0cc01c6877c079249b101391c9b44caf3e561775b795a005ebd7f",
+    "src/silver_processing/config.py": "79a8cfcd85a2bcf7725214f20b1eedcdbad02e13cdd38d9135623672b217fdfc",
+    "src/silver_processing/lightcurves_etd.py": "e9bd0d5d15f1daaffb611fc537439bf5999320306b3b93a142ba4fddd9d3b9a9",
+    "src/silver_processing/lightcurves_mast.py": "561e2dc91a9aa89fd8690edb1e10d9c7d1c98d854c64d431778a5dcdb546a2f1",
+    "src/silver_processing/manifests.py": "a3ccecc04be233bc275afbd70d4afae6c69edab0fff426dff8769f07598e34bf",
+    "src/silver_processing/pipeline.py": "231a3439575ab5269919f43008a225c4b1c200392ff0d6a20406e58e9984d779",
+    "src/silver_processing/utils.py": "0bfcad0ec03d86957af335ae34bf7243a40df0e321c91c5158de173a104d948c",
+    "src/silver_processing/validation.py": "9a6844610c417f34ecf3497b76e70f18a12f3cf7da1c12a2bbf0639fe6917c20"
+  }
+}
