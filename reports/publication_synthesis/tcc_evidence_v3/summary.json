@@ -1,0 +1,1784 @@
+{
+  "campaigns": {
+    "tcc_calibration_confirmatory_v1": {
+      "attempt_gate_counts": {
+        "joint": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 337,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8425,
+          "pass_rate_evaluated": 0.8425,
+          "passed": 337,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 337,
+          "rejected": 63,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 398,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.995,
+          "pass_rate_evaluated": 0.995,
+          "passed": 398,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 398,
+          "rejected": 2,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 400,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 400,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 400,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 339,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8475,
+          "pass_rate_evaluated": 0.8475,
+          "passed": 339,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 339,
+          "rejected": 61,
+          "unassessed": 0
+        }
+      },
+      "campaign_id": "tcc_calibration_confirmatory_v1",
+      "complete_declared_batch": true,
+      "computational_gates_passed_count": 337,
+      "controller": {
+        "assessment_current_state": "COMPLETED",
+        "historical_snapshot": "AGGREGATING"
+      },
+      "declared_jobs": 400,
+      "deprecated_fields": {
+        "computational_gates_passed_count": "Historical joint-pass alias; not sampler approval"
+      },
+      "gate_counts": {
+        "joint": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 337,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8425,
+          "pass_rate_evaluated": 0.8425,
+          "passed": 337,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 337,
+          "rejected": 63,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 398,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.995,
+          "pass_rate_evaluated": 0.995,
+          "passed": 398,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 398,
+          "rejected": 2,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 400,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 400,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 400,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 400,
+          "evaluated": 400,
+          "final_evidence_evaluated": 400,
+          "final_evidence_passed": 339,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8475,
+          "pass_rate_evaluated": 0.8475,
+          "passed": 339,
+          "rate_denominators": {
+            "pass_rate_all_declared": 400,
+            "pass_rate_evaluated": 400
+          },
+          "recorded_evaluated": 400,
+          "recorded_passed": 339,
+          "rejected": 61,
+          "unassessed": 0
+        }
+      },
+      "gate_counts_by_family": {
+        "PUB-02": {
+          "joint": {
+            "declared": 400,
+            "evaluated": 400,
+            "final_evidence_evaluated": 400,
+            "final_evidence_passed": 337,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.8425,
+            "pass_rate_evaluated": 0.8425,
+            "passed": 337,
+            "rate_denominators": {
+              "pass_rate_all_declared": 400,
+              "pass_rate_evaluated": 400
+            },
+            "recorded_evaluated": 400,
+            "recorded_passed": 337,
+            "rejected": 63,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 400,
+            "evaluated": 400,
+            "final_evidence_evaluated": 400,
+            "final_evidence_passed": 398,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.995,
+            "pass_rate_evaluated": 0.995,
+            "passed": 398,
+            "rate_denominators": {
+              "pass_rate_all_declared": 400,
+              "pass_rate_evaluated": 400
+            },
+            "recorded_evaluated": 400,
+            "recorded_passed": 398,
+            "rejected": 2,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 400,
+            "evaluated": 400,
+            "final_evidence_evaluated": 400,
+            "final_evidence_passed": 400,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 400,
+            "rate_denominators": {
+              "pass_rate_all_declared": 400,
+              "pass_rate_evaluated": 400
+            },
+            "recorded_evaluated": 400,
+            "recorded_passed": 400,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 400,
+            "evaluated": 400,
+            "final_evidence_evaluated": 400,
+            "final_evidence_passed": 339,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.8475,
+            "pass_rate_evaluated": 0.8475,
+            "passed": 339,
+            "rate_denominators": {
+              "pass_rate_all_declared": 400,
+              "pass_rate_evaluated": 400
+            },
+            "recorded_evaluated": 400,
+            "recorded_passed": 339,
+            "rejected": 61,
+            "unassessed": 0
+          }
+        }
+      },
+      "mode": "final",
+      "schema_version": "publication-campaign-aggregate-v2",
+      "status_counts": {
+        "COMPLETED": 337,
+        "COMPLETED_REJECTED": 63
+      },
+      "technical_failures": 0,
+      "total_attempts": 400
+    },
+    "tcc_campaign_v1": {
+      "attempt_gate_counts": {
+        "joint": {
+          "declared": 118,
+          "evaluated": 111,
+          "final_evidence_evaluated": 111,
+          "final_evidence_passed": 66,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.559322033898305,
+          "pass_rate_evaluated": 0.5945945945945946,
+          "passed": 66,
+          "rate_denominators": {
+            "pass_rate_all_declared": 118,
+            "pass_rate_evaluated": 111
+          },
+          "recorded_evaluated": 111,
+          "recorded_passed": 66,
+          "rejected": 45,
+          "unassessed": 7
+        },
+        "ppc": {
+          "declared": 118,
+          "evaluated": 111,
+          "final_evidence_evaluated": 111,
+          "final_evidence_passed": 88,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.7457627118644068,
+          "pass_rate_evaluated": 0.7927927927927928,
+          "passed": 88,
+          "rate_denominators": {
+            "pass_rate_all_declared": 118,
+            "pass_rate_evaluated": 111
+          },
+          "recorded_evaluated": 111,
+          "recorded_passed": 88,
+          "rejected": 23,
+          "unassessed": 7
+        },
+        "provenance": {
+          "declared": 118,
+          "evaluated": 117,
+          "final_evidence_evaluated": 117,
+          "final_evidence_passed": 111,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.940677966101695,
+          "pass_rate_evaluated": 0.9487179487179487,
+          "passed": 111,
+          "rate_denominators": {
+            "pass_rate_all_declared": 118,
+            "pass_rate_evaluated": 117
+          },
+          "recorded_evaluated": 117,
+          "recorded_passed": 111,
+          "rejected": 6,
+          "unassessed": 1
+        },
+        "sampler": {
+          "declared": 118,
+          "evaluated": 111,
+          "final_evidence_evaluated": 111,
+          "final_evidence_passed": 81,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.6864406779661016,
+          "pass_rate_evaluated": 0.7297297297297297,
+          "passed": 81,
+          "rate_denominators": {
+            "pass_rate_all_declared": 118,
+            "pass_rate_evaluated": 111
+          },
+          "recorded_evaluated": 111,
+          "recorded_passed": 81,
+          "rejected": 30,
+          "unassessed": 7
+        }
+      },
+      "campaign_id": "tcc_campaign_v1",
+      "complete_declared_batch": true,
+      "computational_gates_passed_count": 66,
+      "controller": {
+        "assessment_current_state": "COMPLETED",
+        "historical_snapshot": "AGGREGATING"
+      },
+      "declared_jobs": 117,
+      "deprecated_fields": {
+        "computational_gates_passed_count": "Historical joint-pass alias; not sampler approval"
+      },
+      "gate_counts": {
+        "joint": {
+          "declared": 117,
+          "evaluated": 111,
+          "final_evidence_evaluated": 111,
+          "final_evidence_passed": 66,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.5641025641025641,
+          "pass_rate_evaluated": 0.5945945945945946,
+          "passed": 66,
+          "rate_denominators": {
+            "pass_rate_all_declared": 117,
+            "pass_rate_evaluated": 111
+          },
+          "recorded_evaluated": 111,
+          "recorded_passed": 66,
+          "rejected": 45,
+          "unassessed": 6
+        },
+        "ppc": {
+          "declared": 117,
+          "evaluated": 111,
+          "final_evidence_evaluated": 111,
+          "final_evidence_passed": 88,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.7521367521367521,
+          "pass_rate_evaluated": 0.7927927927927928,
+          "passed": 88,
+          "rate_denominators": {
+            "pass_rate_all_declared": 117,
+            "pass_rate_evaluated": 111
+          },
+          "recorded_evaluated": 111,
+          "recorded_passed": 88,
+          "rejected": 23,
+          "unassessed": 6
+        },
+        "provenance": {
+          "declared": 117,
+          "evaluated": 117,
+          "final_evidence_evaluated": 117,
+          "final_evidence_passed": 111,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.9487179487179487,
+          "pass_rate_evaluated": 0.9487179487179487,
+          "passed": 111,
+          "rate_denominators": {
+            "pass_rate_all_declared": 117,
+            "pass_rate_evaluated": 117
+          },
+          "recorded_evaluated": 117,
+          "recorded_passed": 111,
+          "rejected": 6,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 117,
+          "evaluated": 111,
+          "final_evidence_evaluated": 111,
+          "final_evidence_passed": 81,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.6923076923076923,
+          "pass_rate_evaluated": 0.7297297297297297,
+          "passed": 81,
+          "rate_denominators": {
+            "pass_rate_all_declared": 117,
+            "pass_rate_evaluated": 111
+          },
+          "recorded_evaluated": 111,
+          "recorded_passed": 81,
+          "rejected": 30,
+          "unassessed": 6
+        }
+      },
+      "gate_counts_by_family": {
+        "PUB-02": {
+          "joint": {
+            "declared": 80,
+            "evaluated": 80,
+            "final_evidence_evaluated": 80,
+            "final_evidence_passed": 65,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.8125,
+            "pass_rate_evaluated": 0.8125,
+            "passed": 65,
+            "rate_denominators": {
+              "pass_rate_all_declared": 80,
+              "pass_rate_evaluated": 80
+            },
+            "recorded_evaluated": 80,
+            "recorded_passed": 65,
+            "rejected": 15,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 80,
+            "evaluated": 80,
+            "final_evidence_evaluated": 80,
+            "final_evidence_passed": 79,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.9875,
+            "pass_rate_evaluated": 0.9875,
+            "passed": 79,
+            "rate_denominators": {
+              "pass_rate_all_declared": 80,
+              "pass_rate_evaluated": 80
+            },
+            "recorded_evaluated": 80,
+            "recorded_passed": 79,
+            "rejected": 1,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 80,
+            "evaluated": 80,
+            "final_evidence_evaluated": 80,
+            "final_evidence_passed": 80,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 80,
+            "rate_denominators": {
+              "pass_rate_all_declared": 80,
+              "pass_rate_evaluated": 80
+            },
+            "recorded_evaluated": 80,
+            "recorded_passed": 80,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 80,
+            "evaluated": 80,
+            "final_evidence_evaluated": 80,
+            "final_evidence_passed": 66,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.825,
+            "pass_rate_evaluated": 0.825,
+            "passed": 66,
+            "rate_denominators": {
+              "pass_rate_all_declared": 80,
+              "pass_rate_evaluated": 80
+            },
+            "recorded_evaluated": 80,
+            "recorded_passed": 66,
+            "rejected": 14,
+            "unassessed": 0
+          }
+        },
+        "PUB-03": {
+          "joint": {
+            "declared": 2,
+            "evaluated": 2,
+            "final_evidence_evaluated": 2,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 2,
+              "pass_rate_evaluated": 2
+            },
+            "recorded_evaluated": 2,
+            "recorded_passed": 0,
+            "rejected": 2,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 2,
+            "evaluated": 2,
+            "final_evidence_evaluated": 2,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 2,
+              "pass_rate_evaluated": 2
+            },
+            "recorded_evaluated": 2,
+            "recorded_passed": 0,
+            "rejected": 2,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 2,
+            "evaluated": 2,
+            "final_evidence_evaluated": 2,
+            "final_evidence_passed": 2,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 2,
+            "rate_denominators": {
+              "pass_rate_all_declared": 2,
+              "pass_rate_evaluated": 2
+            },
+            "recorded_evaluated": 2,
+            "recorded_passed": 2,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 2,
+            "evaluated": 2,
+            "final_evidence_evaluated": 2,
+            "final_evidence_passed": 1,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.5,
+            "pass_rate_evaluated": 0.5,
+            "passed": 1,
+            "rate_denominators": {
+              "pass_rate_all_declared": 2,
+              "pass_rate_evaluated": 2
+            },
+            "recorded_evaluated": 2,
+            "recorded_passed": 1,
+            "rejected": 1,
+            "unassessed": 0
+          }
+        },
+        "PUB-04": {
+          "joint": {
+            "declared": 30,
+            "evaluated": 24,
+            "final_evidence_evaluated": 24,
+            "final_evidence_passed": 1,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.03333333333333333,
+            "pass_rate_evaluated": 0.041666666666666664,
+            "passed": 1,
+            "rate_denominators": {
+              "pass_rate_all_declared": 30,
+              "pass_rate_evaluated": 24
+            },
+            "recorded_evaluated": 24,
+            "recorded_passed": 1,
+            "rejected": 23,
+            "unassessed": 6
+          },
+          "ppc": {
+            "declared": 30,
+            "evaluated": 24,
+            "final_evidence_evaluated": 24,
+            "final_evidence_passed": 9,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3,
+            "pass_rate_evaluated": 0.375,
+            "passed": 9,
+            "rate_denominators": {
+              "pass_rate_all_declared": 30,
+              "pass_rate_evaluated": 24
+            },
+            "recorded_evaluated": 24,
+            "recorded_passed": 9,
+            "rejected": 15,
+            "unassessed": 6
+          },
+          "provenance": {
+            "declared": 30,
+            "evaluated": 30,
+            "final_evidence_evaluated": 30,
+            "final_evidence_passed": 24,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.8,
+            "pass_rate_evaluated": 0.8,
+            "passed": 24,
+            "rate_denominators": {
+              "pass_rate_all_declared": 30,
+              "pass_rate_evaluated": 30
+            },
+            "recorded_evaluated": 30,
+            "recorded_passed": 24,
+            "rejected": 6,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 30,
+            "evaluated": 24,
+            "final_evidence_evaluated": 24,
+            "final_evidence_passed": 10,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 0.4166666666666667,
+            "passed": 10,
+            "rate_denominators": {
+              "pass_rate_all_declared": 30,
+              "pass_rate_evaluated": 24
+            },
+            "recorded_evaluated": 24,
+            "recorded_passed": 10,
+            "rejected": 14,
+            "unassessed": 6
+          }
+        },
+        "PUB-05": {
+          "joint": {
+            "declared": 5,
+            "evaluated": 5,
+            "final_evidence_evaluated": 5,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 5,
+              "pass_rate_evaluated": 5
+            },
+            "recorded_evaluated": 5,
+            "recorded_passed": 0,
+            "rejected": 5,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 5,
+            "evaluated": 5,
+            "final_evidence_evaluated": 5,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 5,
+              "pass_rate_evaluated": 5
+            },
+            "recorded_evaluated": 5,
+            "recorded_passed": 0,
+            "rejected": 5,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 5,
+            "evaluated": 5,
+            "final_evidence_evaluated": 5,
+            "final_evidence_passed": 5,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 5,
+            "rate_denominators": {
+              "pass_rate_all_declared": 5,
+              "pass_rate_evaluated": 5
+            },
+            "recorded_evaluated": 5,
+            "recorded_passed": 5,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 5,
+            "evaluated": 5,
+            "final_evidence_evaluated": 5,
+            "final_evidence_passed": 4,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.8,
+            "pass_rate_evaluated": 0.8,
+            "passed": 4,
+            "rate_denominators": {
+              "pass_rate_all_declared": 5,
+              "pass_rate_evaluated": 5
+            },
+            "recorded_evaluated": 5,
+            "recorded_passed": 4,
+            "rejected": 1,
+            "unassessed": 0
+          }
+        }
+      },
+      "mode": "final",
+      "schema_version": "publication-campaign-aggregate-v2",
+      "status_counts": {
+        "COMPLETED": 66,
+        "COMPLETED_REJECTED": 51
+      },
+      "technical_failures": 0,
+      "total_attempts": 118
+    },
+    "tcc_numerical_complement_v3": {
+      "attempt_gate_counts": {
+        "joint": {
+          "declared": 13,
+          "evaluated": 6,
+          "final_evidence_evaluated": 6,
+          "final_evidence_passed": 5,
+          "invalidated": 7,
+          "pass_rate_all_declared": 0.38461538461538464,
+          "pass_rate_evaluated": 0.8333333333333334,
+          "passed": 5,
+          "rate_denominators": {
+            "pass_rate_all_declared": 13,
+            "pass_rate_evaluated": 6
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 8,
+          "rejected": 1,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 13,
+          "evaluated": 6,
+          "final_evidence_evaluated": 6,
+          "final_evidence_passed": 6,
+          "invalidated": 7,
+          "pass_rate_all_declared": 0.46153846153846156,
+          "pass_rate_evaluated": 1.0,
+          "passed": 6,
+          "rate_denominators": {
+            "pass_rate_all_declared": 13,
+            "pass_rate_evaluated": 6
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 9,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 13,
+          "evaluated": 13,
+          "final_evidence_evaluated": 13,
+          "final_evidence_passed": 13,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 13,
+          "rate_denominators": {
+            "pass_rate_all_declared": 13,
+            "pass_rate_evaluated": 13
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 13,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 13,
+          "evaluated": 13,
+          "final_evidence_evaluated": 13,
+          "final_evidence_passed": 11,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8461538461538461,
+          "pass_rate_evaluated": 0.8461538461538461,
+          "passed": 11,
+          "rate_denominators": {
+            "pass_rate_all_declared": 13,
+            "pass_rate_evaluated": 13
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 11,
+          "rejected": 2,
+          "unassessed": 0
+        }
+      },
+      "campaign_id": "tcc_numerical_complement_v3",
+      "complete_declared_batch": false,
+      "computational_gates_passed_count": 8,
+      "controller": {
+        "assessment_current_state": "STOPPED",
+        "historical_snapshot": "AGGREGATING"
+      },
+      "declared_jobs": 24,
+      "deprecated_fields": {
+        "computational_gates_passed_count": "Historical joint-pass alias; not sampler approval"
+      },
+      "gate_counts": {
+        "joint": {
+          "declared": 24,
+          "evaluated": 6,
+          "final_evidence_evaluated": 6,
+          "final_evidence_passed": 5,
+          "invalidated": 7,
+          "pass_rate_all_declared": 0.20833333333333334,
+          "pass_rate_evaluated": 0.8333333333333334,
+          "passed": 5,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 6
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 8,
+          "rejected": 1,
+          "unassessed": 11
+        },
+        "ppc": {
+          "declared": 24,
+          "evaluated": 6,
+          "final_evidence_evaluated": 6,
+          "final_evidence_passed": 6,
+          "invalidated": 7,
+          "pass_rate_all_declared": 0.25,
+          "pass_rate_evaluated": 1.0,
+          "passed": 6,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 6
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 9,
+          "rejected": 0,
+          "unassessed": 11
+        },
+        "provenance": {
+          "declared": 24,
+          "evaluated": 13,
+          "final_evidence_evaluated": 13,
+          "final_evidence_passed": 13,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.5416666666666666,
+          "pass_rate_evaluated": 1.0,
+          "passed": 13,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 13
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 13,
+          "rejected": 0,
+          "unassessed": 11
+        },
+        "sampler": {
+          "declared": 24,
+          "evaluated": 13,
+          "final_evidence_evaluated": 13,
+          "final_evidence_passed": 11,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.4583333333333333,
+          "pass_rate_evaluated": 0.8461538461538461,
+          "passed": 11,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 13
+          },
+          "recorded_evaluated": 13,
+          "recorded_passed": 11,
+          "rejected": 2,
+          "unassessed": 11
+        }
+      },
+      "gate_counts_by_family": {
+        "PUB-02": {
+          "joint": {
+            "declared": 12,
+            "evaluated": 6,
+            "final_evidence_evaluated": 6,
+            "final_evidence_passed": 5,
+            "invalidated": 6,
+            "pass_rate_all_declared": 0.4166666666666667,
+            "pass_rate_evaluated": 0.8333333333333334,
+            "passed": 5,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 6
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 8,
+            "rejected": 1,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 12,
+            "evaluated": 6,
+            "final_evidence_evaluated": 6,
+            "final_evidence_passed": 6,
+            "invalidated": 6,
+            "pass_rate_all_declared": 0.5,
+            "pass_rate_evaluated": 1.0,
+            "passed": 6,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 6
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 9,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 12,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 12,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 12,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 10,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.8333333333333334,
+            "pass_rate_evaluated": 0.8333333333333334,
+            "passed": 10,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 10,
+            "rejected": 2,
+            "unassessed": 0
+          }
+        },
+        "PUB-03": {
+          "joint": {
+            "declared": 3,
+            "evaluated": 0,
+            "final_evidence_evaluated": 0,
+            "final_evidence_passed": 0,
+            "invalidated": 1,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": null,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 0
+            },
+            "recorded_evaluated": 1,
+            "recorded_passed": 0,
+            "rejected": 0,
+            "unassessed": 2
+          },
+          "ppc": {
+            "declared": 3,
+            "evaluated": 0,
+            "final_evidence_evaluated": 0,
+            "final_evidence_passed": 0,
+            "invalidated": 1,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": null,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 0
+            },
+            "recorded_evaluated": 1,
+            "recorded_passed": 0,
+            "rejected": 0,
+            "unassessed": 2
+          },
+          "provenance": {
+            "declared": 3,
+            "evaluated": 1,
+            "final_evidence_evaluated": 1,
+            "final_evidence_passed": 1,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 1.0,
+            "passed": 1,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 1
+            },
+            "recorded_evaluated": 1,
+            "recorded_passed": 1,
+            "rejected": 0,
+            "unassessed": 2
+          },
+          "sampler": {
+            "declared": 3,
+            "evaluated": 1,
+            "final_evidence_evaluated": 1,
+            "final_evidence_passed": 1,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 1.0,
+            "passed": 1,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 1
+            },
+            "recorded_evaluated": 1,
+            "recorded_passed": 1,
+            "rejected": 0,
+            "unassessed": 2
+          }
+        },
+        "PUB-04": {
+          "joint": {
+            "declared": 9,
+            "evaluated": 0,
+            "final_evidence_evaluated": 0,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": null,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 0
+            },
+            "recorded_evaluated": 0,
+            "recorded_passed": 0,
+            "rejected": 0,
+            "unassessed": 9
+          },
+          "ppc": {
+            "declared": 9,
+            "evaluated": 0,
+            "final_evidence_evaluated": 0,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": null,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 0
+            },
+            "recorded_evaluated": 0,
+            "recorded_passed": 0,
+            "rejected": 0,
+            "unassessed": 9
+          },
+          "provenance": {
+            "declared": 9,
+            "evaluated": 0,
+            "final_evidence_evaluated": 0,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": null,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 0
+            },
+            "recorded_evaluated": 0,
+            "recorded_passed": 0,
+            "rejected": 0,
+            "unassessed": 9
+          },
+          "sampler": {
+            "declared": 9,
+            "evaluated": 0,
+            "final_evidence_evaluated": 0,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": null,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 0
+            },
+            "recorded_evaluated": 0,
+            "recorded_passed": 0,
+            "rejected": 0,
+            "unassessed": 9
+          }
+        }
+      },
+      "mode": "final",
+      "schema_version": "publication-campaign-aggregate-v2",
+      "status_counts": {
+        "COMPLETED": 8,
+        "COMPLETED_REJECTED": 5,
+        "PLANNED": 11
+      },
+      "technical_failures": 0,
+      "total_attempts": 13
+    },
+    "tcc_numerical_complement_v4": {
+      "attempt_gate_counts": {
+        "joint": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 10,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.4166666666666667,
+          "pass_rate_evaluated": 0.4166666666666667,
+          "passed": 10,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 10,
+          "rejected": 14,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 21,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.875,
+          "pass_rate_evaluated": 0.875,
+          "passed": 21,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 21,
+          "rejected": 3,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 24,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 24,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 24,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 13,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.5416666666666666,
+          "pass_rate_evaluated": 0.5416666666666666,
+          "passed": 13,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 13,
+          "rejected": 11,
+          "unassessed": 0
+        }
+      },
+      "campaign_id": "tcc_numerical_complement_v4",
+      "complete_declared_batch": true,
+      "computational_gates_passed_count": 10,
+      "controller": {
+        "assessment_current_state": "COMPLETED",
+        "historical_snapshot": "AGGREGATING"
+      },
+      "declared_jobs": 24,
+      "deprecated_fields": {
+        "computational_gates_passed_count": "Historical joint-pass alias; not sampler approval"
+      },
+      "gate_counts": {
+        "joint": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 10,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.4166666666666667,
+          "pass_rate_evaluated": 0.4166666666666667,
+          "passed": 10,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 10,
+          "rejected": 14,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 21,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.875,
+          "pass_rate_evaluated": 0.875,
+          "passed": 21,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 21,
+          "rejected": 3,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 24,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 24,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 24,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 24,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 13,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.5416666666666666,
+          "pass_rate_evaluated": 0.5416666666666666,
+          "passed": 13,
+          "rate_denominators": {
+            "pass_rate_all_declared": 24,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 13,
+          "rejected": 11,
+          "unassessed": 0
+        }
+      },
+      "gate_counts_by_family": {
+        "PUB-02": {
+          "joint": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 7,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.5833333333333334,
+            "pass_rate_evaluated": 0.5833333333333334,
+            "passed": 7,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 7,
+            "rejected": 5,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 12,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 12,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 12,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 12,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 12,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 12,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 7,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.5833333333333334,
+            "pass_rate_evaluated": 0.5833333333333334,
+            "passed": 7,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 7,
+            "rejected": 5,
+            "unassessed": 0
+          }
+        },
+        "PUB-03": {
+          "joint": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 0,
+            "rejected": 3,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 0,
+            "rejected": 3,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 3,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 3,
+            "rejected": 0,
+            "unassessed": 0
+          }
+        },
+        "PUB-04": {
+          "joint": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 0.3333333333333333,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 3,
+            "rejected": 6,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 9,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 9,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 9,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 9,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 9,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 9,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 0.3333333333333333,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 3,
+            "rejected": 6,
+            "unassessed": 0
+          }
+        }
+      },
+      "mode": "final",
+      "schema_version": "publication-campaign-aggregate-v2",
+      "status_counts": {
+        "COMPLETED": 10,
+        "COMPLETED_REJECTED": 14
+      },
+      "technical_failures": 0,
+      "total_attempts": 24
+    }
+  },
+  "independent_gate_check": {
+    "families": {
+      "PUB-02": {
+        "jobs": 12,
+        "joint": 7,
+        "ppc": 12,
+        "provenance": 12,
+        "sampler": 7
+      },
+      "PUB-03": {
+        "jobs": 3,
+        "joint": 0,
+        "ppc": 0,
+        "provenance": 3,
+        "sampler": 3
+      },
+      "PUB-04": {
+        "jobs": 9,
+        "joint": 3,
+        "ppc": 9,
+        "provenance": 9,
+        "sampler": 3
+      }
+    },
+    "method": "Direct original result.json loop, independent of report counters",
+    "total": {
+      "jobs": 24,
+      "joint": 10,
+      "ppc": 21,
+      "provenance": 24,
+      "sampler": 13
+    }
+  },
+  "new_final_inference_runs": 0,
+  "no_population_pooling": true,
+  "old_metrics_reused_byte_exact": true,
+  "postprocessing_environment": {
+    "algorithm": "stdlib only; no inference",
+    "platform": "Windows",
+    "python": "3.14.5"
+  },
+  "schema_version": "tcc-synthesis-populations-v3",
+  "v4_populations": {
+    "PUB-02": {
+      "distinct_input_hashes": 6,
+      "fits": 12,
+      "gate_counts": {
+        "joint": {
+          "declared": 12,
+          "evaluated": 12,
+          "final_evidence_evaluated": 12,
+          "final_evidence_passed": 7,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.5833333333333334,
+          "pass_rate_evaluated": 0.5833333333333334,
+          "passed": 7,
+          "rate_denominators": {
+            "pass_rate_all_declared": 12,
+            "pass_rate_evaluated": 12
+          },
+          "recorded_evaluated": 12,
+          "recorded_passed": 7,
+          "rejected": 5,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 12,
+          "evaluated": 12,
+          "final_evidence_evaluated": 12,
+          "final_evidence_passed": 12,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 12,
+          "rate_denominators": {
+            "pass_rate_all_declared": 12,
+            "pass_rate_evaluated": 12
+          },
+          "recorded_evaluated": 12,
+          "recorded_passed": 12,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 12,
+          "evaluated": 12,
+          "final_evidence_evaluated": 12,
+          "final_evidence_passed": 12,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 12,
+          "rate_denominators": {
+            "pass_rate_all_declared": 12,
+            "pass_rate_evaluated": 12
+          },
+          "recorded_evaluated": 12,
+          "recorded_passed": 12,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 12,
+          "evaluated": 12,
+          "final_evidence_evaluated": 12,
+          "final_evidence_passed": 7,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.5833333333333334,
+          "pass_rate_evaluated": 0.5833333333333334,
+          "passed": 7,
+          "rate_denominators": {
+            "pass_rate_all_declared": 12,
+            "pass_rate_evaluated": 12
+          },
+          "recorded_evaluated": 12,
+          "recorded_passed": 7,
+          "rejected": 5,
+          "unassessed": 0
+        }
+      },
+      "new_external_refits": 0
+    },
+    "PUB-03": {
+      "distinct_input_hashes": 1,
+      "fits": 3,
+      "gate_counts": {
+        "joint": {
+          "declared": 3,
+          "evaluated": 3,
+          "final_evidence_evaluated": 3,
+          "final_evidence_passed": 0,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_evaluated": 0.0,
+          "passed": 0,
+          "rate_denominators": {
+            "pass_rate_all_declared": 3,
+            "pass_rate_evaluated": 3
+          },
+          "recorded_evaluated": 3,
+          "recorded_passed": 0,
+          "rejected": 3,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 3,
+          "evaluated": 3,
+          "final_evidence_evaluated": 3,
+          "final_evidence_passed": 0,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_evaluated": 0.0,
+          "passed": 0,
+          "rate_denominators": {
+            "pass_rate_all_declared": 3,
+            "pass_rate_evaluated": 3
+          },
+          "recorded_evaluated": 3,
+          "recorded_passed": 0,
+          "rejected": 3,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 3,
+          "evaluated": 3,
+          "final_evidence_evaluated": 3,
+          "final_evidence_passed": 3,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 3,
+          "rate_denominators": {
+            "pass_rate_all_declared": 3,
+            "pass_rate_evaluated": 3
+          },
+          "recorded_evaluated": 3,
+          "recorded_passed": 3,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 3,
+          "evaluated": 3,
+          "final_evidence_evaluated": 3,
+          "final_evidence_passed": 3,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 3,
+          "rate_denominators": {
+            "pass_rate_all_declared": 3,
+            "pass_rate_evaluated": 3
+          },
+          "recorded_evaluated": 3,
+          "recorded_passed": 3,
+          "rejected": 0,
+          "unassessed": 0
+        }
+      },
+      "new_external_refits": 0
+    },
+    "PUB-04": {
+      "distinct_input_hashes": 3,
+      "fits": 9,
+      "gate_counts": {
+        "joint": {
+          "declared": 9,
+          "evaluated": 9,
+          "final_evidence_evaluated": 9,
+          "final_evidence_passed": 3,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.3333333333333333,
+          "pass_rate_evaluated": 0.3333333333333333,
+          "passed": 3,
+          "rate_denominators": {
+            "pass_rate_all_declared": 9,
+            "pass_rate_evaluated": 9
+          },
+          "recorded_evaluated": 9,
+          "recorded_passed": 3,
+          "rejected": 6,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 9,
+          "evaluated": 9,
+          "final_evidence_evaluated": 9,
+          "final_evidence_passed": 9,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 9,
+          "rate_denominators": {
+            "pass_rate_all_declared": 9,
+            "pass_rate_evaluated": 9
+          },
+          "recorded_evaluated": 9,
+          "recorded_passed": 9,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 9,
+          "evaluated": 9,
+          "final_evidence_evaluated": 9,
+          "final_evidence_passed": 9,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 9,
+          "rate_denominators": {
+            "pass_rate_all_declared": 9,
+            "pass_rate_evaluated": 9
+          },
+          "recorded_evaluated": 9,
+          "recorded_passed": 9,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 9,
+          "evaluated": 9,
+          "final_evidence_evaluated": 9,
+          "final_evidence_passed": 3,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.3333333333333333,
+          "pass_rate_evaluated": 0.3333333333333333,
+          "passed": 3,
+          "rate_denominators": {
+            "pass_rate_all_declared": 9,
+            "pass_rate_evaluated": 9
+          },
+          "recorded_evaluated": 9,
+          "recorded_passed": 3,
+          "rejected": 6,
+          "unassessed": 0
+        }
+      },
+      "new_external_refits": 0
+    }
+  }
+}

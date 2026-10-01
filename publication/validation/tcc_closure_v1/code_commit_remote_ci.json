@@ -1,0 +1,304 @@
+{
+  "schema_version": "exact-sha-ci-observation-v1",
+  "sha": "f28f8e899a39a5a737f284c6b65b53ea1a014ffa",
+  "runs": [
+    {
+      "id": 36898013973,
+      "head_sha": "f28f8e899a39a5a737f284c6b65b53ea1a014ffa",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/runs/36898013973",
+      "event": "push",
+      "jobs": [
+        {
+          "name": "validation (compatible-latest-patch)",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T17:15:21Z",
+              "completed_at": "2026-10-01T17:15:22Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T17:15:22Z",
+              "completed_at": "2026-10-01T17:15:32Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T17:15:32Z",
+              "completed_at": "2026-10-01T17:15:37Z"
+            },
+            {
+              "name": "Install locked scientific environment",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T17:15:37Z",
+              "completed_at": "2026-10-01T17:16:29Z"
+            },
+            {
+              "name": "Verify locked scientific imports",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T17:16:29Z",
+              "completed_at": "2026-10-01T17:16:33Z"
+            },
+            {
+              "name": "Record actual CI environment and commit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T17:16:33Z",
+              "completed_at": "2026-10-01T17:16:34Z"
+            },
+            {
+              "name": "Enforce exact scientific Python and direct pins",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 7,
+              "started_at": "2026-10-01T17:16:34Z",
+              "completed_at": "2026-10-01T17:16:34Z"
+            },
+            {
+              "name": "Run Ruff lint",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T17:16:34Z",
+              "completed_at": "2026-10-01T17:16:34Z"
+            },
+            {
+              "name": "Run static contract checks",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T17:16:34Z",
+              "completed_at": "2026-10-01T17:16:34Z"
+            },
+            {
+              "name": "Run deterministic and scientific smoke tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T17:16:34Z",
+              "completed_at": "2026-10-01T17:19:14Z"
+            },
+            {
+              "name": "Validate committed RAW, Silver, and Gold contracts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-01T17:19:14Z",
+              "completed_at": "2026-10-01T17:19:15Z"
+            },
+            {
+              "name": "Verify Git-protected history and sealed external references",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12,
+              "started_at": "2026-10-01T17:19:15Z",
+              "completed_at": "2026-10-01T17:19:16Z"
+            },
+            {
+              "name": "Verify extended TCC history and sealed supplement references",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 13,
+              "started_at": "2026-10-01T17:19:16Z",
+              "completed_at": "2026-10-01T17:19:16Z"
+            },
+            {
+              "name": "Rebuild Silver and Gold in an isolated temporary workspace",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 14,
+              "started_at": "2026-10-01T17:19:16Z",
+              "completed_at": "2026-10-01T17:19:16Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 27,
+              "started_at": "2026-10-01T17:19:16Z",
+              "completed_at": "2026-10-01T17:19:16Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 28,
+              "started_at": "2026-10-01T17:19:16Z",
+              "completed_at": "2026-10-01T17:19:17Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 29,
+              "started_at": "2026-10-01T17:19:17Z",
+              "completed_at": "2026-10-01T17:19:17Z"
+            }
+          ]
+        },
+        {
+          "name": "validation (scientific-exact-python)",
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T17:15:21Z",
+              "completed_at": "2026-10-01T17:15:22Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T17:15:22Z",
+              "completed_at": "2026-10-01T17:15:33Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T17:15:33Z",
+              "completed_at": "2026-10-01T17:15:50Z"
+            },
+            {
+              "name": "Install locked scientific environment",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T17:15:50Z",
+              "completed_at": "2026-10-01T17:16:41Z"
+            },
+            {
+              "name": "Verify locked scientific imports",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T17:16:41Z",
+              "completed_at": "2026-10-01T17:16:45Z"
+            },
+            {
+              "name": "Record actual CI environment and commit",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T17:16:45Z",
+              "completed_at": "2026-10-01T17:16:45Z"
+            },
+            {
+              "name": "Enforce exact scientific Python and direct pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T17:16:45Z",
+              "completed_at": "2026-10-01T17:16:46Z"
+            },
+            {
+              "name": "Run Ruff lint",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T17:16:46Z",
+              "completed_at": "2026-10-01T17:16:46Z"
+            },
+            {
+              "name": "Run static contract checks",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T17:16:46Z",
+              "completed_at": "2026-10-01T17:16:46Z"
+            },
+            {
+              "name": "Run deterministic and scientific smoke tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T17:16:46Z",
+              "completed_at": "2026-10-01T17:19:26Z"
+            },
+            {
+              "name": "Validate committed RAW, Silver, and Gold contracts",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-01T17:19:26Z",
+              "completed_at": "2026-10-01T17:19:26Z"
+            },
+            {
+              "name": "Verify Git-protected history and sealed external references",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12,
+              "started_at": "2026-10-01T17:19:26Z",
+              "completed_at": "2026-10-01T17:19:28Z"
+            },
+            {
+              "name": "Verify extended TCC history and sealed supplement references",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 13,
+              "started_at": "2026-10-01T17:19:28Z",
+              "completed_at": "2026-10-01T17:19:28Z"
+            },
+            {
+              "name": "Rebuild Silver and Gold in an isolated temporary workspace",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 14,
+              "started_at": "2026-10-01T17:19:28Z",
+              "completed_at": "2026-10-01T17:19:28Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 27,
+              "started_at": "2026-10-01T17:19:28Z",
+              "completed_at": "2026-10-01T17:19:28Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 28,
+              "started_at": "2026-10-01T17:19:28Z",
+              "completed_at": "2026-10-01T17:19:28Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 29,
+              "started_at": "2026-10-01T17:19:28Z",
+              "completed_at": "2026-10-01T17:19:28Z"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "no_write_or_dispatch": true,
+  "meaning": "A green workflow only verifies steps actually executed; skipped conditional steps remain explicit."
+}

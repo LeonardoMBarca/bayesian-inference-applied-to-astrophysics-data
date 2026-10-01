@@ -1,0 +1,538 @@
+{
+  "claims": [
+    {
+      "claim_id": "conditional_recovery",
+      "denominators": {
+        "tcc_calibration_confirmatory_v1": {
+          "p2_jobs": 400
+        },
+        "tcc_campaign_v1": {
+          "p2_jobs": 80
+        }
+      },
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "reports/publication_synthesis/tcc_evidence_v2/calibration_metrics.csv": "9ee1f5d51cf176e9ecb67842a362aa5aa956b0a25b38c4dd0e1788e7a0b7503d"
+      },
+      "status": "fixed_truth_regime_limited",
+      "supported_text": "Useful radius recovery in supported short-cadence regimes coexists with conservative coverage and weak-information geometric undercoverage; fixed truths, not SBC or universal calibration.",
+      "unsupported_claims": [
+        "universal calibration",
+        "all parameters identified by passed gate"
+      ]
+    },
+    {
+      "claim_id": "standardized_coordinate",
+      "denominators": {
+        "distinct_input_hashes": 6,
+        "fits": 12,
+        "gate_counts": {
+          "joint": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 7,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.5833333333333334,
+            "pass_rate_evaluated": 0.5833333333333334,
+            "passed": 7,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 7,
+            "rejected": 5,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 12,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 12,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 12,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 12,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 12,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 12,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 12,
+            "evaluated": 12,
+            "final_evidence_evaluated": 12,
+            "final_evidence_passed": 7,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.5833333333333334,
+            "pass_rate_evaluated": 0.5833333333333334,
+            "passed": 7,
+            "rate_denominators": {
+              "pass_rate_all_declared": 12,
+              "pass_rate_evaluated": 12
+            },
+            "recorded_evaluated": 12,
+            "recorded_passed": 7,
+            "rejected": 5,
+            "unassessed": 0
+          }
+        },
+        "new_external_refits": 0
+      },
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "reports/publication_campaign/tcc_numerical_complement_v4/PUB-02/numerical_study.json": "c8af07244fd6664d633e43db0196845665c86a3a53f277400808530faf002c2d"
+      },
+      "status": "small_paired_result_no_general_superiority",
+      "supported_text": "Density-equivalent standardized t0 does not demonstrate general sampler superiority in this small paired cohort.",
+      "unsupported_claims": [
+        "12 independent simulated datasets",
+        "general superiority"
+      ]
+    },
+    {
+      "claim_id": "independent_implementation",
+      "denominators": {
+        "distinct_input_hashes": 1,
+        "fits": 3,
+        "gate_counts": {
+          "joint": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 0,
+            "rejected": 3,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 0,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_evaluated": 0.0,
+            "passed": 0,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 0,
+            "rejected": 3,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 3,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 3,
+            "evaluated": 3,
+            "final_evidence_evaluated": 3,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 3,
+              "pass_rate_evaluated": 3
+            },
+            "recorded_evaluated": 3,
+            "recorded_passed": 3,
+            "rejected": 0,
+            "unassessed": 0
+          }
+        },
+        "new_external_refits": 0
+      },
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "reports/publication_campaign/tcc_numerical_complement_v4/PUB-03/numerical_study.json": "87d22b1e12ee09bf14ad8b38687fe32f75c11ab9fa2d097ccb33a8b8e0188e71"
+      },
+      "status": "computational_proximity_not_astrophysical_validation",
+      "supported_text": "All local refits pass the sampler; temporal PPC fails. Posterior proximity under the comparison contract is descriptive; the same historical external posterior is reused.",
+      "unsupported_claims": [
+        "three independent external benchmarks",
+        "validated astrophysical truth",
+        "validates scientific_003 whose prior differs"
+      ]
+    },
+    {
+      "claim_id": "ablation_numerical",
+      "denominators": {
+        "distinct_input_hashes": 3,
+        "fits": 9,
+        "gate_counts": {
+          "joint": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 0.3333333333333333,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 3,
+            "rejected": 6,
+            "unassessed": 0
+          },
+          "ppc": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 9,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 9,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 9,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "provenance": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 9,
+            "invalidated": 0,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_evaluated": 1.0,
+            "passed": 9,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 9,
+            "rejected": 0,
+            "unassessed": 0
+          },
+          "sampler": {
+            "declared": 9,
+            "evaluated": 9,
+            "final_evidence_evaluated": 9,
+            "final_evidence_passed": 3,
+            "invalidated": 0,
+            "pass_rate_all_declared": 0.3333333333333333,
+            "pass_rate_evaluated": 0.3333333333333333,
+            "passed": 3,
+            "rate_denominators": {
+              "pass_rate_all_declared": 9,
+              "pass_rate_evaluated": 9
+            },
+            "recorded_evaluated": 9,
+            "recorded_passed": 3,
+            "rejected": 6,
+            "unassessed": 0
+          }
+        },
+        "new_external_refits": 0
+      },
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "reports/publication_campaign/tcc_numerical_complement_v4/PUB-04/numerical_study.json": "cfd6db818352d263ba61aaee10efd8203914b44b5fb6cc4905ad6efff06dc253"
+      },
+      "status": "qualified_descriptive_contrasts",
+      "supported_text": "High-accuracy integrated references pass; exposure-off variants fail sampling. No jointly sampler-supported physical exposure effect is established.",
+      "unsupported_claims": [
+        "precisely estimated physical effects using rejected posterior"
+      ]
+    },
+    {
+      "claim_id": "convergence_insufficient",
+      "denominators": {
+        "joint": {
+          "declared": 30,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 1,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.03333333333333333,
+          "pass_rate_evaluated": 0.041666666666666664,
+          "passed": 1,
+          "rate_denominators": {
+            "pass_rate_all_declared": 30,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 1,
+          "rejected": 23,
+          "unassessed": 6
+        },
+        "ppc": {
+          "declared": 30,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 9,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.3,
+          "pass_rate_evaluated": 0.375,
+          "passed": 9,
+          "rate_denominators": {
+            "pass_rate_all_declared": 30,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 9,
+          "rejected": 15,
+          "unassessed": 6
+        },
+        "provenance": {
+          "declared": 30,
+          "evaluated": 30,
+          "final_evidence_evaluated": 30,
+          "final_evidence_passed": 24,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8,
+          "pass_rate_evaluated": 0.8,
+          "passed": 24,
+          "rate_denominators": {
+            "pass_rate_all_declared": 30,
+            "pass_rate_evaluated": 30
+          },
+          "recorded_evaluated": 30,
+          "recorded_passed": 24,
+          "rejected": 6,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 30,
+          "evaluated": 24,
+          "final_evidence_evaluated": 24,
+          "final_evidence_passed": 10,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.3333333333333333,
+          "pass_rate_evaluated": 0.4166666666666667,
+          "passed": 10,
+          "rate_denominators": {
+            "pass_rate_all_declared": 30,
+            "pass_rate_evaluated": 24
+          },
+          "recorded_evaluated": 24,
+          "recorded_passed": 10,
+          "rejected": 14,
+          "unassessed": 6
+        }
+      },
+      "run_authorizations": [
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__global_normalization__rep_0000"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__global_normalization__rep_0001"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__global_normalization__rep_0002"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__strong_wrong_radius_prior__rep_0000"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__strong_wrong_radius_prior__rep_0001"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__long_segment_offsets__strong_wrong_radius_prior__rep_0002"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__short_temporal_systematic__deterministic_sine__rep_0000"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__short_temporal_systematic__deterministic_sine__rep_0001"
+        },
+        {
+          "permission": "demonstrate_convergence_insufficient_for_ppc",
+          "run_id": "tcc_campaign_v1__PUB-04__short_temporal_systematic__deterministic_sine__rep_0002"
+        }
+      ],
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "reports/publication_campaign/tcc_campaign_v1/PUB-04/ablation.json": "034f582e8c9b82d5865a1d5648ea3ef8ffb90a3cfec785bc67270165eecba959"
+      },
+      "status": "negative_control_evidence",
+      "supported_text": "Predeclared controls demonstrate sampler-pass but PPC-fail; identity controls fail before sampling, not observed sampler failure.",
+      "unsupported_claims": [
+        "perfectly calibrated gates",
+        "single noncoverage defines gate false positive"
+      ]
+    },
+    {
+      "claim_id": "observational_scope",
+      "denominators": {
+        "joint": {
+          "declared": 5,
+          "evaluated": 5,
+          "final_evidence_evaluated": 5,
+          "final_evidence_passed": 0,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_evaluated": 0.0,
+          "passed": 0,
+          "rate_denominators": {
+            "pass_rate_all_declared": 5,
+            "pass_rate_evaluated": 5
+          },
+          "recorded_evaluated": 5,
+          "recorded_passed": 0,
+          "rejected": 5,
+          "unassessed": 0
+        },
+        "ppc": {
+          "declared": 5,
+          "evaluated": 5,
+          "final_evidence_evaluated": 5,
+          "final_evidence_passed": 0,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.0,
+          "pass_rate_evaluated": 0.0,
+          "passed": 0,
+          "rate_denominators": {
+            "pass_rate_all_declared": 5,
+            "pass_rate_evaluated": 5
+          },
+          "recorded_evaluated": 5,
+          "recorded_passed": 0,
+          "rejected": 5,
+          "unassessed": 0
+        },
+        "provenance": {
+          "declared": 5,
+          "evaluated": 5,
+          "final_evidence_evaluated": 5,
+          "final_evidence_passed": 5,
+          "invalidated": 0,
+          "pass_rate_all_declared": 1.0,
+          "pass_rate_evaluated": 1.0,
+          "passed": 5,
+          "rate_denominators": {
+            "pass_rate_all_declared": 5,
+            "pass_rate_evaluated": 5
+          },
+          "recorded_evaluated": 5,
+          "recorded_passed": 5,
+          "rejected": 0,
+          "unassessed": 0
+        },
+        "sampler": {
+          "declared": 5,
+          "evaluated": 5,
+          "final_evidence_evaluated": 5,
+          "final_evidence_passed": 4,
+          "invalidated": 0,
+          "pass_rate_all_declared": 0.8,
+          "pass_rate_evaluated": 0.8,
+          "passed": 4,
+          "rate_denominators": {
+            "pass_rate_all_declared": 5,
+            "pass_rate_evaluated": 5
+          },
+          "recorded_evaluated": 5,
+          "recorded_passed": 4,
+          "rejected": 1,
+          "unassessed": 0
+        }
+      },
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "publication/validation/residual_review_v2/audit.json": "926cf4185ed2bd444e8aa9bafa08ce7c8630c96ebb238a5950c1f4d16e31c838"
+      },
+      "status": "all_preselected_targets_retained_negative_scope",
+      "supported_text": "All five systems remain reported with predictive limitations. Temporal structure does not uniquely identify stochastic GP noise.",
+      "unsupported_claims": [
+        "five planets scientifically validated",
+        "population inference",
+        "correlated noise solved"
+      ]
+    },
+    {
+      "claim_id": "v3_incident",
+      "denominators": {
+        "declared_jobs": 24,
+        "direct_traces": 6,
+        "pending_jobs": 11,
+        "ppc_invalidated": 7,
+        "standardized_traces": 7,
+        "traces": 13
+      },
+      "scope": "Frozen cohorts and post-result bounded review; no pooling",
+      "sources": {
+        "publication/validation/tcc_closure_v1/complement_trace_review_final.json": "4bbcfd748ca6e56f507269d7d50233bd450c861c2063b9cc4d32cec2fd55b354"
+      },
+      "status": "historical_audit_only",
+      "supported_text": "Direct-coordinate traces are outside this specific conditioning incident; standardized PPC and dependent joint evidence are invalidated, not reclassified as observed failures.",
+      "unsupported_claims": [
+        "invalidated PPC is negative scientific evidence",
+        "partial v3 adds calibration replicates"
+      ]
+    }
+  ],
+  "evaluator_version": "claim-scope-review-v3",
+  "run_evaluations_path": "run_evaluations.json",
+  "schema_version": "tcc-claims-v3"
+}

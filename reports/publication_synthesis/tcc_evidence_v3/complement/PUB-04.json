@@ -1,0 +1,3026 @@
+{
+  "calibration": {
+    "claim_limit": "Smoke is engineering only. Final fixed-truth coverage is not SBC. Numeric posteriors include rejected/nonconverged outputs; sampler-conditioned coverage is separately reported. Missing intervals are not measured noncoverage. Expected presampling identity rejections are rejected, not technical failures, with downstream diagnostics unavailable. Zero-jitter boundary truth under a continuous prior need not be inside positive equal-tailed intervals.",
+    "declared_jobs": 9,
+    "known_white_noise_transit_snr_by_scenario": {
+      "long_segment_offsets_numerical__baseline_high_accuracy": {
+        "available_count": 0,
+        "declared_count": 3,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      },
+      "long_segment_offsets_numerical__baseline_standardized": {
+        "available_count": 0,
+        "declared_count": 3,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      },
+      "long_segment_offsets_numerical__exposure_off_high_accuracy": {
+        "available_count": 0,
+        "declared_count": 3,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      }
+    },
+    "known_white_noise_transit_snr_definition": "sqrt(sum((truth physical_signal_i - truth baseline)^2 / (supplied normalized_flux_err_i^2 + truth extra_sigma^2))). Post-inference known-design descriptive metric, not a detection significance; ignores stochastic temporal covariance and deterministic systematics. Available only for unablated synthetic inputs with complete signal/error arrays.",
+    "mode": "final",
+    "scenarios": {
+      "long_segment_offsets_numerical__baseline_high_accuracy": {
+        "declared_count": 3,
+        "execution_failure_rate_all_declared": 0.0,
+        "gates": {
+          "ppc": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_all_declared_wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "passed_count": 3,
+            "rejected_count": 0,
+            "rejection_rate_all_declared": 0.0,
+            "rejection_rate_evaluated": 0.0,
+            "unevaluated_count": 0
+          },
+          "sampler": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_all_declared_wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "passed_count": 3,
+            "rejected_count": 0,
+            "rejection_rate_all_declared": 0.0,
+            "rejection_rate_evaluated": 0.0,
+            "unevaluated_count": 0
+          },
+          "scientific": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_all_declared_wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "passed_count": 3,
+            "rejected_count": 0,
+            "rejection_rate_all_declared": 0.0,
+            "rejection_rate_evaluated": 0.0,
+            "unevaluated_count": 0
+          }
+        },
+        "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+        "interval_kind": "equal_tailed",
+        "missing_ids": [],
+        "parameters": {
+          "a": {
+            "absolute_bias": 1.0966280064027165,
+            "bias": -1.0966280064027165,
+            "bias_conditional_on_sampler": -1.0966280064027165,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666669,
+                "calibration_error_numeric": -0.16666666666666669,
+                "coverage_conditional_on_sampler": 0.3333333333333333,
+                "coverage_conditional_on_scientific_gate": 0.3333333333333333,
+                "covered_and_scientific_gate_passed_count": 1,
+                "covered_count": 1,
+                "empirical_coverage_numeric": 0.3333333333333333,
+                "mean_interval_width": 1.9102184862152416,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+                "operational_wilson95_all_declared": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "wilson95_numeric": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.13333333333333341,
+                "calibration_error_numeric": -0.13333333333333341,
+                "coverage_conditional_on_sampler": 0.6666666666666666,
+                "coverage_conditional_on_scientific_gate": 0.6666666666666666,
+                "covered_and_scientific_gate_passed_count": 2,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 3.0565459188696718,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+                "operational_wilson95_all_declared": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 3.934421255838282,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 1.0966280064027165,
+            "mean_absolute_calibration_error": 0.12000000000000005,
+            "mean_posterior_sd": 1.1790973166311618,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": -0.15666114377181664,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 1.2796810552335072,
+            "rmse_conditional_on_sampler": 1.2796810552335072,
+            "sampler_passed_numeric_count": 3
+          },
+          "b": {
+            "absolute_bias": 0.06594883405331864,
+            "bias": 0.06594883405331864,
+            "bias_conditional_on_sampler": 0.06594883405331864,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.4887482670528005,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.7419564570368736,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.8699956656180025,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.06594883405331864,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.27457224510397277,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.16487208513329663,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.09853212020263837,
+            "rmse_conditional_on_sampler": 0.09853212020263837,
+            "sampler_passed_numeric_count": 3
+          },
+          "depth": {
+            "absolute_bias": 0.0005450270104226043,
+            "bias": 0.0005450270104226043,
+            "bias_conditional_on_sampler": 0.0005450270104226043,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0017081245867481035,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0036262256849723348,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.006043431784398197,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.000602529374684694,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.0017026974077359244,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.11123000212706212,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.000889540075716202,
+            "rmse_conditional_on_sampler": 0.000889540075716202,
+            "sampler_passed_numeric_count": 3
+          },
+          "extra_sigma": {
+            "absolute_bias": 9.557803819660834e-06,
+            "bias": -9.557803819660834e-06,
+            "bias_conditional_on_sampler": -9.557803819660834e-06,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666663,
+                "calibration_error_numeric": 0.16666666666666663,
+                "coverage_conditional_on_sampler": 0.6666666666666666,
+                "coverage_conditional_on_scientific_gate": 0.6666666666666666,
+                "covered_and_scientific_gate_passed_count": 2,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 4.2494574190010897e-05,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+                "operational_wilson95_all_declared": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 7.96649996085484e-05,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.00011701111186576445,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 1.3115138600437238e-05,
+            "mean_absolute_calibration_error": 0.14222222222222222,
+            "mean_posterior_sd": 3.1220840251206323e-05,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": -0.019115607639321668,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 1.5712382554766756e-05,
+            "rmse_conditional_on_sampler": 1.5712382554766756e-05,
+            "sampler_passed_numeric_count": 3
+          },
+          "full_duration": {
+            "absolute_bias": 0.005342956013099626,
+            "bias": 0.005342956013099626,
+            "bias_conditional_on_sampler": 0.005342956013099626,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666669,
+                "calibration_error_numeric": -0.16666666666666669,
+                "coverage_conditional_on_sampler": 0.3333333333333333,
+                "coverage_conditional_on_scientific_gate": 0.3333333333333333,
+                "covered_and_scientific_gate_passed_count": 1,
+                "covered_count": 1,
+                "empirical_coverage_numeric": 0.3333333333333333,
+                "mean_interval_width": 0.005890885164998601,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+                "operational_wilson95_all_declared": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "wilson95_numeric": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.46666666666666673,
+                "calibration_error_numeric": -0.46666666666666673,
+                "coverage_conditional_on_sampler": 0.3333333333333333,
+                "coverage_conditional_on_scientific_gate": 0.3333333333333333,
+                "covered_and_scientific_gate_passed_count": 1,
+                "covered_count": 1,
+                "empirical_coverage_numeric": 0.3333333333333333,
+                "mean_interval_width": 0.010720248368112082,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.3333333333333333,
+                "operational_wilson95_all_declared": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ],
+                "wilson95_numeric": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.2733333333333333,
+                "calibration_error_numeric": -0.2733333333333333,
+                "coverage_conditional_on_sampler": 0.6666666666666666,
+                "coverage_conditional_on_scientific_gate": 0.6666666666666666,
+                "covered_and_scientific_gate_passed_count": 2,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 0.015218439628905407,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.6666666666666666,
+                "operational_wilson95_all_declared": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ],
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              }
+            },
+            "mae": 0.005342956013099626,
+            "mean_absolute_calibration_error": 0.3022222222222222,
+            "mean_posterior_sd": 0.004181973701753081,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.11780199983581839,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.006460355009268822,
+            "rmse_conditional_on_sampler": 0.006460355009268822,
+            "sampler_passed_numeric_count": 3
+          },
+          "r": {
+            "absolute_bias": 0.002696149532219088,
+            "bias": 0.002696149532219088,
+            "bias_conditional_on_sampler": 0.002696149532219088,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.011562587463777732,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.022854766696497945,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0355052472461282,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.0032075163577498186,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.009829510145661888,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.03851642188884411,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.004494006602771688,
+            "rmse_conditional_on_sampler": 0.004494006602771688,
+            "sampler_passed_numeric_count": 3
+          },
+          "t0": {
+            "absolute_bias": 0.0001274819383545458,
+            "bias": 0.0001274819383545458,
+            "bias_conditional_on_sampler": 0.0001274819383545458,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0006274258010280122,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0011882543082318293,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": 1.0,
+                "coverage_conditional_on_scientific_gate": 1.0,
+                "covered_and_scientific_gate_passed_count": 3,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0017458242310462403,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 1.0,
+                "operational_wilson95_all_declared": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "sampler_passed_numeric_count": 3,
+                "scientific_gate_passed_numeric_count": 3,
+                "wilson95_conditional_on_sampler": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_conditional_on_scientific_gate": [
+                  0.4385029682449546,
+                  1.0
+                ],
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.00013274356831919544,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.0004648060158098962,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.1274819383545458,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.00016222602888806963,
+            "rmse_conditional_on_sampler": 0.00016222602888806963,
+            "sampler_passed_numeric_count": 3
+          }
+        },
+        "present_count": 3,
+        "schema_version": "fixed-truth-calibration-v1",
+        "status_counts": {
+          "completed": 3,
+          "missing": 0
+        },
+        "unavailable_final_rate_all_declared": 0.0
+      },
+      "long_segment_offsets_numerical__baseline_standardized": {
+        "declared_count": 3,
+        "execution_failure_rate_all_declared": 0.0,
+        "gates": {
+          "ppc": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_all_declared_wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "passed_count": 3,
+            "rejected_count": 0,
+            "rejection_rate_all_declared": 0.0,
+            "rejection_rate_evaluated": 0.0,
+            "unevaluated_count": 0
+          },
+          "sampler": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_all_declared_wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "passed_count": 0,
+            "rejected_count": 3,
+            "rejection_rate_all_declared": 1.0,
+            "rejection_rate_evaluated": 1.0,
+            "unevaluated_count": 0
+          },
+          "scientific": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_all_declared_wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "passed_count": 0,
+            "rejected_count": 3,
+            "rejection_rate_all_declared": 1.0,
+            "rejection_rate_evaluated": 1.0,
+            "unevaluated_count": 0
+          }
+        },
+        "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+        "interval_kind": "equal_tailed",
+        "missing_ids": [],
+        "parameters": {
+          "a": {
+            "absolute_bias": 1.0374005624505065,
+            "bias": -1.0374005624505065,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666669,
+                "calibration_error_numeric": -0.16666666666666669,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 1,
+                "empirical_coverage_numeric": 0.3333333333333333,
+                "mean_interval_width": 1.8524465423097825,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.13333333333333341,
+                "calibration_error_numeric": -0.13333333333333341,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 2.9268861066142438,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 3.7964518944952084,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 1.0374005624505065,
+            "mean_absolute_calibration_error": 0.12000000000000005,
+            "mean_posterior_sd": 1.1390500408746995,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": -0.14820008035007234,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 1.2698099518621508,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "b": {
+            "absolute_bias": 0.05208198530627706,
+            "bias": 0.05208198530627706,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.47961513396545813,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.7263518900620055,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.8539246439911805,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.06888646450859788,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.270014476091437,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.13020496326569264,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.10365048108876582,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "depth": {
+            "absolute_bias": 0.0005925416205040196,
+            "bias": 0.0005925416205040196,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0018305572335766034,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.003873047948467942,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0062993650906882,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.0007047573799371789,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.0017615920606492738,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.12092686132735093,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.0010532807224685665,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "extra_sigma": {
+            "absolute_bias": 9.831375553195912e-06,
+            "bias": -9.831375553195912e-06,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666663,
+                "calibration_error_numeric": 0.16666666666666663,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 4.263177959641172e-05,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 8.042684567211521e-05,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.00011697526198376972,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 1.3062795019773223e-05,
+            "mean_absolute_calibration_error": 0.14222222222222222,
+            "mean_posterior_sd": 3.139860074034875e-05,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": -0.019662751106391825,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 1.5717657731535695e-05,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "full_duration": {
+            "absolute_bias": 0.005237437456401209,
+            "bias": 0.005237437456401209,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666669,
+                "calibration_error_numeric": -0.16666666666666669,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 1,
+                "empirical_coverage_numeric": 0.3333333333333333,
+                "mean_interval_width": 0.005912277143924671,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.06149194472039621,
+                  0.7923403991979522
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.13333333333333341,
+                "calibration_error_numeric": -0.13333333333333341,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 0.010563716431195734,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.2733333333333333,
+                "calibration_error_numeric": -0.2733333333333333,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 0.014819128868885636,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              }
+            },
+            "mae": 0.005237437456401209,
+            "mean_absolute_calibration_error": 0.19111111111111115,
+            "mean_posterior_sd": 0.004090306429797247,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.11547551671142307,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.006487757740578563,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "r": {
+            "absolute_bias": 0.002842051319553035,
+            "bias": 0.002842051319553035,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.012236447130028949,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.023856500823007887,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.035999055149380066,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.00371965049160534,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.01000441187106985,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.040600733136471924,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.005297614053309056,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "t0": {
+            "absolute_bias": 0.00013271274100499627,
+            "bias": 0.00013271274100499627,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0006247858513266051,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0012062715993148931,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0017328277503841267,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.00013271274100499627,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.00046464534599791784,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.13271274100499628,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.00016627211633781996,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          }
+        },
+        "present_count": 3,
+        "schema_version": "fixed-truth-calibration-v1",
+        "status_counts": {
+          "missing": 0,
+          "rejected": 3
+        },
+        "unavailable_final_rate_all_declared": 0.0
+      },
+      "long_segment_offsets_numerical__exposure_off_high_accuracy": {
+        "declared_count": 3,
+        "execution_failure_rate_all_declared": 0.0,
+        "gates": {
+          "ppc": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 1.0,
+            "pass_rate_all_declared_wilson95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "passed_count": 3,
+            "rejected_count": 0,
+            "rejection_rate_all_declared": 0.0,
+            "rejection_rate_evaluated": 0.0,
+            "unevaluated_count": 0
+          },
+          "sampler": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_all_declared_wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "passed_count": 0,
+            "rejected_count": 3,
+            "rejection_rate_all_declared": 1.0,
+            "rejection_rate_evaluated": 1.0,
+            "unevaluated_count": 0
+          },
+          "scientific": {
+            "evaluated_count": 3,
+            "pass_rate_all_declared": 0.0,
+            "pass_rate_all_declared_wilson95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "passed_count": 0,
+            "rejected_count": 3,
+            "rejection_rate_all_declared": 1.0,
+            "rejection_rate_evaluated": 1.0,
+            "unevaluated_count": 0
+          }
+        },
+        "interpretation": "Fixed-truth repeated-sampling coverage is not SBC. Numeric coverage includes rejected posteriors; gate-conditional coverage is selected. Operational covered-and-passed rate counts all declared replicates and is NOT a credible-interval calibration estimand. Failures, missing records, and pilot records cannot count as final successes.",
+        "interval_kind": "equal_tailed",
+        "missing_ids": [],
+        "parameters": {
+          "a": {
+            "absolute_bias": 3.7006018470999726,
+            "bias": -3.7006018470999726,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": -0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.3798502152967947,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.8,
+                "calibration_error_numeric": -0.8,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 1.7945750596202104,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.94,
+                "calibration_error_numeric": -0.94,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 3.161453164004851,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              }
+            },
+            "mae": 3.7006018470999726,
+            "mean_absolute_calibration_error": 0.7466666666666667,
+            "mean_posterior_sd": 0.8278373034253547,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": -0.5286574067285675,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 3.7037093022183742,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "b": {
+            "absolute_bias": 0.46259540880967526,
+            "bias": 0.46259540880967526,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": -0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.06172274641050882,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.8,
+                "calibration_error_numeric": -0.8,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.35636365277700244,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.8153895200127889,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.46259540880967526,
+            "mean_absolute_calibration_error": 0.45333333333333337,
+            "mean_posterior_sd": 0.2044565066045592,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 1.156488522024188,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.4636263306764148,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "depth": {
+            "absolute_bias": 0.0046518274864771544,
+            "bias": 0.0046518274864771544,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": -0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.003911031096854021,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.13333333333333341,
+                "calibration_error_numeric": -0.13333333333333341,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 0.009291043807821628,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.014547189181226819,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.0046518274864771544,
+            "mean_absolute_calibration_error": 0.23111111111111116,
+            "mean_posterior_sd": 0.003684833556217161,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.9493525482606436,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.004831357370352828,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "extra_sigma": {
+            "absolute_bias": 7.690243691137738e-06,
+            "bias": -7.690243691137738e-06,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.16666666666666663,
+                "calibration_error_numeric": 0.16666666666666663,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 4.176181371976148e-05,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 7.93070173372698e-05,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.00011613098806325022,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 1.1172851964783419e-05,
+            "mean_absolute_calibration_error": 0.14222222222222222,
+            "mean_posterior_sd": 3.1163625939442625e-05,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": -0.015380487382275473,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 1.414494521624791e-05,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "full_duration": {
+            "absolute_bias": 0.01898745344339829,
+            "bias": 0.01898745344339829,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": -0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.004364928398674255,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.8,
+                "calibration_error_numeric": -0.8,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.009006189996516376,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.94,
+                "calibration_error_numeric": -0.94,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.014638482899408138,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              }
+            },
+            "mae": 0.01898745344339829,
+            "mean_absolute_calibration_error": 0.7466666666666667,
+            "mean_posterior_sd": 0.003655335988571948,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.4186371704984702,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.01903019521338499,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "r": {
+            "absolute_bias": 0.025674302558510373,
+            "bias": 0.025674302558510373,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": -0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 0,
+                "empirical_coverage_numeric": 0.0,
+                "mean_interval_width": 0.019976524630298743,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.13333333333333341,
+                "calibration_error_numeric": -0.13333333333333341,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 2,
+                "empirical_coverage_numeric": 0.6666666666666666,
+                "mean_interval_width": 0.04900769851696544,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.2076596008020477,
+                  0.9385080552796037
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.07630814974124216,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.025674302558510373,
+            "mean_absolute_calibration_error": 0.23111111111111116,
+            "mean_posterior_sd": 0.01879083136315814,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.36677575083586245,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.02645110880806403,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          },
+          "t0": {
+            "absolute_bias": 5.6158277940572847e-05,
+            "bias": 5.6158277940572847e-05,
+            "bias_conditional_on_sampler": null,
+            "coverage": {
+              "0.5": {
+                "absolute_calibration_error_numeric": 0.5,
+                "calibration_error_numeric": 0.5,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0006480081529423217,
+                "nominal": 0.5,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.8": {
+                "absolute_calibration_error_numeric": 0.19999999999999996,
+                "calibration_error_numeric": 0.19999999999999996,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0012198930729455952,
+                "nominal": 0.8,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              },
+              "0.94": {
+                "absolute_calibration_error_numeric": 0.06000000000000005,
+                "calibration_error_numeric": 0.06000000000000005,
+                "coverage_conditional_on_sampler": null,
+                "coverage_conditional_on_scientific_gate": null,
+                "covered_and_scientific_gate_passed_count": 0,
+                "covered_count": 3,
+                "empirical_coverage_numeric": 1.0,
+                "mean_interval_width": 0.0018041418765979685,
+                "nominal": 0.94,
+                "numeric_count": 3,
+                "operational_covered_and_passed_rate_all_declared": 0.0,
+                "operational_wilson95_all_declared": [
+                  5.551115123125783e-17,
+                  0.5614970317550454
+                ],
+                "sampler_passed_numeric_count": 0,
+                "scientific_gate_passed_numeric_count": 0,
+                "wilson95_conditional_on_sampler": null,
+                "wilson95_conditional_on_scientific_gate": null,
+                "wilson95_numeric": [
+                  0.4385029682449546,
+                  1.0
+                ]
+              }
+            },
+            "mae": 0.00013095386531186137,
+            "mean_absolute_calibration_error": 0.25333333333333335,
+            "mean_posterior_sd": 0.00047851782059491285,
+            "missing_or_invalid_count": 0,
+            "numeric_count": 3,
+            "relative_bias": 0.05615827794057284,
+            "relative_bias_nonzero_truth_count": 3,
+            "rmse": 0.0001731898188214382,
+            "rmse_conditional_on_sampler": null,
+            "sampler_passed_numeric_count": 0
+          }
+        },
+        "present_count": 3,
+        "schema_version": "fixed-truth-calibration-v1",
+        "status_counts": {
+          "missing": 0,
+          "rejected": 3
+        },
+        "unavailable_final_rate_all_declared": 0.0
+      }
+    }
+  },
+  "claim_limit": "Small prospective numerical study, not precise calibration or universal alias prevention. All new realizations and rejected attempts remain. Three local benchmark repetitions share one observational dataset and the SAME historical external posterior; they are not three independent external validations. Numerical agreement is not astrophysical adequacy.",
+  "declared_jobs": 9,
+  "job_metrics": [
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9458296844426924,
+        "bfmi_min": 0.9431903937187281,
+        "divergences": 2,
+        "fraction_tree_depth_ge_10": 0.0,
+        "max_r_hat": 1.00403513,
+        "max_tree_depth": 8,
+        "min_ess": 912.17252853
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "numeric_available": true,
+      "replicate_id": "rep_0000",
+      "status": "COMPLETED_REJECTED",
+      "worker_wall_seconds": 110.47893621100047
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9423300521617042,
+        "bfmi_min": 0.8749381069123834,
+        "divergences": 2,
+        "fraction_tree_depth_ge_10": 0.0,
+        "max_r_hat": 1.00770415,
+        "max_tree_depth": 9,
+        "min_ess": 435.35731992
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "numeric_available": true,
+      "replicate_id": "rep_0001",
+      "status": "COMPLETED_REJECTED",
+      "worker_wall_seconds": 155.58282500399946
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9365115202879558,
+        "bfmi_min": 0.8996073157137142,
+        "divergences": 2,
+        "fraction_tree_depth_ge_10": 0.0,
+        "max_r_hat": 1.0042747,
+        "max_tree_depth": 8,
+        "min_ess": 591.64989701
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "numeric_available": true,
+      "replicate_id": "rep_0002",
+      "status": "COMPLETED_REJECTED",
+      "worker_wall_seconds": 90.70483163599965
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9842862537639246,
+        "bfmi_min": 0.9240965342186266,
+        "divergences": 0,
+        "fraction_tree_depth_ge_10": 0.0,
+        "max_r_hat": 1.00210873,
+        "max_tree_depth": 9,
+        "min_ess": 2356.95544462
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "numeric_available": true,
+      "replicate_id": "rep_0000",
+      "status": "COMPLETED",
+      "worker_wall_seconds": 315.3327633200006
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9880874141599068,
+        "bfmi_min": 0.8519506929821481,
+        "divergences": 0,
+        "fraction_tree_depth_ge_10": 0.00675,
+        "max_r_hat": 1.005601,
+        "max_tree_depth": 10,
+        "min_ess": 830.83033959
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "numeric_available": true,
+      "replicate_id": "rep_0001",
+      "status": "COMPLETED",
+      "worker_wall_seconds": 515.716752761
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9888276589229541,
+        "bfmi_min": 0.8719161539944361,
+        "divergences": 0,
+        "fraction_tree_depth_ge_10": 0.0,
+        "max_r_hat": 1.00293232,
+        "max_tree_depth": 9,
+        "min_ess": 1388.93600884
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "numeric_available": true,
+      "replicate_id": "rep_0002",
+      "status": "COMPLETED",
+      "worker_wall_seconds": 223.86684627400064
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9858252836471788,
+        "bfmi_min": 0.8096715497340824,
+        "divergences": 0,
+        "fraction_tree_depth_ge_10": 0.00625,
+        "max_r_hat": 1.01093821,
+        "max_tree_depth": 10,
+        "min_ess": 178.74094786
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "numeric_available": true,
+      "replicate_id": "rep_0000",
+      "status": "COMPLETED_REJECTED",
+      "worker_wall_seconds": 220.91671700499865
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9855970801904965,
+        "bfmi_min": 0.8621769050966106,
+        "divergences": 0,
+        "fraction_tree_depth_ge_10": 0.004,
+        "max_r_hat": 1.00587151,
+        "max_tree_depth": 10,
+        "min_ess": 298.02892214
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "numeric_available": true,
+      "replicate_id": "rep_0001",
+      "status": "COMPLETED_REJECTED",
+      "worker_wall_seconds": 216.98408242699952
+    },
+    {
+      "diagnostics": {
+        "acceptance_mean": 0.9851457619849107,
+        "bfmi_min": 0.8357662181451062,
+        "divergences": 0,
+        "fraction_tree_depth_ge_10": 0.003,
+        "max_r_hat": 1.01016799,
+        "max_tree_depth": 10,
+        "min_ess": 365.76917064
+      },
+      "historical_gate_status": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "interpretation": "Sampler-passing output still requires claim-specific predictive/physical evaluation.",
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "numeric_available": true,
+      "replicate_id": "rep_0002",
+      "status": "COMPLETED_REJECTED",
+      "worker_wall_seconds": 230.1290928899998
+    }
+  ],
+  "new_external_replicates": 0,
+  "paired_effects": [
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0774195507683164,
+      "mean_shift": 0.00040686517417935775,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "r",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 0.08636030056214031,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0851226995265788,
+      "mean_shift": 6.112372219602147e-05,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "depth",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 0.0894212430215225,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0136240353403467,
+      "mean_shift": 0.01965249294525112,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "b",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 0.07990857987169885,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0080334230635701,
+      "mean_shift": -0.08352172701162708,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "a",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": -0.08428924105449781,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9801939121883783,
+      "mean_shift": 8.32408773125768e-06,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "t0",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 0.018836168620508565,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0038708393801443,
+      "mean_shift": 0.0001598604143895968,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "full_duration",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 0.04703773292387899,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9889905493342819,
+      "mean_shift": -1.5327170263881862e-08,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "extra_sigma",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": -0.0004997331840202793,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9266003697826003,
+      "mean_shift": -0.0013939190559635606,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "r",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -0.06474907730588302,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9017691710190657,
+      "mean_shift": -0.00028573764519687194,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "depth",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -0.0700424502286842,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0039963537274417,
+      "mean_shift": -0.00874775026109409,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "b",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -0.026871871139454623,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9940323348214659,
+      "mean_shift": 0.03956644154895539,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "a",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 0.026622648725645414,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.016066352588882,
+      "mean_shift": -1.0177407711482516e-05,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "t0",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -0.020281280081068775,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9967899328736551,
+      "mean_shift": -0.00015867249754998591,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "full_duration",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -0.026739630186170343,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0134480845507576,
+      "mean_shift": 4.888729712986418e-07,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "extra_sigma",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 0.01548043674953813,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.1796257560685426,
+      "mean_shift": 0.0005493485197823611,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "r",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.14556254171771518,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.203908917578487,
+      "mean_shift": 8.207009275660454e-05,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "depth",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.15730206343655787,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0421048656476728,
+      "mean_shift": 0.030695803556967716,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "b",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.12866547151439375,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.1203238297295237,
+      "mean_shift": -0.13372704639395838,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "a",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": -0.14225357472316513,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0245437461647713,
+      "mean_shift": -1.383908797112656e-05,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "t0",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": -0.030739680860333633,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.1100869892411511,
+      "mean_shift": 0.0003153677532556423,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "full_duration",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.1073270887141473,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.998275771014994,
+      "mean_shift": 3.47169399570477e-07,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "extra_sigma",
+      "reference_variant": "baseline_standardized",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.010867707489710481,
+      "variant": "baseline_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 3.3110414603637595,
+      "mean_shift": 0.017039563924820186,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "r",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 3.371544131230293,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 4.087991188038455,
+      "mean_shift": 0.002948575843973675,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "depth",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 3.9491227582085826,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0516567390146947,
+      "mean_shift": 0.39800014508740683,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "b",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 1.577018743349626,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.8409588075688739,
+      "mean_shift": -2.6753228976056698,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "a",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": -2.607279259711637,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.046668815853587,
+      "mean_shift": -0.0002640491999216549,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "t0",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": -0.6147947292245638,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9730685495804579,
+      "mean_shift": 0.013722267371935687,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "full_duration",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 3.9874773051001653,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9843191603293329,
+      "mean_shift": 1.7466886318694163e-06,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "extra_sigma",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0000",
+      "same_input": true,
+      "shift_over_reference_sd": 0.057830377177599354,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.2525301652108585,
+      "mean_shift": 0.026133538980328108,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "r",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 1.31313495960577,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.364704281946804,
+      "mean_shift": 0.004801155946669676,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "depth",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 1.2969518279511207,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.7965665363375374,
+      "mean_shift": 0.3268506421083307,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "b",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 1.011029452912718,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.7294639490862284,
+      "mean_shift": -1.877734175439826,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "a",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -1.2826958150983412,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9907892425643353,
+      "mean_shift": 1.3730466526847961e-06,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "t0",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 0.0027037567917038816,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.8100040726781413,
+      "mean_shift": 0.01051897881130321,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "full_duration",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": 1.799357271090308,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.005491661309907,
+      "mean_shift": -1.1208976069608349e-07,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "extra_sigma",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0001",
+      "same_input": true,
+      "shift_over_reference_sd": -0.003517462617410526,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 4.4491246207954385,
+      "mean_shift": 0.02576135617372556,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "r",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 5.68312523559116,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 5.9723449348709705,
+      "mean_shift": 0.004570669637520298,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "depth",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 6.929722941500225,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9841069369308526,
+      "mean_shift": 0.46508893707333226,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "b",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 1.8749297683747241,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.850250288140538,
+      "mean_shift": -3.258864449046272,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "a",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": -3.1116887822700146,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.0683281271908693,
+      "mean_shift": 4.870517202705126e-05,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "t0",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.106553205727818,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 1.2055606857107248,
+      "mean_shift": 0.0166922461076571,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "full_duration",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 5.1224955917783745,
+      "variant": "exposure_off_high_accuracy"
+    },
+    {
+      "both_numeric": true,
+      "both_sampler_pass": false,
+      "eti94_width_ratio": 0.9872480377723599,
+      "mean_shift": 3.968081514395955e-06,
+      "pair_id": "long_segment_offsets_numerical",
+      "parameter": "extra_sigma",
+      "reference_variant": "baseline_high_accuracy",
+      "replicate_id": "rep_0002",
+      "same_input": true,
+      "shift_over_reference_sd": 0.1256031436063547,
+      "variant": "exposure_off_high_accuracy"
+    }
+  ],
+  "status_counts": {
+    "COMPLETED": 3,
+    "COMPLETED_REJECTED": 6
+  }
+}

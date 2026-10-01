@@ -1,0 +1,2977 @@
+{
+  "attempt_gate_counts": {
+    "joint": {
+      "declared": 13,
+      "evaluated": 6,
+      "final_evidence_evaluated": 6,
+      "final_evidence_passed": 5,
+      "invalidated": 7,
+      "pass_rate_all_declared": 0.38461538461538464,
+      "pass_rate_evaluated": 0.8333333333333334,
+      "passed": 5,
+      "rate_denominators": {
+        "pass_rate_all_declared": 13,
+        "pass_rate_evaluated": 6
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 8,
+      "rejected": 1,
+      "unassessed": 0
+    },
+    "ppc": {
+      "declared": 13,
+      "evaluated": 6,
+      "final_evidence_evaluated": 6,
+      "final_evidence_passed": 6,
+      "invalidated": 7,
+      "pass_rate_all_declared": 0.46153846153846156,
+      "pass_rate_evaluated": 1.0,
+      "passed": 6,
+      "rate_denominators": {
+        "pass_rate_all_declared": 13,
+        "pass_rate_evaluated": 6
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 9,
+      "rejected": 0,
+      "unassessed": 0
+    },
+    "provenance": {
+      "declared": 13,
+      "evaluated": 13,
+      "final_evidence_evaluated": 13,
+      "final_evidence_passed": 13,
+      "invalidated": 0,
+      "pass_rate_all_declared": 1.0,
+      "pass_rate_evaluated": 1.0,
+      "passed": 13,
+      "rate_denominators": {
+        "pass_rate_all_declared": 13,
+        "pass_rate_evaluated": 13
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 13,
+      "rejected": 0,
+      "unassessed": 0
+    },
+    "sampler": {
+      "declared": 13,
+      "evaluated": 13,
+      "final_evidence_evaluated": 13,
+      "final_evidence_passed": 11,
+      "invalidated": 0,
+      "pass_rate_all_declared": 0.8461538461538461,
+      "pass_rate_evaluated": 0.8461538461538461,
+      "passed": 11,
+      "rate_denominators": {
+        "pass_rate_all_declared": 13,
+        "pass_rate_evaluated": 13
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 11,
+      "rejected": 2,
+      "unassessed": 0
+    }
+  },
+  "attempts": [
+    {
+      "attempt_index": 0,
+      "code_commit": "8febce31eeb5825517e85487a55838414bc3c5e2",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__direct__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "7d6a1e09e3adf17e54da1b23d63861e3c089dddb6b51c0fae91b8267f1b50fb4",
+      "dataset_id": "synthetic-2e66694360f9995f9cf5",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T00:54:49.600272+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000",
+      "process": {
+        "pid": 1267,
+        "platform": "linux",
+        "process_group": 1267,
+        "session_id": 1267,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:133297"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 556592582,
+        "inference": 424847329,
+        "predictive": 1078819424,
+        "resampling": 1874786440
+      },
+      "started_at_utc": "2026-10-01T00:49:33.956240+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 1267,
+        "platform": "linux",
+        "process_group": 1267,
+        "session_id": 1267,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:133297"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "8febce31eeb5825517e85487a55838414bc3c5e2",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__direct__rep_0001",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000"
+      ],
+      "completion_manifest_sha256": "a8bf06d4b32ec28e07b00ec38aedc86a134421f195a2fa92957d2be6a13c7c29",
+      "dataset_id": "synthetic-25d42f0597a01e6a5e54",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T00:57:59.104179+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "rejected",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "rejected",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000",
+      "process": {
+        "pid": 1966,
+        "platform": "linux",
+        "process_group": 1966,
+        "session_id": 1966,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:167467"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 4013848526,
+        "inference": 1327204176,
+        "predictive": 2603711877,
+        "resampling": 2284567638
+      },
+      "started_at_utc": "2026-10-01T00:54:53.010713+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0001.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0001.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 1966,
+        "platform": "linux",
+        "process_group": 1966,
+        "session_id": 1966,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:167467"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "e9c24634e8817996689c46cdbf62f6d8f0f70c9b",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__direct__rep_0002",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000"
+      ],
+      "completion_manifest_sha256": "13d332059f8ffef87197babf86e999376cf3c74e6d8e2189bc4aa54ad5b4eaf6",
+      "dataset_id": "synthetic-842264f9541e26ac77b7",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:00:51.689765+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000",
+      "process": {
+        "pid": 2358,
+        "platform": "linux",
+        "process_group": 2358,
+        "session_id": 2358,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:187669"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 3137708363,
+        "inference": 71943497,
+        "predictive": 2834735974,
+        "resampling": 152799364
+      },
+      "started_at_utc": "2026-10-01T00:58:02.396198+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0002.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__direct__rep_0002.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 2358,
+        "platform": "linux",
+        "process_group": 2358,
+        "session_id": 2358,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:187669"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "62a99f142d76e9fc2ee87fdec2ffcfc2d3d8925b",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__standardized__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "0a757bc3e9cfa36c5187a574d30e184fc725451721c643cdc3393cbdc6f58ca1",
+      "dataset_id": "synthetic-2e66694360f9995f9cf5",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:04:58.362498+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": true,
+        "scientific": false
+      },
+      "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000",
+      "process": {
+        "pid": 2755,
+        "platform": "linux",
+        "process_group": 2755,
+        "session_id": 2755,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:206114"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 556592582,
+        "inference": 1576153475,
+        "predictive": 2275375906,
+        "resampling": 483513677
+      },
+      "started_at_utc": "2026-10-01T01:00:54.148536+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 2755,
+        "platform": "linux",
+        "process_group": 2755,
+        "session_id": 2755,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:206114"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__standardized__rep_0001",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000"
+      ],
+      "completion_manifest_sha256": "d274309d4e616041cdb8f70329106c96af6ee50289f8f44307ef3b879458184a",
+      "dataset_id": "synthetic-25d42f0597a01e6a5e54",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:07:21.933104+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": true,
+        "scientific": false
+      },
+      "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000",
+      "process": {
+        "pid": 3376,
+        "platform": "linux",
+        "process_group": 3376,
+        "session_id": 3376,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:232637"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 4013848526,
+        "inference": 1648197124,
+        "predictive": 970753869,
+        "resampling": 1987219003
+      },
+      "started_at_utc": "2026-10-01T01:05:00.838239+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0001.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0001.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 3376,
+        "platform": "linux",
+        "process_group": 3376,
+        "session_id": 3376,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:232637"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_deep_short__standardized__rep_0002",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000"
+      ],
+      "completion_manifest_sha256": "f57b244993d09213be6e7aa0b9abf364a36137f41526670c91ba182c5d43d480",
+      "dataset_id": "synthetic-842264f9541e26ac77b7",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:09:41.567764+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "rejected",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": false,
+        "scientific": false
+      },
+      "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000",
+      "process": {
+        "pid": 3703,
+        "platform": "linux",
+        "process_group": 3703,
+        "session_id": 3703,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:248114"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 3137708363,
+        "inference": 2717874609,
+        "predictive": 2719780068,
+        "resampling": 732639409
+      },
+      "started_at_utc": "2026-10-01T01:07:23.849872+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0002.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_deep_short__standardized__rep_0002.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 3703,
+        "platform": "linux",
+        "process_group": 3703,
+        "session_id": 3703,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:248114"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__direct__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "66ad0cdaffe8c93c893c775b3a9164c8836202e4f90684f36a80a694be15cbda",
+      "dataset_id": "synthetic-624a385cf57f055c3335",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:11:21.561265+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000",
+      "process": {
+        "pid": 4049,
+        "platform": "linux",
+        "process_group": 4049,
+        "session_id": 4049,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:263326"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 398179972,
+        "inference": 1106229207,
+        "predictive": 462375179,
+        "resampling": 4097768102
+      },
+      "started_at_utc": "2026-10-01T01:09:43.905041+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 4049,
+        "platform": "linux",
+        "process_group": 4049,
+        "session_id": 4049,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:263326"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__direct__rep_0001",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000"
+      ],
+      "completion_manifest_sha256": "712fa66e370abb5578df3378d89f837fe3337eedab4142daf01711b474f90575",
+      "dataset_id": "synthetic-fd6f51392f33f35d5319",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:13:10.438537+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000",
+      "process": {
+        "pid": 4277,
+        "platform": "linux",
+        "process_group": 4277,
+        "session_id": 4277,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:274080"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 3117766751,
+        "inference": 2604734143,
+        "predictive": 3324605532,
+        "resampling": 657102202
+      },
+      "started_at_utc": "2026-10-01T01:11:23.907384+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0001.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0001.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 4277,
+        "platform": "linux",
+        "process_group": 4277,
+        "session_id": 4277,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:274080"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__direct__rep_0002",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000"
+      ],
+      "completion_manifest_sha256": "be5c5c29ca22b9851119f51b5b34c4eb705669bf09ba435069e3801a04f7bdc4",
+      "dataset_id": "synthetic-f3caf860b2da58e1d1dc",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:15:10.036810+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000",
+      "process": {
+        "pid": 4539,
+        "platform": "linux",
+        "process_group": 4539,
+        "session_id": 4539,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:285683"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 1491539992,
+        "inference": 2136137455,
+        "predictive": 2412188001,
+        "resampling": 3242587001
+      },
+      "started_at_utc": "2026-10-01T01:13:10.074575+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0002.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__direct__rep_0002.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 4539,
+        "platform": "linux",
+        "process_group": 4539,
+        "session_id": 4539,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:285683"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__standardized__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "5027818838845ba947a5410c7ee494f887d0de43924ddc67de1e524558e2b6d1",
+      "dataset_id": "synthetic-624a385cf57f055c3335",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:17:06.798687+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000",
+      "process": {
+        "pid": 4818,
+        "platform": "linux",
+        "process_group": 4818,
+        "session_id": 4818,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:298912"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 398179972,
+        "inference": 40834373,
+        "predictive": 3662706937,
+        "resampling": 1074128683
+      },
+      "started_at_utc": "2026-10-01T01:15:12.255949+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 4818,
+        "platform": "linux",
+        "process_group": 4818,
+        "session_id": 4818,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:298912"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__standardized__rep_0001",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000"
+      ],
+      "completion_manifest_sha256": "fff1776e0aa93f04c1de231dd0d7bdea244eea4425e36ca185f911316437454d",
+      "dataset_id": "synthetic-fd6f51392f33f35d5319",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:18:39.520502+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000",
+      "process": {
+        "pid": 5084,
+        "platform": "linux",
+        "process_group": 5084,
+        "session_id": 5084,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:311436"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 3117766751,
+        "inference": 2425950649,
+        "predictive": 3873252341,
+        "resampling": 3073771390
+      },
+      "started_at_utc": "2026-10-01T01:17:09.932739+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0001.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0001.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 5084,
+        "platform": "linux",
+        "process_group": 5084,
+        "session_id": 5084,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:311436"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-02__t0_intermediate_long__standardized__rep_0002",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000"
+      ],
+      "completion_manifest_sha256": "a724ff6bdf7458efe8527fd2421895b91dac3930f75282bfc0e7bd52f0075b99",
+      "dataset_id": "synthetic-f3caf860b2da58e1d1dc",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-02",
+      "finished_at_utc": "2026-10-01T01:20:24.095976+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": true,
+        "provenance": true,
+        "sampler": true,
+        "scientific": true
+      },
+      "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000",
+      "process": {
+        "pid": 5328,
+        "platform": "linux",
+        "process_group": 5328,
+        "session_id": 5328,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:321656"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 1491539992,
+        "inference": 4213959370,
+        "predictive": 822016483,
+        "resampling": 1951465390
+      },
+      "started_at_utc": "2026-10-01T01:18:42.104912+00:00",
+      "status": "COMPLETED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0002.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-02/PUB-02__t0_intermediate_long__standardized__rep_0002.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 5328,
+        "platform": "linux",
+        "process_group": 5328,
+        "session_id": 5328,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:321656"
+      }
+    },
+    {
+      "attempt_index": 0,
+      "code_commit": "a3da55de2d3199a0dbf7b031e9f4fbaa389dd1c4",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/publication_campaign_job.py",
+        "--config",
+        "configs/publication/tcc_numerical_complement_v3.json",
+        "--job-id",
+        "PUB-03__kepler_10_b_standardized__rep_0000",
+        "--attempt-dir",
+        "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000"
+      ],
+      "completion_manifest_sha256": "15bf16a1bd90a52b851137f191acb2c3fd6acf3aeca9063fa9a12d00fa56ea3a",
+      "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+      "error": null,
+      "exit_observation": "child process return code",
+      "experiment_id": "PUB-03",
+      "finished_at_utc": "2026-10-01T01:56:39.488906+00:00",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "gates": {
+        "ppc": false,
+        "provenance": true,
+        "sampler": true,
+        "scientific": false
+      },
+      "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000",
+      "process": {
+        "pid": 5674,
+        "platform": "linux",
+        "process_group": 5674,
+        "session_id": 5674,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:337542"
+      },
+      "return_code": 0,
+      "return_code_known": true,
+      "seeds": {
+        "generation": 4003177497,
+        "inference": 3976843229,
+        "predictive": 2675262183,
+        "resampling": 503570230
+      },
+      "started_at_utc": "2026-10-01T01:21:08.216573+00:00",
+      "status": "COMPLETED_REJECTED",
+      "stderr_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-03/PUB-03__kepler_10_b_standardized__rep_0000.attempt000.stderr.log",
+      "stdout_log": "logs/publication_campaign/tcc_numerical_complement_v3/PUB-03/PUB-03__kepler_10_b_standardized__rep_0000.attempt000.stdout.log",
+      "technical_retryable": false,
+      "worker_session": {
+        "pid": 5674,
+        "platform": "linux",
+        "process_group": 5674,
+        "session_id": 5674,
+        "start_token": "linux:9ed83f89-bc3e-4515-ba51-19b9f16a442a:337542"
+      }
+    }
+  ],
+  "campaign_id": "tcc_numerical_complement_v3",
+  "complete_declared_batch": false,
+  "computational_gates_passed_count": 8,
+  "controller": {
+    "assessment_current_state": "STOPPED",
+    "historical_snapshot": "AGGREGATING"
+  },
+  "declared_jobs": 24,
+  "deprecated_fields": {
+    "computational_gates_passed_count": "Historical joint-pass alias; not sampler approval"
+  },
+  "gate_counts": {
+    "joint": {
+      "declared": 24,
+      "evaluated": 6,
+      "final_evidence_evaluated": 6,
+      "final_evidence_passed": 5,
+      "invalidated": 7,
+      "pass_rate_all_declared": 0.20833333333333334,
+      "pass_rate_evaluated": 0.8333333333333334,
+      "passed": 5,
+      "rate_denominators": {
+        "pass_rate_all_declared": 24,
+        "pass_rate_evaluated": 6
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 8,
+      "rejected": 1,
+      "unassessed": 11
+    },
+    "ppc": {
+      "declared": 24,
+      "evaluated": 6,
+      "final_evidence_evaluated": 6,
+      "final_evidence_passed": 6,
+      "invalidated": 7,
+      "pass_rate_all_declared": 0.25,
+      "pass_rate_evaluated": 1.0,
+      "passed": 6,
+      "rate_denominators": {
+        "pass_rate_all_declared": 24,
+        "pass_rate_evaluated": 6
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 9,
+      "rejected": 0,
+      "unassessed": 11
+    },
+    "provenance": {
+      "declared": 24,
+      "evaluated": 13,
+      "final_evidence_evaluated": 13,
+      "final_evidence_passed": 13,
+      "invalidated": 0,
+      "pass_rate_all_declared": 0.5416666666666666,
+      "pass_rate_evaluated": 1.0,
+      "passed": 13,
+      "rate_denominators": {
+        "pass_rate_all_declared": 24,
+        "pass_rate_evaluated": 13
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 13,
+      "rejected": 0,
+      "unassessed": 11
+    },
+    "sampler": {
+      "declared": 24,
+      "evaluated": 13,
+      "final_evidence_evaluated": 13,
+      "final_evidence_passed": 11,
+      "invalidated": 0,
+      "pass_rate_all_declared": 0.4583333333333333,
+      "pass_rate_evaluated": 0.8461538461538461,
+      "passed": 11,
+      "rate_denominators": {
+        "pass_rate_all_declared": 24,
+        "pass_rate_evaluated": 13
+      },
+      "recorded_evaluated": 13,
+      "recorded_passed": 11,
+      "rejected": 2,
+      "unassessed": 11
+    }
+  },
+  "gate_counts_by_family": {
+    "PUB-02": {
+      "joint": {
+        "declared": 12,
+        "evaluated": 6,
+        "final_evidence_evaluated": 6,
+        "final_evidence_passed": 5,
+        "invalidated": 6,
+        "pass_rate_all_declared": 0.4166666666666667,
+        "pass_rate_evaluated": 0.8333333333333334,
+        "passed": 5,
+        "rate_denominators": {
+          "pass_rate_all_declared": 12,
+          "pass_rate_evaluated": 6
+        },
+        "recorded_evaluated": 12,
+        "recorded_passed": 8,
+        "rejected": 1,
+        "unassessed": 0
+      },
+      "ppc": {
+        "declared": 12,
+        "evaluated": 6,
+        "final_evidence_evaluated": 6,
+        "final_evidence_passed": 6,
+        "invalidated": 6,
+        "pass_rate_all_declared": 0.5,
+        "pass_rate_evaluated": 1.0,
+        "passed": 6,
+        "rate_denominators": {
+          "pass_rate_all_declared": 12,
+          "pass_rate_evaluated": 6
+        },
+        "recorded_evaluated": 12,
+        "recorded_passed": 9,
+        "rejected": 0,
+        "unassessed": 0
+      },
+      "provenance": {
+        "declared": 12,
+        "evaluated": 12,
+        "final_evidence_evaluated": 12,
+        "final_evidence_passed": 12,
+        "invalidated": 0,
+        "pass_rate_all_declared": 1.0,
+        "pass_rate_evaluated": 1.0,
+        "passed": 12,
+        "rate_denominators": {
+          "pass_rate_all_declared": 12,
+          "pass_rate_evaluated": 12
+        },
+        "recorded_evaluated": 12,
+        "recorded_passed": 12,
+        "rejected": 0,
+        "unassessed": 0
+      },
+      "sampler": {
+        "declared": 12,
+        "evaluated": 12,
+        "final_evidence_evaluated": 12,
+        "final_evidence_passed": 10,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.8333333333333334,
+        "pass_rate_evaluated": 0.8333333333333334,
+        "passed": 10,
+        "rate_denominators": {
+          "pass_rate_all_declared": 12,
+          "pass_rate_evaluated": 12
+        },
+        "recorded_evaluated": 12,
+        "recorded_passed": 10,
+        "rejected": 2,
+        "unassessed": 0
+      }
+    },
+    "PUB-03": {
+      "joint": {
+        "declared": 3,
+        "evaluated": 0,
+        "final_evidence_evaluated": 0,
+        "final_evidence_passed": 0,
+        "invalidated": 1,
+        "pass_rate_all_declared": 0.0,
+        "pass_rate_evaluated": null,
+        "passed": 0,
+        "rate_denominators": {
+          "pass_rate_all_declared": 3,
+          "pass_rate_evaluated": 0
+        },
+        "recorded_evaluated": 1,
+        "recorded_passed": 0,
+        "rejected": 0,
+        "unassessed": 2
+      },
+      "ppc": {
+        "declared": 3,
+        "evaluated": 0,
+        "final_evidence_evaluated": 0,
+        "final_evidence_passed": 0,
+        "invalidated": 1,
+        "pass_rate_all_declared": 0.0,
+        "pass_rate_evaluated": null,
+        "passed": 0,
+        "rate_denominators": {
+          "pass_rate_all_declared": 3,
+          "pass_rate_evaluated": 0
+        },
+        "recorded_evaluated": 1,
+        "recorded_passed": 0,
+        "rejected": 0,
+        "unassessed": 2
+      },
+      "provenance": {
+        "declared": 3,
+        "evaluated": 1,
+        "final_evidence_evaluated": 1,
+        "final_evidence_passed": 1,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.3333333333333333,
+        "pass_rate_evaluated": 1.0,
+        "passed": 1,
+        "rate_denominators": {
+          "pass_rate_all_declared": 3,
+          "pass_rate_evaluated": 1
+        },
+        "recorded_evaluated": 1,
+        "recorded_passed": 1,
+        "rejected": 0,
+        "unassessed": 2
+      },
+      "sampler": {
+        "declared": 3,
+        "evaluated": 1,
+        "final_evidence_evaluated": 1,
+        "final_evidence_passed": 1,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.3333333333333333,
+        "pass_rate_evaluated": 1.0,
+        "passed": 1,
+        "rate_denominators": {
+          "pass_rate_all_declared": 3,
+          "pass_rate_evaluated": 1
+        },
+        "recorded_evaluated": 1,
+        "recorded_passed": 1,
+        "rejected": 0,
+        "unassessed": 2
+      }
+    },
+    "PUB-04": {
+      "joint": {
+        "declared": 9,
+        "evaluated": 0,
+        "final_evidence_evaluated": 0,
+        "final_evidence_passed": 0,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.0,
+        "pass_rate_evaluated": null,
+        "passed": 0,
+        "rate_denominators": {
+          "pass_rate_all_declared": 9,
+          "pass_rate_evaluated": 0
+        },
+        "recorded_evaluated": 0,
+        "recorded_passed": 0,
+        "rejected": 0,
+        "unassessed": 9
+      },
+      "ppc": {
+        "declared": 9,
+        "evaluated": 0,
+        "final_evidence_evaluated": 0,
+        "final_evidence_passed": 0,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.0,
+        "pass_rate_evaluated": null,
+        "passed": 0,
+        "rate_denominators": {
+          "pass_rate_all_declared": 9,
+          "pass_rate_evaluated": 0
+        },
+        "recorded_evaluated": 0,
+        "recorded_passed": 0,
+        "rejected": 0,
+        "unassessed": 9
+      },
+      "provenance": {
+        "declared": 9,
+        "evaluated": 0,
+        "final_evidence_evaluated": 0,
+        "final_evidence_passed": 0,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.0,
+        "pass_rate_evaluated": null,
+        "passed": 0,
+        "rate_denominators": {
+          "pass_rate_all_declared": 9,
+          "pass_rate_evaluated": 0
+        },
+        "recorded_evaluated": 0,
+        "recorded_passed": 0,
+        "rejected": 0,
+        "unassessed": 9
+      },
+      "sampler": {
+        "declared": 9,
+        "evaluated": 0,
+        "final_evidence_evaluated": 0,
+        "final_evidence_passed": 0,
+        "invalidated": 0,
+        "pass_rate_all_declared": 0.0,
+        "pass_rate_evaluated": null,
+        "passed": 0,
+        "rate_denominators": {
+          "pass_rate_all_declared": 9,
+          "pass_rate_evaluated": 0
+        },
+        "recorded_evaluated": 0,
+        "recorded_passed": 0,
+        "rejected": 0,
+        "unassessed": 9
+      }
+    }
+  },
+  "jobs": [
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__direct__rep_0000",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 556592582,
+        "inference": 424847329,
+        "predictive": 1078819424,
+        "resampling": 1874786440
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "rejected",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "rejected",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__direct__rep_0001",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 4013848526,
+        "inference": 1327204176,
+        "predictive": 2603711877,
+        "resampling": 2284567638
+      },
+      "status": "COMPLETED_REJECTED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+      "job_id": "PUB-02__t0_deep_short__direct__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__direct__rep_0002",
+      "scenario_id": "t0_deep_short__direct",
+      "seeds": {
+        "generation": 3137708363,
+        "inference": 71943497,
+        "predictive": 2834735974,
+        "resampling": 152799364
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__standardized__rep_0000",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 556592582,
+        "inference": 1576153475,
+        "predictive": 2275375906,
+        "resampling": 483513677
+      },
+      "status": "COMPLETED_REJECTED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__standardized__rep_0001",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 4013848526,
+        "inference": 1648197124,
+        "predictive": 970753869,
+        "resampling": 1987219003
+      },
+      "status": "COMPLETED_REJECTED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "rejected",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+      "job_id": "PUB-02__t0_deep_short__standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_deep_short__standardized__rep_0002",
+      "scenario_id": "t0_deep_short__standardized",
+      "seeds": {
+        "generation": 3137708363,
+        "inference": 2717874609,
+        "predictive": 2719780068,
+        "resampling": 732639409
+      },
+      "status": "COMPLETED_REJECTED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__direct__rep_0000",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 398179972,
+        "inference": 1106229207,
+        "predictive": 462375179,
+        "resampling": 4097768102
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__direct__rep_0001",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 3117766751,
+        "inference": 2604734143,
+        "predictive": 3324605532,
+        "resampling": 657102202
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+      "job_id": "PUB-02__t0_intermediate_long__direct__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__direct__rep_0002",
+      "scenario_id": "t0_intermediate_long__direct",
+      "seeds": {
+        "generation": 1491539992,
+        "inference": 2136137455,
+        "predictive": 2412188001,
+        "resampling": 3242587001
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__standardized__rep_0000",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 398179972,
+        "inference": 40834373,
+        "predictive": 3662706937,
+        "resampling": 1074128683
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__standardized__rep_0001",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 3117766751,
+        "inference": 2425950649,
+        "predictive": 3873252341,
+        "resampling": 3073771390
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-02",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+      "job_id": "PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-02__t0_intermediate_long__standardized__rep_0002",
+      "scenario_id": "t0_intermediate_long__standardized",
+      "seeds": {
+        "generation": 1491539992,
+        "inference": 4213959370,
+        "predictive": 822016483,
+        "resampling": 1951465390
+      },
+      "status": "COMPLETED"
+    },
+    {
+      "experiment_id": "PUB-03",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "depends on invalidated PPC",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "ppc": {
+            "current_status": "invalidated",
+            "eligible_final_evidence": false,
+            "invalidation_reason": "v3 free-RV conditioning incident",
+            "recorded_decision": false,
+            "recorded_evaluated": true
+          },
+          "provenance": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          },
+          "sampler": {
+            "current_status": "passed",
+            "eligible_final_evidence": true,
+            "invalidation_reason": null,
+            "recorded_decision": true,
+            "recorded_evaluated": true
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-03__kepler_10_b_standardized__rep_0000",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 4003177497,
+        "inference": 3976843229,
+        "predictive": 2675262183,
+        "resampling": 503570230
+      },
+      "status": "COMPLETED_REJECTED"
+    },
+    {
+      "experiment_id": "PUB-03",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-03__kepler_10_b_standardized__rep_0001",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 3666618106,
+        "inference": 894386053,
+        "predictive": 3720927280,
+        "resampling": 3231060987
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-03",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-03__kepler_10_b_standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-03__kepler_10_b_standardized__rep_0002",
+      "scenario_id": "kepler_10_b_standardized",
+      "seeds": {
+        "generation": 3794467705,
+        "inference": 3287679733,
+        "predictive": 2098926588,
+        "resampling": 1195948655
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_standardized/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 3569506640,
+        "inference": 1003982566,
+        "predictive": 684044749,
+        "resampling": 2660585465
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_standardized/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 632986863,
+        "inference": 665812390,
+        "predictive": 750922663,
+        "resampling": 3101722005
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_standardized/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_standardized__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__baseline_standardized",
+      "seeds": {
+        "generation": 4535401,
+        "inference": 4126059346,
+        "predictive": 116585605,
+        "resampling": 503072726
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_high_accuracy/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 3569506640,
+        "inference": 3753558145,
+        "predictive": 928041874,
+        "resampling": 2269915214
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_high_accuracy/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 632986863,
+        "inference": 2313281261,
+        "predictive": 1181553259,
+        "resampling": 4231398250
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__baseline_high_accuracy/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__baseline_high_accuracy__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__baseline_high_accuracy",
+      "seeds": {
+        "generation": 4535401,
+        "inference": 3639452480,
+        "predictive": 3382058768,
+        "resampling": 1573574778
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__exposure_off_high_accuracy/rep_0000",
+      "replicate_id": "rep_0000",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0000",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 3569506640,
+        "inference": 919303968,
+        "predictive": 2006255771,
+        "resampling": 1034095684
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__exposure_off_high_accuracy/rep_0001",
+      "replicate_id": "rep_0001",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0001",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 632986863,
+        "inference": 3169712502,
+        "predictive": 839757523,
+        "resampling": 196595873
+      },
+      "status": "PLANNED"
+    },
+    {
+      "experiment_id": "PUB-04",
+      "gate_assessment": {
+        "components": {
+          "joint": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "ppc": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "provenance": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          },
+          "sampler": {
+            "current_status": "unassessed",
+            "eligible_final_evidence": false,
+            "invalidation_reason": null,
+            "recorded_decision": null,
+            "recorded_evaluated": false
+          }
+        },
+        "engineering_only": false,
+        "mode": "final",
+        "schema_version": "component-gate-accounting-v2"
+      },
+      "input_sha256": null,
+      "job_id": "PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "output_dir": "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-04/long_segment_offsets_numerical__exposure_off_high_accuracy/rep_0002",
+      "replicate_id": "rep_0002",
+      "run_id": "tcc_numerical_complement_v3__PUB-04__long_segment_offsets_numerical__exposure_off_high_accuracy__rep_0002",
+      "scenario_id": "long_segment_offsets_numerical__exposure_off_high_accuracy",
+      "seeds": {
+        "generation": 4535401,
+        "inference": 1597052039,
+        "predictive": 2737586387,
+        "resampling": 2995367128
+      },
+      "status": "PLANNED"
+    }
+  ],
+  "mode": "final",
+  "schema_version": "publication-campaign-aggregate-v2",
+  "source_checksums": {
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/campaign_state.json": "d3282b4476ddc4302061204f430883bfeb4d3ddce92099bdfcfdc5c399f14fe9",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/completion_manifest.json": "7d6a1e09e3adf17e54da1b23d63861e3c089dddb6b51c0fae91b8267f1b50fb4",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/inference_command.json": "1a169011692e5c1fa5502bc0f241d042676c40310cd43c2f2e00b8f244dcbd86",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/inference_config.json": "4ef7004d75349e2d4f163bf5d42f7f5e2f6fcc2d5e19a851779cb46f0bf833f7",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/inference_started.json": "782b3947cc260c83d8aafe0332db097f88bbbde0d0d7b296e49b941f8fd71157",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/input.csv": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/job.json": "ca78f1573bfbab062e0c81a604179746459ecc1ebbd130b09efbf130b393d70e",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/predictive_summary.csv": "2b4c48bb355a6bc959eb834ac4de7f5e7150f0753fdf2156ca2ba676aa8c2ecc",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/result.json": "1f5dcbcd4412f976beb401af510e13ad5933612abb90216c412077ffd2c9f300",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/sampler_summary.csv": "f554cea97136e4d38ee5519bdcf26bf3d227f9ed5cee0f16ae6c5cfa8a127834",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/trace.nc": "67bbe2e91d0b334bd01638bf837d7c8d4792470a6d859bbc12f7ca67e78743b6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/truth.json": "1d8ab7cbea933937a48ab60d3441fa8ecd576a01ef157ef0294fd43cb9dc2639",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0000/attempt_000/worker_metadata.json": "1f2a51c37fccc7ff4803744e19ec6ae199477b8dc77b1fbfd71a9c6b94043dd7",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/completion_manifest.json": "a8bf06d4b32ec28e07b00ec38aedc86a134421f195a2fa92957d2be6a13c7c29",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/inference_command.json": "78a1c272e46b8154f97dbfac7108468270004723f7ba81d43704d486ea037dd3",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/inference_config.json": "46f046bb8f606e89ee0f4385ac0d7093c668bb1a977fa1e9a2b593e123153760",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/inference_started.json": "3c0dab5411600d3eab9ced7b831f4ce0487a26363227e16f4a319372b656723e",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/input.csv": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/job.json": "dcbd1fded4ec6f27e2cc81edb1c033d7fc9f3f669007506531f626183053b989",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/predictive_summary.csv": "f4514ed749535a36b2487765d44b50d9942c9e4e0f504b7bea1b331f30a13e5f",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/result.json": "2cf03c3e6bb7eb369d63d1b6f103ab3dba1b7155a19831e07cabb47557c82c85",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/sampler_summary.csv": "63230a4356cfbb70d04f50d8232eed1b3ff88176c2f805093a8e310927135125",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/trace.nc": "e5ba8b4b964cb5195236ed1481a42b7ba071d33beea9bcb35d4a60deaf4dea12",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/truth.json": "87e351a5eedaefca2c2c37fd3ee0aa940c01ffbd45bbf1618884759828eaa0cd",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0001/attempt_000/worker_metadata.json": "50b4879413bdabdb7ccfdc23ed5f5a72a86577cf70aea76d0b2b633ccba01f5a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/completion_manifest.json": "13d332059f8ffef87197babf86e999376cf3c74e6d8e2189bc4aa54ad5b4eaf6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/inference_command.json": "70612994de9d43109cabe87e51be29366be440cf95cac479d9b870128a124c8c",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/inference_config.json": "0f4cd892a80592ab321ea0dceb11e5ed596ee361c299c43da7332fdfd783ad86",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/inference_started.json": "e8d6d2f7882ce9d61a260655558f6a553e80778900ae514ebadd7771c5d4c004",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/input.csv": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/job.json": "5161719bfa67d8fe424397c2bc464ee98cc8525da696480bf691dff06a8088c5",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/predictive_summary.csv": "dcbb869ad77ddd605eda3212a64406c2fa8dbda78e5cb0fd868554c3793709fa",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/result.json": "40d3971ecb4297746cfce53f5272ac1ccb9572209f6776370ca550bbc8b76c29",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/sampler_summary.csv": "58910bdab7038150b85cd7a9b0a650c24baaf35e06a9fd62887e39c5ae6cdefc",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/trace.nc": "8e84a28d4422843e8dedba8d5ac8688c966d12286db5e3cabcf72be37010e027",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/truth.json": "40f74c786ce2ce09a536707d6795c39fb786b959ac40d88b83f6b67ab48bff13",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__direct/rep_0002/attempt_000/worker_metadata.json": "737f687887521944f34d6dea6cc5c46bfa95a21bd3a56eb4e0076ac6564abbf6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/completion_manifest.json": "0a757bc3e9cfa36c5187a574d30e184fc725451721c643cdc3393cbdc6f58ca1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/inference_command.json": "47dd823d10eaac3cf4aab9f9c5bf28a261058de4cd71836667adc2f63e6b1b9a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/inference_config.json": "c9df53b57bc3eb46d89d375427154bcb8ab04f11e2858264ddf7cc4f315553d4",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/inference_started.json": "52d82d348b6f455694fa37e28f9bb83abd046ad2038e842fbcd9d306fbaeba38",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/input.csv": "2e66694360f9995f9cf56c60bc72d5728271aa96889256aebad81579f71429ab",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/job.json": "2e2d98d766a9a20059b6cafae90e9293602eda6257df15b37fafbbd33e348633",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/predictive_summary.csv": "17766d960874bcc53545734516a0523abccad371075ebc299d20270255be6523",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/result.json": "ce18c18f4d160bdd609fba4472c8a17b9544512f218ace2709559390548e2186",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/sampler_summary.csv": "ed4776f607e43d6b424f2affa8f9dafb87f5c897566fce33933846e186dbb6d5",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/trace.nc": "e6418f8669b982bfad99a7394792636fb6f1ac12ae039b563035d9aa8d8bf34f",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/truth.json": "1d8ab7cbea933937a48ab60d3441fa8ecd576a01ef157ef0294fd43cb9dc2639",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0000/attempt_000/worker_metadata.json": "7ab029c1848a7ad06f51914d382929a66283c58aa83de14a64ca54da4bede826",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/completion_manifest.json": "d274309d4e616041cdb8f70329106c96af6ee50289f8f44307ef3b879458184a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/inference_command.json": "7234fe1056f99b441bfe3f5e7ce277e835ae2b279893a7f902647610cda3e7ff",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/inference_config.json": "d3a7bad620b5d70c1b635842dc5686e4dd09cc15afb3731e24dfa6db04110b73",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/inference_started.json": "4c499bcf933b7bc181fa17facb2d37310f8c9d2d77559f1c39aea90bff076c43",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/input.csv": "25d42f0597a01e6a5e54f83c20808e2d6bcf4d53cd615bd301d9409fef6307f4",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/job.json": "89be10ca19a569258e39f909ffbfc34d9980b41bbef56ea3c86889d1e45961e1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/predictive_summary.csv": "c1b9981d7e982eef0119a171bc80e7225377bba666ddf75dd275c9afa8f990fa",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/result.json": "5755a9dd941b53da7074e12c5e63936acc75b939335c1ea31442f1ec51cb1144",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/sampler_summary.csv": "0d6431fac17b21be6a197074b04b643813897d2f2c4eeac709a218d6714e72ed",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/trace.nc": "309d46faf2c7d70f3185c82bb086d6b12cad80b784b130bef2f9e85a03c1d29f",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/truth.json": "87e351a5eedaefca2c2c37fd3ee0aa940c01ffbd45bbf1618884759828eaa0cd",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0001/attempt_000/worker_metadata.json": "cc2d924747560ac82b37410c44f9b9a6620bc1948a8326b9f1bbe2f8fb383917",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/completion_manifest.json": "f57b244993d09213be6e7aa0b9abf364a36137f41526670c91ba182c5d43d480",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/inference_command.json": "c924c605dc5e1c4f1b378244ab69d239b20bf11a41bdd04567a45ea600a95d73",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/inference_config.json": "7f6e569231429c45ddd5ad1a773a85a07c815e511f6a54b86ec086df542fe0f3",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/inference_started.json": "608d136a64d6cb07a38f73713b4be9dac0e0d8c8b9a8525c327f5c6637385d3c",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/input.csv": "842264f9541e26ac77b7e12777d973627a9e64064f1c0b3e6f223f4a7962c624",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/job.json": "bb917ba0066d6a1fc9fc6d881a655bc0ecb257133a2b0f5ef6fd7817fc1d50bb",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/predictive_summary.csv": "dfc9553de0a456969400955ec5275b1f1d5972c8cd60f9ee83fa29f213b43ab9",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/result.json": "27cd2dba6554ce621d6e953307fa19e6ae46015a41f7c30af71ff3acbc10f306",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/sampler_summary.csv": "6b3de8b07bca3d6b1111693d32cbe273bdd08cd76d69625035199cb8cf97cb76",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/trace.nc": "3dccb9d0f4899b758b0eb30fc3307b04375d91176d1d513f574b8aa8b9e6f4e7",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/truth.json": "40f74c786ce2ce09a536707d6795c39fb786b959ac40d88b83f6b67ab48bff13",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_deep_short__standardized/rep_0002/attempt_000/worker_metadata.json": "efebb622e86fadde35322eaf4dd3911d771c3290797a05cd9901330ecda02c86",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/completion_manifest.json": "66ad0cdaffe8c93c893c775b3a9164c8836202e4f90684f36a80a694be15cbda",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/inference_command.json": "407c1ead64a2aff8eb5a22cb52a31398125ade1165ca593d9c60892f1ce3837d",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/inference_config.json": "7fb2af8bd228531a3ec0761ad94a53168ab786a99b34ce8e93a3af8e67ee8372",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/inference_started.json": "f0d0f8ded2a4248388c6dcc3f3dc1b8c9dd2f5e7cc72693b6c0814550f5f3b6e",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/input.csv": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/job.json": "c3a78555cd60281b954bb39fee47fa8735f2efbc6b7fdd2d7ecdb255de8f2d8a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/predictive_summary.csv": "8eac5be369796ae7194d15dc5f63f6ecdcb7993e3cdbadd6b0b1bfa7a1177fa6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/result.json": "e03cdb0f374d4dc9ed5b1b1eb4016bdc928c92340b1904547ef7dee49ba3471a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/sampler_summary.csv": "c21cae569ed73f3eb0dd61be57bb8556a8d603a039fb3c3bd6add5c977c75e9c",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/trace.nc": "6ccc0394c67d293ce35f4c71efca509846910a10a5fdf4c01303a6fce4764f87",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/truth.json": "063bd2d690e599bdf14137d279969e46160b5995da44440d0c0389b90addc95c",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0000/attempt_000/worker_metadata.json": "14fba803557cf3a0ba5c1a6ba78079a539e92bc87a73fddfc31c7fee93673d84",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/completion_manifest.json": "712fa66e370abb5578df3378d89f837fe3337eedab4142daf01711b474f90575",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/inference_command.json": "a02986cd4119355655324594d29318bd1a782743138dcbd53fb8f6d8c914cc18",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/inference_config.json": "33c8e8f35f777d617556e199617dbd45694da8a1912d791aa316fe56a329ca3a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/inference_started.json": "4dc37fd782e8d081611819b0ccf197c4548e1f959cba87c18d0608ba09443b32",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/input.csv": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/job.json": "1a8c8974fc4f005f90a0dd6863b65fe7686dd417653364f829d2275b0a993766",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/predictive_summary.csv": "0a2f31a9dadcf5c4ee61769411b527efb890d4919ac838a743e026f6123c2623",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/result.json": "1dc8445863fd4d6dc940bf38e0c500d460ee465b6db528f170ebac1d1cb28302",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/sampler_summary.csv": "4618c842a6830e4d9ea88b95fcc43d785f02cf31160a0da0f8a36ba7f92bc1f0",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/trace.nc": "26fa5c8e74aca5fb55c4442394a590ab3e83ab2d8c1325e85e480a4efc0c669a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/truth.json": "6a3a231b623a9c2c1ca5a314ebbb4d578b5c377415a919c2805c367ac1d2223a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0001/attempt_000/worker_metadata.json": "8d247d4d6b429b4e08ee8e84273c9cb6cdfd712fdb8eb75dfbf0f5a68ac635c6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/completion_manifest.json": "be5c5c29ca22b9851119f51b5b34c4eb705669bf09ba435069e3801a04f7bdc4",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/inference_command.json": "b52827b370802dc5a549de68db694f1d4dee873f121362615b7eaaa32c59b8f1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/inference_config.json": "5260f42c2f670e49e43067ecca1d65477d55e0e7cfcc62e5a49468bdef1f5e73",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/inference_started.json": "a032174bd9b3a680b22c19ee6fa877f9f9b06f04f1894fe605adcb9e7e97b28a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/input.csv": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/job.json": "17d9f81805d026dc866b8b478e502ffe08eb5e67326de8eb843343bb9b52753f",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/predictive_summary.csv": "07cce5569eac2c0ae28d9d116ec032b67019f418e799aae02f1910cd1aa1201f",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/result.json": "14fe40292b2324a33a87dfe987f24379a32a41f3578df050d0bc5c2f7f15f5ad",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/sampler_summary.csv": "2e9d668fa11ff81e78f86871181f816b2a6b5293350f0e8efc6941858ef4b8f8",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/trace.nc": "7c05b0f58a8430dc4d31811a9c69541197ee74b0238a05dd9edbc45bffc862d3",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/truth.json": "b8b7da261f48e7b44043c288543a75ea335885601eb8f641417d9a03f5351a80",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__direct/rep_0002/attempt_000/worker_metadata.json": "a9ef96fb7c3ab07e6b781b46c5bdc78661ff664026009f21f3614345cdd5efc0",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/completion_manifest.json": "5027818838845ba947a5410c7ee494f887d0de43924ddc67de1e524558e2b6d1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/inference_command.json": "82522fe6bc34d1cc95efd2df3f6a0186cd89c6c3bf4b560d11c1ce337d9a35ba",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/inference_config.json": "659bb293547da32f36a1b85e0ae7ac81a04b8f880306665c17c33799bed533ee",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/inference_started.json": "de9835d8dc2fef71ddb093b1ce10990b0b5e0c98340c0a372b6c3c5169fd4eb5",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/input.csv": "624a385cf57f055c3335d613fd857712bfeb72e6a19b9c44551f1b6bb8b950d5",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/job.json": "a7354e82d6ea4ed87e63dc6432553cf6f6cf42802d0f869df8030057603a0af1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/predictive_summary.csv": "15699a3954f9858210bbf6d262d510bffea37a7c082b0b669b3d3dbaeb322665",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/result.json": "534242f1a8c1911f8b4e2beeddcd1e75b6ebc3afdc36514311353bcefa11c79d",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/sampler_summary.csv": "a7e3c1324e6d0814d1807641bfe85a8db227bebfd872f6693b157f9d28c381c0",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/trace.nc": "9129ad6351d480366b745a7fc558b88834ea15cbd73548b4a9e1aff50e4c18bd",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/truth.json": "063bd2d690e599bdf14137d279969e46160b5995da44440d0c0389b90addc95c",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0000/attempt_000/worker_metadata.json": "2d8df7926ef0f5c47f2804820b700be7d4226220c5a5bd07e6ec1e9460d8653d",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/completion_manifest.json": "fff1776e0aa93f04c1de231dd0d7bdea244eea4425e36ca185f911316437454d",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/inference_command.json": "abfef39adb232fb604a909efa1c640f450e07cc0fa282e225724ec76637de596",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/inference_config.json": "f943d41e05f02f112426b6d5eaffc2266b62ad2a5a611818fc1bf1ac4e79432f",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/inference_started.json": "e06d6dfd60d9d241a2df37f09f7cfe5fd03bad7edd19b6636c9164a4527b6a4b",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/input.csv": "fd6f51392f33f35d5319f545fcc9ed751cfc0726bb8f2515c197a01f42c083cf",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/job.json": "a9dad181706bd7d40eee709db2a504f7e925b95a4a42f4ce91a4d7a272f549e6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/predictive_summary.csv": "7cd4d7dd9da5ce401b0f042243454b6f27b1a7cb4a385a3e1a7cf26bae23af9b",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/result.json": "5c4a2e95d26d637cae9b1146257d7f1b21c0dd6ef73dc0a515a0c69206927211",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/sampler_summary.csv": "a39c747438bbbd021fae206d5198a3a066f5104189caa5683acbfc6b09fc7d16",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/trace.nc": "72461cc029b4e171a7ce3aaac88830a72ad3332a611e5fc65854524ca1d51011",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/truth.json": "6a3a231b623a9c2c1ca5a314ebbb4d578b5c377415a919c2805c367ac1d2223a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0001/attempt_000/worker_metadata.json": "332b974a7738a10b267d9fa98b485635dedd6d47154de1a2b66e244c8eb0feaa",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/completion_manifest.json": "a724ff6bdf7458efe8527fd2421895b91dac3930f75282bfc0e7bd52f0075b99",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/inference_command.json": "b811b6352fec8696ea7a981f3c94d07fe03e35dc1c5b2d3b0aa6aa89d81a8b16",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/inference_config.json": "338f544cba5ac741171b0e2dfc5aad86e1c1201fb45fa4093752433956decba5",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/inference_started.json": "b5539c359d6fe0b0328fc6c1f2f9a1e264f54685cd283c42666ad8cf051d51e3",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/input.csv": "f3caf860b2da58e1d1dc416af4074c0a8ca5f04e14884be071edea3681e7fb3b",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/job.json": "75658fbf7b22eecf069c3d5d77c557d2e8ae45679b9d1185ed2a4ac29550c443",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/predictive_summary.csv": "0499193bd3264b6d9a3570a1d4891619347d265397a6c13618df569ce5b644e1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/result.json": "9ac85b139cd095cbb9420cde3c00add071ac2c53ff4feb90f4a84ff4c9015e6a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/sampler_summary.csv": "ba3b8b92144b830196f2c3f1d00d45dd3f677665382dae90eec5165122d72d6a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/trace.nc": "7ce0ef94c95911ac5a6fb1fbfafaa16619e5af2107346c2d7bd11ad1e3c14ae2",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/truth.json": "b8b7da261f48e7b44043c288543a75ea335885601eb8f641417d9a03f5351a80",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-02/t0_intermediate_long__standardized/rep_0002/attempt_000/worker_metadata.json": "c56bbfdf640aab378c17097635f555b85e36c66fef71806a6478be55ed7fa80b",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/completion_manifest.json": "15bf16a1bd90a52b851137f191acb2c3fd6acf3aeca9063fa9a12d00fa56ea3a",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/environment_preflight.json": "2b471e806ba973bfab4bb5da776f046ee2626a4af6c9288882e9f88709de4149",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/inference_command.json": "b399db84848502ec85aaa6c85c85d656280665cf8655b0621f4a4ccb39b927c7",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/inference_config.json": "1569725d5825e73d478bc4f9f9644889cfb1dfcb61631b3691f39d04bed73af1",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/inference_started.json": "aefafa3f3a89515401ce0d62a099dd69963df71cafdccf2b242b7a0f504b18a6",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/input.csv": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/job.json": "35e1e061d22f36c520173a51a9cd5ea38e156270e94b2450121ea40ee27643a0",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/predictive_summary.csv": "6ffe7a1f667a1dcbe90a589e75d8ae828231e2e82704785da1863e3df583d9f7",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/result.json": "179cfa27720f36e679b6ac7fdbc62aa75d48cf19fdd4b58ca1350500f59bbeb2",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/sampler_summary.csv": "3248db54c91bbfe330f11fa02a501e4fa1bc068ee0de063d36a871a49f2a2407",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/trace.nc": "f91dbe44c89a544ae49d5dff852e5402eabf47b8bee794a8a21b96f381314bba",
+    "artifacts/publication_campaign/tcc_numerical_complement_v3/runs/PUB-03/kepler_10_b_standardized/rep_0000/attempt_000/worker_metadata.json": "316ff7c86004c077d2e03e7557a79c83ae8397922973e9d7a74b84c0943320fa",
+    "reports/publication_campaign/tcc_numerical_complement_v3/campaign_summary.json": "100e09cd5e696869e9eb7a203846ab4c799464b32289075b8458b19f4f3ca2f2"
+  },
+  "status_counts": {
+    "COMPLETED": 8,
+    "COMPLETED_REJECTED": 5,
+    "PLANNED": 11
+  },
+  "technical_failures": 0,
+  "total_attempts": 13
+}
