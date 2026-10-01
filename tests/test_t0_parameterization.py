@@ -5,13 +5,18 @@ import math
 import sys
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from publication.inference import make_model  # noqa: E402
+from publication.inference import (  # noqa: E402
+    assert_predictive_conditioning,
+    make_model,
+    posterior_trace_variables,
+)
 
 
 def fixture():
@@ -68,6 +73,57 @@ class TransitCenterParameterizationTests(unittest.TestCase):
         self.assertEqual(self.new_spec["family"], "M5-publication-v2-standardized-t0")
         self.assertEqual(self.old_spec["options"], self.new_spec["options"])
         self.assertEqual(self.old_spec["prior_profile"], self.new_spec["prior_profile"])
+
+    def test_trace_retains_every_free_coordinate_for_predictive_conditioning(self):
+        direct = set(posterior_trace_variables(self.legacy))
+        standardized = set(posterior_trace_variables(self.scaled))
+        self.assertTrue({rv.name for rv in self.legacy.free_RVs} <= direct)
+        self.assertTrue({rv.name for rv in self.scaled.free_RVs} <= standardized)
+        self.assertNotIn("t0_standardized", direct)
+        self.assertIn("t0_standardized", standardized)
+        self.assertIn("t0", standardized)  # Physical reporting coordinate remains saved.
+
+    def test_predictive_preflight_rejects_historical_missing_parent(self):
+        # Reproduce the exact v3 trace shape: reported t0 is present, but the
+        # independent sampled coordinate needed by PyMC's PPC is absent.
+        saved = {name: object() for name in posterior_trace_variables(self.legacy)}
+        trace = SimpleNamespace(posterior=saved)
+        assert_predictive_conditioning(self.legacy, trace)
+        with self.assertRaisesRegex(ValueError, "t0_standardized"):
+            assert_predictive_conditioning(self.scaled, trace)
+        saved["t0_standardized"] = object()
+        assert_predictive_conditioning(self.scaled, trace)
+
+    def test_predictive_curve_matches_direct_model_at_fixed_physical_draws(self):
+        import arviz as az
+        import pymc as pm
+
+        shape = (1, 2)
+        common = {
+            "baseline": np.full(shape, 1.0),
+            "r": np.full(shape, .08),
+            "b": np.full(shape, .3),
+            "a": np.full(shape, 10.0),
+            "q1": np.full(shape, .4),
+            "q2": np.full(shape, .3),
+            "extra_sigma": np.full(shape, .001),
+        }
+        z = np.array([[0.0, .5]])
+        direct_draws = az.from_dict({"posterior": {**common, "t0": .025 * z}})
+        standardized_draws = az.from_dict({"posterior": {**common, "t0_standardized": z}})
+        assert_predictive_conditioning(self.legacy, direct_draws)
+        assert_predictive_conditioning(self.scaled, standardized_draws)
+        with self.legacy:
+            direct = pm.sample_posterior_predictive(
+                direct_draws, var_names=["latent_train"], random_seed=101,
+                progressbar=False,
+            ).posterior_predictive["latent_train"].values
+        with self.scaled:
+            standardized = pm.sample_posterior_predictive(
+                standardized_draws, var_names=["latent_train"], random_seed=101,
+                progressbar=False,
+            ).posterior_predictive["latent_train"].values
+        np.testing.assert_allclose(standardized, direct, rtol=1e-10, atol=1e-10)
 
     def test_invalid_coordinate_mode_rejects(self):
         frame, config = fixture()

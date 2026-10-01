@@ -230,3 +230,20 @@ until this prospective study is run, audited and aggregated. Use the campaign
 runner dry-run/status with the **v3** config before `--resume` after a stop;
 do not start a second controller while the live state is RUNNING. Do not
 restart historical campaigns or start v1/v2.
+
+**2026-10-01 incident amendment (post-result, not outcome tuning):** v3 was
+gracefully stopped after 13 completed attempts (8 recorded `COMPLETED`, 5
+recorded `COMPLETED_REJECTED`) and 11 remained `PLANNED`; the partial family
+and campaign aggregates were generated. An audit discovered that the six
+standardized-coordinate PUB-02 traces and one standardized-coordinate PUB-03
+trace omit the sampled free variable `t0_standardized` despite retaining the
+deterministic physical `t0`. The posterior-predictive procedure cannot be
+trusted to condition on those fits. Thus the v3 predictive summaries,
+residual/PPC gates and scientific-status classification of those seven runs
+are **not valid scientific evidence**; the six direct-coordinate PUB-02 runs
+are unaffected by this specific defect. The original sealed outcomes remain
+unchanged. See
+`publication/validation/external_audit_closure_v1/numerical_v3_predictive_incident.md`.
+Do not resume v3 or reinterpret its rejected standardized runs as physical
+model failures. A repaired and separately frozen campaign identity is
+required before promoting this numerical comparison.

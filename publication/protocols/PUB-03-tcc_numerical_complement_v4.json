@@ -1,0 +1,201 @@
+{
+  "alias_review_rule": "Flag abs(unwrapped chain mean t0)>period/2 for mechanism review only; this is not a replacement gate, no draw is wrapped/removed, and false positives are possible for unusual ephemeris geometry.",
+  "amendments": [],
+  "campaign_id": "tcc_numerical_complement_v4",
+  "corrective_context": {
+    "predecessor_campaign": "tcc_numerical_complement_v3",
+    "incident": "publication/validation/external_audit_closure_v1/numerical_v3_predictive_incident.md",
+    "reason": "The predecessor omitted the sampled free coordinate t0_standardized from saved traces, invalidating standardized posterior-predictive conditioning. This v4 namespace is frozen before any v4 final result.",
+    "unchanged_science": "Same scenario grid, inference model and physical prior, sampler budget, comparison contract, diagnostics and gate thresholds as v3. Only free-variable trace retention and a fail-closed predictive preflight change in source.",
+    "outcome_policy": "All v3 attempts remain immutable, including direct fits, scientific rejections and the unstarted jobs. No v3 success/failure selected v4 seeds, targets, priors or thresholds. New seeds follow the declared campaign-ID policy."
+  },
+  "claim_limit": "Small prospective numerical study, not precise calibration or universal alias prevention. All new realizations and rejected attempts remain. Three local benchmark repetitions share one observational dataset and the SAME historical external posterior; they are not three independent external validations. Numerical agreement is not astrophysical adequacy.",
+  "comparison_contract": [
+    {
+      "item": "observations",
+      "rule": "Same input bytes, rows, errors, exposures, segments and numerical array SHA256.",
+      "status": "matched"
+    },
+    {
+      "item": "units/time",
+      "rule": "Relative flux/errors, original phase in DAYS unchanged, circular fixed period .8374907 days. Original time retained for temporal residual diagnostics, not replaced by phase order.",
+      "status": "matched"
+    },
+    {
+      "item": "geometry",
+      "rule": "r=p_p1 Uniform(.001,.2); b=b_p1 Uniform(0,1); a=a_p1 Uniform(2,50); e=0, omega=90deg; i=acos(b/a). No redundant density prior. New shared Uniform prior is not scientific_003's historical LogNormal.",
+      "status": "matched"
+    },
+    {
+      "item": "limb darkening",
+      "rule": "Quadratic law; independent q1,q2 Uniform(0,1); u1=2sqrt(q1)q2, u2=sqrt(q1)(1-2q2).",
+      "status": "matched"
+    },
+    {
+      "item": "baseline",
+      "rule": "Local B~Normal(1,.02). juliet constant regressor theta0~Normal(0,.02), mdilution=1,mflux=0; B=1+theta0. One shared offset, no added segment fit parameters.",
+      "status": "matched"
+    },
+    {
+      "item": "t0",
+      "rule": "Normal(0,.025) DAYS relative to stored phase center; no literature transit-time likelihood added.",
+      "status": "matched"
+    },
+    {
+      "item": "noise",
+      "rule": "Independent Normal variance sigma_i^2+j^2. j~HalfNormal(max(5median(sigma_i),.0005)); juliet sigma_w=1e6*j ppm, zero-mean TruncatedNormal [0,+infinity]. No temporal covariance.",
+      "status": "matched"
+    },
+    {
+      "item": "exposure integration",
+      "rule": "15 equal-weight midpoint Riemann nodes at original exposure; batman endpoint span contracted by14/15 for identical nodes. Physical exposure metadata unchanged. Exact exposure groups share every nuisance prior.",
+      "status": "matched"
+    },
+    {
+      "item": "forward numerical values",
+      "rule": "Independent routines are not bit-identical. Pre-final engineering 3-regime fixture tolerance2e-8 relative flux; errors are recorded. This finite grid is not a global accuracy proof.",
+      "status": "approximately_matched"
+    },
+    {
+      "item": "sampler",
+      "rule": "PyMC NUTS versus static dynesty multi/rwalk, serial external worker. Diagnose each appropriately; no Rhat/BFMI on unordered nested samples.",
+      "status": "not_matchable"
+    }
+  ],
+  "dataset": {
+    "array_sha256": "9db0789e256ef2e931901ea301163e693453b35a8e174c03985dfe68258f11d9",
+    "dataset_id": "kepler_10_b-b4d1e6ec961c1f4d",
+    "exposure_seconds": [
+      58.84876286472961
+    ],
+    "input_path": "tables/bayesian_physical_transit/kepler_10_b/runs/scientific_003/modeling_input_physical.csv",
+    "input_sha256": "6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791",
+    "row_selection": "Exactly all historical M5 input rows, unchanged and in original order. No Silver/Gold regeneration or posterior-dependent clipping.",
+    "rows": 3000,
+    "segments": 3
+  },
+  "date_specified_utc": "2026-10-01T02:06:21.819190+00:00",
+  "equivalence_evidence_required": "tests/test_t0_parameterization.py verifies transformed log density including Jacobian, physical likelihood and gradients before any final run.",
+  "exclusion": "Engineering pilots and historical campaigns are not new final replicates. No other exclusions.",
+  "execution_note": "Prepared but not automatically launched by the agent. Commit tested sources and freeze/commit ledger before user-authorized execution. Soft budget pauses between jobs; extending the operational budget does not change scientific configuration.",
+  "experiment_id": "PUB-03",
+  "external_reference": {
+    "attempt_dir": "artifacts/publication_campaign/tcc_campaign_v1/runs/PUB-03/kepler_10_b_external/rep_0000/attempt_000",
+    "completion_manifest_sha256": "2a30bddb11c5787d2c91fa36470e172636338210c4392494472b58c951d102fa",
+    "new_external_inference": false
+  },
+  "failure_policy": "Zero automatic retries. Technical failure remains technical; completed numerical/scientific rejection remains rejected. Missing metrics are unavailable, never zero or measured noncoverage.",
+  "forbidden_changes": [
+    "no chain removal",
+    "no modulo t0 wrapping",
+    "no prior narrowing",
+    "no truth initialization",
+    "no threshold weakening",
+    "no seed/target substitution"
+  ],
+  "gates": {
+    "inherited_ppc": "Observed fraction in posterior predictive 94% intervals within [.80,.99], standardized residual SD within [.5,2]; broad screening not an exact calibration test",
+    "promotion": "Separate provenance, sampler, PPC and final scientific interpretability. Aggregate negative findings can use rejected runs with explicit classification; positive individual claims require all relevant gates.",
+    "provenance": "Exact input SHA256 and content-derived synthetic dataset ID, committed protocol and complete predeclared registry; no existing-run overwrite",
+    "sampler": "All scalar sampled/derived summary Rhat<=1.01; bulk/tail ESS>=400; zero divergences; BFMI>=.30. Record tree-depth saturation separately; no numerical repair by deleting draws.",
+    "scale": "Inherited M5 jitter/median_error<=20 and <=5% posterior r outside inherited review interval [.00349,.24751]. This interval is a heuristic scientific review range, not LogNormal support.",
+    "temporal_ppc": "No within-segment cadence-contiguous residual correlation at lags1-5 beyond normal Bonferroni reference z_(1-.01/10)/sqrt(Npairs). Approximate fitted-residual screen; false positives/negatives measured, not assumed controlled exactly."
+  },
+  "historical_protocol_checksums": {
+    "publication/protocols/PUB-02.json": "2fb9b2434062b755a6bb38285ab69c0f7adcbe47d5e20cccedfe2c1cd0547187",
+    "publication/protocols/PUB-03.json": "5f6b3ab03e8756af9231c3871f987f07a91e587464012e27824f6007525de1bc",
+    "publication/protocols/PUB-04.json": "c740625ae3b635f000a9a8524b39a530361ca6b464a893f5ae8135733fd397bd"
+  },
+  "hypothesis": "Equivalent scaled t0 coordinates may avoid the historical local orbital alias. Even numerical recovery would not cure observed temporal predictive inadequacy.",
+  "hypothesis_rejection_conditions": [
+    "standardization does not improve or worsens numerical diagnostics in tested controls",
+    "alias trapping persists under standardized coordinates",
+    "higher accuracy retains divergent/nonconverged ablation baselines",
+    "validly matched sampler-passing local fits materially disagree with the external posterior"
+  ],
+  "inclusion": "All 24 declared jobs, all attempts, all seeds, all failed or rejected outcomes. No posterior-based selection or exclusion.",
+  "independence_limit": "One unchanged observational dataset, three local MC streams, one REUSED historical external posterior. Not three independent external replicates; not external validation of scientific_003, whose radius prior differs.",
+  "inference": {
+    "baseline_prior_sigma": 0.02,
+    "infer_jitter": true,
+    "integrate_exposure": true,
+    "jitter_error_multiplier": 5.0,
+    "jitter_floor_fraction": 0.0005,
+    "oversample": 15,
+    "period_days": 0.8374907,
+    "preprocessing_status": "segment_normalized",
+    "radius_prior_median": null,
+    "radius_prior_uniform": [
+      0.001,
+      0.2
+    ],
+    "sampling": {
+      "chains": 4,
+      "cores": 4,
+      "draws": 2000,
+      "linker": "auto",
+      "save_warmup": true,
+      "target_accept": 0.97,
+      "tune": 2000
+    },
+    "t0_prior_sigma_days": 0.025,
+    "transit_center_parameterization": "standardized"
+  },
+  "invalidation_conditions": [
+    "truth enters inference",
+    "input or frozen config identity changes",
+    "unrecorded source changes",
+    "historical result overwrite",
+    "missing attempts hidden"
+  ],
+  "model_versions": {
+    "direct": "M5-publication-v1",
+    "standardized": "M5-publication-v2-standardized-t0"
+  },
+  "outputs": [
+    "config/protocol/seed ledger",
+    "all registered attempt configs, truth (synthetic only), traces including warmup, diagnostics, PPC and completion checksums",
+    "numeric job table",
+    "paired effect table",
+    "family figures",
+    "all-attempt inventory",
+    "hash-bound campaign summary"
+  ],
+  "pilot_policy": "All t0_coordinate_pilot_v1/debug outcomes excluded from final counts; no seed selected by pilot quality.",
+  "primary_benchmark": "juliet 2.2.10, batman-package 2.5.3, dynesty 3.1.0",
+  "primary_metrics": [
+    "t0 chain means relative to physical period without wrapping",
+    "max R-hat",
+    "minimum ESS bulk/tail",
+    "divergences",
+    "minimum BFMI",
+    "sampler pass count",
+    "wall_seconds",
+    "paired parameter center/SD/ETI94-width shifts"
+  ],
+  "primary_parameters": [
+    "r",
+    "depth",
+    "b",
+    "a",
+    "t0",
+    "full_duration",
+    "extra_sigma"
+  ],
+  "protocol_status": "FROZEN",
+  "protocol_version": "numerical-complement-1.0.0",
+  "question": "Are three prospectively seeded standardized local chains numerically stable on the unchanged matched benchmark input?",
+  "replicates": 3,
+  "secondary_metrics": [
+    "PPC point coverage",
+    "temporal residual screen",
+    "physical scale checks",
+    "fixed-truth bias and ETI50/80/94 coverage (descriptive, n=3)",
+    "historical external posterior distribution distances"
+  ],
+  "seed_policy": "Existing campaign_plan.seed with this NEW campaign namespace. Within synthetic pairs only generation seed is shared via pair_id; independent inference/predictive/resampling streams are fixed in the committed ledger. No reseeding after rejection.",
+  "selection_timing": "Post-historical-results hypothesis, prospectively fixed NEW datasets and inference seeds. Historical failures motivate the study but are not its independent final validation.",
+  "statistical_interpretation": "Paired descriptive numerical robustness, not a powered rate-comparison test. At n=3 rate precision is poor; report every pair and missing pair. ETI is not HDI, fixed-truth coverage is not SBC, and r/depth=r^2 are not independent confirmations.",
+  "study_kind": "numerical_complement_v1",
+  "total_declared_final_attempts": 3
+}

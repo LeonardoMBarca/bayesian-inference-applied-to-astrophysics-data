@@ -17,6 +17,24 @@ import numpy as np
 import pandas as pd
 
 PARAMETERS = ("baseline", "r", "b", "a", "t0", "q1", "q2", "extra_sigma", "depth", "full_duration")
+
+
+def posterior_trace_variables(model) -> tuple[str, ...]:
+    """Retain report variables AND every free coordinate needed by PyMC's PPC.
+
+    A deterministic physical parameter is not a substitute for its sampled
+    parent. In particular, storing ``t0`` without ``t0_standardized`` makes
+    posterior predictive reconstruction draw a new center instead of using
+    the fitted one.
+    """
+    return tuple(dict.fromkeys((*PARAMETERS, *(rv.name for rv in model.free_RVs))))
+
+
+def assert_predictive_conditioning(model, idata) -> None:
+    """Fail closed before predictive checks if any model free RV was dropped."""
+    missing = sorted(rv.name for rv in model.free_RVs if rv.name not in idata.posterior)
+    if missing:
+        raise ValueError(f"Posterior trace lacks free model coordinates for predictive conditioning: {missing}")
 REQUIRED_COLUMNS = {"phase", "time", "normalized_flux", "normalized_flux_err", "exposure_time_seconds", "segment_id"}
 
 
@@ -187,6 +205,7 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
     frame = read_input(input_path, config)
     model, specification = make_model(frame, config)
     sampling = config["sampling"]
+    trace_variables = posterior_trace_variables(model)
     diagnostics_names = list(PARAMETERS)
     if not config["infer_jitter"]:
         diagnostics_names.remove("extra_sigma")  # A constant is not a sampled quantity.
@@ -200,11 +219,12 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
             draws=sampling["draws"], tune=sampling["tune"], chains=sampling["chains"],
             cores=sampling["cores"], target_accept=sampling["target_accept"],
             random_seed=config["inference_seed"], init="jitter+adapt_diag",
-            nuts_sampler="pymc", var_names=list(PARAMETERS), progressbar=False,
+            nuts_sampler="pymc", var_names=list(trace_variables), progressbar=False,
             return_inferencedata=True, blas_cores=1,
             compile_kwargs=compile_kwargs,
             **retention,
         )
+    assert_predictive_conditioning(model, idata)
     idata.to_netcdf(output / "trace.nc")
     summary = sampler_summary(idata, diagnostics_names)
     summary.to_csv(output / "sampler_summary.csv", index=False)
@@ -253,7 +273,8 @@ def fit(input_path: Path, config: dict, output: Path) -> dict:
         "parameters": parameters, "diagnostics": diagnostics, "residual_metrics": residual_metrics,
         "residual_correlation": correlations, "scale_checks": scale,
         "inherited_m5_gate": gate, "gates": gates,
-        "model": specification, "sampling": sampling, "environment": build_environment_summary(),
+        "model": specification, "sampling": sampling, "posterior_trace_variables": list(trace_variables),
+        "environment": build_environment_summary(),
         "numerical_precision": {"floatX": pytensor.config.floatX, "linker": sampling.get("linker", "auto")},
         "wall_seconds": time.perf_counter() - started,
         "trace_sha256": file_hash(output / "trace.nc"),
