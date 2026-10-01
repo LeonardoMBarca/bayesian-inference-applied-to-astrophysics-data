@@ -11,12 +11,12 @@ continuam no conjunto de evidências.
 | Achado | Disposição | Evidência/limite |
 |---|---|---|
 | A0: possível perda do histórico | protegido e rechecado | `protected_snapshot.json` sela 7.041 arquivos do snapshot original, inclusive `scientific_003`, protocolos, seeds, todas as tentativas e síntese v1. No clone independente restaurado, o check completo retornou 7.041/7.041, zero erros. O check portátil separa 6.520 bytes Git de 521 referências ao bundle; não afirma verificar bytes externos no CI. |
-| A1: RAW convertido pelo Git | corrigido localmente; prova de CI final pendente | Auditoria de 445 arquivos: 198 blobs divergiam dos bytes originais (197 por LF/CRLF, um com EOL misto). `.gitattributes` impede a conversão. Dois checkouts Git reais, com `autocrlf=false` e `true`, passaram 445/445 após a correção. |
+| A1: RAW convertido pelo Git | corrigido e confirmado em CI no ledger v3; SHA de fechamento ainda requer conferência | Auditoria de 445 arquivos: 198 blobs divergiam dos bytes originais (197 por LF/CRLF, um com EOL misto). `.gitattributes` impede a conversão. Dois checkouts Git reais, com `autocrlf=false` e `true`, passaram 445/445 após a correção; o workflow remoto `36797666471` também passou o contrato RAW nos dois jobs. |
 | A2: CI local tomado como remoto | workflow remoto verde no ledger v3; SHA de fechamento ainda requer conferência | O workflow original `36750457921` passou 266 testes e falhou em checksum RAW. Falhas intermediárias de Ruff foram corrigidas. O workflow remoto `36797666471`, SHA `8febce31eeb5825517e85487a55838414bc3c5e2`, passou nos jobs científico exato e compatível com o ledger v3 congelado. Nenhum sucesso de CI é inferido apenas de teste local. |
 | A3: agregação conferida pelo próprio agregador | corrigido | Auditor independente leu os 480 traces P2, recalculou médias, SD amostral, quantis ETI50/80/94 e agregações separadas de 80 e 400. `trace_audit_v1` registra status `PASS`; falhas numéricas não foram removidas. |
 | A4: gate interpretado como recuperação física | corrigido em camada v2; limitação científica permanece | Avaliador separa integridade, contrato histórico de input, sampler, PPC, escala, informação por parâmetro e permissões de afirmação. Não modifica gates históricos. |
 | A5: alias de `t0` | mecanismo e equivalência testados; eficácia final pendente | Há uma cadeia histórica deslocada cerca de um período. O jitter do inicializador atua em dias no parâmetro direto. A coordenada padronizada conserva prior/likelihood, com Jacobiano e gradientes testados. O diagnóstico não reconstrói o warmup histórico. |
-| A6: ablações com ajuste de referência divergente | limitação preservada; estudo prospectivo preparado | Efeitos numéricos históricos continuam descritivos; zero divergências não foi relaxado. O protocolo complementar declara nove ajustes novos e custo antes dos resultados finais. |
+| A6: ablações com ajuste de referência divergente | limitação preservada; estudo prospectivo em execução | Efeitos numéricos históricos continuam descritivos; zero divergências não foi relaxado. O protocolo complementar declara nove ajustes novos e custo antes dos resultados finais. Ainda não há efeito prospectivo agregado. |
 | A7: estrutura residual observacional | análise adicional concluída; causa permanece desconhecida | Cinco alvos, quinze segmentos, tempo real, gaps, pontos dentro/fora do trânsito, tendências e checks de input observados; não há atribuição automática a GP. |
 | A8: arquivo sem dependências transitivas | restauração independente passou; depósito público pendente | Grafo tipado de 8.201 registros, 1.562 membros externos; o ZIP local tem 496.436.552 bytes e SHA-256 `7396ed1269eb5e996ee4a79488629209e5c3cdda81f345ccd2577629eaade8b3`. Um clone separado restaurou os 1.562 membros e verificou todos os 8.201 checksums. |
 | A9: release validadora lê zero runs/aceita qualquer exit 1 | corrigido e executado | `release_audit_v2.json` reconciliou 517 jobs/518 tentativas, passou integridade/claims e classificou `exit 1` apenas como `blocked_public_release` com sete pré-requisitos públicos nomeados; zero erros de integridade. Exit 2 continua reservado para evidência inválida/erro. |
@@ -40,8 +40,8 @@ conclusão está em `.agents/EXTERNAL_AUDIT_CLOSURE_PLAN.md`.
 - `src/publication/evidence_archive.py`, `campaign_release.py`, CLI/testes:
   travessia transitiva, pacote local/restauração e classificação de release.
 - `src/publication/numerical_campaign.py` e protocolos/configuração próprios:
-  estudo final complementar preparado para o runner existente, sem execução
-  automática durante este fechamento.
+  estudo final complementar preparado e depois lançado pelo runner autônomo;
+  seus resultados ainda não integram esta síntese histórica.
 
 ## C. Preservação
 
@@ -112,7 +112,7 @@ correlacionado permanece hipótese/limitação.
 
 ## F. Inferência nova nesta rodada
 
-Foram executados apenas **dois pilotos pequenos**, no novo namespace
+Antes do batch complementar, foram executados **dois pilotos pequenos**, no namespace
 `t0_coordinate_pilot_v1`, com 40 tune + 40 draws, duas chains e warmup salvo;
 ambos terminaram `COMPLETED_REJECTED` sob diagnósticos insuficientes esperados
 para esse tamanho. Duraram aproximadamente 312 s no processo completo. Não
@@ -243,7 +243,8 @@ python scripts/run_publication_campaign.py --config configs/publication/tcc_nume
 python scripts/run_publication_campaign.py --config configs/publication/tcc_numerical_complement_v3.json --status
 ```
 
-Depois de conferir ledger committed e orçamento, o operador pode executar
+O supervisor v3 já está ativo. **Não abra um segundo controller enquanto o
+estado estiver RUNNING.** Após parada, o operador pode retomar com
 `python scripts/run_publication_campaign.py --config
 configs/publication/tcc_numerical_complement_v3.json --resume`, retomar pelo
 mesmo comando, e acompanhar logs em

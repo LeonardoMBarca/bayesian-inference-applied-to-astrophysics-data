@@ -227,5 +227,6 @@ numerical ablations. All outputs, including rejections and failures, must be
 retained. The soft budget is 20 hours. The 5.4-hour sizing estimate is not a
 completion-time guarantee. No claim of numerical improvement is authorized
 until this prospective study is run, audited and aggregated. Use the campaign
-runner dry-run/status with the **v3** config before `--resume`; do not restart
-historical campaigns or start v1/v2.
+runner dry-run/status with the **v3** config before `--resume` after a stop;
+do not start a second controller while the live state is RUNNING. Do not
+restart historical campaigns or start v1/v2.
