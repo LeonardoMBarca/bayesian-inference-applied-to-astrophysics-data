@@ -1,0 +1,117 @@
+{
+  "campaigns": [
+    {
+      "campaign_id": "tcc_campaign_v1",
+      "declared_jobs": 117,
+      "family_job_counts": {
+        "PUB-02": 80,
+        "PUB-03": 2,
+        "PUB-04": 30,
+        "PUB-05": 5
+      },
+      "meaning": "Execution and preservation counts; scientific rejection is not technical corruption.",
+      "preserved_attempts": 118,
+      "status_counts": {
+        "COMPLETED": 66,
+        "COMPLETED_REJECTED": 51
+      }
+    },
+    {
+      "campaign_id": "tcc_calibration_confirmatory_v1",
+      "declared_jobs": 400,
+      "family_job_counts": {
+        "PUB-02": 400
+      },
+      "meaning": "Execution and preservation counts; scientific rejection is not technical corruption.",
+      "preserved_attempts": 400,
+      "status_counts": {
+        "COMPLETED": 337,
+        "COMPLETED_REJECTED": 63
+      }
+    },
+    {
+      "campaign_id": "tcc_numerical_complement_v4",
+      "declared_jobs": 24,
+      "family_job_counts": {
+        "PUB-02": 12,
+        "PUB-03": 3,
+        "PUB-04": 9
+      },
+      "meaning": "Execution and preservation counts; scientific rejection is not technical corruption.",
+      "preserved_attempts": 24,
+      "status_counts": {
+        "COMPLETED": 10,
+        "COMPLETED_REJECTED": 14
+      }
+    }
+  ],
+  "checks": [
+    {
+      "check": "transitive_inventory",
+      "status": "passed"
+    },
+    {
+      "check": "transitive_byte_integrity",
+      "status": "passed"
+    },
+    {
+      "check": "declared_campaigns_and_attempts",
+      "status": "passed"
+    },
+    {
+      "check": "scientific_claim_sources",
+      "status": "passed"
+    },
+    {
+      "check": "public_review:remote_ci",
+      "status": "passed"
+    }
+  ],
+  "claims": {
+    "claim_count": 7,
+    "evaluator_version": "claim-scope-review-v3",
+    "scope": "Claim-source and versioned authorization integrity; no demand that study findings be favorable."
+  },
+  "declared_final_attempts": 542,
+  "declared_final_jobs": 541,
+  "exit_code": 1,
+  "integrity_errors": [],
+  "integrity_status": "passed",
+  "public_release_blockers": [
+    {
+      "check": "citation",
+      "classification": "public_release_prerequisite_pending",
+      "reason": "No completed, source-bound review/deposition receipt supplied."
+    },
+    {
+      "check": "public_safety",
+      "classification": "public_release_prerequisite_pending",
+      "reason": "No completed, source-bound review/deposition receipt supplied."
+    },
+    {
+      "check": "third_party_redistribution",
+      "classification": "public_release_prerequisite_pending",
+      "reason": "No completed, source-bound review/deposition receipt supplied."
+    },
+    {
+      "check": "external_archive",
+      "classification": "public_release_prerequisite_pending",
+      "reason": "No completed, source-bound review/deposition receipt supplied."
+    },
+    {
+      "check": "exact_scientific_environment",
+      "classification": "public_release_prerequisite_pending",
+      "reason": "No completed, source-bound review/deposition receipt supplied."
+    },
+    {
+      "check": "clean_room",
+      "classification": "public_release_prerequisite_pending",
+      "reason": "No completed, source-bound review/deposition receipt supplied."
+    }
+  ],
+  "release_passed": false,
+  "schema_version": "publication-campaign-release-audit-v2",
+  "scientific_outcome_policy": "Positive, qualified and negative results can be preserved/published; no gate weakening or favorable-outcome requirement.",
+  "scope": "Exact existing evidence availability is distinct from numeric re-execution and public archival readiness.",
+  "status": "blocked_public_release"
+}

@@ -1,0 +1,60 @@
+{
+  "campaigns": [
+    {
+      "campaign_id": "tcc_campaign_v1",
+      "declared_jobs": 117,
+      "family_job_counts": {
+        "PUB-02": 80,
+        "PUB-03": 2,
+        "PUB-04": 30,
+        "PUB-05": 5
+      },
+      "meaning": "Execution and preservation counts; scientific rejection is not technical corruption.",
+      "preserved_attempts": 118,
+      "status_counts": {
+        "COMPLETED": 66,
+        "COMPLETED_REJECTED": 51
+      }
+    },
+    {
+      "campaign_id": "tcc_calibration_confirmatory_v1",
+      "declared_jobs": 400,
+      "family_job_counts": {
+        "PUB-02": 400
+      },
+      "meaning": "Execution and preservation counts; scientific rejection is not technical corruption.",
+      "preserved_attempts": 400,
+      "status_counts": {
+        "COMPLETED": 337,
+        "COMPLETED_REJECTED": 63
+      }
+    },
+    {
+      "campaign_id": "tcc_numerical_complement_v4",
+      "declared_jobs": 24,
+      "family_job_counts": {
+        "PUB-02": 12,
+        "PUB-03": 3,
+        "PUB-04": 9
+      },
+      "meaning": "Execution and preservation counts; scientific rejection is not technical corruption.",
+      "preserved_attempts": 24,
+      "status_counts": {
+        "COMPLETED": 10,
+        "COMPLETED_REJECTED": 14
+      }
+    }
+  ],
+  "checkout_commit": "cd52a6b1351a1f20d28c468d5f9049789e6c7703",
+  "checkout_path": "C:\\Users\\Leonardo Barca\\Desktop\\workspace\\personal\\publication-evidence-tcc-closure-v1\\restored-checkout",
+  "mcmc_executed": false,
+  "restore_receipt_sha256": "234b2de4c0acba215db02295e69752493c0679ff980e1a96d6fce8db43e84d94",
+  "schema_version": "restored-tcc-synthesis-verification-v1",
+  "scope": "Independent local checkout: source-bound current synthesis, declarations, attempts and sealed results; no inference re-execution or public archive claim.",
+  "status": "passed",
+  "synthesis": {
+    "claim_count": 7,
+    "evaluator_version": "claim-scope-review-v3",
+    "scope": "Claim-source and versioned authorization integrity; no demand that study findings be favorable."
+  }
+}

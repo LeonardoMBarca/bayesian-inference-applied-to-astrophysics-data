@@ -1,0 +1,54 @@
+{
+  "schema_version": "targeted-archive-cli-validation-v1",
+  "status": "passed",
+  "code_commit": "25f0030c80809f93ae08beaa331cd2af72e8cda9",
+  "tested_files": {
+    "scripts/publication_evidence_archive.py": "5877953e7699fcef0ee59dff5377de99da51704c41f7fa5f1b3cccb252320605",
+    "tests/test_archive_cli.py": "c0f86a972843887384cf5a1bd480439c18b486b5339a254cc190fd19a52fbb62"
+  },
+  "checks": [
+    {
+      "check": "archive_cli_regressions",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_archive_cli.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_logical_roots_and_commit_are_not_normalized (test_archive_cli.ArchiveCLITests.test_logical_roots_and_commit_are_not_normalized) ... ok\ntest_missing_value_is_left_for_argparse_not_made_into_a_path (test_archive_cli.ArchiveCLITests.test_missing_value_is_left_for_argparse_not_made_into_a_path) ... ok\ntest_relative_filesystem_paths_become_absolute_before_windows_prefix (test_archive_cli.ArchiveCLITests.test_relative_filesystem_paths_become_absolute_before_windows_prefix) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 2.799s\n\nOK\n"
+    },
+    {
+      "check": "ruff",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/publication_evidence_archive.py",
+        "tests/test_archive_cli.py"
+      ],
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "check": "static",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/static_validate.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"python_files_parsed\": 205,\n  \"notebooks_parsed\": 6,\n  \"exact_dependencies\": 19\n}\n",
+      "stderr": ""
+    }
+  ],
+  "new_final_inference": false,
+  "scope": "Three CLI regressions, targeted Ruff and whole-repository static checks in the locked WSL interpreter. Does not replace the prior complete 365-test receipt."
+}

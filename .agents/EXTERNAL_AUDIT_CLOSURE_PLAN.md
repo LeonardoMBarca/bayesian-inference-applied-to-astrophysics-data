@@ -28,6 +28,20 @@ the exact-Python enforcement. No assertion that these optional steps ran.
 Recheck the last SHA sent in this closure; its live CI link belongs in the
 final handoff, without an endless commit-to-record-previous-commit cycle.
 
+Current closure code also passed both matrix jobs on `25f0030`, workflow
+**36907836986** (`archive_cli_commit_remote_ci.json`). Source-bound current
+review: `remote_ci_review_v2.json`. The final packaging SHA must still pass CI.
+The new local supplement was restored in an independent checkout;
+`restore_receipt.json` verifies bytes, and `restored_synthesis_verification.json`
+verifies current claims, declarations and preserved attempts there. These are
+local availability checks, not new inference, public deposition or DOI readiness.
+The final release audit separates current evidence integrity from the named
+remaining public-release prerequisites; see `release_audit_final_v2.json`.
+Current delivery verification: `docs/publication/TCC_CLOSURE_VERIFICATION.md`.
+The inventory-bound initial handoff remains byte-preserved. A temporary edit
+to it was caught by the checksum gate and reverted; that engineering failure
+receipt remains in `release_audit_final.json`, not promoted as current readiness.
+
 All closure-specific byte protection, trace review, code checks and archive
 receipts use `publication/validation/tcc_closure_v1/`. Earlier table entries
 below are historical milestones; this section and the canonical machine

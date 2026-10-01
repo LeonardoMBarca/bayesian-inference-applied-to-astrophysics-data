@@ -129,6 +129,11 @@ python scripts/publication_evidence_archive.py restore --root <SEPARATE_CHECKOUT
 python scripts/validate_publication_release.py --audit-output <NEW_RECEIPT_PATH>
 ```
 
+Delivery verification and receipt scope: `docs/publication/TCC_CLOSURE_VERIFICATION.md`.
+The inventory-bound initial handoff is preserved; current engineering updates
+are separate from it. Restore and current synthesis validation succeeded in
+the independent local checkout, without inference re-execution or public upload.
+
 The release scope now includes the three FINISHED campaigns, not v3's pending
 jobs or engineering pilots. It reports execution jobs/attempts, not pooled
 independent scientific replicates. Local restoration, TCC readiness, public
