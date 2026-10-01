@@ -101,16 +101,34 @@ def validate_execution_environment(root: Path, plan: dict) -> dict:
     if "PUB-03" in protocols:
         try:
             protocol = protocols["PUB-03"]
-            environment_path = safe_path(root, "publication/environments/benchmark-environment.json")
-            if sha256_file(environment_path) != protocol["benchmark_environment_sha256"]:
-                raise ValueError("PUB-03 benchmark environment manifest checksum mismatch")
-            environment = json.loads(environment_path.read_text(encoding="utf-8"))
-            external = inspect_external_interpreter(plan["runtime"]["benchmark_python"], environment)
-            report["benchmark_environment"] = external
-            errors.extend(external["errors"])
+            external_jobs = [job for job in plan.get("jobs", [])
+                             if job["experiment_id"] == "PUB-03"
+                             and job["payload"]["kind"] == "benchmark_external"]
+            if external_jobs:
+                environment_path = safe_path(root, "publication/environments/benchmark-environment.json")
+                if sha256_file(environment_path) != protocol["benchmark_environment_sha256"]:
+                    raise ValueError("PUB-03 benchmark environment manifest checksum mismatch")
+                environment = json.loads(environment_path.read_text(encoding="utf-8"))
+                external = inspect_external_interpreter(plan["runtime"]["benchmark_python"], environment)
+                report["benchmark_environment"] = external
+                errors.extend(external["errors"])
+            else:
+                reference = protocol["external_reference"]
+                if reference["new_external_inference"] is not False:
+                    raise ValueError("PUB-03 local-only study must declare an unchanged external reference")
+                report["sources"].append({
+                    "role": "PUB-03 historical external completion manifest",
+                    "path": f"{reference['attempt_dir']}/completion_manifest.json",
+                    "expected_sha256": reference["completion_manifest_sha256"],
+                })
+                report["benchmark_environment"] = {
+                    "status": "historical_external_reference_only",
+                    "new_external_inference": False,
+                    "external_interpreter_probed": False,
+                }
             report["sources"].append({"role": "PUB-03 exact historical input", "path": protocol["dataset"]["input_path"],
                                       "expected_sha256": protocol["dataset"]["input_sha256"]})
-        except (ValueError, OSError, subprocess.SubprocessError) as exc:
+        except (KeyError, TypeError, ValueError, OSError, subprocess.SubprocessError) as exc:
             errors.append(str(exc))
     if "PUB-05" in protocols:
         for target in protocols["PUB-05"]["targets"]:
