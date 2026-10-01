@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/scripts/run_publication_campaign.py", line 33, in <module>
+    launch()
+    ~~~~~~^^
+  File "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/scripts/run_publication_campaign.py", line 29, in launch
+    main()
+    ~~~~^^
+  File "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/campaign.py", line 1014, in main
+    state = runner.run(resume=args.resume or args.aggregate, aggregate_only=args.aggregate)
+  File "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/campaign.py", line 833, in run
+    execution_environment = validate_execution_environment(self.root, self.plan)
+  File "/mnt/c/Users/Leonardo Barca/Desktop/workspace/personal/bayesian-inference-applied-to-astrophysics-data/src/publication/campaign_preflight.py", line 105, in validate_execution_environment
+    if sha256_file(environment_path) != protocol["benchmark_environment_sha256"]:
+                                        ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'benchmark_environment_sha256'

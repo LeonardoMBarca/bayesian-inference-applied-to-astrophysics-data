@@ -1,0 +1,139 @@
+{
+  "schema_version": "post-campaign-validation-v2",
+  "generated_at_utc": "2026-09-30T20:55:38.537718+00:00",
+  "status": "failed",
+  "checks": [
+    {
+      "check": "unit_integration_smoke",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/run_ci_tests.py"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 322.05518718300004
+    },
+    {
+      "check": "lint",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 0.9468136930000242
+    },
+    {
+      "check": "static",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/static_validate.py"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 0.7592113749999498
+    },
+    {
+      "check": "historical_baseline_artifacts",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/validate_hardened_artifacts.py"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 17.51716576299998
+    },
+    {
+      "check": "protected_history",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/freeze_audit_protection.py",
+        "--check"
+      ],
+      "return_code": 1,
+      "expected_return_code": 0,
+      "passed": false,
+      "seconds": 23.406586200999982
+    },
+    {
+      "check": "trace_metrics_integrity",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/audit_publication_traces.py",
+        "--check",
+        "--output",
+        "publication/validation/trace_audit_v1"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 2.149535377999996
+    },
+    {
+      "check": "synthesis_integrity",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/build_publication_synthesis_v2.py",
+        "--check"
+      ],
+      "return_code": 0,
+      "expected_return_code": 0,
+      "passed": true,
+      "seconds": 12.547758691000013
+    },
+    {
+      "check": "paper_release_classified",
+      "command": [
+        "/home/leonardo_barca/mc3/bin/python3.14",
+        "scripts/validate_publication_release.py"
+      ],
+      "return_code": 1,
+      "expected_return_code": "structured",
+      "passed": true,
+      "seconds": 26.087135375999992
+    }
+  ],
+  "missing_sources": [],
+  "scope": "Local tests and byte integrity; only named structured release prerequisites may block; no numeric clean-room re-execution claim",
+  "code_commit": "5f9f0e56dc4ed81e749586aa13a89a41e380420f",
+  "source_checksums": {
+    "src/publication/synthesis_v2.py": "d98eaf00dd3d33e720e9f27086aa42791fcc5bb4ccd0b63f532aca179d15c9a0",
+    "scripts/build_publication_synthesis_v2.py": "cd90fbaf34bbc15287541e393866d289f0e3f5b307cac60e16cf0df90b032dcb",
+    "src/publication/campaign_release.py": "f055e70fa6d70c55b5f76dab53403a312b5064f2f5765f926f80f051932ccda7",
+    "src/publication/evidence_archive.py": "a0e7e281301878975d349c9a5a63c822098197960d9134143e26538a62519c6a",
+    "src/publication/claim_authorization.py": "c83ddb48e8ce39e2cd9f63f47f0c307b4c8fa82cb20e24134ef17d98811ac52a",
+    "src/publication/trace_audit.py": "642920fe98210a84d9f17e99bafa452e7b83e0902a76e179274109ac5ddd0df3",
+    "tests/test_publication_synthesis_v2.py": "ec082c33fb5767ed7876280107959c2abb6c9e433a80bdbd89b71645a42c8174",
+    "tests/test_confirmatory_campaign.py": "6e4ed43a34687d88fd7e8ff23027f293f6161d98741d47e884d6c3faad1670a3",
+    "tests/manual/validate_post_campaign_synthesis.py": "5348d313efa6ebf0edd73b8fe98cb302441f8835af2434915f91d4adf9250412",
+    "reports/publication_synthesis/tcc_evidence_v2/artifact_manifest.json": "942e790cd80455b868eb41d4e9ce29c8d6f1386cfffa5b3e2371daa802cca1bc",
+    "requirements.txt": "e83bfe5966ac58a6a0f1188457d344914ddfe1b2628e8332b23fa3dd849ba6b9",
+    "environment.yml": "8f88a3da35212a4b44639af2f3ab86ee59548dbab32d60e5ba3c4e373f9e922e",
+    "pyproject.toml": "0734e91f988702e5e7f0d61a88bd26392829384ac49a7574741736e43d4bb098"
+  },
+  "logs": {
+    "trace_metrics_integrity.stdout.txt": "2e8f7f159784fc23aae1befae780d5ef8af62184adf3b2e8600270a73e8a75bc",
+    "synthesis_integrity.stdout.txt": "e8df5b726ab0da706d03e0473f9840113f603364fe5b91f35966455b19b158df",
+    "unit_integration_smoke.stdout.txt": "7e6b383b313de402384d829856de351e0d693ee193763f92217edd86efe15b99",
+    "historical_baseline_artifacts.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "static.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "synthesis_integrity.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "trace_metrics_integrity.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "paper_release_classified.stdout.txt": "5372435bd41da044c93e71d396053d4ce8c79c4cd588d20f54380d524a03bd68",
+    "unit_integration_smoke.stderr.txt": "12f2fe6d9f5c09679013f3bddfedcfa54d86986720646f953891b72a4f1676e9",
+    "lint.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "static.stdout.txt": "1feb5657bfdef12e7b97fe267b15f060535fa24bb079cd017d9a8449380fa552",
+    "paper_release_classified.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "protected_history.stdout.txt": "d2d29a94d8087f20f4501ed174c1a63ed4452a3a5797692c9f30e740170df73c",
+    "lint.stdout.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "historical_baseline_artifacts.stdout.txt": "6b838240248b30fbccfb5951f989c3c46b4dcd8dde4dd6c715ddae1cdc2726d5",
+    "protected_history.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

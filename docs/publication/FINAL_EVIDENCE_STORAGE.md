@@ -61,8 +61,8 @@ Before public release:
 4. Document redistribution rights and a data/software availability statement.
 5. Archive the reviewed release and record its actual DOI only after issuance.
 
-No remote archive, DOI, public-release safety approval or successful clean-room
-restoration is asserted by this document. Never use a broad `git add` on the
+No remote archive, DOI, public-release safety approval or clean-room **numerical
+re-execution** is asserted by this document. Never use a broad `git add` on the
 observational tree before applying an explicit large-artifact storage policy.
 
 ## Atualização da auditoria externa, 2026-09-30
@@ -75,5 +75,10 @@ um ZIP **local**, identificado em `local_bundle_manifest_final.json`.
 O manifesto final checou cada membro do ZIP e preserva o SHA-256 original
 do pacote. `docs/publication/EVIDENCE_ARCHIVE_RUNBOOK.md` contém os comandos.
 Esta atualização substitui a afirmação operacional acima de que nenhum bundle
-existia. A restauração integral em checkout independente e o depósito público
-continuam a exigir recibos próprios; a mera presença local do ZIP não os prova.
+existia. A restauração **de bytes** em clone independente foi concluída:
+`publication/validation/external_audit_closure_v1/clean_checkout_restore.json`
+registra 1.562 membros restaurados e os 8.201 checksums verificados. O único
+documento revisado após o snapshot foi resolvido pelo blob Git histórico
+exato. A restauração não reexecutou MCMC, não prova equivalência de ambiente
+nativo e não substitui depósito público durável. A revisão de direitos,
+segurança de release e DOI continuam pendentes.

@@ -1,0 +1,18 @@
+{
+  "schema_version": "publication-remote-ci-observation-v1",
+  "observed_at_utc": "2026-09-30",
+  "source": "GitHub Actions authenticated REST API: workflow 36778344717 and jobs endpoint",
+  "repository": "LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data",
+  "branch": "publication-grade-validation",
+  "head_sha": "a6e025c124aea40a282be3b1d2ae8f4718627598",
+  "workflow": "repository-validation",
+  "workflow_run_id": 36778344717,
+  "workflow_url": "https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/runs/36778344717",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": {
+    "validation (scientific-exact-python)": "success",
+    "validation (compatible-latest-patch)": "success"
+  },
+  "interpretation": "Remote CI passed after the portable protected-history scope correction. It checked Git bytes and sealed external references, not the unavailable local ZIP's bytes. Push CI did not run the workflow_dispatch-only Silver/Gold clean rebuild. A later final closure commit needs its own CI observation."
+}

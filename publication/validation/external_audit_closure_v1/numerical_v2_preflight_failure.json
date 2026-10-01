@@ -1,0 +1,19 @@
+{
+  "schema_version": "publication-campaign-preflight-observation-v1",
+  "campaign_id": "tcc_numerical_complement_v2",
+  "launch_id": "20261001T003535247Z_640397a0ee684adbbb91b24375f545f8",
+  "started_at_utc": "2026-10-01T00:35:42.0422539+00:00",
+  "finished_at_utc": "2026-10-01T00:36:42.5557619+00:00",
+  "supervisor_exit_code": 1,
+  "campaign_state_created": false,
+  "final_jobs_started": 0,
+  "error": "KeyError: 'benchmark_environment_sha256'",
+  "classification": "technical_preflight_failure",
+  "cause": "The legacy preflight required an external benchmark interpreter/environment for every PUB-03 protocol; the prospective complement declares local-only refits against one checksum-bound historical external posterior.",
+  "repair": "A new tested preflight branch validates the historical completion manifest and identical input without probing an unused external interpreter. The frozen v2 plan remains unchanged; replacement campaign v3 has a new ID and seeds.",
+  "logs": [
+    "logs/publication_campaign/tcc_numerical_complement_v2/20261001T003535247Z_640397a0ee684adbbb91b24375f545f8/controller.stderr.log",
+    "logs/publication_campaign/tcc_numerical_complement_v2/20261001T003535247Z_640397a0ee684adbbb91b24375f545f8/supervisor.exit.json"
+  ],
+  "scientific_results_changed": false
+}

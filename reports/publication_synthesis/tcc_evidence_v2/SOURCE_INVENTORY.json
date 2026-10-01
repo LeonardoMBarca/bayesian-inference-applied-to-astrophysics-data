@@ -1,0 +1,29 @@
+{
+  "bibliography": "docs/publication/BIBLIOGRAPHY.md",
+  "historical_sources_unchanged": [
+    "reports/publication_synthesis/tcc_evidence_v1",
+    "reports/publication_campaign/tcc_campaign_v1",
+    "reports/publication_campaign/tcc_calibration_confirmatory_v1"
+  ],
+  "reproduction": "python scripts/build_publication_synthesis_v2.py --output <NEW_REPOSITORY_RELATIVE_DIRECTORY>; python scripts/build_publication_synthesis_v2.py --check --output reports/publication_synthesis/tcc_evidence_v2",
+  "supporting_audits": [
+    "publication/validation/trace_audit_v1/audit.json",
+    "publication/validation/residual_review_v2/audit.json",
+    "publication/validation/t0_mechanism_v3/audit.json",
+    "publication/validation/external_audit_closure_v1/transitive_inventory_final.json"
+  ],
+  "tcc_sources": [
+    "reports/publication_synthesis/tcc_evidence_v2/LIMITATIONS.md",
+    "reports/publication_synthesis/tcc_evidence_v2/MANUSCRIPT_DRAFT.md",
+    "reports/publication_synthesis/tcc_evidence_v2/METHODOLOGY.md",
+    "reports/publication_synthesis/tcc_evidence_v2/REPORT.md",
+    "reports/publication_synthesis/tcc_evidence_v2/calibration_metrics.csv",
+    "reports/publication_synthesis/tcc_evidence_v2/captions.json",
+    "reports/publication_synthesis/tcc_evidence_v2/claims.json",
+    "reports/publication_synthesis/tcc_evidence_v2/coverage_trace_verified.png",
+    "reports/publication_synthesis/tcc_evidence_v2/historical_t0_chains.png",
+    "reports/publication_synthesis/tcc_evidence_v2/priors_by_family.json",
+    "reports/publication_synthesis/tcc_evidence_v2/run_evaluations.json",
+    "reports/publication_synthesis/tcc_evidence_v2/summary.json"
+  ]
+}

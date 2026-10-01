@@ -1,0 +1,28 @@
+{
+  "schema_version": "publication-remote-ci-observation-v1",
+  "observed_at_utc": "2026-09-30T20:01:39Z",
+  "source": "GitHub Actions authenticated REST API: GET /repos/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/runs/36769006552 and /jobs?per_page=100",
+  "repository": "LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data",
+  "branch": "publication-grade-validation",
+  "head_sha": "5f9f0e56dc4ed81e749586aa13a89a41e380420f",
+  "workflow": "repository-validation",
+  "workflow_run_id": 36769006552,
+  "workflow_url": "https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/runs/36769006552",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 110070310861,
+      "name": "validation (scientific-exact-python)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 110070311231,
+      "name": "validation (compatible-latest-patch)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "interpretation": "Real remote CI on the evidence commit, not a local test receipt. A later closing commit requires its own post-push CI observation. CI success is not scientific validation or exact native-binary environment equivalence."
+}

@@ -187,11 +187,39 @@ The two `t0_coordinate_pilot_v1` fits were explicitly **PILOT** runs with only
 under the existing diagnostics. They are debugging/sizing evidence only, not
 an efficacy result or part of the final P2 denominator.
 
-`tcc_numerical_complement_v1` is **PLANNED, NOT EXECUTED**. Its committed
+`tcc_numerical_complement_v1` was **PLANNED, NOT EXECUTED**. Its committed
 24-job ledger is
 `configs/publication/tcc_numerical_complement_v1_plan.json` (commit
 `180db76c6ef13ae2e7471220e7b102655efe5079`); the config is
-`configs/publication/tcc_numerical_complement_v1.json`. Twelve new synthetic
+`configs/publication/tcc_numerical_complement_v1.json`. A later audit-only
+source edit changed its broad frozen source map. Its preflight correctly
+blocked launch. Neither its ledger nor its seeds were modified, and there are
+zero v1 final attempts.
+
+The prospective replacement `tcc_numerical_complement_v2` was **PLANNED BUT
+NOT EXECUTED** as of the frozen ledger commit `ead9a89`. Its three protocols
+and config were committed first in `5bd3975`. The first supervisor launch
+failed technically before creating a campaign state or any final attempt:
+legacy P3 preflight expected an external environment key even though this is
+a local-only refit against one historical external posterior. The error and
+launch log identity are preserved in
+`publication/validation/external_audit_closure_v1/numerical_v2_preflight_failure.json`.
+The v2 ledger remains unchanged.
+
+After a focused preflight repair and regression test (`4f6977a`), the new
+`tcc_numerical_complement_v3` protocol/config was committed in `0a869b1`,
+followed by the frozen 24-job seed/source ledger in `8febce3`, before any
+final result. The scientific design matches v1/v2; the new campaign namespace
+deterministically yields new seeds and isolated output paths. Explicit final
+preflight passed with zero plan errors, matching hashes for the P3 historical
+input and external completion manifest, and no unnecessary external interpreter
+probe. After 353 local tests passed without skips and remote CI workflow
+`36797666471` passed in both environments, the Windows supervisor launched
+v3 at `2026-10-01T00:49:00Z`. The initial state was **RUNNING** on its first
+P2 job, not yet a scientific result. Dynamic progress belongs to
+`artifacts/publication_campaign/tcc_numerical_complement_v3/campaign_state.json`;
+the static receipt is `publication/validation/external_audit_closure_v1/numerical_v3_launch.json`.
+Twelve new synthetic
 jobs pair direct/standardized coordinates across two regimes and three newly
 seeded datasets each; three P3 jobs use one existing observational input and
 one historical external posterior reference; nine P4 jobs evaluate declared
@@ -199,4 +227,5 @@ numerical ablations. All outputs, including rejections and failures, must be
 retained. The soft budget is 20 hours. The 5.4-hour sizing estimate is not a
 completion-time guarantee. No claim of numerical improvement is authorized
 until this prospective study is run, audited and aggregated. Use the campaign
-runner dry-run/status before `--resume`; do not restart historical campaigns.
+runner dry-run/status with the **v3** config before `--resume`; do not restart
+historical campaigns or start v1/v2.

@@ -1,0 +1,18 @@
+{
+  "schema_version": "publication-remote-ci-observation-v1",
+  "observed_at_utc": "2026-10-01",
+  "source": "GitHub Actions authenticated REST API: workflow 36797666471 and jobs endpoint",
+  "repository": "LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data",
+  "branch": "publication-grade-validation",
+  "head_sha": "8febce31eeb5825517e85487a55838414bc3c5e2",
+  "workflow": "repository-validation",
+  "workflow_run_id": 36797666471,
+  "workflow_url": "https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/runs/36797666471",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": {
+    "validation (scientific-exact-python)": "success",
+    "validation (compatible-latest-patch)": "success"
+  },
+  "interpretation": "Real remote CI passed on the prelaunch frozen v3 ledger and source commit. The workflow_dispatch-only Silver/Gold rebuild was not part of this push; the separate independent-checkout rebuild receipt covers that different test. This is not a claim that any of the 24 final jobs has completed."
+}

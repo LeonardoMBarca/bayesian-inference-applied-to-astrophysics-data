@@ -79,6 +79,38 @@ it is not a claim that inference was rerun or tables were regenerated there.
 On Windows, `core.longpaths=true` is required by some archive product names;
 without it Git can clone the object database but fail to populate those files.
 
+The 2026-09-30 independent proof used a fresh `core.autocrlf=true` clone at
+commit `180db76c6ef13ae2e7471220e7b102655efe5079`, recorded the pre-restore
+Git-file transport check in `checkout_transport_final.json`, and wrote
+`clean_checkout_restore.json` after restoring the final bundle. The latter
+reports `status=passed`, 1,562 restored external files and 8,201/8,201 exact
+byte checks. One later-edited documentation file was resolved using the exact
+blob from the frozen audit snapshot; this exception is listed in the receipt.
+No historical inference was rerun. The local ZIP is not a durable public
+archive, and the restored checkout does not prove numerical clean-room
+reproduction.
+
+The protected snapshot also includes files outside the paper-transitive graph.
+An independent clone exposed six small historical run files missing from Git;
+they were committed with their original bytes in `c774a4b`. Two tiny Ruff
+cache metadata files were subsequently found outside both Git and the bundle
+and were committed unchanged. The other 521 protected files deliberately live
+in the local external bundle (511 NetCDF traces and 10 observational CSVs).
+Therefore CI uses `freeze_audit_protection.py --check-portable`: it hashes all
+6,520 protected Git files and binds the 521 external entries to the sealed
+inventory, but reports **zero external bundle bytes checked**. After bundle
+restore, use `--check` to hash all 7,041 protected files. The earlier CI
+attempt to run `--check` before restore failed as it should; it was a
+verification-scope error, not a changed scientific result.
+
+An additional clean rebuild was run in that separate checkout, but in a new
+temporary workspace containing only source code and RAW at its start. The
+receipt `clean_rebuild_after_transport.json` reports success, zero attempted
+network calls through its Python socket guard, the unchanged Gold dataset IDs,
+and the unchanged M5 input SHA-256 for HAT-P-7 b and Kepler-10 b. This is a
+local independent-checkout reconstruction, **not** the skipped push-CI step or
+a rerun of any historical posterior.
+
 ## Current release validator
 
 ```text

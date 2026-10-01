@@ -1,0 +1,19 @@
+{
+  "schema_version": "publication-campaign-launch-observation-v1",
+  "campaign_id": "tcc_numerical_complement_v3",
+  "launch_id": "20261001T004900753Z_da15e3ed7d2649bc8ef5a03a713f9981",
+  "created_at_utc": "2026-10-01T00:49:00.9055639+00:00",
+  "frozen_source_commit": "8febce31eeb5825517e85487a55838414bc3c5e2",
+  "frozen_plan": "configs/publication/tcc_numerical_complement_v3_plan.json",
+  "declared_jobs": 24,
+  "prelaunch_plan_errors": [],
+  "prelaunch_execution_preflight_passed": true,
+  "first_running_job_observed": "PUB-02__t0_deep_short__direct__rep_0000",
+  "initial_campaign_status_observed": "RUNNING",
+  "supervisor": "Windows background lifetime wrapper, PID 17720 at observation; no automatic restart",
+  "visible_monitor": "Windows PowerShell read-only watcher, PID 28640 at observation; closing it does not stop the supervisor",
+  "state_path": "artifacts/publication_campaign/tcc_numerical_complement_v3/campaign_state.json",
+  "logs_path": "logs/publication_campaign/tcc_numerical_complement_v3/",
+  "scientific_result_claim": null,
+  "interpretation": "Launch receipt only. Dynamic state, controller liveness, final outcomes, gate dispositions and aggregates must be read from the campaign state and sealed result artifacts."
+}

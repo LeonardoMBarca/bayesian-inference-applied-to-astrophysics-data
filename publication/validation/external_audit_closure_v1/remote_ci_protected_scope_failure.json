@@ -1,0 +1,17 @@
+{
+  "schema_version": "publication-remote-ci-observation-v1",
+  "observed_at_utc": "2026-09-30",
+  "commit": "c774a4b2594dd7c5c6b71c1c49a8c3b4289069f9",
+  "workflow_run_id": 36776440486,
+  "workflow_url": "https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/runs/36776440486",
+  "conclusion": "failure",
+  "failed_step": "Verify protected historical scientific evidence",
+  "jobs": {
+    "scientific-exact-python": "failure",
+    "compatible-latest-patch": "failure"
+  },
+  "classification": "verification_scope_error",
+  "evidence": "Both jobs passed lint, static checks, smoke tests, and RAW/Silver/Gold contracts, then failed because --check required local-only external-bundle files before bundle restoration.",
+  "remediation": "Use --check-portable in GitHub CI to check Git bytes and sealed external inventory references; keep --check for restored independent checkouts.",
+  "scientific_results_changed": false
+}
