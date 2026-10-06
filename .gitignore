@@ -78,3 +78,10 @@ marimo/_lsp/
 __marimo__/
 site/
 docs/_build/
+
+# Administrative PDFs and individually watermarked course materials are not
+# research inputs. Keep local originals outside the public repository.
+/tcc-docs/*.pdf
+/private-documents/
+/local-documents/
+# This prevents accidental re-addition; it does NOT remove existing Git history.

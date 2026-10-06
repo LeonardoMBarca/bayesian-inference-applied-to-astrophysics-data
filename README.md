@@ -1,247 +1,120 @@
-# Inferência Bayesiana aplicada a dados astrofísicos
+# Inferência bayesiana de trânsitos de exoplanetas
 
-Software científico do TCC de Leonardo Moraes Barca para ingestão rastreável de
-curvas de luz públicas, preparação RAW/Silver/Gold e inferência bayesiana de
-trânsitos de exoplanetas.
+**Da curva de luz à evidência auditável.** Software de pesquisa do TCC de
+Leonardo Moraes Barca, desenvolvido no MBA em Data Science e Analytics USP/Esalq.
+O projeto integra modelagem física, inferência probabilística e engenharia de
+dados para investigar **quando estimativas de trânsito e suas incertezas merecem confiança**.
 
-## Campanha de validação para o TCC
+[![Validação do repositório](https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/LeonardoMBarca/bayesian-inference-applied-to-astrophysics-data/actions/workflows/ci.yml)
 
-Nesta branch `publication-grade-validation`, as campanhas científicas terminaram.
-A [síntese auditável](reports/publication_synthesis/tcc_evidence_v1/REPORT.md)
-apresenta as coortes separadas, cobertura, viés, rejeições, benchmark e todos os
-alvos pré-selecionados. Há resultados negativos importantes: aprovação nos gates
-não garante recuperação física em regimes pouco informativos, e os novos fits
-observacionais não sustentam generalização positiva.
-O baseline `scientific_003` e o commit `7489a90689a753bea5243f86c1489329916c98e2`
-permanecem históricos e não são sobrescritos.
+[Guia do avaliador](docs/REVIEWER_GUIDE.md) ·
+[Resultados e evidências](reports/publication_synthesis/tcc_evidence_v3/REPORT.md) ·
+[Reprodução e disponibilidade](docs/REPRODUCIBILITY.md) ·
+[Como citar](CITATION.cff) · [English](README.en.md)
 
-```sh
-python scripts/build_publication_synthesis.py
-python scripts/build_publication_synthesis.py --check
+## Comece por aqui
+
+**Não é necessário instalar bibliotecas ou executar MCMC para examinar o trabalho.**
+O [guia do avaliador](docs/REVIEWER_GUIDE.md) liga a pergunta científica ao modelo,
+aos experimentos e aos arquivos que sustentam cada conclusão.
+
+A referência científica desta apresentação é o commit
+`127089538dbf2e233bce0d5e92c3977e115bb86b`, consolidado no
+[índice canônico](publication/TCC_EVIDENCE_INDEX.json). A `main` reúne esse estado
+maduro e a documentação pública; não substitui os resultados históricos por novos
+ajustes. Relatórios selados continuam a retratar a data e o contrato em que foram produzidos.
+
+## O que o projeto faz
+
+| Frente | Implementação | Evidência disponível |
+|---|---|---|
+| Engenharia de dados | RAW → Silver → Gold; unidades, segmentos, exposição e identidade por conteúdo | Manifestos, hashes e verificações de preparação |
+| Inferência física | Modelo M5 com escurecimento de bordo, exposição integrada e ruído branco heteroscedástico | Configurações, resumos posteriores e diagnósticos por execução |
+| Avaliação experimental | Recuperação sintética, comparação com `juliet`, ablações e cinco sistemas reais | Coortes separadas, métricas, rejeições e limitações |
+| Reprodutibilidade | Protocolos, sementes, tentativas, testes e preservação dos artefatos | Fontes numéricas, CI e recibos de restauração local |
+
+```mermaid
+flowchart LR
+    A[Fotometria pública] --> B[RAW: origem e bytes]
+    B --> C[Silver: unidades e metadados]
+    C --> D[Gold: preparação por segmento]
+    D --> E[M5: inferência bayesiana]
+    E --> F[Diagnósticos de amostragem]
+    E --> G[Verificações preditivas]
+    F --> H[Resultados e limites de interpretação]
+    G --> H
+    I[Simulações e comparação externa] --> H
 ```
 
-O [guia operacional](docs/publication/CAMPAIGN_RUNBOOK.md) explica Play no VSCode,
-background com tmux, status, parada, retomada e diretórios dos resultados.
-O [relatório de entrega](reports/PUBLICATION_CAMPAIGN_HANDOFF.md) distingue
-validação de infraestrutura de evidência científica (snapshot anterior à execução).
-Os comandos acima regeneram/verificam apenas a síntese dos resultados preservados.
-Reprodução de inferência exige o checkout científico congelado e um novo namespace.
-A [revisão científica](docs/publication/POST_CAMPAIGN_SCIENTIFIC_REVIEW.md) e a
-[revisão de calibração](docs/publication/CALIBRATION_REVIEW.md) delimitam os claims.
-Release pública/DOI e restauração em ambiente limpo ainda não estão aprovadas.
-Os cinco alvos da nova campanha são definidos no protocolo congelado
-[`PUB-05.json`](publication/protocols/PUB-05.json), isolado da configuração histórica.
+**Aprovação computacional, adequação preditiva e identificação física são coisas
+diferentes.** A análise preserva resultados favoráveis, rejeitados e inconclusivos.
 
-## Baseline científico anterior
+## O que os experimentos mostraram
 
-O estado endurecido anterior suporta dois alvos definidos em uma única configuração:
+| Pergunta | Resultado | Limite da conclusão |
+|---|---|---|
+| O raio relativo foi recuperado? | Nos dois regimes sintéticos de curta exposição, o viés médio relativo foi pequeno, com intervalos conservadores | Resultado condicionado aos cenários e priors estudados |
+| Os critérios bastaram em sinal fraco? | No regime menos informativo, os intervalos de 94% cobriram a escala orbital em **9/100** realizações e a duração em **48/100**, apesar de **85/100** aprovações conjuntas | Os critérios implementados não garantiram identificação de cada parâmetro |
+| Outra implementação concordou? | Os três novos ajustes locais do benchmark passaram nos diagnósticos de amostragem e apresentaram marginais próximas às externas | Todos reprovaram no PPC temporal; concordância computacional não valida a hipótese física |
+| O fluxo foi aplicado a outros sistemas? | Os cinco alvos pré-selecionados foram mantidos e avaliados | Houve limitações preditivas nos cinco; não se demonstrou validação populacional |
 
-| alvo | missão Gold | cadência | papel |
-|---|---|---|---|
-| Kepler-10 b | Kepler | curta, 58,8488 s | alvo primário e M5 validado |
-| HAT-P-7 b | Kepler | longa, 1765,46 s | alvo de backup |
+Fontes: [síntese v3](reports/publication_synthesis/tcc_evidence_v3/REPORT.md),
+[métricas de recuperação](reports/publication_synthesis/tcc_evidence_v3/calibration_metrics.csv),
+[comparações externas](reports/publication_synthesis/tcc_evidence_v3/benchmark_comparisons.csv)
+e [revisão de calibração](docs/publication/CALIBRATION_REVIEW.md).
 
-A fonte autoritativa de identidade, período, época, duração, profundidade e
-política de cadência é [`src/project_config.py`](src/project_config.py). Código
-genérico não deve introduzir valores planetários fora desse contrato.
+### Escala e unidade dos experimentos
 
-## Pipeline e proveniência
+| Campanha concluída | Unidades planejadas | Como interpretar |
+|---|---:|---|
+| `tcc_campaign_v1` | 117 | Inclui 80 realizações sintéticas, benchmark, ablações e cinco alvos |
+| `tcc_calibration_confirmatory_v1` | 400 | Nova coorte: quatro regimes × 100 realizações, analisada separadamente |
+| `tcc_numerical_complement_v4` | 24 | Ajustes pareados e repetições locais; **13** aprovações do sampler, **21** do PPC e **10** conjuntas |
 
-- **RAW** preserva respostas e FITS sem limpeza. O histórico append-only fica em
-  `data/raw/_manifests/raw_data_manifest.*`; o estado atual deduplicado e
-  verificado por SHA-256 fica em `raw_data_current_state.*`.
-- **Silver** lê somente o estado RAW, explicita unidades nos nomes das colunas e
-  preserva origem RAW, FITS, missão, quarter/sector/campaign, cadência e tempo de
-  exposição.
-- **Gold** seleciona a cadência exigida pelo alvo, filtra qualidade e normaliza
-  cada `segment_id` separadamente pela mediana fora do trânsito. Os offsets não
-  são tratados como ruído astrofísico. O `dataset_id`, a política e os
-  diagnósticos por segmento são persistidos. A identidade do dataset é derivada
-  do conteúdo científico normalizado e dos SHA-256 dos FITS de origem.
-- **M5** só aceita Gold com `preprocessing_status=segment_normalized` e identidade
-  compatível com a configuração autoritativa.
+São **541 unidades de trabalho e 542 tentativas preservadas**, não 541 conjuntos
+independentes nem um único denominador de calibração. A campanha interrompida v3
+é separada: sete diagnósticos preditivos foram invalidados por um defeito de
+condicionamento, sem serem reclassificados como falhas físicas.
+[Contagens por componente e população](reports/publication_synthesis/tcc_evidence_v3/gate_counts.csv).
 
-Fontes públicas usadas: NASA Exoplanet Archive, MAST/Lightkurve/Astroquery,
-Exo.MAST e ETD/VarAstro. Uma nova coleta RAW pode alterar o estado público; para
-reproduzir exatamente o dataset publicado, valide os RAW versionados e
-reconstrua as camadas derivadas sem baixar novamente.
+## Modelo e alcance científico
 
-## Organização do código
+O núcleo utiliza **Python, PyMC, ArviZ e exoplanet**. O M5 infere razão de raios,
+geometria relativa, centro do trânsito, escurecimento de bordo e jitter branco,
+com integração pelo tempo de exposição. Período e excentricidade são fixados;
+propriedades estelares não são inferidas conjuntamente.
 
-`scripts/` é a interface estável de linha de comando e contém apenas entry
-points finos. Implementações reutilizáveis ficam agrupadas em `src/`: pipelines
-RAW/Silver/Gold, EDA, modelagem Bayesiana e ferramentas de validação. Os modelos
-históricos M1–M3 estão isolados em `src/bayesian_modeling/legacy/`, sem alterar
-seus comandos ou os imports usados pelos notebooks.
+O modelo **não inclui GP nem covariância temporal**. A avaliação de cobertura com
+verdades fixas não é SBC. A informação de catálogo no prior histórico impede
+tratar a concordância com esse catálogo como validação independente.
+[Metodologia](reports/publication_synthesis/tcc_evidence_v3/METHODOLOGY.md) ·
+[Limitações](reports/publication_synthesis/tcc_evidence_v3/LIMITATIONS.md).
 
-Veja [`scripts/README.md`](scripts/README.md) para o mapa de comandos e
-[`src/README.md`](src/README.md) para o mapa dos pacotes. Um teste de arquitetura
-impede que novas implementações extensas voltem a ser adicionadas diretamente a
-`scripts/`.
+## Navegação técnica
 
-## Ambiente
+| Diretório | Conteúdo |
+|---|---|
+| [`src/`](src/) e [`scripts/`](scripts/) | Implementações reutilizáveis e interfaces de execução |
+| [`data/`](data/) | Camadas observacionais e manifestos |
+| [`publication/`](publication/) | Protocolos, configurações de evidência e índice canônico |
+| [`artifacts/publication_campaign/`](artifacts/publication_campaign/) | Resultados e tentativas por campanha |
+| [`reports/publication_synthesis/tcc_evidence_v3/`](reports/publication_synthesis/tcc_evidence_v3/) | Síntese atual, tabelas, fontes e afirmações |
+| [`tests/`](tests/) e [CI](.github/workflows/ci.yml) | Testes determinísticos, pequenos testes científicos e contratos |
 
-O ambiente científico validado em 24 de agosto de 2026 usa Python 3.14.6. As
-dependências diretas são fixadas, inclusive o ecossistema `exoplanet` usado pelo
-M5.
+Para instalar o ambiente, verificar os bytes ou reproduzir a análise, siga
+[Reprodução e disponibilidade](docs/REPRODUCIBILITY.md). Os exemplos diferenciam
+leitura, verificação, restauração e nova inferência. **Não execute um lote final
+nem reutilize `scientific_003` apenas para conhecer o repositório.**
 
-O stack foi validado em Linux/WSL com `gcc` e `g++` disponíveis para extensões
-compiladas. Em Windows, recomenda-se WSL; a identidade efetiva do toolchain e
-das bibliotecas é gravada por run.
+## Código público, citação e preservação
 
-```bash
-conda env create -f environment.yml
-conda activate bayesian-astrophysics
-```
+O código e os artefatos versionados estão acessíveis neste repositório público.
+Traces completos e certos intermediários volumosos ainda dependem de um pacote
+externo local; a visibilidade do GitHub não significa que esse pacote esteja publicado.
+Não há DOI atribuído nem alegação de artigo aceito. Use [CITATION.cff](CITATION.cff)
+e informe o commit efetivamente consultado.
 
-Alternativamente:
-
-```bash
-python3.14 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
-
-## Reconstrução
-
-Para validar o estado RAW presente e reconstruir Silver e Gold:
-
-```bash
-python scripts/refresh_raw_manifest_state.py
-python scripts/build_silver_data.py
-python scripts/build_gold_data.py
-python scripts/validate_hardened_artifacts.py
-```
-
-A coleta de novas evidências, que requer rede, é separada:
-
-```bash
-python scripts/download_raw_data.py
-```
-
-Artefatos Gold centrais:
-
-```text
-data/gold/<target>/modeling/dataset_metadata.json
-data/gold/<target>/modeling/segment_normalization_diagnostics.csv
-data/gold/<target>/modeling/segment_normalized_lightcurve.csv
-data/gold/<target>/modeling/transit_window_lightcurve.csv
-```
-
-## Modelo físico M5
-
-Execução recomendada para Kepler-10 b:
-
-```bash
-python scripts/run_kepler_10b.py \
-  --run-id scientific_003 \
-  --draws 800 --tune 800 --chains 4 --cores 4 \
-  --target-accept 0.95 --prior-profile baseline
-```
-
-O M5 compartilhado está em
-[`src/bayesian_modeling/physical_transit.py`](src/bayesian_modeling/physical_transit.py).
-Ele implementa:
-
-- órbita Kepleriana circular com período do alvo fixado;
-- trânsito com escurecimento de bordo quadrático e parametrização triangular
-  `q1/q2` de Kipping;
-- integração de cada observação pelo tempo de exposição, com oversampling;
-- prior lognormal de `Rp/Rs` centrado em `sqrt(transit_depth_fraction)`;
-- likelihood Normal com erro medido e jitter branco independente;
-- NUTS, log-likelihood pontual, prior predictive e posterior predictive checks;
-- parâmetros derivados e artefatos específicos por alvo e `run_id`.
-
-Evidência do run `scientific_003`:
-
-| diagnóstico/resultado | valor |
-|---|---:|
-| dataset | `kepler_10_b-b4d1e6ec961c1f4d` |
-| R-hat máximo | 1,00508421 |
-| ESS mínimo | 582,0677 |
-| divergências | 0 |
-| BFMI mínimo | 0,7317310 |
-| cobertura PPC de 94% | 0,933667 |
-| desvio dos resíduos padronizados | 1,003572 |
-| `Rp/Rs` médio, HDI 94% | 0,01249085 [0,01092702; 0,01453419] |
-| profundidade geométrica média, HDI 94% | 0,00015692 [0,00011940; 0,00021124] |
-| gate científico | aprovado |
-
-O checksum SHA-256 da entrada de 3.000 pontos foi
-`6653fced1df0b3a29be96d181daa695f86ef709a7aa459bc1b3f837d48ad8791`.
-O relatório completo é
-[`reports/bayesian_physical_transit_kepler_10_b_scientific_003_report.md`](reports/bayesian_physical_transit_kepler_10_b_scientific_003_report.md).
-
-O modelo **não** contém Gaussian Process nem likelihood de ruído correlacionado.
-O termo `extra_sigma` é apenas jitter branco. A interpretação científica só é
-liberada quando passam, em conjunto, R-hat, ESS, divergências, BFMI, PPC,
-proveniência Gold e verificações de escala. Runs reprovados permanecem
-registrados, mas não sustentam conclusões físicas.
-
-## Sensibilidade, ruído e comparação
-
-- `scripts/run_bayesian_sensitivity.py` executa perfis de prior
-  `catalog_tighter`, `baseline` e `weak`, cada um com gate independente. Uma
-  cadeia dominada pelo prior ou não convergida é resultado negativo, não
-  robustez.
-- `scripts/run_bayesian_noise_injection.py` separa ruído branco, sinal
-  sinusoidal determinístico e ruído AR(1). O gerador testa a injeção; não afirma
-  que o M5 recupere ruído correlacionado.
-- `scripts/run_model_comparison.py` calcula LOO/WAIC apenas se dataset, checksum
-  das observações, likelihood, log-likelihood e gates forem compatíveis. RMSE e
-  MAE permanecem métricas preditivas separadas; nenhum score heurístico é
-  misturado com evidência Bayesiana formal.
-
-No experimento `sensitivity_002`, os três perfis passaram independentemente os
-gates e usaram o mesmo dataset/hash. Em relação ao baseline, o maior deslocamento
-relativo foi 0,77% em `Rp/Rs`, 1,59% em profundidade, 0,18% em jitter e 0,34% em
-duração; todos os HDIs de 94% contêm a média baseline. Isso é evidência
-descritiva de baixa sensibilidade dentro da família de priors testada, não uma
-prova universal de robustez.
-
-LOO e WAIC foram calculados para os três runs comparáveis, mas LOO encontrou
-15–25 observações com Pareto-k acima de 0,7 (máximo 1,163). Por isso o artefato
-[`reports/model_comparison/prior_sensitivity_002/comparison_summary.json`](reports/model_comparison/prior_sensitivity_002/comparison_summary.json)
-mantém os valores para auditoria e recusa promovê-los a ranking confiável. A
-síntese de sensibilidade está em
-[`reports/sensitivity/kepler_10_b/sensitivity_002/sensitivity_report.md`](reports/sensitivity/kepler_10_b/sensitivity_002/sensitivity_report.md).
-
-## Testes e CI
-
-```bash
-python scripts/verify_scientific_environment.py
-python -m ruff check .
-python scripts/run_ci_tests.py
-python scripts/validate_hardened_artifacts.py
-```
-
-A suíte cobre configuração de alvo, unidades, paths POSIX, seleção de cadência,
-exposição FITS, normalização por segmento, isolamento de run, modelo físico,
-prior predictive, BFMI do ArviZ atual, gates científicos, comparação formal e
-experimentos de ruído. Há também uma integração clean-room com uma guarda
-verificada sobre as APIs padrão de socket do Python que cria FITS pequenos e
-percorre RAW→Silver→Gold. Essa guarda não equivale a um namespace de rede do
-sistema operacional. O workflow em
-`.github/workflows/ci.yml` executa a suíte prática e a validação dos artefatos.
-
-## Artefatos históricos e armazenamento
-
-Modelos M1–M3, relatórios antigos, notebooks e context exports anteriores ao
-hardening são snapshots históricos. Eles não descrevem automaticamente o M5
-atual e não devem ser combinados com o dataset de Kepler-10 b sem validação de
-comparabilidade.
-
-Traces NetCDF são grandes e não são versionados no Git; configurações, status,
-resumos e tabelas permanecem rastreáveis. Veja
-[`docs/STORAGE_POLICY.md`](docs/STORAGE_POLICY.md) para o contrato completo.
-
-## Limitações científicas
-
-O M5 fixa período e excentricidade, não infere parâmetros estelares em conjunto,
-usa somente jitter branco e trata a normalização por segmento como hipótese de
-pré-processamento. `r²` é profundidade geométrica de referência; a profundidade
-aparente depende de limb darkening e integração de exposição. Valores de
-catálogo justificam priors e validam escala, mas não são alvos para ajuste dos
-resultados.
-
-Licença: [MIT](LICENSE).
+Código autoral sob [MIT](LICENSE). Dados e materiais de terceiros conservam seus
+termos próprios; a menção ao MBA identifica o contexto acadêmico, não endosso
+institucional do software. [Contribuições](CONTRIBUTING.md) ·
+[Segurança e privacidade](SECURITY.md).
